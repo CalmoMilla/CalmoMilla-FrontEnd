@@ -1,7 +1,7 @@
-import Parceiros from "@/pages/components/Home/Parceiros/Parceiros"
+import SobreNos from "@/pages/components/Home/SobreNos/SobreNos"
 
 export default function Page() {
   return (
-    <Parceiros/>
+    <SobreNos/>
   )
 }
