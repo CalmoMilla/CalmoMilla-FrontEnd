@@ -1,7 +1,7 @@
-import SobreNos from "@/pages/components/Home/SobreNos/SobreNos"
+import Blog from "@/pages/components/Home/Blog/Blog"
 
 export default function Page() {
   return (
-    <SobreNos/>
+    <Blog/>
   )
 }

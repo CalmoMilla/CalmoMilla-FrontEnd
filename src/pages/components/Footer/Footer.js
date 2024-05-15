@@ -3,7 +3,6 @@ import Image from "next/image"
 export default function Footer() {
   return (
     <footer class="bg-amarelo1">
-      <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-20 lg:px-8 lg:pt-20">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div class="space-y-8">

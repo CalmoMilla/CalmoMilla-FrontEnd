@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Parceiros from "./Parceiros/Parceiros"
+import SobreNos from "./SobreNos/SobreNos"
+import Blog from "./Blog/Blog"
 
 export default function Home() {
 
@@ -56,6 +58,8 @@ export default function Home() {
 
       <ComoFunciona/>
       <Parceiros/>
+      <SobreNos/>
+      <Blog/>
       <Footer/>
     </main>
   )
