@@ -1,4 +1,5 @@
 import "./globals.css";
+import { calistoga, nunito } from "./fonts";
 
 export const metadata = {
   title: "CalmoMilla",
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${calistoga.variable} ${nunito.variable}`}>
       <body>
         {children}
       </body>

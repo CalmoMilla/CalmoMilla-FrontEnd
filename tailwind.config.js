@@ -10,8 +10,8 @@ module.exports = {
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
-      'calistoga': ['Calistoga'],
-      'nunito': "var(--font-nunito)",
+      calistoga : ["var(--font-calistoga)"],
+      nunito: ["var(--font-nunito)"],
     },
     extend: {
       backgroundImage: {

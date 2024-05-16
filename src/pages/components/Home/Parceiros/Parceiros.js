@@ -7,7 +7,7 @@ export default function Parceiros() {
       <div className="flex xl:flex-row flex-col justify-around items-center">
         <div className="xl:w-[25%] w-[50%]">
           <div className="flex flex-col justify-center items-center">
-            <div data-aos="fade-right">
+            <div data-aos="fade-up">
               <Image width={300} height={300} src={"/assets/home/parceiros/proa.png"} alt="" className=" transition duration-500 ease-out hover:scale-110"/>
             </div>
             <p className="text-justify w-full text-xl font-nunito font-medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minima laudantium. Iure, fugiat tempora minima, magnam quasi sunt odit, nemo ex eligendi nesciunt molestias. Laudantium repudiandae dolorem minima necessitatibus sint.</p>
@@ -22,7 +22,7 @@ export default function Parceiros() {
         <div className="xl:w-[25%] w-[50%]">
           <div>
           <div className="flex flex-col justify-center items-center">
-            <div data-aos="fade-left">
+            <div data-aos="fade-up">
               <Image width={300} height={300} src={"/assets/home/parceiros/senac.png"} alt="" className="py-20 transition duration-500 ease-out hover:scale-110"/>
             </div>
             <p className="text-justify w-full text-xl font-nunito font-medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minima laudantium. Iure, fugiat tempora minima, magnam quasi sunt odit, nemo ex eligendi nesciunt molestias. Laudantium repudiandae dolorem minima necessitatibus sint.</p>
