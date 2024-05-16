@@ -8,7 +8,7 @@ export default function Funcionalidade(props) {
     <>
       {posicao ?
         <section className="py-36 flex lg:flex-row flex-col justify-center items-center">
-          <section data-aos="fade-right" className="w-[50%] sm:w-fit lg:w-[30%] lg:pl-20">
+          <section data-aos="fade-right" className="w-[50%] sm:w-fit lg:w-[30%] lg:pr-20">
             <Image width={400} height={400} className="transition duration-500 ease-out hover:scale-110" src={props.imagem} alt="" />
           </section>
           <section className="w-[80%] sm:w-[50%] h-auto lg:pt-0 pt-12">
