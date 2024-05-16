@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-amarelo1 py-3 z-50 w-full fixed">
+      <header className="bg-amarelo1 py-3 z-50 w-screen fixed">
         <nav className="flex justify-between items-center w-[92%] mx-auto z-50">
             <div>
                 <Image width={70} height={70} src="/assets/logo.png" alt="..."/>
