@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function ComoFunciona() {
   return (
-    <>
+    <div id="comofunciona">
       <div className="w-full h-[90%]">
         <div className="flex justify-around items-center lg:flex-row flex-col pt-60">
           <div className="w-[80%] lg:w-[45%] mb-40">
@@ -19,6 +19,6 @@ export default function ComoFunciona() {
           </div>
         </div>
       </div> 
-    </>
+    </div>
   )
 }

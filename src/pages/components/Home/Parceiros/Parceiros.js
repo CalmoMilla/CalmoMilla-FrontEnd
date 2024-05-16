@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function Parceiros() {
   return (
-    <div className="pb-80">
+    <div className="pb-80" id="parceiros">
       <h2 className="text-verde2 text-7xl font-calistoga text-center py-20">Nossos parceiros</h2>
       <div className="flex xl:flex-row flex-col justify-around items-center">
         <div className="xl:w-[25%] w-[80%]">

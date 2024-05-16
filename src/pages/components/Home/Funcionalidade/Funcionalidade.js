@@ -5,7 +5,7 @@ export default function Funcionalidade(props) {
   const posicao = props.posicao
 
   return (
-    <>
+    <div id="funcionalidade">
       {posicao ?
         <section className="py-36 flex lg:flex-row flex-col justify-center items-center">
           <section data-aos="fade-right" className="w-[50%] sm:w-fit lg:w-[30%] lg:pr-20">
@@ -47,7 +47,7 @@ export default function Funcionalidade(props) {
           </div>
         </div>
         }
-    </>
+    </div>
   )
 
 }

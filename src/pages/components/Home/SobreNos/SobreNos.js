@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function SobreNos() {
   return (
-    <>
+    <div id="sobrenos">
       <h2 className="text-roxo text-7xl font-calistoga text-center pb-20">Sobre nós</h2>
       <div className="flex justify-center">
         <div className="w-[90%] md:w-[70%] xl:h-[200vh] md:h-[340vh] bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
@@ -28,6 +28,6 @@ export default function SobreNos() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

@@ -27,19 +27,19 @@ export default function Header(props) {
                 <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' top-[10%]' : " "} z-50`}>
                     <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Funcionalidades</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#funcionalidade" onClick={toggleMenu}>Funcionalidades</a>
                         </li>
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Como funciona?</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#comofunciona" onClick={toggleMenu}>Como funciona?</a>
                         </li>
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Nossos parceiros</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#parceiros" onClick={toggleMenu}>Nossos parceiros</a>
                         </li>
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Sobre nós</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#sobrenos" onClick={toggleMenu}>Sobre nós</a>
                         </li>
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Blog</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#blogpage" onClick={toggleMenu}>Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -56,19 +56,19 @@ export default function Header(props) {
               <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' top-[10%]' : " "} z-50`}>
                   <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Jogos</a>
+                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Jogos</a>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Blog</a>
+                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Blog</a>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Psicoterapia</a>
+                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Psicoterapia</a>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Comunidade</a>
+                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Comunidade</a>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#">Blog</a>
+                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Blog</a>
                       </li>
                   </ul>
               </div>
