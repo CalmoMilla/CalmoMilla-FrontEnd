@@ -59,9 +59,6 @@ export default function Header(props) {
                           <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Jogos</a>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Blog</a>
-                      </li>
-                      <li>
                           <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Psicoterapia</a>
                       </li>
                       <li>

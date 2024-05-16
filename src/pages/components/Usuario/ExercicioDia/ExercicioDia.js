@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function ExercicioDia(props) {
   return (
-    <div className="w-[80%] md:m-0 m-auto md:w-[70%] lg:w-[50%]">
+    <div className="w-[80%] pt-40 pb-10 md:m-0 m-auto md:w-[70%] lg:w-[50%]">
       <div className="bg-amarelo2 w-full h-[20%] rounded-t-xl px-10 md:p-auto">
         <h2 className="font-calistoga text-branco text-xl text-center py-2">Exercício do dia</h2>
       </div>
