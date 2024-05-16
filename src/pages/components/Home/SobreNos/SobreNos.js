@@ -5,7 +5,7 @@ export default function SobreNos() {
     <>
       <h2 className="text-roxo text-7xl font-calistoga text-center pb-20">Sobre nós</h2>
       <div className="flex justify-center">
-        <div className="w-[70%] xl:h-[240vh] h-[340vh] bg-roxo rounded-3xl">
+        <div className="w-[70%] xl:h-[200vh] h-[340vh] bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
           <p className="text-xl text-branco w-[90%] pt-10 text-center mx-auto font-nunito font-medium">Somos uma equipe dedicada e comprometida em fornecer serviços de cuidado à saúde mental que promovem o bem-estar holístico e o equilíbrio emocional. Combinando experiência clínica e compaixão, estamos aqui para apoiar indivíduos em sua jornada para uma vida mais saudável e significativa. <br /><br />
           A CalmoMilla visa um impacto significativo, tanto na sociedade e na comunidade, Nós queremos ampliar o acesso ao serviço de saúde mental, especialmente para aqueles sem condições de acesso a esses serviços. Nós queremos reduzir o estigma do tema, fazendo as pessoas se sentirem mais encorajadas a cuidarem de seus problemas. Nós queremos educar e conscientizar os usuários, fornecendo informações e estratégias de autocuidado aos usuários, além de muitos outros impactos. A CalmoMilla veio para mudar vidas, trazendo melhoria geral na qualidade de vida das pessoas.
           </p>
