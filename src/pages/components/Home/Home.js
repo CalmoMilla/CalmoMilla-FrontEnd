@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <main>
-      <Header/>
+      <Header logado={false}/>
       <PaginaInicial/>
 
       <Funcionalidade imagem={"/assets/home/funcionalidades/img-brain.png"} 

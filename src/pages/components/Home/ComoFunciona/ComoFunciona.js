@@ -14,8 +14,8 @@ export default function ComoFunciona() {
               Acesse a Plataforma! <br /><br />A mente em dia, a vida em harmonia
             </p>
           </div>
-          <div className="w-[80%] lg:w-[40%]">
-            <Image data-aos="fade-left" className="" width={400} height={400} src="/assets/milla.png" alt=""/>
+          <div className="w-[80%] lg:w-[20%]">
+            <Image data-aos="fade-left" className="" width={300} height={300} src="/assets/millazinha/milla03.png" alt=""/>
           </div>
         </div>
       </div> 
