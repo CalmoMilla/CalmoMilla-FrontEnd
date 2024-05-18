@@ -8,10 +8,11 @@ import SobreNos from "@/pages/components/Home/SobreNos/SobreNos"
 import ExercicioDia from "@/pages/components/Usuario/ExercicioDia/ExercicioDia"
 import VisaoGeral from "@/pages/components/Usuario/VisaoGeral/VisaoGeral"
 import Estatistica from "@/pages/components/Usuario/VisaoGeral/Estatistica"
+import Cadastro from "@/pages/components/Cadastro/Cadastro"
 
 export default function Page() {
   return (
     // <ExercicioDia titulo={"Xadrez"} desc={"Um teste diário que testa seu pensamento cognitivo"} link={"/jogomemoria"}/>
-    <VisaoGeral/>
+    <Cadastro/>
   )
 }
