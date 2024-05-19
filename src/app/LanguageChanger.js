@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import i18nConfig from '@/i18nConfig';
+import i18nConfig from '../../i18nConfig';
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -37,10 +37,9 @@ export default function LanguageChanger() {
   };
 
   return (
-    <select onChange={handleChange} value={currentLocale}>
+    <select className='bg-amarelo1 p-2 hover:bg-amarelo2 transition duration-300 ease-out' onChange={handleChange} value={currentLocale}>
+      <option value="pt-BR">Português</option>
       <option value="en">English</option>
-      <option value="it">Italian</option>
-      <option value="fr">French</option>
     </select>
   );
 }

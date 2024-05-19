@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <main>
-      <Header logado={true}/>
+      <Header logado={false}/>
       <PaginaInicial/>
       <Funcionalidades/>
       <ComoFunciona/>

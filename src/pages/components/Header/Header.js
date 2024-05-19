@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa"
 import { useTranslation } from "react-i18next";
+import LanguageChanger from "@/app/LanguageChanger";
 
 export default function Header(props) {
     const { t } = useTranslation()
@@ -45,6 +46,7 @@ export default function Header(props) {
                     </ul>
                 </div>
                 <div className="flex items-center gap-6">
+                    <LanguageChanger/>
                     <button className="bg-branco px-8 py-3 rounded-full hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">{t("headerEntrar")}</button>
                     {isOpen ? <FaTimes id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaTimes> : 
                     <FaBars id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaBars> } 
@@ -71,6 +73,7 @@ export default function Header(props) {
                   </ul>
               </div>
               <div className="flex items-center gap-6">
+                <LanguageChanger/>
                 <FaUser className="text-3xl cursor-pointer text-branco"/>
                   {isOpen ? <FaTimes id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaTimes> : 
                   <FaBars id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaBars> } 
