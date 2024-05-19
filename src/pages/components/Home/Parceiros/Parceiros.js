@@ -1,9 +1,13 @@
 import Image from "next/image"
+import { useTranslation } from "react-i18next"
 
 export default function Parceiros() {
+
+  const { t } = useTranslation()
+
   return (
     <div className="pb-80" id="parceiros">
-      <h2 className="text-verde2 text-7xl font-calistoga text-center py-20">Nossos parceiros</h2>
+      <h2 className="text-verde2 text-7xl font-calistoga text-center py-20">{t("parceirosTitulo")}</h2>
       <div className="flex xl:flex-row flex-col justify-around items-center">
         <div className="xl:w-[25%] w-[80%]">
           <div className="flex flex-col justify-center items-center">
@@ -16,7 +20,7 @@ export default function Parceiros() {
         <div className="xl:block hidden">
           <div className="flex flex-col items-center justify-center">
             <Image width={500} height={500} src={"/assets/home/parceiros/img-parceiros.png"} alt=""/>
-            <button className="bg-verde1 hover:bg-verde2 px-8 py-3 rounded-full transition duration-300 ease-out text-3xl">Seja nosso parceiro!</button>
+            <button className="bg-verde1 hover:bg-verde2 px-8 py-3 rounded-full transition duration-300 ease-out text-3xl">{t("parceirosBotao")}</button>
           </div>
         </div>
         <div className="xl:w-[25%] w-[80%]">
