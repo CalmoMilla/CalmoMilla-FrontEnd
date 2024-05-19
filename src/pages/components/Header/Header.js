@@ -32,7 +32,7 @@ export default function Header(props) {
                             <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#funcionalidade" onClick={toggleMenu}>Funcionalidades</a>
                         </li>
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#comofunciona" onClick={toggleMenu}>{t("homePagIniComecar")}</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#comofunciona" onClick={toggleMenu}>{t("headerComoFunciona")}</a>
                         </li>
                         <li>
                             <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#parceiros" onClick={toggleMenu}>Nossos parceiros</a>
