@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import "../../../../app/globals.css"
+import "../../../../app/[locale]/globals.css"
 
 export default function JogoMemoria(props) {
 
@@ -28,7 +28,7 @@ export default function JogoMemoria(props) {
           <p id="result" />
           <button className='bg-white' id="start">Começar o Jogo</button>
         </div>
-        <Script src="jogomemoria/jogomemoria.js"/>
+        <Script src="../jogomemoria/jogomemoria.js"/>
       </div>
     </>
   );
