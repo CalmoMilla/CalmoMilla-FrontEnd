@@ -1,8 +1,11 @@
 import Image from "next/image"
+import { useTranslation } from "react-i18next"
 
 export default function Funcionalidade(props) {
 
   const posicao = props.posicao
+
+  const { t } = useTranslation()
 
   return (
     <div id="funcionalidade">
