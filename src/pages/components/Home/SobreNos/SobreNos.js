@@ -9,7 +9,7 @@ export default function SobreNos() {
     <div id="sobrenos">
       <h2 className="text-roxo text-7xl font-calistoga text-center pb-20">{t("sobreNosTitulo1")}</h2>
       <div className="flex justify-center">
-        <div className="w-[90%] md:w-[70%] xl:h-[200vh] md:h-[340vh] bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
+        <div className="w-[90%] md:w-[70%] xl:h-[310vh] md:h-[430vh] bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
           <p className="text-xl text-branco w-[90%] pt-10 text-center mx-auto font-nunito font-medium">{t("sobreNosTexto1")}<br /><br />
           {t("sobreNosTexto2")}
           </p>
@@ -29,6 +29,18 @@ export default function SobreNos() {
             <div data-aos="fade-left">
               <Image className="hover:scale-110 transition duration-500 ease-in-out pt-10 md:pt-0" width={200} height={200} src={"/assets/logo.png"} alt=""/>
             </div>
+          </div>
+          <h2 className="text-4xl md:text-6xl text-branco text-center mx-auto font-calistoga py-10 md:py-32">Milla</h2>
+          <div className="flex justify-around items-center xl:flex-row flex-col">
+            <div data-aos="fade-right">
+              <Image className="hover:scale-110 transition duration-500 ease-in-out" width={600} height={600} src={"/assets/millazinha/milla05.png"} alt=""/>
+            </div>
+            <p className="text-branco text-xl text-center font-nunito w-[90%] md:w-[40%]">
+            {t("\nsobreNosTexto6")} <br /> {t("\nsobreNosTexto7")} <br /> {t("\nsobreNosTexto8")}
+            </p>
+          </div>
+          <div className="flex justify-center py-10">
+            <button className="bg-amarelo1 hover:bg-amarelo2 px-8 py-3 rounded-full transition duration-300 ease-out text-3xl">{t("sobreNosBotao")}</button>
           </div>
         </div>
       </div>

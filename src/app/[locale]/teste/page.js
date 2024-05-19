@@ -1,8 +1,15 @@
-import Estatisticas from "@/pages/components/Usuario/VisaoGeral/Estatisticas";
-import CalendarioHumor from "@/pages/components/Usuario/CalendarioHumor/CalendarioHumor";
+import Teste from "@/pages/components/Teste";
+import initTranslations from "../../i18n";
+import TranslationsProvider from "../../TranslationProvider";
 
-export default function Page() {
+const namespaces = ['home']
+
+export default async function Page({params: {locale} }) {
+  const { t, resources } = await initTranslations(locale, namespaces)
+
   return (
-    <CalendarioHumor/>
-  );
+    <TranslationsProvider locale={locale} resources={resources} namespaces={namespaces}>
+      <Teste/>
+    </TranslationsProvider>
+  )
 }
