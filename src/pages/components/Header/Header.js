@@ -3,9 +3,11 @@
 import Image from "next/image"
 import { useState } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa"
+import { useTranslation } from "react-i18next";
 
 
 export default function Header(props) {
+    const { t } = useTranslation()
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,7 +32,7 @@ export default function Header(props) {
                             <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#funcionalidade" onClick={toggleMenu}>Funcionalidades</a>
                         </li>
                         <li>
-                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#comofunciona" onClick={toggleMenu}>Como funciona?</a>
+                            <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#comofunciona" onClick={toggleMenu}>{t("homePagIniComecar")}</a>
                         </li>
                         <li>
                             <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#parceiros" onClick={toggleMenu}>Nossos parceiros</a>
