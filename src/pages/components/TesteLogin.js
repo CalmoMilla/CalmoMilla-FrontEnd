@@ -1,5 +1,8 @@
 "use client"
 
+import {LoginUsuario} from "../../api/usuario/UsuarioService"
+
+
 export default function TesteLogin() {
 
   // const handleSubmit = (event) => {
@@ -19,14 +22,17 @@ export default function TesteLogin() {
  
     try {
       const data = new FormData(event.currentTarget)
-      let login = {email: data.get("email"),
-      senha: data.get("senha")}
-      console.log(login)
-
+      let login = {
+        email: data.get("email"),
+        senha: data.get("senha")}
+      LoginUsuario(login,"auth/login")
     } catch (error) {
       console.error(error)
     }
+
+  
   }
+
 
   return (
     <>

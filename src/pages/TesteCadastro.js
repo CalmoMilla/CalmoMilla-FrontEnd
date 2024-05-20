@@ -1,34 +1,27 @@
 "use client"
+import {Cadastro} from "../api/usuario/UsuarioService"
 
 export default function TesteCadastro() {
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   let login = {email: data.get("email"),
-  //   password: data.get("password")}
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //     login
-  //   });
-  // }
 
   async function onSubmit(event) {
     event.preventDefault()
  
     try {
       const data = new FormData(event.currentTarget)
-      let login = {
+      let cadastro = {
         nome: data.get("nome"),
         email: data.get("email"),
         senha: data.get("senha"),
         cpf: data.get("cpf"),
         telefone: data.get("telefone"),
-        datanasc: data.get("datanasc"),
-        genero: data.get("genero")
+        dataNasc: data.get("datanasc"),
+        genero: data.get("genero"),
+        foto: "https://cdn.discordapp.com/attachments/1239448415910498308/1242199675147128873/642902-200.png?ex=664cf819&is=664ba699&hm=635b81ace1c4444f6458d34dd5ecda004b91c20341bf9983bdd22eb5967a4e10&",
+        role: "PACIENTE"
+      
       }
-      console.log(login)
+     
+      Cadastro(cadastro,"auth/cadastro-paciente")
 
     } catch (error) {
       console.error(error)

@@ -1,6 +1,8 @@
 "use client";
 
+import TesteCadastro from "../TesteCadastro";
 import SobreNos from "./Home/SobreNos/SobreNos";
+import TesteLogin from "./TesteLogin";
 import CalendarioHumor from "./Usuario/PaginaInicial/CalendarioHumor/CalendarioHumor";
 import User from "./Usuario/PaginaInicial/User";
 import InfoConta from "./Usuario/Perfil/InfoConta/InfoConta";
