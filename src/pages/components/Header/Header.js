@@ -22,9 +22,9 @@ export default function Header(props) {
     <>
       <header className="bg-amarelo1 py-3 z-50 w-screen fixed">
         <nav className="flex justify-between items-center w-[92%] mx-auto z-50">
-            <div>
-                <Image width={70} height={70} src="/assets/logo.png" alt="..."/>
-            </div>
+        <Link href={"/"} className="w-fit">
+            <Image width={70} height={70} src="/assets/logo.png" alt="..."/>
+        </Link>
             {!logado ? 
               <>
                 <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' top-[10%]' : " "} z-50`}>
