@@ -1,4 +1,4 @@
-import User from "@/pages/components/Usuario/User"
+import User from "@/pages/components/Usuario/PaginaInicial/User"
 import initTranslations from "../../i18n";
 import TranslationsProvider from "../../TranslationProvider";
 

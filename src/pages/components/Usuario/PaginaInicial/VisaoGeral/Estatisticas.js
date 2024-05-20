@@ -7,10 +7,10 @@ export default function Estatisticas() {
         <h1 className="text-3xl md:text-5xl font-nunito text-roxo">Visão Geral</h1>
         <h2 className="text-2xl md:text-3xl font-nunito text-roxo pt-10">Suas estatísticas</h2>
       </div>
-      <Estatistica titulo={"Memória"} resul={30}/>
-      <Estatistica titulo={"Resolução de Problemas"} resul={70}/>
-      <Estatistica titulo={"Atenção"} resul={30}/>
-      <Estatistica titulo={"Velocidade"} resul={60}/>
+      <Estatistica titulo={"Memória"} resul={"w-[60%]"}/>
+      <Estatistica titulo={"Resolução de Problemas"} resul={"w-[40%]"}/>
+      <Estatistica titulo={"Atenção"} resul={"w-[80%]"}/>
+      <Estatistica titulo={"Velocidade"} resul={"w-[90%]"}/>
     </>
   )
 }

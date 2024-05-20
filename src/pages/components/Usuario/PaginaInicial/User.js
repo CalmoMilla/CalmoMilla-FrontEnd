@@ -1,5 +1,5 @@
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
+import Header from "../../Header/Header"
+import Footer from "../../Footer/Footer"
 import ExercicioDia from "./ExercicioDia/ExercicioDia"
 import VisaoGeral from "./VisaoGeral/VisaoGeral"
 
