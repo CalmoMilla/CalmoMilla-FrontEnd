@@ -1,5 +1,7 @@
 import Header from "../../Header/Header"
 import BannerLogo from "./BannerLogo/BannerLogo"
+import MateriaLink from "./MateriaLink/MateriaLink"
+import MateriasLinks from "./MateriaLink/MateriasLinks"
 
 export default function MateriaBlog() {
   return(
@@ -7,6 +9,8 @@ export default function MateriaBlog() {
       <Header logado={true}/>
 
       <BannerLogo/>
+
+      <MateriasLinks/>
     </>
   )
 }
