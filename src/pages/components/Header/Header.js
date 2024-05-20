@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa"
 import { useTranslation } from "react-i18next";
 import LanguageChanger from "@/app/LanguageChanger";
+import Link from "next/link";
 
 export default function Header(props) {
     const { t } = useTranslation()
@@ -74,7 +75,9 @@ export default function Header(props) {
               </div>
               <div className="flex items-center gap-6">
                 <LanguageChanger/>
-                <FaUser className="text-3xl cursor-pointer text-branco"/>
+                <Link href={"/usuario/perfil"} className="w-fit">
+                    <FaUser className="text-3xl cursor-pointer text-branco"/>
+                </Link>
                   {isOpen ? <FaTimes id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaTimes> : 
                   <FaBars id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaBars> } 
               </div>
