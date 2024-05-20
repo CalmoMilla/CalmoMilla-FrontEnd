@@ -10,7 +10,8 @@ import Perfil from "./Usuario/Perfil/Perfil";
 import JogosDisponiveis from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogosDisponiveis";
 import SelecaoJogos from "./Usuario/TelaInicialJogos/SelecaoJogos/SelecaoJogos";
 import TelaInicialJogos from "./Usuario/TelaInicialJogos/TelaInicialJogos";
+import Cadastro from "./Cadastro/Cadastro";
 
 export default function Teste() {
-  return <CalendarioHumor />;
+  return <Cadastro />;
 }
