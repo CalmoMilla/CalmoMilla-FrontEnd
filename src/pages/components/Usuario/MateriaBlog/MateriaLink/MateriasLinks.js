@@ -1,6 +1,5 @@
 import MateriaLink from "./MateriaLink";
 
-
 export default function MateriasLinks() {
   return (
     <div className="flex justify-around py-20">

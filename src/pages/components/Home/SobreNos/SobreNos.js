@@ -9,7 +9,7 @@ export default function SobreNos() {
     <div id="sobrenos">
       <h2 className="text-roxo text-7xl font-calistoga text-center pb-20">{t("sobreNosTitulo1")}</h2>
       <div className="flex justify-center">
-        <div className="w-[90%] md:w-[70%] xl:h-[310vh] md:h-[430vh] bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
+        <div className="w-[90%] md:w-[70%] xl:h-[340vh] md:h-[420vh] bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
           <p className="text-xl text-branco w-[90%] pt-10 text-center mx-auto font-nunito font-medium">{t("sobreNosTexto1")}<br /><br />
           {t("sobreNosTexto2")}
           </p>
