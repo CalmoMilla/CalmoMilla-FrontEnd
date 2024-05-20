@@ -1,9 +1,3 @@
-// pages/login.jsx
-"use client";
-
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import GoogleLoginButton from "../Login/googleButton";
-
 export default function Login() {
   return (
     <div className="flex w-screen h-screen items-center justify-center">
@@ -31,9 +25,6 @@ export default function Login() {
                 <p className="flex items-center mx-3 text-sm">Ou</p>
                 <hr className="my-4 w-32 border-black"></hr>
               </div>
-              <GoogleOAuthProvider clientId="1021082574719-v96gth1puctp7nuhpa2t9oq642nvdrdf.apps.googleusercontent.com">
-                <GoogleLoginButton />
-              </GoogleOAuthProvider>
             </div>
           </div>
         </div>
