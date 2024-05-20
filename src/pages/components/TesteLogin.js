@@ -32,23 +32,12 @@ export default function TesteLogin() {
     <>
       <form action="post" onSubmit={onSubmit}>
         <div className="bg-roxo p-5">
-          <label htmlFor="nome">nome </label>
-          <input type="text" id="nome" name="nome"/>
-        </div>
-        <div className="bg-roxo p-5">
           <label htmlFor="email">email </label>
           <input type="text" id="email" name="email"/>
         </div>
         <div className="bg-roxo p-5">
           <label htmlFor="senha">senha </label>
-          <input type="senha" id="senha" name="senha"/>
-        </div>
-        <div className="bg-roxo p-5">
-          <select name="genero" id="genero">
-            <option value="m">Masculino</option>
-            <option value="f">Feminino</option>
-            <option value="o">Outros</option>
-          </select>
+          <input type="password" id="senha" name="senha"/>
         </div>
         <div className="bg-roxo p-5">
           <button type="submit" className="bg-branco cursor-pointer">Entrar</button>
