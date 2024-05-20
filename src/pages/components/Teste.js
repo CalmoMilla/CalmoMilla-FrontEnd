@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import SobreNos from "./Home/SobreNos/SobreNos";
 import CalendarioHumor from "./Usuario/PaginaInicial/CalendarioHumor/CalendarioHumor";
@@ -10,7 +10,5 @@ import SelecaoJogos from "./Usuario/TelaInicialJogos/SelecaoJogos/SelecaoJogos";
 import TelaInicialJogos from "./Usuario/TelaInicialJogos/TelaInicialJogos";
 
 export default function Teste() {
-  return (
-    <CalendarioHumor/>
-  )
+  return <CalendarioHumor />;
 }
