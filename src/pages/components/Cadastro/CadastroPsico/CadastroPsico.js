@@ -1,7 +1,7 @@
 export default function CadastroPsico() {
   return (
     <>
-      <form action="post" onSubmit={onSubmit}>
+      <form action="post" >
         <div className="bg-roxo p-5">
           <label htmlFor="nome">nome </label>
           <input type="text" id="nome" name="nome" />
