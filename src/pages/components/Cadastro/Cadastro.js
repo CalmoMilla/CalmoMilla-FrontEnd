@@ -1,6 +1,6 @@
 import CadastroPsico from "./CadastroPsico/CadastroPsico";
 import Image from "next/image";
-import TesteCadastro from "@/pages/TesteCadastro";
+import TesteCadastro from "@/pages/components/TesteCadastro";
 
 export default function Cadastro() {
   return (

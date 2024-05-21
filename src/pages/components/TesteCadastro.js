@@ -1,5 +1,5 @@
 "use client"
-import {Cadastro} from "../api/usuario/UsuarioService"
+import {Cadastro} from "../../api/usuario/UsuarioService"
 
 export default function TesteCadastro() {
 
