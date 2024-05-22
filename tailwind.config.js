@@ -7,29 +7,29 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'xs': '320px',
+      xs: "320px",
       // => @media (min-width: 320px) { ... }
 
-      'sm': '640px',
+      sm: "640px",
       // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
+      md: "768px",
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1024px',
+      lg: "1024px",
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      xl: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
     fontFamily: {
-      'sans': ['ui-sans-serif', 'system-ui'],
-      'serif': ['ui-serif', 'Georgia'],
-      'mono': ['ui-monospace', 'SFMono-Regular'],
-      calistoga : ["var(--font-calistoga)"],
+      sans: ["ui-sans-serif", "system-ui"],
+      serif: ["ui-serif", "Georgia"],
+      mono: ["ui-monospace", "SFMono-Regular"],
+      calistoga: ["var(--font-calistoga)"],
       nunito: ["var(--font-nunito)"],
     },
     extend: {
@@ -37,6 +37,8 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "login-gradient":
+          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(217,217,217,1) 20%)",
       },
       colors: {
         amarelo1: "#FFCE55",
@@ -47,7 +49,7 @@ module.exports = {
         verde2: "#8ECD48",
         verdeagua: "#61B8AB",
         preto: "#000000",
-      }
+      },
     },
   },
   plugins: [],
