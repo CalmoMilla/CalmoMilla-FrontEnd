@@ -1,9 +1,17 @@
 import Image from "next/image";
+import Cadastro from "../Cadastro/Cadastro";
+import { useState } from "react";
 export default function Login() {
+  const [showCadastro, setShowCadastro] = useState(false);
+
+  if (showCadastro) {
+    return <Cadastro />;
+  }
   return (
+    
     <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
       <div className="m-auto flex justify-center items-center h-[90%] w-[80%] border rounded-lg shadow-lg">
-        <div className="relative w-[40%] h-full hidden lg:block">
+        <div className="relative w-[60%] h-full hidden lg:block">
           <div className="absolute inset-0 bg-login-gradient blur-sm  opacity-60 filter  h-auto border"></div>
           <div className="relative h-[100%] w-auto font-calistoga p-10">
             <div className="h-1/2 text-amarelo2 flex-col justify-between  ">
@@ -30,7 +38,7 @@ export default function Login() {
               </div>
               <button
                 className="w-72 h-10 bg-amarelo2 justify-center p-0 rounded-full text-white "
-                type="submit"
+                type="submit" onClick={() => setShowCadastro(true)}
               >
                 Criar Conta
               </button>
@@ -46,7 +54,7 @@ export default function Login() {
               <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start ">
                 {" "}
                 Se você não tiver uma conta,
-                <br></br>acesse o <span className="text-amarelo2 ">login</span>{" "}
+                <br></br>acesse o <span className="text-amarelo2 ">Cadastro</span>{" "}
                 aqui!
               </p>
             </div>
