@@ -45,9 +45,9 @@ export default function SobreNos() {
               {t("\nsobreNosTexto4")}
               <br /> <br /> {t("\nsobreNosTexto5")}
             </p>
-            <div data-aos="fade-left">
+            <div data-aos="fade-left ">
               <Image
-                className="hover:scale-110 transition duration-500 ease-in-out pt-10 md:pt-0"
+                className="hover:scale-110 transition duration-500 ease-in-out pt-10 md:pt-10"
                 width={200}
                 height={200}
                 src={"/assets/logo.png"}
