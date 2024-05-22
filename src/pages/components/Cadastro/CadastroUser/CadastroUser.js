@@ -12,7 +12,7 @@ export default function CadastroUser() {
         </p>
       </div>
       <form
-        className=" md:w-[70%] flex-col text-start flex h-[80%] items-start  mx-auto mt-4 justify-around gap-1 sm:w-full sm:px-0 "
+        className=" md:w-[70%] flex-col text-start flex xs:h-[80%] 2xl:h-[90%] 2xl:gap-4 items-start  mx-auto mt-4 justify-around sm:w-full sm:px-0"
         action="post"
       >
         <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto w[100%]">
