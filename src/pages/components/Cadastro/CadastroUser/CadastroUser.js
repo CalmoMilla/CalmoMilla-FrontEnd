@@ -108,11 +108,6 @@ export default function CadastroUser() {
           </button>
         </div>
       </form>
-      <div className="xs:mx-auto md:w-[50%] m-auto mt-4 xs:text-center  lg:text-start   ">
-        <a className="font-nunito tracking-normal cursor-pointer font-bold ">
-          Sou um <span className="text-amarelo2"> Psicólogo </span>!
-        </a>
-      </div>
     </div>
   );
 }

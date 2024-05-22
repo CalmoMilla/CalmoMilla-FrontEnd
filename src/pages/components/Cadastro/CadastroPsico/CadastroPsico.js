@@ -123,12 +123,6 @@ export default function CadastroPsico() {
           </button>
         </div>
       </form>
-      <div className="xs:mx-auto md:w-[50%] m-auto mt-4 xs:text-center  lg:text-start   ">
-        <a className="font-nunito tracking-normal cursor-pointer font-bold ">
-          Quero me tornar um <span className="text-amarelo2"> Usúario </span>{" "}
-          comum!
-        </a>
-      </div>
     </div>
   );
 }
