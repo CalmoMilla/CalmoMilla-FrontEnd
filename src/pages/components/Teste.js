@@ -15,5 +15,5 @@ import Login from "./Login/Login";
 import Home from "./Home/Home";
 
 export default function Teste() {
-  return <Home />;
+  return <Cadastro />;
 }
