@@ -11,7 +11,8 @@ import JogosDisponiveis from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogosD
 import SelecaoJogos from "./Usuario/TelaInicialJogos/SelecaoJogos/SelecaoJogos";
 import TelaInicialJogos from "./Usuario/TelaInicialJogos/TelaInicialJogos";
 import Cadastro from "./Cadastro/Cadastro";
+import Login from "./Login/Login";
 
 export default function Teste() {
-  return <Cadastro />;
+  return <Login />;
 }
