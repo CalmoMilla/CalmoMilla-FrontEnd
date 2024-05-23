@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import i18nConfig from '../../i18nConfig';
+import load_astv_script from '../../public/assistive/assistive';
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -12,6 +13,9 @@ export default function LanguageChanger() {
   const currentPathname = usePathname();
 
   const handleChange = e => {
+
+    load_astv_script()
+
     const newLocale = e.target.value;
 
     // set cookie for next-i18n-router
