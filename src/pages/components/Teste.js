@@ -13,7 +13,8 @@ import TelaInicialJogos from "./Usuario/TelaInicialJogos/TelaInicialJogos";
 import Cadastro from "./Cadastro/Cadastro";
 import Login from "./Login/Login";
 import Home from "./Home/Home";
+import OutrasMaterias from "./Usuario/Materia/OutrasMaterias/OutrasMaterias";
 
 export default function Teste() {
-  return <Login />;
+  return <OutrasMaterias />;
 }
