@@ -37,7 +37,24 @@ export default function Home() {
       anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
     
     });
-  })
+
+    load_astv_script();
+
+  }, [])
+
+  function load_astv_script() {
+    let astv_tag = document.createElement('script');
+    astv_tag.charset = 'UTF-8';
+    astv_tag.id = 'astv-widget';
+    astv_tag.src = 'https://cdn.assistive.com.br/plugin/AssistiveWebPlugin.js';
+    astv_tag.async = true;
+    astv_tag.onload = function() {
+      assistive.init({});
+    };
+
+    var h = document.querySelector('head') || document.body;
+    h.appendChild(astv_tag);
+  }
 
 
   return (

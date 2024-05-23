@@ -15,7 +15,18 @@ import Login from "./Login/Login";
 import Home from "./Home/Home";
 import OutrasMaterias from "./Usuario/Materia/OutrasMaterias/OutrasMaterias";
 import Materia from "./Usuario/Materia/Materia";
+import { useEffect } from "react";
+import load_astv_script from "../../../public/assistive/assistive";
 
 export default function Teste() {
-  return <User />;
+
+  useEffect(() => {
+    load_astv_script();
+  }, []);
+
+  return (
+    <h1>
+      aaaaa
+    </h1>
+  );
 }
