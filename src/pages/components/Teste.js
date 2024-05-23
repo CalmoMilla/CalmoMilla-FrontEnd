@@ -3,7 +3,7 @@
 import TesteCadastro from "./TesteCadastro";
 import SobreNos from "./Home/SobreNos/SobreNos";
 import TesteLogin from "./TesteLogin";
-import CalendarioHumor from "./Usuario/PaginaInicial/CalendarioHumor/CalendarioHumor";
+import CalendarioHumor from "./Usuario/PaginaInicial/Calendario/Calendario";
 import User from "./Usuario/PaginaInicial/User";
 import InfoConta from "./Usuario/Perfil/InfoConta/InfoConta";
 import Perfil from "./Usuario/Perfil/Perfil";
@@ -17,5 +17,5 @@ import OutrasMaterias from "./Usuario/Materia/OutrasMaterias/OutrasMaterias";
 import Materia from "./Usuario/Materia/Materia";
 
 export default function Teste() {
-  return <Materia />;
+  return <User />;
 }

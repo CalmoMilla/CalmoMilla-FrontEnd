@@ -13,6 +13,8 @@ export default function User() {
         link={"/jogomemoria"}/>
 
         <VisaoGeral/>
+
+        
       </div>
 
       <Footer/>
