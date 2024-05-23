@@ -14,8 +14,6 @@ export default function LanguageChanger() {
 
   const handleChange = e => {
 
-    load_astv_script()
-
     const newLocale = e.target.value;
 
     // set cookie for next-i18n-router
@@ -38,6 +36,8 @@ export default function LanguageChanger() {
     }
 
     router.refresh();
+
+    load_astv_script()
   };
 
   return (
