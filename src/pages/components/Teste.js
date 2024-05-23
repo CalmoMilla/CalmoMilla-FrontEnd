@@ -14,7 +14,8 @@ import Cadastro from "./Cadastro/Cadastro";
 import Login from "./Login/Login";
 import Home from "./Home/Home";
 import OutrasMaterias from "./Usuario/Materia/OutrasMaterias/OutrasMaterias";
+import Materia from "./Usuario/Materia/Materia";
 
 export default function Teste() {
-  return <OutrasMaterias />;
+  return <Materia />;
 }

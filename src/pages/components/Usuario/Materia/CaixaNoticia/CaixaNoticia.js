@@ -2,7 +2,7 @@ import { FaUser } from "react-icons/fa"
  
 export default function CaixaNoticia(props){
   return (
-    <div className="bg-branco w-[60%] h-[200vh] rounded-lg shadow-xl">
+    <div className="bg-branco w-[60%] h-auto rounded-lg shadow-xl">
       <h1 className="text-6xl font-calistoga text-center pt-14">{props.titulo}</h1>
       <div className="pl-10 h-fit">
         <div className="flex pt-10 gap-4 items-center pb-10">

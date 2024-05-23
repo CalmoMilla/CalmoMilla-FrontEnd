@@ -1,8 +1,8 @@
-export default function CaixaImagem(props) {
+export default function CaixaImagem() {
     return (
-        <div className="flex flex-col justify-center items-center py-5">
-            <div className={`w-[90%] ${props.altura} bg-gray-200 pt-10 rounded-lg`} >
-                <h2 className="text-xl relative top-[50%]">Insira uma imagem</h2>
+        <div className="flex flex-col justify-center items-center py-2">
+            <div className={`w-[90%] bg-gray-200 p-8 rounded-lg relative flex flex-col justify-center items-center`} >
+                <h2 className="text-xl h-full">Insira uma imagem</h2>
             </div>
         </div>
     )
