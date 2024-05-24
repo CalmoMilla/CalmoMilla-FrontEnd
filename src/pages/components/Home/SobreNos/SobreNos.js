@@ -27,8 +27,8 @@ export default function SobreNos() {
             <div data-aos="fade-right">
               <Image
                 className="hover:scale-110 transition duration-500 ease-in-out"
-                width={500}
-                height={500}
+                width={400}
+                height={400}
                 src={"/assets/home/sobrenos/elementoscalmomilla.png"}
                 alt=""
               />

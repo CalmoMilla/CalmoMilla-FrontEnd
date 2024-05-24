@@ -11,6 +11,7 @@ import Parceiros from "./Parceiros/Parceiros"
 import SobreNos from "./SobreNos/SobreNos"
 import Blog from "./Blog/Blog"
 import Funcionalidades from "./Funcionalidade/Funcionalidades"
+import load_astv_script from "../../../../public/assistive/assistive"
 
 export default function Home() {
 
@@ -37,7 +38,10 @@ export default function Home() {
       anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
     
     });
-  })
+
+    load_astv_script();
+
+  }, [])
 
 
   return (
