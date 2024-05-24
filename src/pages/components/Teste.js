@@ -13,6 +13,8 @@ import TelaInicialJogos from "./Usuario/TelaInicialJogos/TelaInicialJogos";
 import Cadastro from "./Cadastro/Cadastro";
 import Login from "./Login/Login";
 import Home from "./Home/Home";
+import EsqueciSenha from "./Login/EsqueciSenha";
+import Modal from "./Login/modalAlterarSenha";
 
 export default function Teste() {
   return <Login />;
