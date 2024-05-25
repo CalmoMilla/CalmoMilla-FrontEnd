@@ -1,7 +1,7 @@
 export default function InfoConta() {
   return (
     <>
-      <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center">
+      <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center pt-10">
         <div className="w-60 h-60 bg-gray-500 rounded-full"></div>
         <div className="md:pt-0 pt-10 text-center md:text-left w-fit h-[100%]">
           <p className="text-3xl font-nunito pb-10">Olá fulano!</p>

@@ -22,7 +22,7 @@ export default function Header(props) {
     <>
       <header className="bg-amarelo1 py-3 z-50 w-screen fixed">
         <nav className="flex justify-between items-center w-[92%] mx-auto z-50">
-        <Link href={"/"} className="w-fit">
+        <Link href={`${props.logado ? "/usuario" : "/"}`} className="w-fit">
             <Image width={70} height={70} src="/assets/logo.png" alt="..."/>
         </Link>
             {!logado ? 
@@ -60,7 +60,7 @@ export default function Header(props) {
               <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' top-[10%]' : " "} z-50`}>
                   <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>{t("common:headerJogos")}</a>
+                          <Link href={"/usuario/jogos"} className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" onClick={toggleMenu}>{t("common:headerJogos")}</Link>
                       </li>
                       <li>
                           <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>{t("common:headerPsicoterapia")}</a>
@@ -69,7 +69,7 @@ export default function Header(props) {
                           <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>{t("common:headerComunidade")}</a>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>Blog</a>
+                          <Link href={"#"} className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" onClick={toggleMenu}>Blog</Link>
                       </li>
                   </ul>
               </div>
