@@ -6,7 +6,7 @@ export default function PaginaInicial() {
   
   return (
     <>
-      <div className="w-full xl:h-[100vh] lg:h-[120vh] md:h-[150vh] h-[100vh] bg-cover bg-no-repeat bg-[url('/assets/home/homepage/fundo2.jpg')]">
+      <div className="w-full xl:h-[100vh] lg:h-[120vh] md:h-[150vh] h-[100vh] bg-cover bg-no-repeat bg-[url('/assets/home/homepage/fundo2.jpg')] md:bg-[url('/assets/home/homepage/fundo3.jpg')]">
         <div className="bg-preto/50 w-full xl:h-[100vh] lg:h-[120vh] md:h-[150vh] h-[100vh] flex justify-center">
           <div className="lg:w-[80%] flex justify-around items-center lg:flex-row flex-col pt-40">
             <div>
