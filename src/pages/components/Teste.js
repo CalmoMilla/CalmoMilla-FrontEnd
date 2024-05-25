@@ -18,11 +18,15 @@ import Modal from "./Login/modalAlterarSenha";
 import OutrasMaterias from "./Usuario/Materia/OutrasMaterias/OutrasMaterias";
 import Materia from "./Usuario/Materia/Materia";
 import Planos from "./Home/Planos/Planos";
+import Filtro from "./Usuario/Psicologo/Filtro/Filtro";
+import SecaoPsicologo from "./Usuario/Psicologo/SecaoPsicologo/SecaoPsicologo";
+import Psicologo from "./Usuario/Psicologo/Psicologo";
+import ProfissionaisSalvos from "./Usuario/Psicologo/ProfissionaisSalvos/ProfissionaisSalvos";
 
 export default function Teste() {
   return (
     <>
-      <Planos/>
+      <Psicologo/>
     </>
   )
 }
