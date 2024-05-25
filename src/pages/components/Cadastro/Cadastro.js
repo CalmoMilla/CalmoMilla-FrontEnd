@@ -24,12 +24,12 @@ export default function Cadastro() {
               >
                 {isUser ? (
                   <p>
-                    Sou um <span className="text-amarelo2"> Psicólogo </span>!
+                    Sou um <span className="text-amarelo2"> Psicólogo</span>!
                   </p>
                 ) : (
                   <p>
-                    Quero me tornar um{" "}
-                    <span className="text-amarelo2"> Usúario </span> comum!
+                    Sou um{" "}
+                    <span className="text-amarelo2"> Usuário</span>!
                   </p>
                 )}
               </a>

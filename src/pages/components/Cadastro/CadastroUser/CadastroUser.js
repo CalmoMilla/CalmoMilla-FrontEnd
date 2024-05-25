@@ -30,7 +30,7 @@ export default function CadastroUser() {
     <div className=" h-full w-full m-auto grid-cols-2  border-black justify-center">
       <div className="lg:w-[50%] h-20 m-auto flex-col lg:text-start xs:w-full ">
         <h2 className=" h-1/2  xs:text-center  xs:text-xl sm:text-2xl  xl:text-3xl lg:text-start  font-calistoga">
-          Cadastro <span className="text-amarelo2"> Usúario</span>
+          Cadastro <span className="text-amarelo2"> Usuário</span>
         </h2>
         <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start ">
           {" "}
