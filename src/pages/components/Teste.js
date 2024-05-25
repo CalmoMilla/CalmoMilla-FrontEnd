@@ -22,11 +22,12 @@ import Filtro from "./Usuario/Psicologo/Filtro/Filtro";
 import SecaoPsicologo from "./Usuario/Psicologo/SecaoPsicologo/SecaoPsicologo";
 import Psicologo from "./Usuario/Psicologo/Psicologo";
 import ProfissionaisSalvos from "./Usuario/Psicologo/ProfissionaisSalvos/ProfissionaisSalvos";
+import JogoDisponivel from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogoDisponivel";
 
 export default function Teste() {
   return (
     <>
-      <Psicologo/>
+      <JogoDisponivel/>
     </>
   )
 }

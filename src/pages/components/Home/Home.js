@@ -12,6 +12,7 @@ import SobreNos from "./SobreNos/SobreNos"
 import Blog from "./Blog/Blog"
 import Funcionalidades from "./Funcionalidade/Funcionalidades"
 import load_astv_script from "../../../../public/assistive/assistive"
+import Planos from "./Planos/Planos"
 
 export default function Home() {
 
@@ -53,6 +54,7 @@ export default function Home() {
       <Parceiros/>
       <SobreNos/>
       <Blog/>
+      <Planos/>
       <Footer/>
     </main>
   )
