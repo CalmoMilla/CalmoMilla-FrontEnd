@@ -17,7 +17,7 @@ export default function SobreNos() {
             <br />
             {t("sobreNosTexto2")}
           </p>
-          <h2 className="text-5xl md:text-7xl text-amarelo1 text-center mx-auto font-calistoga py-10 md:py-20">
+          <h2 className="text-5xl md:text-7xl text-branco text-center mx-auto font-calistoga py-10 md:py-20">
             {t("\nsobreNosTitulo2")}
           </h2>
           <h2 className="text-4xl md:text-6xl text-branco text-center mx-auto font-calistoga pt-10 md:py-20">
@@ -43,7 +43,7 @@ export default function SobreNos() {
           <div className="flex justify-around items-center xl:flex-row flex-col">
             <p className="text-branco text-xl text-center font-nunito w-[90%] md:w-[50%]">
               {t("\nsobreNosTexto4")}
-              <br /> <br /> {t("\nsobreNosTexto5")}
+              <br /> <br /> 
             </p>
             <div data-aos="fade-left ">
               <Image
@@ -69,8 +69,7 @@ export default function SobreNos() {
               />
             </div>
             <p className="text-branco mr-10 text-xl text-center font-nunito w-[90%] md:w-[40%]">
-              {t("\nsobreNosTexto6")} <br /> {t("\nsobreNosTexto7")} <br />{" "}
-              {t("\nsobreNosTexto8")}
+              {t("\nsobreNosTexto5")}
             </p>
           </div>
           <div className="flex justify-center py-10">
