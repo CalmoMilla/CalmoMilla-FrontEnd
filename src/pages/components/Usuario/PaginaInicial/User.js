@@ -8,7 +8,7 @@ export default function User() {
     <div>
       <Header logado={true}/>
 
-      <div className="flex justify-center flex-col items-center">
+      <div className="flex justify-center flex-col items-center pb-20">
         <ExercicioDia titulo={"Xadrez"} desc={"Um teste diário que testa seu pensamento cognitivo"} 
         link={"/jogomemoria"}/>
 
