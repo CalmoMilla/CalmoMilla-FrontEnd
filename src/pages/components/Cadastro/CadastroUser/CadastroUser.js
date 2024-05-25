@@ -1,3 +1,5 @@
+import { Cadastro } from "@/api/usuario/UsuarioService"
+
 export default function CadastroUser() {
 
   async function onSubmit(event) {
@@ -18,7 +20,7 @@ export default function CadastroUser() {
       
       }
 
-      console.log(cadastro)
+      Cadastro(cadastro,"auth/cadastro-paciente")
 
     } catch (error) {
       console.error(error)

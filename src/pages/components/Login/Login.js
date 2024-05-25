@@ -5,38 +5,26 @@ import Image from "next/image";
 import Cadastro from "../Cadastro/Cadastro";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
+import { LoginUsuario } from "@/api/usuario/UsuarioService";
+import { redirect } from 'next/navigation'
 
 export default function Login() {
 
+  const [showCadastro, setShowCadastro] = useState(false);
+  const [alterarSenha, setAlterarSenha] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault()
  
-    try {
-      const data = new FormData(event.currentTarget)
-      let cadastro = {
-        nome: data.get("nome"),
-        email: data.get("email"),
-        senha: data.get("senha"),
-        cpf: data.get("cpf"),
-        telefone: data.get("telefone"),
-        dataNasc: data.get("datanasc"),
-        genero: data.get("genero"),
-        foto: "https://cdn.discordapp.com/attachments/1239448415910498308/1242199675147128873/642902-200.png?ex=664cf819&is=664ba699&hm=635b81ace1c4444f6458d34dd5ecda004b91c20341bf9983bdd22eb5967a4e10&",
-        role: "PACIENTE"
-      
-      }
-
-      console.log(cadastro)
-
-    } catch (error) {
-      console.error(error)
+    const data = new FormData(event.currentTarget)
+    let login = {
+      email: data.get("email"),
+      senha: data.get("senha")
     }
+
+    LoginUsuario(login, "auth/login")
+    
   }
-
-
-  const [showCadastro, setShowCadastro] = useState(false);
-  const [alterarSenha, setAlterarSenha] = useState(false);
 
   if (showCadastro) {
     return <Cadastro />;

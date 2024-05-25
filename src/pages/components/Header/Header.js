@@ -48,7 +48,9 @@ export default function Header(props) {
                 </div>
                 <div className="flex items-center gap-6">
                     <LanguageChanger/>
-                    <button className="bg-branco px-8 py-3 rounded-full hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">{t("common:headerEntrar")}</button>
+                    <Link href={"/login"}>
+                        <button className="bg-branco px-8 py-3 rounded-full hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">{t("common:headerEntrar")}</button>
+                    </Link>
                     {isOpen ? <FaTimes id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaTimes> : 
                     <FaBars id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaBars> } 
                 </div>

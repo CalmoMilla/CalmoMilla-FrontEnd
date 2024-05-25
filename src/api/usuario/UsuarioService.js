@@ -1,4 +1,6 @@
 import axios from "axios";
+import { use } from "i18next";
+import { redirect } from 'next/navigation'
 
 const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
 
@@ -81,26 +83,27 @@ export const Cadastro = async (paciente, endpoint) => {
 async function BuscarInfoUsuario() {
   if (typeof window === "undefined") {
     return null;
-}
+  }
 
-const token = localStorage.getItem('token');
-if (!token) {
+  const token = localStorage.getItem('token');
+  if (!token) {
     throw new Error('No token found');
-}
+  }
 
-const response = await fetch(url+'pacientes/eu', {
+  const response = await fetch(url+'pacientes/eu', {
     method: 'GET',
     headers: {
-        'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     }
-});
+  });
 
-if (response.ok) {
+  if (response.ok) {
     const userInfo = await response.json();
-    return userInfo;
-} else {
+    console.log(userInfo)
+    localStorage.setItem("usuario", JSON.stringify(userInfo))
+  } else {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
-}
+  }
 }
 
