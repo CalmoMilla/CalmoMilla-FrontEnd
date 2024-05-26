@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-amarelo1">
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-20 lg:px-8 lg:pt-20">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
+          <div className="space-y-4">
             <Image width={50} height={50} src="/assets/logo.png" alt="Company name"/>
             <p className="text-lg leading-6 text-preto">A mente em dia, a vida em harmonia.</p>
             <div className="flex space-x-6">
@@ -36,7 +36,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
+            {/* <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-lg font-semibold leading-6 text-preto">Solutions</h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -107,7 +107,7 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="mt-16 border-t border-preto/50 pt-8 sm:mt-20 lg:mt-24">

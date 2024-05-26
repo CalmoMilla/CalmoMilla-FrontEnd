@@ -12,9 +12,9 @@ export default function Parceiros() {
         <div className="xl:w-[25%] w-[80%]">
           <div className="flex flex-col justify-center items-center">
             <div data-aos="fade-up">
-              <Image width={300} height={300} src={"/assets/home/parceiros/proa.png"} alt="" className=" transition duration-500 ease-out hover:scale-110"/>
+              <Image width={300} height={300} src={"/assets/home/parceiros/proa.png"} alt="Logo do Proa" className=" transition duration-500 ease-out hover:scale-110"/>
             </div>
-            <p className="text-justify text-xl font-nunito font-medium w-full">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minima laudantium. Iure, fugiat tempora minima, magnam quasi sunt odit, nemo ex eligendi nesciunt molestias. Laudantium repudiandae dolorem minima necessitatibus sint.</p>
+            {/* <p className="text-justify text-xl font-nunito font-medium w-full">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minima laudantium. Iure, fugiat tempora minima, magnam quasi sunt odit, nemo ex eligendi nesciunt molestias. Laudantium repudiandae dolorem minima necessitatibus sint.</p> */}
           </div>
         </div>
         <div className="xl:block hidden">
@@ -27,9 +27,9 @@ export default function Parceiros() {
           <div>
           <div className="flex flex-col justify-center items-center">
             <div data-aos="fade-up">
-              <Image width={300} height={300} src={"/assets/home/parceiros/senac.png"} alt="" className="py-20 transition duration-500 ease-out hover:scale-110"/>
+              <Image width={300} height={300} src={"/assets/home/parceiros/senac.png"} alt="Logo do Senac" className="py-20 transition duration-500 ease-out hover:scale-110"/>
             </div>
-            <p className="text-justify text-xl font-nunito font-medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minima laudantium. Iure, fugiat tempora minima, magnam quasi sunt odit, nemo ex eligendi nesciunt molestias. Laudantium repudiandae dolorem minima necessitatibus sint.</p>
+            {/* <p className="text-justify text-xl font-nunito font-medium w-full">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, minima laudantium. Iure, fugiat tempora minima, magnam quasi sunt odit, nemo ex eligendi nesciunt molestias. Laudantium repudiandae dolorem minima necessitatibus sint.</p> */}
           </div>
           </div>
         </div>
