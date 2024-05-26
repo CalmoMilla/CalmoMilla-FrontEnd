@@ -1,8 +1,7 @@
 import axios from "axios";
-import { use } from "i18next";
-import { redirect } from 'next/navigation'
 
 const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
+const urlLocal = "http://localhost:8080/";
 
 export const LoginUsuario = async (login, endpoint) => {
   try {
@@ -16,11 +15,10 @@ export const LoginUsuario = async (login, endpoint) => {
     }
     if (response.data.token != null) {
       if (typeof window !== "undefined") {
-       localStorage.setItem("token",response.data.token)
-        BuscarInfoUsuario()
-    }
-    return response.data.token;
-   
+        localStorage.setItem("token", response.data.token);
+        BuscarInfoUsuario("pacientes/eu");
+      }
+      return response.data.token;
     }
   } catch (error) {
     if (error.response) {
@@ -79,31 +77,55 @@ export const Cadastro = async (paciente, endpoint) => {
     }
   }
 };
-
-async function BuscarInfoUsuario() {
+export const BuscarInfoUsuario = async (endpoint) => {
   if (typeof window === "undefined") {
     return null;
   }
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (!token) {
-    throw new Error('No token found');
+    throw new Error("No token found");
   }
 
-  const response = await fetch(url+'pacientes/eu', {
-    method: 'GET',
+  const response = await fetch(url + endpoint, {
+    method: "GET",
     headers: {
-      'Authorization': `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (response.ok) {
     const userInfo = await response.json();
-    console.log(userInfo)
-    localStorage.setItem("usuario", JSON.stringify(userInfo))
+    console.log(userInfo);
+    localStorage.setItem("usuario", JSON.stringify(userInfo));
   } else {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
   }
-}
+};
 
+export const BuscarUsuario = async (endpoint, id) => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("No token found");
+  }
+
+  const response = await fetch(url + endpoint + id, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.ok) {
+    const userInfo = await response.json();
+    return userInfo;
+  } else {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+};
