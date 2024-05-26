@@ -24,7 +24,10 @@ export default function SobreNos() {
             {t("sobreNosTitulo3")}
           </h2>
           <div className="flex xl:flex-row flex-col justify-around items-center">
-            <div data-aos="fade-right" className="flex items-center">
+            <div
+              data-aos="fade-right"
+              className="flex items-center xs:p-10 xl:p-0"
+            >
               <Image
                 className="hover:scale-110 transition duration-500 ease-in-out"
                 width={380}
@@ -72,7 +75,7 @@ export default function SobreNos() {
             </p>
           </div>
           <div className="flex justify-center py-10">
-            <button className="bg-amarelo1 hover:bg-amarelo2 h-20 flex items-center rounded-full transition duration-300 ease-out text-3xl">
+            <button className="bg-amarelo1 hover:bg-amarelo2 xs:h-10 sm:h-20 flex items-center rounded-full transition duration-300 ease-out xs:text-2xl sm:text-3xl">
               {t("sobreNosBotao")}
             </button>
           </div>
