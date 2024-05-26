@@ -26,8 +26,7 @@ const { t } = useTranslation()
 
   useEffect(() =>  {
     if(usuario != null){ 
-        setLogado(true)
-        console.log("oi")
+      setLogado(true)
     } 
   }, [usuario])
 

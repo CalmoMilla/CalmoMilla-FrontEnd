@@ -1,10 +1,25 @@
+"use client"
+import { useState, useEffect } from "react";
+
+
 export default function InfoConta() {
+
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() =>  {
+    const usuarioStorage = localStorage.getItem("usuario")
+    const infoUsuario = JSON.parse(usuarioStorage)
+    setUsuario(infoUsuario)
+  }, [])
+
+  console.log(usuario)
+
   return (
     <>
       <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center pt-10">
         <div className="w-60 h-60 bg-gray-500 rounded-full"></div>
         <div className="md:pt-0 pt-10 text-center md:text-left w-fit h-[100%]">
-          <p className="text-3xl font-nunito pb-10">Olá fulano!</p>
+          <p className="text-3xl font-nunito pb-10">Olá {""}</p>
           <p className="text-2xl font-nunito">Aqui estão suas informações pessoais na plataforma</p>
         </div>
       </div>
@@ -12,7 +27,7 @@ export default function InfoConta() {
         <h1 className="text-3xl py-5">Informações da conta</h1>
         <div className="lg:w-[30%] w-[80%] md:flex-row flex-col md:items-center flex justify-between py-5">
           <p className="text-xl">Email</p>
-          <p className="text-xl">seuemail@gmail.com</p>
+          <p className="text-xl">{""}</p>
         </div>
         <div className="lg:w-[30%] w-[80%] md:flex-row flex-col flex justify-between md:items-center py-5">
           <p className="text-xl">Senha</p>
