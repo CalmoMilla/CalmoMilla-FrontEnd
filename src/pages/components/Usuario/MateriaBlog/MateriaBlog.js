@@ -11,7 +11,7 @@ export default function MateriaBlog() {
   return(
     <>
 
-      <Header logado={true}/>
+      <Header/>
 
       <BannerLogo/>
 

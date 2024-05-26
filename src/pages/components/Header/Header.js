@@ -7,8 +7,8 @@ import { useTranslation } from "react-i18next";
 import LanguageChanger from "@/app/LanguageChanger";
 import Link from "next/link";
 
-export default function Header(props) {
-    const { t } = useTranslation()
+export default function Header() {
+const { t } = useTranslation()
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,13 +16,20 @@ export default function Header(props) {
     setIsOpen((prevState) => !prevState);
   };
 
-  const logado = props.logado
+  let usuario = localStorage.getItem("usuario")
+  let logado = false;
+
+    if(usuario != "" && usuario != undefined && usuario != null){ 
+        logado = true
+        console.log("oi")
+    } 
+
 
   return (
     <>
       <header className="bg-amarelo1 py-3 z-50 w-screen fixed">
         <nav className="flex justify-between items-center w-[92%] mx-auto z-50">
-        <Link href={`${props.logado ? "/usuario" : "/"}`} className="w-fit">
+        <Link href={`${logado ? "/usuario" : "/"}`} className="w-fit">
             <Image width={70} height={70} src="/assets/logo.png" alt="..."/>
         </Link>
             {!logado ? 

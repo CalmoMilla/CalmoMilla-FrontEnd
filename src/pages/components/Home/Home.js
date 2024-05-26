@@ -47,7 +47,7 @@ export default function Home() {
 
   return (
     <main>
-      <Header logado={false}/>
+      <Header/>
       <PaginaInicial/>
       <Funcionalidades/>
       <ComoFunciona/>

@@ -6,7 +6,7 @@ import OutrasMaterias from "./OutrasMaterias/OutrasMaterias";
 export default function Materia(){
   return (
     <div className="h-fit w-full bg-gray-200 pb-10">
-      <Header logado={true}/>
+      <Header/>
  
       <div className="pt-40 flex justify-around">
         <CaixaNoticia titulo={"Insira seu título"} nome={"Ruth Barbosa"} profissao={"Psicologo"}
