@@ -1,9 +1,10 @@
 "use client"
 
-import MateriaLink from "../MateriaLink/MateriaLink"
+
+import Slider from "react-slick";
+import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 
 export default function MateriaCarrossel(){
@@ -13,22 +14,21 @@ export default function MateriaCarrossel(){
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1,
-      
+        slidesToScroll: 3,
     };
 
     return(
-        <div className="w-3/4 m-auto flex flex-col items-center justify-center">
+        <div className='w-1/5 h-[80vh] m-auto'>
+            <div className="mt-20">
             <Slider {...settings}>
             {data.map((d) => (
-            <div className={`w-[25%] h-[80vh] hover:scale-110 transition duration-500 ease-in-out bg-cover bg-no-repeat rounded-xl`} style={{backgroundImage: `url(${d.img})`}}>
-        
-                <div className="h-full w-full bg-preto/30 rounded-xl">
-                    <p className={`text-branco text-2xl font-bold font-nunito pl-10 ${d.baixo ? "pt-[120%]" : "pt-[15%]"}`}>{d.texto}</p>
+                <div key={d.id} className="bg-branco h-fit rounded-2xl flex flex-col justify-center">
+                    <Image className="grayscale-[50%]" quality={80} src={d.img} width={500} height={700} alt=""/>
+                    <p className={`text-branco text-2xl font-bold font-nunito relative ${d.baixo ? "bottom-40" : "bottom-[500px]"} left-5`}>{d.texto}</p>
                 </div>
-            </div>
-        ))}
+            ))}
             </Slider>
+            </div>
         </div>
     )
 }
@@ -38,19 +38,19 @@ const data = [
         id:1,
         img: "/assets/usuario/materiablog/materia1.png",
         baixo: true,
-        texto: "vitor lindo"
+        texto: "Lorem ipsum dolor sit amet. Ut dignissimos neque"
     },
     {
         id:2,
         img: "/assets/usuario/materiablog/materia2.png",
         baixo: false,
-        texto: "vitor cheiroso"
+        texto: "Lorem ipsum dolor sit amet. Ut dignissimos neque"
     },
     {
         id:3,
         img: "/assets/usuario/materiablog/materia3.png",
         baixo: true,
-        texto: "vitor tímido"
+        texto: "Lorem ipsum dolor sit amet. Ut dignissimos neque"
     },
    
 ]
