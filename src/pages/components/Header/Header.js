@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa"
 import { useTranslation } from "react-i18next";
 import LanguageChanger from "@/app/LanguageChanger";
@@ -16,13 +16,21 @@ const { t } = useTranslation()
     setIsOpen((prevState) => !prevState);
   };
 
-  let usuario = localStorage.getItem("usuario")
-  let logado = false;
+  const [logado, setLogado] = useState(false);
+  const [usuario, setUsuario] = useState(null);
 
-    if(usuario != "" && usuario != undefined && usuario != null){ 
-        logado = true
+  useEffect(() =>  {
+    const usuarioStorage = localStorage.getItem("usuario")
+    setUsuario(usuarioStorage ? usuarioStorage : null)
+  }, [])
+
+  useEffect(() =>  {
+    if(usuario != null){ 
+        setLogado(true)
         console.log("oi")
     } 
+  }, [usuario])
+
 
 
   return (
