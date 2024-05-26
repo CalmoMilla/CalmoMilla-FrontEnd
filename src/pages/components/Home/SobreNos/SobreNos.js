@@ -55,7 +55,7 @@ export default function SobreNos() {
               />
             </div>
           </div>
-          <h2 className="text-4xl md:text-6xl text-branco text-center mx-auto font-calistoga py-10 md:py-32">
+          <h2 className="text-4xl md:text-6xl text-branco text-center mx-auto font-calistoga py-10 md:pt-32">
             Milla
           </h2>
           <div className="flex justify-around items-center xl:flex-row flex-col">
@@ -68,7 +68,7 @@ export default function SobreNos() {
                 alt=""
               />
             </div>
-            <p className="text-branco mr-10 text-xl text-center font-nunito w-[90%] md:w-[40%]">
+            <p className="text-branco xl:mr-10 md:text-3xl lg:text-3xl text-center font-nunito w-[90%] md:w-[40%]">
               {t("\nsobreNosTexto5")}
             </p>
           </div>
