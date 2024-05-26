@@ -1,7 +1,6 @@
 "use client"
 
 import Header from "../../Header/Header";
-import Funcionalidades from "../../Home/Funcionalidade/Funcionalidades";
 import CaixaNoticia from "./CaixaNoticia/CaixaNoticia";
 import OutrasMaterias from "./OutrasMaterias/OutrasMaterias";
  

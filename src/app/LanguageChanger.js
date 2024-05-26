@@ -44,6 +44,7 @@ export default function LanguageChanger() {
     <select className='bg-amarelo1 p-2 transition duration-300 ease-out border-solid shadow-2xl border-amarelo2' onChange={handleChange} value={currentLocale}>
       <option value="pt-BR">Português</option>
       <option value="en">English</option>
+      <option value="es">Español</option>
     </select>
   );
 }
