@@ -15,7 +15,7 @@ export default function CadastroUser() {
         telefone: data.get("telefone"),
         dataNasc: data.get("datanasc"),
         genero: data.get("genero"),
-        foto: "https://cdn.discordapp.com/attachments/1239448415910498308/1242199675147128873/642902-200.png?ex=664cf819&is=664ba699&hm=635b81ace1c4444f6458d34dd5ecda004b91c20341bf9983bdd22eb5967a4e10&",
+        foto: "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
         role: "PACIENTE"
       
       }

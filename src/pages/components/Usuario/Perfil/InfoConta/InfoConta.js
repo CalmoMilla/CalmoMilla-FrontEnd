@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import Image from "next/image"
 
 
 export default function InfoConta(props) {
@@ -7,7 +7,7 @@ export default function InfoConta(props) {
   return (
     <>
       <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center pt-10">
-        <div className="w-60 h-60 bg-gray-500 rounded-full"></div>
+        <Image className="w-60 h-60 rounded-full" src={props.usuario ? props.usuario.foto : ""} alt="Foto do Usuário" width={400} height={400}/>
         <div className="md:pt-0 pt-10 text-center md:text-left w-fit h-[100%]">
           <p className="text-3xl font-nunito pb-10">Olá, {props.usuario ? props.usuario.nome : ""}</p>
           <p className="text-2xl font-nunito">Aqui estão suas informações pessoais na plataforma</p>

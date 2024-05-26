@@ -16,6 +16,7 @@ export default function Perfil() {
     const id = usuarioLocal.id
     usuarioLocal = await BuscarUsuario("pacientes/",id)
     usuarioLocal.dataNasc = (usuarioLocal.dataNasc[2] + "/" + usuarioLocal.dataNasc[1] + "/" + usuarioLocal.dataNasc[0])
+    console.log(usuarioLocal)
     setUsuario(usuarioLocal)
   }
 
