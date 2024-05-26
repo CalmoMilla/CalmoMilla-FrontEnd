@@ -16,8 +16,7 @@ export default function CaixaNoticia(props){
             <h2 className="text-3xl">Insira uma imagem</h2>
           </div>
         </div>
-        <p class="font-nunito text-xl pt-10 w-[90%]">
-       
+        <p className="font-nunito text-xl pt-10 w-[90%]">
           {props.texto}
         </p>
       </div>

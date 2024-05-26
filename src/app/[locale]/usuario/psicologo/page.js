@@ -1,7 +1,7 @@
 import Perfil from "@/pages/components/Usuario/Perfil/Perfil";
 import initTranslations from "../../../i18n";
 import TranslationsProvider from "../../../TranslationProvider";
-import MateriaBlog from "@/pages/components/Usuario/MateriaBlog/MateriaBlog";
+import Psicologo from "@/pages/components/Usuario/Psicologo/Psicologo";
 
 const namespaces = ['home', 'common']
 
@@ -10,7 +10,7 @@ export default async function Page({params: {locale} }) {
 
   return (
     <TranslationsProvider locale={locale} resources={resources} namespaces={namespaces}>
-      <MateriaBlog/>
+      <Psicologo/>
     </TranslationsProvider>
   )
 }

@@ -23,11 +23,12 @@ import SecaoPsicologo from "./Usuario/Psicologo/SecaoPsicologo/SecaoPsicologo";
 import Psicologo from "./Usuario/Psicologo/Psicologo";
 import ProfissionaisSalvos from "./Usuario/Psicologo/ProfissionaisSalvos/ProfissionaisSalvos";
 import JogoDisponivel from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogoDisponivel";
+import MateriaBlog from "./Usuario/MateriaBlog/MateriaBlog";
 
 export default function Teste() {
   return (
     <>
-      <Planos/>
+      <Materia/>
     </>
   )
 }
