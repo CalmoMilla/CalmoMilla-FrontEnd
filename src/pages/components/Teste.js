@@ -27,7 +27,7 @@ import JogoDisponivel from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogoDisp
 export default function Teste() {
   return (
     <>
-      <JogoDisponivel/>
+      <Planos/>
     </>
   )
 }
