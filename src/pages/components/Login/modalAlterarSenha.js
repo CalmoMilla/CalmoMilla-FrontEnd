@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
@@ -9,6 +11,10 @@ const Modal = ({ onClose, children, title }) => {
       onClose();
     }
   };
+
+
+
+
   const modalContent = (
     <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
       <div className="xs:w-[80%] xs:h-[80%] md:w-[500px]  md:h-[600px] bg-white rounded-lg p-4">
