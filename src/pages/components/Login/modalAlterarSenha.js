@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
@@ -11,9 +9,6 @@ const Modal = ({ onClose, children, title }) => {
       onClose();
     }
   };
-
-
-
 
   const modalContent = (
     <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
@@ -42,10 +37,13 @@ const Modal = ({ onClose, children, title }) => {
           </button>
         </div>
         {title && <h1 className="text-xl font-bold">{title}</h1>}
-        <div className="w-full h-full">{children}</div>
+        <div className="w-full h-full">
+          {typeof window !== 'undefined' && children}
+        </div>
       </div>
     </div>
   );
+
   return ReactDOM.createPortal(
     modalContent,
     document.getElementById("modal-root")
