@@ -1,8 +1,7 @@
 "use client"
 import CampoPessoal from "./CampoPessoal";
+
 export default function InfoPessoal(props) {
-
-
   return (
     <>
       <h2 className="text-5xl text-amarelo1 font-calistoga text-center py-5">Informações Pessoais</h2>

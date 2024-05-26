@@ -6,15 +6,17 @@ import { BuscarUsuario } from "@/api/usuario/UsuarioService";
 import { useEffect, useState} from "react";
 export default function Perfil() {
   const [usuario, setUsuario] = useState(null);
+
   useEffect(() =>  {
-      buscar()
+    buscar()
   }, [])
 
   const buscar = async () =>{
     var usuarioLocal = JSON.parse(localStorage.getItem("usuario"))
     const id = usuarioLocal.id
     usuarioLocal = await BuscarUsuario("pacientes/",id)
-     setUsuario(usuarioLocal)
+    usuarioLocal.dataNasc = (usuarioLocal.dataNasc[2] + "/" + usuarioLocal.dataNasc[1] + "/" + usuarioLocal.dataNasc[0])
+    setUsuario(usuarioLocal)
   }
 
   return (
@@ -23,7 +25,7 @@ export default function Perfil() {
       <div className="flex justify-center items-center pt-40">
         <div className="w-[70%] h-auto bg-branco shadow-2xl rounded-xl">
           <InfoConta usuario={usuario}/>
-          <InfoPessoal  usuario={usuario} />
+          <InfoPessoal usuario={usuario} />
         </div>
       </div>
     </>
