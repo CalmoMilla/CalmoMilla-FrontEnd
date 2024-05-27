@@ -24,11 +24,12 @@ import Psicologo from "./Usuario/Psicologo/Psicologo";
 import ProfissionaisSalvos from "./Usuario/Psicologo/ProfissionaisSalvos/ProfissionaisSalvos";
 import JogoDisponivel from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogoDisponivel";
 import MateriaBlog from "./Usuario/MateriaBlog/MateriaBlog";
+import CadastroPsico from "./Cadastro/CadastroPsico/CadastroPsico";
 
 export default function Teste() {
   return (
     <>
-      <Materia/>
+      <Cadastro />
     </>
-  )
+  );
 }

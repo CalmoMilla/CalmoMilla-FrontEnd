@@ -2,7 +2,7 @@ import CadastroPsico from "./CadastroPsico/CadastroPsico";
 import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
 import Login from "../Login/Login";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
@@ -13,14 +13,14 @@ export default function Cadastro() {
       {showLogin ? (
         <Login />
       ) : (
-        <div className="m-auto flex justify-center lg:items-center xs:h-full lg:h-[90%] w-[80%] border rounded-lg shadow-lg xs:items-start ">
+        <div className="m-auto flex justify-center lg:items-center xs:h-full lg:h-[95%] w-[80%] border rounded-lg shadow-lg xs:items-start ">
           <div className="flex flex-col justify-center lg:items-center w-full h-auto 2xl:items-start lg:w-[60%] my-auto ">
             {isUser ? <CadastroUser /> : <CadastroPsico />}
 
-            <div className="xs:mx-auto md:w-[50%] m-auto mt-4 xs:text-center lg:text-start">
+            <div className="xs:mx-auto md:w-[50%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
               <a
                 onClick={() => setIsUser(!isUser)}
-                className="font-nunito tracking-normal cursor-pointer font-bold"
+                className="font-nunito tracking-normal cursor-pointer font-bold p-0 "
               >
                 {isUser ? (
                   <p>
@@ -28,14 +28,13 @@ export default function Cadastro() {
                   </p>
                 ) : (
                   <p>
-                    Sou um{" "}
-                    <span className="text-amarelo2"> Usuário</span>!
+                    Sou um <span className="text-amarelo2"> Usuário</span>!
                   </p>
                 )}
               </a>
             </div>
           </div>
-          <div className="relative w-[40%] h-full hidden lg:block">
+          <div className="relative w-[40%] h-full hidden xl:block">
             <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>
             <div className="relative h-[100%] w-auto font-calistoga p-10">
               <div className="h-1/2 text-amarelo2 flex-col justify-between">
