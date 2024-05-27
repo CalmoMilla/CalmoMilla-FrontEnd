@@ -51,6 +51,7 @@ export default function CadastroUser() {
             id="nome"
             name="nome"
             placeholder="Coloque Seu Nome."
+            required
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
@@ -63,6 +64,7 @@ export default function CadastroUser() {
             id="email"
             name="email"
             placeholder="Coloque seu Email."
+            required
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
@@ -75,6 +77,8 @@ export default function CadastroUser() {
             name="senha"
             className="border-none border-b-2  font-nunito   placeholder:text-black   text-sm"
             placeholder="Escolha uma senha."
+            required
+            minLength={6}
           />
         </div>
 
@@ -88,6 +92,8 @@ export default function CadastroUser() {
             name="confirmarSenha"
             className="border-none border-b-2  font-nunito   placeholder:text-black   text-sm"
             placeholder="Repita a senha."
+            required
+            minLength={6}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
@@ -99,6 +105,7 @@ export default function CadastroUser() {
             id="datanasc"
             name="datanasc"
             className="border-none border-b-2  font-nunito   placeholder:text-black   text-sm"
+            required
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
@@ -110,7 +117,9 @@ export default function CadastroUser() {
             id="cpf"
             name="cpf"
             className="border-none border-b-2  font-nunito   placeholder:text-black   text-sm"
-            placeholder="Digite seu CPF"
+            placeholder="Digite seu CPF (somente números)"
+            required
+            minLength={11}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
@@ -123,13 +132,15 @@ export default function CadastroUser() {
             name="telefone"
             className="border-none border-b-2  font-nunito   placeholder:text-black   text-sm"
             placeholder="Digite seu número de telefone."
+            required
+            minLength={11}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center w-[70%] h-20 text-amarelo2 xs:m-auto">
           <label htmlFor="especializacao">Gênero</label>
           <select
-            name="especializacao"
-            id="especializacao"
+            name="genero"
+            id="genero"
             className="w
           text-black
           py-1
