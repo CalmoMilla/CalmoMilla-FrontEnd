@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -6,24 +6,22 @@ import Cadastro from "../Cadastro/Cadastro";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
 import { LoginUsuario } from "@/api/usuario/UsuarioService";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 
 export default function Login() {
-
   const [showCadastro, setShowCadastro] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
 
   async function onSubmit(event) {
-    event.preventDefault()
- 
-    const data = new FormData(event.currentTarget)
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
     let login = {
       email: data.get("email"),
-      senha: data.get("senha")
-    }
+      senha: data.get("senha"),
+    };
 
-    LoginUsuario(login, "auth/login")
-    
+    LoginUsuario(login, "auth/login");
   }
 
   if (showCadastro) {
@@ -31,7 +29,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
+    <div className="flex w-screen h-[100%] overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
       <div className="m-auto flex justify-center items-center h-[90%] w-[80%] border rounded-lg shadow-lg">
         <div className="relative w-[60%] h-full hidden lg:block">
           <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>
@@ -89,7 +87,8 @@ export default function Login() {
             </div>
             <form
               className="md:w-[85%] flex-col text-start flex h-[50%] items-start mx-auto mt-4 justify-around gap-1 sm:w-full sm:px-0"
-              action="post" onSubmit={onSubmit}
+              action="post"
+              onSubmit={onSubmit}
             >
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
                 <label className="flex text-amarelo2" htmlFor="email">
