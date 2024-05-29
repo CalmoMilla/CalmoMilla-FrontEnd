@@ -1,16 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Cadastro from "../Cadastro/Cadastro";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
 import { LoginUsuario } from "@/api/usuario/UsuarioService";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [showCadastro, setShowCadastro] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
+  const router = useRouter()
+
+
+  useEffect(() => {
+    const tokenUser = localStorage.getItem("token")
+    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+      router.push("/usuario")
+    }
+  })
+
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -22,6 +32,10 @@ export default function Login() {
     };
 
     LoginUsuario(login, "auth/login");
+
+    router.push("/usuario")
+
+
   }
 
   if (showCadastro) {

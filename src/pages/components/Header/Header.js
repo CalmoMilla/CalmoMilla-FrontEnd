@@ -41,7 +41,7 @@ const { t } = useTranslation()
         </Link>
             {!logado ? 
               <>
-                <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' top-[10%]' : " "} z-50`}>
+                <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? 'xs:top-[8%] md:top-[10%]' : " "} z-50`}>
                     <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
                         <li>
                             <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#funcionalidade" onClick={toggleMenu}>{t("common:headerFuncionalidades")}</a>
@@ -73,7 +73,7 @@ const { t } = useTranslation()
               :
 
               <>
-              <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' top-[10%]' : " "} z-50`}>
+              <div className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${isOpen ? ' xs:top-[8.5%] md:top-[10%]' : " "} z-50`}>
                   <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
                       <li>
                           <Link href={"/usuario/jogos"} className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" onClick={toggleMenu}>{t("common:headerJogos")}</Link>
