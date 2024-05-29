@@ -91,7 +91,8 @@ const { t } = useTranslation()
               </div>
               <div className="flex items-center gap-6">
                 <LanguageChanger/>
-                <Link href={"/usuario/perfil"} className="w-fit">
+                <Link href={"/usuario/perfil"} className="w-fit p-3 hover:bg-amarelo2 rounded-full duration-500 
+                transition ease-in-out">
                     <FaUser className="text-3xl cursor-pointer text-branco"/>
                 </Link>
                   {isOpen ? <FaTimes id="menu-navbar" className="text-3xl cursor-pointer lg:hidden" onClick={toggleMenu}></FaTimes> : 
