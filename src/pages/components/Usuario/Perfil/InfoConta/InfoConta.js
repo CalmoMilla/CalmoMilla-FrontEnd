@@ -9,12 +9,15 @@ export default function InfoConta(props) {
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     handleUpload()
+
   };
 
   const handleUpload = async () => {
     if (!file) return;
 
     const { name, type } = file;
+
+    console.log(file)
 
     const res = await fetch('/api/upload', {
       method: 'POST',
