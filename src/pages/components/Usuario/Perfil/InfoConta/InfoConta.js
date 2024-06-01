@@ -1,13 +1,59 @@
 "use client"
 import Image from "next/image"
-
+import { useState } from "react";
 
 export default function InfoConta(props) {
+
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+    handleUpload()
+  };
+
+  const handleUpload = async () => {
+    if (!file) return;
+
+    const { name, type } = file;
+
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, type }),
+    });
+
+    if (!res.ok) {
+      console.error('Failed to get signed URL');
+      return;
+    }
+
+    const { url } = await res.json();
+
+    const uploadRes = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': type,
+        'x-amz-acl': 'public-read',
+      },
+      body: file,
+    });
+
+    if (uploadRes.ok) {
+    
+      console.log('Upload successful!');
+    } else {
+      console.error('Upload failed.');
+    }
+  };
+
 
   return (
     <>
       <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center pt-10">
-        <Image className="w-60 h-60 rounded-full" src={props.usuario ? props.usuario.foto : ""} alt="Foto do Usuário" width={400} height={400}/>
+        <Image onClick={handleUpload} className="w-60 h-60 rounded-full" src={props.usuario ? props.usuario.foto : ""} alt="Foto do Usuário" width={400} height={400}/>
+        <input type="file" onChange={handleFileChange} />
         <div className="md:pt-0 pt-10 text-center md:text-left w-fit h-[100%]">
           <p className="text-3xl font-nunito pb-10">Olá, {props.usuario ? props.usuario.nome : ""}</p>
           <p className="text-2xl font-nunito">Aqui estão suas informações pessoais na plataforma</p>

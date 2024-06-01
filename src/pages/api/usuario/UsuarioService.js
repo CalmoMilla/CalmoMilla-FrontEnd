@@ -129,3 +129,29 @@ export const BuscarUsuario = async (endpoint, id) => {
     throw new Error(errorMessage);
   }
 };
+
+
+export const Atualizar = async (paciente, endpoint) => {
+  try {
+    const response = await axios.post(url + endpoint, paciente, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status == 201) {
+      console.log("Cadastro feito com sucesso");
+      console.log(response.data);
+    }
+  } catch (error) {
+    if (error.response) {
+      const { title, fields } = error.response.data;
+      console.log("Title:", title);
+      console.log("Fields:", fields);
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};

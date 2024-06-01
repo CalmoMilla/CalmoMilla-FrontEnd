@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
+    "aws-sdk": "^2.1632.0",
     "axios": "^1.7.1",
     "i18next": "^23.11.4",
     "i18next-resources-to-backend": "^1.2.1",

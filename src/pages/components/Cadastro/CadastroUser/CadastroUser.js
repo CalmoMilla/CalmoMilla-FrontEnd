@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Cadastro } from "@/api/usuario/UsuarioService";
+import { Cadastro } from "@/pages/api/usuario/UsuarioService";
 import Login from "../../Login/Login";
 
 export default function CadastroUser() {
