@@ -8,7 +8,7 @@ export default function InfoConta(props) {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-    handleUpload()
+    console.log(file)
   };
 
   const handleUpload = async () => {
