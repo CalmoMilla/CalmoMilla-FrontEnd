@@ -79,7 +79,7 @@ const { t } = useTranslation()
                           <Link href={"/usuario/jogos"} className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" onClick={toggleMenu}>{t("common:headerJogos")}</Link>
                       </li>
                       <li>
-                          <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>{t("common:headerPsicoterapia")}</a>
+                          <Link href={"/usuario/psicologo"} className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" onClick={toggleMenu}>{t("common:headerPsicoterapia")}</Link>
                       </li>
                       <li>
                           <a className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out" href="#" onClick={toggleMenu}>{t("common:headerComunidade")}</a>
