@@ -29,9 +29,11 @@ export default function Login() {
       senha: data.get("senha"),
     };
 
-    LoginUsuario(login, "auth/login");
-
-    router.push("/usuario");
+    await LoginUsuario(login, "auth/login");
+    const tokenUser = localStorage.getItem("token");
+    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+      router.push("/usuario");
+    }
   }
 
   if (showCadastro) {
