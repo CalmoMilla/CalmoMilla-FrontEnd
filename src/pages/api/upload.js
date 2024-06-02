@@ -11,7 +11,6 @@ const s3 = new AWS.S3();
 export default async (req, res) => {
   if (req.method === 'POST') {
     const { name, type } = req.body;
-
     const params = {
       Bucket: process.env.AWS_BUCKET_NAME,
       Key: name,

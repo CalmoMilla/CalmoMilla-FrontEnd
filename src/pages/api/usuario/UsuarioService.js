@@ -130,12 +130,16 @@ export const BuscarUsuario = async (endpoint, id) => {
   }
 };
 
-
 export const Atualizar = async (paciente, endpoint) => {
   try {
-    const response = await axios.post(url + endpoint, paciente, {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      throw new Error("No token found");
+    }
+    const response = await axios.put(url + endpoint, paciente, {
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
 

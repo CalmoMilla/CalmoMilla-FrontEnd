@@ -15,13 +15,13 @@ export default function Perfil() {
     var usuarioLocal = JSON.parse(localStorage.getItem("usuario"));
     const id = usuarioLocal.id;
     usuarioLocal = await BuscarUsuario("pacientes/", id);
-    usuarioLocal.dataNasc =
+  /*  usuarioLocal.dataNasc =
       usuarioLocal.dataNasc[2] +
       "/" +
       usuarioLocal.dataNasc[1] +
       "/" +
       usuarioLocal.dataNasc[0];
-    console.log(usuarioLocal);
+    console.log(usuarioLocal);*/
     setUsuario(usuarioLocal);
   };
 

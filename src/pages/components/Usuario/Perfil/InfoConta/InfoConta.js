@@ -1,24 +1,29 @@
-"use client"
-import Image from "next/image"
+"use client";
+import Image from "next/image";
 import { useState } from "react";
-
+import {Atualizar} from '../../../../api/usuario/UsuarioService'
 export default function InfoConta(props) {
-
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-    console.log(file)
-    handleUpload()
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) return;
 
+    const fileExtension = selectedFile.name.split('.').pop();
+    const newFilename = `${props.usuario.id}.${fileExtension}`;
+
+    setFile({
+      name: newFilename,
+      type: selectedFile.type,
+      file: selectedFile,
+    });
+    console.log(`File name set to: ${newFilename}`);  
   };
 
   const handleUpload = async () => {
     if (!file) return;
 
-    const { name, type } = file;
-
-    console.log(file)
+    const { name, type, file: selectedFile } = file;
 
     const res = await fetch('/api/upload', {
       method: 'POST',
@@ -41,12 +46,16 @@ export default function InfoConta(props) {
         'Content-Type': type,
         'x-amz-acl': 'public-read',
       },
-      body: file,
+      body: selectedFile,
     });
 
     if (uploadRes.ok) {
-    
       console.log('Upload successful!');
+      props.usuario.foto = "https://calmomilla-fotos.s3.sa-east-1.amazonaws.com/"+file.name
+      console.log(file.name)
+      Atualizar(props.usuario,"pacientes")
+      console.log("Imagem atualizada com sucesso")
+    
     } else {
       console.error('Upload failed.');
     }
@@ -56,11 +65,22 @@ export default function InfoConta(props) {
   return (
     <>
       <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center pt-10">
-        <Image onClick={handleUpload} className="w-60 h-60 rounded-full" src={props.usuario ? props.usuario.foto : ""} alt="Foto do Usuário" width={400} height={400}/>
+        <Image
+          onClick={handleUpload}
+          className="w-60 h-60 rounded-full"
+          src={props.usuario ? props.usuario.foto : ""}
+          alt="Foto do Usuário"
+          width={400}
+          height={400}
+        />
         <input type="file" onChange={handleFileChange} />
         <div className="md:pt-0 pt-10 text-center md:text-left w-fit h-[100%]">
-          <p className="text-3xl font-nunito pb-10">Olá, {props.usuario ? props.usuario.nome : ""}</p>
-          <p className="text-2xl font-nunito">Aqui estão suas informações pessoais na plataforma</p>
+          <p className="text-3xl font-nunito pb-10">
+            Olá, {props.usuario ? props.usuario.nome : ""}
+          </p>
+          <p className="text-2xl font-nunito">
+            Aqui estão suas informações pessoais na plataforma
+          </p>
         </div>
       </div>
       <div className="pl-8 lg:pl-28 pt-20">
@@ -80,5 +100,5 @@ export default function InfoConta(props) {
         <div className="w-[95%] h-1 bg-gray-300 rounded-md"></div>
       </div>
     </>
-  )
+  );
 }
