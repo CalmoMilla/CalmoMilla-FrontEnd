@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import {Atualizar} from '../../../../api/usuario/UsuarioService'
+import { Atualizar } from "../../../../api/usuario/UsuarioService";
 export default function InfoConta(props) {
   const [file, setFile] = useState(null);
 
@@ -9,7 +9,7 @@ export default function InfoConta(props) {
     const selectedFile = e.target.files[0];
     if (!selectedFile) return;
 
-    const fileExtension = selectedFile.name.split('.').pop();
+    const fileExtension = selectedFile.name.split(".").pop();
     const newFilename = `${props.usuario.id}.${fileExtension}`;
 
     setFile({
@@ -17,7 +17,7 @@ export default function InfoConta(props) {
       type: selectedFile.type,
       file: selectedFile,
     });
-    console.log(`File name set to: ${newFilename}`);  
+    console.log(`File name set to: ${newFilename}`);
   };
 
   const handleUpload = async () => {
@@ -25,63 +25,64 @@ export default function InfoConta(props) {
 
     const { name, type, file: selectedFile } = file;
 
-    const res = await fetch('/api/upload', {
-      method: 'POST',
+    const res = await fetch("/api/upload", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, type }),
     });
 
     if (!res.ok) {
-      console.error('Failed to get signed URL');
+      console.error("Failed to get signed URL");
       return;
     }
 
     const { url } = await res.json();
 
     const uploadRes = await fetch(url, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': type,
-        'x-amz-acl': 'public-read',
+        "Content-Type": type,
+        "x-amz-acl": "public-read",
       },
       body: selectedFile,
     });
 
     if (uploadRes.ok) {
-      console.log('Upload successful!');
-      props.usuario.foto = "https://calmomilla-fotos.s3.sa-east-1.amazonaws.com/"+file.name
-      console.log(file.name)
-      Atualizar(props.usuario,"pacientes")
-      console.log("Imagem atualizada com sucesso")
-    
+      console.log("Upload successful!");
+      props.usuario.foto =
+        "https://calmomilla-fotos.s3.sa-east-1.amazonaws.com/" + file.name;
+      console.log(file.name);
+      Atualizar(props.usuario, "pacientes");
+      console.log("Imagem atualizada com sucesso");
     } else {
-      console.error('Upload failed.');
+      console.error("Upload failed.");
     }
   };
 
-
   return (
     <>
-      <div className="w-[100%] h-[30%] flex md:flex-row flex-col justify-around items-center pt-10">
-        <Image
-          onClick={handleUpload}
-          className="w-60 h-60 rounded-full"
-          src={props.usuario ? props.usuario.foto : ""}
-          alt="Foto do Usuário"
-          width={400}
-          height={400}
-        />
-        <input type="file" onChange={handleFileChange} />
-        {/* <Image
+      <div className="w-[100%] h-[30%] flex lg:flex-row flex-col justify-around items-center pt-10">
+        <div className="flex flex-col items-center">
+          <Image
+            onClick={handleUpload}
+            className="w-60 h-60 rounded-full items-center"
+            src={props.usuario ? props.usuario.foto : ""}
+            alt="Foto do Usuário"
+            width={400}
+            height={400}
+          />
+          <input type="file" className="mt-5" onChange={handleFileChange} />
+          {/* <Image
           className="w-60 h-60 rounded-full"
           src={props.usuario ? props.usuario.foto : ""}
           alt="Foto do Usuário"
           width={400}
           height={400}
         /> */}
-        <div className="md:pt-0 pt-10 text-center md:text-left w-fit h-[100%]">
+        </div>
+        <div className="lg:pt-0 pt-10 text-center lg:text-left w-fit h-[100%] ml">
           <p className="text-3xl font-nunito pb-10">
             Olá, {props.usuario ? props.usuario.nome : ""}
           </p>
