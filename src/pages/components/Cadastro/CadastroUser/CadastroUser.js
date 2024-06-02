@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Cadastro } from "@/pages/api/usuario/UsuarioService";
+
 import Login from "../../Login/Login";
 
 export default function CadastroUser() {
@@ -37,34 +38,13 @@ export default function CadastroUser() {
   }
 
   if (showLogin) {
-    return (
-      <div className="flex justify-center items-center h-full w-full">
-        <Login />
-      </div>
-    );
+    return <Login />;
   }
 
   return (
-    <div className="h-full w-full m-auto flex flex-col justify-center items-center">
-      <div className="lg:w-[50%] h-20 m-auto flex flex-col lg:text-start xs:w-full">
-        <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
-          Cadastro <span className="text-amarelo2">Usuário</span>
-        </h2>
-        <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start">
-          Se você já tiver uma conta,
-          <br />
-          acesse o{" "}
-          <span
-            className="text-amarelo2 cursor-pointer"
-            onClick={() => setShowLogin(true)}
-          >
-            Login
-          </span>{" "}
-          aqui!
-        </p>
-      </div>
+    <div className="h-full w-full flex flex-col justify-center items-center">
       <form
-        className="md:w-[70%] flex flex-col text-start xs:h-[80%] 2xl:h-[90%] 2xl:gap-4 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
+        className="md:w-[70%] w-full flex flex-col text-start xs:h-[80%] 2xl:h-[90%] 2xl:gap-4 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
         onSubmit={onSubmit}
       >
         <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">

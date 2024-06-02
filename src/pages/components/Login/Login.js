@@ -41,7 +41,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex w-screen h-[100%] overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
+    <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
       <div className="m-auto flex justify-center items-center h-[90%] w-[80%] border rounded-lg shadow-lg">
         <div className="relative w-[60%] h-full hidden lg:block">
           <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>

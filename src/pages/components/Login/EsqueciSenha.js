@@ -14,6 +14,7 @@ export default function EsqueciSenha() {
                 id="email"
                 name="email"
                 placeholder="Coloque seu Email."
+                required
               />
             </div>
           </div>
