@@ -6,6 +6,7 @@ import VisaoGeral from "./VisaoGeral/VisaoGeral"
 import { useState } from "react"
 import ModalEmocoes from "./Emocoes/ModalEmocoes"
 import EsqueciSenha from "../../Login/EsqueciSenha"
+import Emocoes from "./Emocoes/Emocoes"
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false)
@@ -27,7 +28,7 @@ export default function User() {
       <div id="modal-root"></div>
       {showEmocoes && (
         <ModalEmocoes onClose={() => setShowEmocoes(false)}>
-          <EsqueciSenha/>
+          <Emocoes/>
         </ModalEmocoes>
       )}
 

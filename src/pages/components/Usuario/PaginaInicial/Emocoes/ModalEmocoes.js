@@ -21,22 +21,9 @@ const ModalEmocoes = ({ onClose, children, title }) => {
              text-center flex justify-center items-center "
             >
               <h2 className="font-calistoga w-full sm:text-3xl">
-                Recupere sua senha{" "}
+                Qual seu humor hoje?
               </h2>
             </div>
-            <button
-              className="absolute w-auto h-auto p-0  sm:hidden"
-              onClick={handleCloseClick}
-            >
-              <IoCloseSharp size={20} />
-            </button>
-  
-            <button
-              className="sm:flex sm:absolute w-auto h-auto p-0 py-2 hidden"
-              onClick={handleCloseClick}
-            >
-              <IoCloseSharp size={45} />
-            </button>
           </div>
           {title && <h1 className="text-xl font-bold">{title}</h1>}
           <div className="w-full h-full">
@@ -53,7 +40,8 @@ const ModalEmocoes = ({ onClose, children, title }) => {
   
     return () => {
       root.unmount();
-    };
+    }, [];
+
   },)
 
 };
