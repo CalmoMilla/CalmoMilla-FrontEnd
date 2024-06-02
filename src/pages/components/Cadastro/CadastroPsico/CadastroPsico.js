@@ -24,16 +24,6 @@ export default function CadastroPsico() {
 
   return (
     <div className=" h-full w-full m-auto grid-cols-2  border-black justify-center pt-4">
-      <div className="lg:w-[50%] h-20 m-auto flex-col lg:text-start xs:w-full ">
-        <h2 className=" h-1/2  xs:text-center  xs:text-xl sm:text-2xl  xl:text-3xl lg:text-start  font-calistoga">
-          Cadastro <span className="text-amarelo2"> Psicólogo</span>
-        </h2>
-        <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start ">
-          {" "}
-          Se você já tiver uma conta,
-          <br></br>acesse o <span className="text-amarelo2 ">login</span> aqui!
-        </p>
-      </div>
       <form
         className=" md:w-[70%] flex-col text-start flex xs:h-[80%]  items-start  mx-auto mt-4 justify-around sm:w-full sm:px-0 "
         action="post"
