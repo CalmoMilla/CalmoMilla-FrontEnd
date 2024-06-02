@@ -1,5 +1,5 @@
 "use client"
-import CampoPessoal from "./CampoPessoal";
+import CampoPessoal from "../CampoPessoal"
 
 export default function InfoPessoal(props) {
 

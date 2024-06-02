@@ -10,7 +10,7 @@ export default function ExercicioDia(props) {
       <div className="flex justify-center flex-col md:flex-row items-center gap-20 bg-amarelo1 w-full pt-10 pb-12 h-[80%] rounded-b-xl px-10 md:p-auto">
         <Image width={130} height={130} src={"/assets/logo.png"} alt=""/>
         <div className="flex flex-col justify-center">
-          <h2 className="text-branco text-6xl font-bold">{props.titulo}</h2>
+          <h2 className={`text-branco text-4xl font-bold`}>{props.titulo}</h2>
           <p className="text-branco text-xl py-2">{props.desc}</p>
           <Link href={props.link ? props.link : ""} className="w-fit">
             <button className="text-xl bg-branco rounded-full hover:bg-amarelo2 text-amarelo2 hover:text-branco transition duration-300 ease-out py-4 px-10 font-bold">Vamos começar?</button>
