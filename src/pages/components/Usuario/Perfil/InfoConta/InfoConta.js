@@ -92,11 +92,11 @@ export default function InfoConta(props) {
       </div>
       <div className="pl-8 lg:pl-32 pt-20">
         <h1 className="text-3xl py-5">Informações da conta</h1>
-        <div className="lg:w-[30%] w-[80%] md:flex-row flex-col md:items-center flex justify-between py-5">
+        <div className="lg:w-[90%] w-[80%] md:flex-row flex-col md:items-center flex justify-between py-5">
           <p className="text-xl">Email </p>
           <p className="text-xl"> {props.usuario ? props.usuario.email : ""}</p>
         </div>
-        <div className="lg:w-[30%] w-[80%] md:flex-row flex-col flex justify-between md:items-center py-5">
+        <div className="lg:w-[90%] w-[80%] md:flex-row flex-col flex justify-between md:items-center py-5">
           <p className="text-xl">Senha</p>
           <p className="text-xl">**********</p>
         </div>
