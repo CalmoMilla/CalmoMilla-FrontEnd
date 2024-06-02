@@ -1,11 +1,10 @@
 import Header from "../../Header/Header"
 import BannerLogo from "./BannerLogo/BannerLogo"
-import MateriaLink from "./MateriaLink/MateriaLink"
 import MateriasLinks from "./MateriaLink/MateriasLinks"
 import MateriaPrincipal from "./MateriaPrincipal/MateriaPrincipal"
 import MateriaFinal from "./MateriaFinal/MateriaFinal"
 import MateriaCarrossel from "./MateriaCarrossel/MateriaCarrossel"
-import Head from "next/head"
+import Footer from "../../Footer/Footer"
 
 export default function MateriaBlog() {
   return(
@@ -15,13 +14,20 @@ export default function MateriaBlog() {
 
       <BannerLogo/>
 
-      <MateriasLinks/>
+      <div className="xl:block hidden">
+        <MateriasLinks/>
+      </div>
+      
+      <div className="block xl:hidden">
+        <MateriaCarrossel/>
+      </div>
 
       <MateriaPrincipal/>
 
       <MateriaFinal/>
 
-      <MateriaCarrossel/>
+      <Footer/>
+
     </>
   )
 }

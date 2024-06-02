@@ -18,12 +18,12 @@ export default function MateriaCarrossel(){
     };
 
     return(
-        <div className='w-1/5 h-[80vh] m-auto'>
+        <div className='w-[90%] md:w-3/5 h-fit pb-20 m-auto'>
             <div className="mt-20">
             <Slider {...settings}>
             {data.map((d) => (
                 <div key={d.id} className="bg-branco h-fit rounded-2xl flex flex-col justify-center">
-                    <Image className="grayscale-[50%]" quality={80} src={d.img} width={500} height={700} alt=""/>
+                    <Image className="grayscale-[20%]" quality={80} src={d.img} width={1000} height={1000} alt=""/>
                     <p className={`text-branco text-2xl font-bold font-nunito relative ${d.baixo ? "bottom-40" : "bottom-[500px]"} left-5`}>{d.texto}</p>
                 </div>
             ))}
