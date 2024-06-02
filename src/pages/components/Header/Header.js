@@ -41,7 +41,7 @@ export default function Header() {
             <>
               <div
                 className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${
-                  isOpen ? "xs:top-[8%] md:top-[12%]" : " "
+                  isOpen ? "xs:top-[12.5%]" : " "
                 } z-50`}
               >
                 <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
