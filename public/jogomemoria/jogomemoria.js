@@ -13,28 +13,28 @@ let firstCard = false;
 let secondCard = false;
 let podeClicar = true;
 let tempoAcabou = false;
-let dificuldade = 3;
+let dificuldade = 1;
 
 //array dos nomes e imagems das cartinhas
 const items = [
-  { name: "abelha", image: "../jogomemoria/imgs/abelha.png" },
-  { name: "anaconda", image: "../jogomemoria/imgs/anaconda.png" },
-  { name: "calopsita", image: "../jogomemoria/imgs/calopsita.png" },
-  { name: "camaleao", image: "../jogomemoria/imgs/camaleao.png" },
-  { name: "crocodilo", image: "../jogomemoria/imgs/crocodilo.png" },
-  { name: "gorila", image: "../jogomemoria/imgs/gorila.png" },
-  { name: "macaco", image: "../jogomemoria/imgs/macaco.png" },
-  { name: "passaro", image: "../jogomemoria/imgs/passaro.png" },
-  { name: "piranha", image: "../jogomemoria/imgs/piranha.png" },
-  { name: "piranharosa", image: "../jogomemoria/imgs/piranharosa.png" },
-  { name: "preguica", image: "../jogomemoria/imgs/preguica.png" },
-  { name: "tigre", image: "../jogomemoria/imgs/tigre.png" },
-  { name: "tucano", image: "../jogomemoria/imgs/tucano.png" },
-  { name: "avatar", image: "../jogomemoria/imgs/avatar.jpg" },
-  { name: "theboy1", image: "../jogomemoria/imgs/theboy1.jpg" },
-  { name: "theboy2", image: "../jogomemoria/imgs/theboy2.jpg" },
-  { name: "theboy3", image: "../jogomemoria/imgs/theboy3.jpg" },
-  { name: "theboy4", image: "../jogomemoria/imgs/theboy4.jpg" },
+  { name: "flor1", image: "../jogomemoria/imgs/flor1.png" },
+  { name: "flor2", image: "../jogomemoria/imgs/flor2.png" },
+  { name: "flor3", image: "../jogomemoria/imgs/flor3.png" },
+  { name: "flor4", image: "../jogomemoria/imgs/flor4.png" },
+  { name: "flor5", image: "../jogomemoria/imgs/flor5.png" },
+  { name: "flor6", image: "../jogomemoria/imgs/flor6.png" },
+  { name: "flor7", image: "../jogomemoria/imgs/flor7.png" },
+  { name: "flor8", image: "../jogomemoria/imgs/flor8.png" },
+  { name: "flor9", image: "../jogomemoria/imgs/flor9.png" },
+  { name: "flor10", image: "../jogomemoria/imgs/flor10.png" },
+  { name: "flor11", image: "../jogomemoria/imgs/flor11.png" },
+  { name: "flor12", image: "../jogomemoria/imgs/flor12.png" },
+  { name: "flor13", image: "../jogomemoria/imgs/flor13.png" },
+  { name: "flor14", image: "../jogomemoria/imgs/flor14.png" },
+  { name: "flor15", image: "../jogomemoria/imgs/flor15.png" },
+  { name: "flor16", image: "../jogomemoria/imgs/flor16.png" },
+  { name: "flor17", image: "../jogomemoria/imgs/flor17.png" },
+  { name: "flor18", image: "../jogomemoria/imgs/flor18.png" },
 ];
 
 let tamanho = 4
