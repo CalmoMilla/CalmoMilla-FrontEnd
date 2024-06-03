@@ -54,14 +54,7 @@ export default function Login() {
                 Entrar novamente
               </h4>
             </div>
-            <div className="absolute top-[280px] -right-6 w-16 h-16 cursor-pointer">
-              <Image
-                width={500}
-                height={500}
-                src="/assets/Cadastro/changeLoginCadastro.png"
-                alt="Login Change"
-              />
-            </div>
+            
             <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
               <div className="flex justify-around w-[100%]">
                 <hr className="my-4 w-40 border-black"></hr>
@@ -78,6 +71,16 @@ export default function Login() {
             </div>
           </div>
         </div>
+        <div className=" flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex" >
+                  <Image
+                     onClick={() => setShowCadastro(true)}
+                    width={70}
+                    height={70}
+                    className="absolute   ml-[-40px]"
+                    src="/assets/Cadastro/changeLoginCadastro.png"
+                    alt="Login Change"
+                  />
+                </div>
         <div className="flex justify-center items-center w-full h-[65%] lg:w-[100%]">
           <div className="h-full w-full m-auto grid-cols-2 border-black justify-center">
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">

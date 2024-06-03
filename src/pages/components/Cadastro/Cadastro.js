@@ -62,11 +62,12 @@ export default function Cadastro() {
                 </div>
               </div>
             </div>
-            <div className="right-12 flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex">
+            <div className="right-12 flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex" >
                   <Image
-                    width={100}
-                    height={100}
-                    className="absolute ml-10"
+                                     onClick={() => setShowLogin(true)}
+                    width={70}
+                    height={70}
+                    className="absolute ml-12"
                     src="/assets/Cadastro/changeLoginCadastro.png"
                     alt="Login Change"
                   />
