@@ -62,10 +62,22 @@ export default function Cadastro() {
                 </div>
               </div>
             </div>
-            <div className="relative w-[40%] h-full hidden xl:block">
+            <div className="right-12 flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex">
+                  <Image
+                    width={100}
+                    height={100}
+                    className="absolute ml-10"
+                    src="/assets/Cadastro/changeLoginCadastro.png"
+                    alt="Login Change"
+                  />
+                </div>
+              <div className="relative w-[50%] h-full hidden xl:block">
               <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>
+              
               <div className="relative h-[100%] w-auto font-calistoga p-10">
+                      
                 <div className="h-1/2 text-amarelo2 flex-col justify-between">
+                  
                   <h2 className="flex text-center justify-center h-1/2 text-6xl mt-5">
                     Bem vindo
                   </h2>
@@ -73,14 +85,7 @@ export default function Cadastro() {
                     <a href="#"> Inscreva-se </a>
                   </h4>
                 </div>
-                <div className="absolute top-[280px] -left-8 w-16 h-16 cursor-pointer">
-                  <Image
-                    width={500}
-                    height={500}
-                    src="/assets/Cadastro/changeLoginCadastro.png"
-                    alt="Login Change"
-                  />
-                </div>
+    
                 <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
                   <div className="flex justify-around w-[100%]">
                     <hr className="my-4 w-40 border-black"></hr>
