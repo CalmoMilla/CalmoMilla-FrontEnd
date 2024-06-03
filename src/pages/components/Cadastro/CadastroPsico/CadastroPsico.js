@@ -23,9 +23,9 @@ export default function CadastroPsico() {
   }
 
   return (
-    <div className=" h-full w-full m-auto grid-cols-2  border-black justify-center pt-4">
+    <div className=" h-auto w-full  m-auto grid-cols-2  border-black justify-center pt-4">
       <form
-        className=" md:w-[70%] flex-col text-start flex xs:h-[80%]  items-start  mx-auto mt-4 justify-around sm:w-full sm:px-0 "
+        className="md:w-[70%] w-full flex flex-col text-start xs:h-[80%]   2xl:h-[90%]  2xl:gap-3 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
         action="post"
         onSubmit={onSubmit}
       >

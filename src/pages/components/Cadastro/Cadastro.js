@@ -14,12 +14,18 @@ export default function Cadastro() {
         <Login />
       ) : (
         <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
-          <div className="m-auto flex justify-center lg:items-center xs:h-full lg:h-[95%] w-[80%] border rounded-lg shadow-lg xs:items-start ">
-            <div className="h-full w-full m-auto flex flex-col justify-center items-center">
+          <div className="m-auto flex justify-center lg:items-center xs:h-full xl:h-[95%]  w-[80%] border rounded-lg shadow-lg xs:items-start ">
+            <div className="h-full w-full m-auto flex flex-col justify-center items-center ">
               <div className="lg:w-[50%] h-26 m-auto flex flex-col lg:text-center xs:w-full mb-0">
-                <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
+                {isUser ? <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
                   Cadastro <span className="text-amarelo2">Usuário</span>
-                </h2>
+                </h2> :
+                <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
+                Cadastro <span className="text-amarelo2">Psicólogo</span>
+              </h2>
+              
+                }
+                
                 <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start">
                   Se você já tiver uma conta,
                   <br />
@@ -48,7 +54,7 @@ export default function Cadastro() {
                         !
                       </p>
                     ) : (
-                      <p>
+                      <p className="m-0">
                         Sou um <span className="text-amarelo2"> Usuário</span>!
                       </p>
                     )}
