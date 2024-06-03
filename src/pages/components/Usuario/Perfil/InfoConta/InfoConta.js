@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Atualizar } from "../../../../api/usuario/UsuarioService";
 export default function InfoConta(props) {
   const [file, setFile] = useState(null);
+  const [btn, setBtn] = useState(false);
 
   const handleFileChange = (e) => {
+    setBtn(false)
     const selectedFile = e.target.files[0];
     if (!selectedFile) return;
 
@@ -21,6 +23,7 @@ export default function InfoConta(props) {
   };
 
   const handleUpload = async () => {
+    setBtn(true)
     if (!file) return;
 
     const { name, type, file: selectedFile } = file;
@@ -64,7 +67,7 @@ export default function InfoConta(props) {
   return (
     <>
       <div className="w-[100%] h-[30%] flex lg:flex-row flex-col justify-around items-center pt-10">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center relative">
           <Image
             onClick={handleUpload}
             className="w-60 h-60 rounded-full items-center"
@@ -73,7 +76,14 @@ export default function InfoConta(props) {
             width={400}
             height={400}
           />
-          <input type="file" className="mt-5" onChange={handleFileChange} />
+          <label htmlFor="imagem-user" className="hover:bg-preto/30 duration-500 transition ease-in-out h-60 w-60 absolute top-0 rounded-full text-center text-branco z-50"></label>
+          <input type="file" className="mt-5 font-nunito w-auto hidden" id="imagem-user" onChange={handleFileChange} />
+          {btn ? 
+            <h2 className="font-nunito text-xl pt-5">Clique na imagem para trocar sua foto</h2>
+            :
+            <button onClick={handleUpload} className="bg-amarelo1 mt-5 py-2 rounded-xl text-xl hover:bg-amarelo2 duration-500 transition ease-in-out">Fazer upload da imagem</button>
+          }
+          
           {/* <Image
           className="w-60 h-60 rounded-full"
           src={props.usuario ? props.usuario.foto : ""}
