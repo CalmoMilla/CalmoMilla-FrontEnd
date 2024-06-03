@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Atualizar } from "../../../../api/usuario/UsuarioService";
 export default function InfoConta(props) {
   const [file, setFile] = useState(null);
-  const [btn, setBtn] = useState(false);
+  const [btn, setBtn] = useState(true);
 
   const handleFileChange = (e) => {
     setBtn(false)
