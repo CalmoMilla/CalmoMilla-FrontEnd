@@ -14,7 +14,7 @@ const Modal = ({ onClose, children, title }) => {
   useEffect(() => {
 
     const modalContent = (
-      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50" >
         <div className="xs:w-[80%] xs:h-[80%] md:w-[500px]  md:h-[600px] bg-white rounded-lg p-4">
           <div className="flex justify-end text-2xl items-center">
             <div
