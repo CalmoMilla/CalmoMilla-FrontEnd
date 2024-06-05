@@ -29,7 +29,7 @@ export default function ComoFunciona() {
     <div id="comofunciona">
       <div className="w-full h-[90%]">
         <div className="flex justify-around items-center lg:flex-row flex-col pt-60 xs:pt-10">
-          <div className="w-[80%] lg:w-[45%] mb-40">
+          <div className="w-[80%] lg:w-[45%] mb-10">
             <h1 className="font-calistoga text-6xl pb-20 lg:pb-4 md:text-[3rem] lg:text-[3.5rem] xl:text-[5rem] xs:text-center text-verdeagua xl:mb-10">
               {t("comoFuncionaTitulo")}
             </h1>
@@ -66,10 +66,10 @@ export default function ComoFunciona() {
               />
             ) : (
               <Image
-                className="xs:flex lg:block mx-auto"
-                data-aos="fade-left"
-                width={200}
-                height={200}
+                className="xs:flex lg:block mx-auto mb-6"
+                data-aos="fade-out"
+                width={250}
+                height={250}
                 src="/assets/millazinha/milla02.png"
                 alt="Imagem Milla"
               />
