@@ -30,10 +30,10 @@ export default function ComoFunciona() {
       <div className="w-full h-[90%]">
         <div className="flex justify-around items-center lg:flex-row flex-col pt-60 xs:pt-10">
           <div className="w-[80%] lg:w-[45%] mb-40">
-            <h1 className="font-calistoga text-6xl pb-20 lg:pb-4 md:text-[3rem] lg:text-[3.5rem] xl:text-[5rem] xs:text-center text-verdeagua">
+            <h1 className="font-calistoga text-6xl pb-20 lg:pb-4 md:text-[3rem] lg:text-[3.5rem] xl:text-[5rem] xs:text-center text-verdeagua xl:mb-10">
               {t("comoFuncionaTitulo")}
             </h1>
-            <p className="font-nunito text-justify text-2xl font-medium xs:text-center">
+            <p className="font-nunito  text-justify text-2xl font-medium xs:text-center">
               {t("comoFuncionaTexto1")}
               <br />
               {t("comoFuncionaTexto2")}

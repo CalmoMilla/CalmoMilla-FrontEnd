@@ -44,7 +44,7 @@ export default function Header() {
                   isOpen ? "xs:top-[12.5%]" : " "
                 } z-50`}
               >
-                <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
+                <ul className="flex lg:flex-row flex-col lg:items-center  xs:hidden xl:flex lg:gap-[4vw] gap-8">
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
@@ -108,7 +108,7 @@ export default function Header() {
                 ) : (
                   <FaBars
                     id="menu-navbar"
-                    className="text-3xl cursor-pointer lg:hidden"
+                    className="text-3xl cursor-pointer xl:hidden"
                     onClick={toggleMenu}
                   ></FaBars>
                 )}
