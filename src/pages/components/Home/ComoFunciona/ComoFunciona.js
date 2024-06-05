@@ -57,7 +57,7 @@ export default function ComoFunciona() {
           <div className="w-[80%] lg:w-[20%]  justify-center">
             {isLargeScreen ? (
               <Image
-                className="xs:block md:flex"
+                className="xs:block lg:flex"
                 data-aos="fade-left"
                 width={300}
                 height={300}
@@ -68,8 +68,8 @@ export default function ComoFunciona() {
               <Image
                 className="xs:flex lg:block mx-auto"
                 data-aos="fade-left"
-                width={300}
-                height={300}
+                width={200}
+                height={200}
                 src="/assets/millazinha/milla02.png"
                 alt="Imagem Milla"
               />
