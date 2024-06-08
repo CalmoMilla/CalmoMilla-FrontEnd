@@ -33,15 +33,16 @@ export default function User() {
         
       </div>
 
-      <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button>
+      {/* <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button> */}
 
-      {/* <button className="w-16 h-16 bg-amarelo1" onClick={() => setShowEmocoes(true)}>Teste</button>
+      <button className="w-16 h-16 bg-amarelo1" onClick={() => setShowEmocoes(true)}>Teste</button>
+
       <div id="modal-root"></div>
       {showEmocoes && (
         <ModalEmocoes onClose={() => setShowEmocoes(false)}>
           <Emocoes/>
         </ModalEmocoes>
-      )} */}
+      )}
 
       <Footer/>
     </div>
