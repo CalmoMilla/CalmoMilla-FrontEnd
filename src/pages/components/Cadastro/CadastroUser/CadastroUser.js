@@ -32,6 +32,7 @@ export default function CadastroUser() {
       };
 
       await Cadastro(cadastro, "auth/cadastro-paciente");
+
     } catch (error) {
       console.error(error);
     }

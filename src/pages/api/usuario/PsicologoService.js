@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
 const urlLocal = "http://localhost:8080/";
@@ -43,6 +44,11 @@ export const CadastroPsicologo = async (psicologo, endpoint) => {
 
     if (response.status == 201) {
       console.log("Cadastro feito com sucesso");
+      Swal.fire({
+        title: "Cadastro feito!",
+        text: "Seu cadastro foi feito com sucesso na plataforma!",
+        icon: "success"
+      });
       console.log(response.data);
     }
   } catch (error) {
