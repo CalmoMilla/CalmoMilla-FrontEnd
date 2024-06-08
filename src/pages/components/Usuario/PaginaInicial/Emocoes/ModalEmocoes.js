@@ -44,13 +44,16 @@ const Modal = ({ onClose, children, title }) => {
           <div className="w-full h-full">
             <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
               <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
-                <form className="grid-cols-2 h-[80%]">
-                  <div className="w-full h-[75%] mt-20 flex">
+                <form className="flex justify-center items-center flex-col">
+                  <div className="w-full py-5 flex">
                     <BsEmojiFrown className="w-[25%] h-auto text-amarelo1"/>
-                    <input
-                      className="" type="radio" id="email" name="email" required onClick={console.log("oi")}
-                    />
+                    <input className="" type="radio" id="email" name="email" required onClick={console.log("oi")}/>
                   </div>
+
+
+
+
+
                   <div className="w-full justify-center flex ">
                     <button onClick={handleCloseClick} className="w-80 h-12 bg-amarelo2 justify-center p-0 rounded-full text-white" type="submit">
                       Submeter
