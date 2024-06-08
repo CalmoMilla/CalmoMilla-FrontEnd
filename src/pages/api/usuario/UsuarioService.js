@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 
 const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
 const urlLocal = "http://localhost:8080/";
+var campos = ""
 
 export const LoginUsuario = async (login, endpoint) => {
   try {
@@ -76,6 +77,14 @@ export const Cadastro = async (paciente, endpoint) => {
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
+      for (const campo in fields) {
+        campos += `${campo}: ${fields[campo]}`
+      }
+      Swal.fire({
+        title: title,
+        text: campos ? campos : "",
+        icon: "warning"
+      });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
     } else {
