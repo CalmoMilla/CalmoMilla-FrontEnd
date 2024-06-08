@@ -6,6 +6,7 @@ import Cadastro from "../Cadastro/Cadastro";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
 import { LoginUsuario } from "@/pages/api/usuario/UsuarioService";
+import { LoginPsicologo } from "@/pages/api/usuario/PsicologoService";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
@@ -29,7 +30,8 @@ export default function Login() {
       senha: data.get("senha"),
     };
 
-    await LoginUsuario(login, "auth/login");
+    // await LoginUsuario(login, "auth/login");
+    await LoginPsicologo(login, "auth/login");
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
       router.push("/usuario");

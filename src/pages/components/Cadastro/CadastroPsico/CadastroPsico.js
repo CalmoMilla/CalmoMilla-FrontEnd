@@ -1,3 +1,5 @@
+import { CadastroPsicologo } from "@/pages/api/usuario/PsicologoService";
+
 export default function CadastroPsico() {
   async function onSubmit(event) {
     event.preventDefault();
@@ -12,9 +14,13 @@ export default function CadastroPsico() {
         telefone: data.get("telefone"),
         dataNasc: data.get("datanasc"),
         genero: data.get("genero"),
+        especializacoes: [data.get("especializacao")],
         foto: "https://cdn.discordapp.com/attachments/1239448415910498308/1242199675147128873/642902-200.png?ex=664cf819&is=664ba699&hm=635b81ace1c4444f6458d34dd5ecda004b91c20341bf9983bdd22eb5967a4e10&",
-        role: "PACIENTE",
+        numeroRegistro: "123344",
+        role: "PSICOLOGO",
       };
+
+      CadastroPsicologo(cadastro, "auth/cadastro-psicologo")
 
       console.log(cadastro);
     } catch (error) {
@@ -145,11 +151,7 @@ export default function CadastroPsico() {
           <select
             name="especializacao"
             id="especializacao"
-            className="w
-          text-black
-          py-[5px]
-
-          "
+            className="text-black py-[5px]"
           >
             <option value="pG">Psicólogo Geral</option>
             <option value="f">Psicólogo Neuroseila</option>
