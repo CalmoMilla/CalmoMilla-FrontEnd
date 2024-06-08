@@ -74,6 +74,7 @@ export const Cadastro = async (paciente, endpoint) => {
     }
   } catch (error) {
     if (error.response) {
+      campos = ""
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
