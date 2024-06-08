@@ -30,7 +30,7 @@ export default function Login() {
       senha: data.get("senha"),
     };
 
-    // await LoginUsuario(login, "auth/login");
+    await LoginUsuario(login, "auth/login");
     // await LoginPsicologo(login, "auth/login");
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
