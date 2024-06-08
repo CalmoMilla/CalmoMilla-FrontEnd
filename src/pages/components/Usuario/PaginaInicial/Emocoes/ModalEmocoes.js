@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from 'react-dom/client';
-import { BsEmojiFrown } from "react-icons/bs";
+import { BsEmojiTearFill, BsEmojiGrimaceFill } from "react-icons/bs";
 
 const Modal = ({ onClose, children, title }) => {
   const handleCloseClick = (e) => {
@@ -12,19 +12,25 @@ const Modal = ({ onClose, children, title }) => {
     }
   };
 
+  const [checkedTristeza, setCheckedTristeza] = useState(false)
+  const [checkedAnsioso, setCheckedAnsioso] = useState(false)
+
+  const handleRadioTristeza = () => {
+    checkedTristeza ? "" : setCheckedTristeza(true), setCheckedAnsioso(false)
+  }
+
+  const handleRadioAnsioso = () => {
+    checkedAnsioso ? ""  : setCheckedAnsioso(true), setCheckedTristeza(false)
+  }
+
   useEffect(() => {
 
     const modalContent = (
       <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50" >
-        <div className="xs:w-[80%] xs:h-[80%] md:w-[500px]  md:h-[600px] bg-white rounded-lg p-4">
+        <div className="xs:w-[80%] xs:h-[80%] md:w-[600px]  md:h-[800px] bg-white rounded-lg p-4">
           <div className="flex justify-end text-2xl items-center">
-            <div
-              className="h-20 w-screen
-             text-center flex justify-center items-center "
-            >
-              <h2 className="font-calistoga w-full sm:text-3xl">
-                O que você está sentindo hoje
-              </h2>
+            <div className="h-20 w-screen text-center flex justify-center items-center ">
+              <h2 className="font-calistoga w-full sm:text-3xl">O que você está sentindo hoje </h2>
             </div>
             {/* <button
               className="absolute w-auto h-auto p-0  sm:hidden"
@@ -44,13 +50,18 @@ const Modal = ({ onClose, children, title }) => {
           <div className="w-full h-full">
             <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
               <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
-                <form className="flex justify-center items-center flex-col">
-                  <div className="w-full py-5 flex">
-                    <BsEmojiFrown className="w-[25%] h-auto text-amarelo1"/>
-                    <input className="" type="radio" id="email" name="email" required onClick={console.log("oi")}/>
+                <form className="flex justify-center items-center flex-col gap-4">
+                  <div className={`w-full py-5 flex items-center gap-8 ${checkedTristeza ? "bg-amarelo1/70" : "bg-amarelo1/30" } duration-500 ease-out transition rounded-full px-5 hover:bg-amarelo1/70`} onClick={handleRadioTristeza}>
+                    <BsEmojiTearFill className="w-[25%] h-auto text-amarelo2"/>
+                    <h2 className="text-xl ">Tristeza</h2>
+                    <input className="hidden" type="radio" id="tristeza" name="tristeza" checked={checkedTristeza}/>
                   </div>
 
-
+                  <div className={`w-full py-5 flex items-center gap-8 ${checkedAnsioso ? "bg-amarelo1/70" : "bg-amarelo1/30" } duration-500 ease-out transition rounded-full px-5 hover:bg-amarelo1/70`} onClick={handleRadioAnsioso}>
+                    <BsEmojiGrimaceFill className="w-[25%] h-auto text-amarelo2"/>
+                    <h2 className="text-xl ">Ansioso</h2>
+                    <input className="hidden" type="radio" id="tristeza" name="tristeza" checked={checkedAnsioso}/>
+                  </div>
 
 
 
