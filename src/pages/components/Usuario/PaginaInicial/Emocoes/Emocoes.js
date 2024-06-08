@@ -2,6 +2,14 @@
 import { BsEmojiFrown } from "react-icons/bs";
 
 export default function Emocoes() {
+
+  const handleCloseClick = (e) => {
+    e.preventDefault();
+    if (onClose) {
+      onClose();
+    }
+  };
+
   return (
     <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
       <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
@@ -13,7 +21,7 @@ export default function Emocoes() {
             />
           </div>
           <div className="w-full justify-center flex ">
-            <button className="w-80 h-12 bg-amarelo2 justify-center p-0 rounded-full text-white" type="submit">
+            <button onClick={handleCloseClick} className="w-80 h-12 bg-amarelo2 justify-center p-0 rounded-full text-white" type="submit">
               Submeter
             </button>
           </div>

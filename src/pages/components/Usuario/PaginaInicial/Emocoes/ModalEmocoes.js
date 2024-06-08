@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from 'react-dom/client';
+import { BsEmojiFrown } from "react-icons/bs";
 
 const Modal = ({ onClose, children, title }) => {
   const handleCloseClick = (e) => {
@@ -22,10 +23,10 @@ const Modal = ({ onClose, children, title }) => {
              text-center flex justify-center items-center "
             >
               <h2 className="font-calistoga w-full sm:text-3xl">
-                Recupere sua senha{" "}
+                O que você está sentindo hoje
               </h2>
             </div>
-            <button
+            {/* <button
               className="absolute w-auto h-auto p-0  sm:hidden"
               onClick={handleCloseClick}
             >
@@ -37,11 +38,27 @@ const Modal = ({ onClose, children, title }) => {
               onClick={handleCloseClick}
             >
               <IoCloseSharp size={45} />
-            </button>
+            </button> */}
           </div>
           {title && <h1 className="text-xl font-bold">{title}</h1>}
           <div className="w-full h-full">
-            {children}
+            <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
+              <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
+                <form className="grid-cols-2 h-[80%]">
+                  <div className="w-full h-[75%] mt-20 flex">
+                    <BsEmojiFrown className="w-[25%] h-auto text-amarelo1"/>
+                    <input
+                      className="" type="radio" id="email" name="email" required onClick={console.log("oi")}
+                    />
+                  </div>
+                  <div className="w-full justify-center flex ">
+                    <button onClick={handleCloseClick} className="w-80 h-12 bg-amarelo2 justify-center p-0 rounded-full text-white" type="submit">
+                      Submeter
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
