@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
-const urlLocal = "http://localhost:8080/";
+const urlLocal = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
+const url = "http://localhost:8080/";
 
 export const LoginPsicologo = async (login, endpoint) => {
   try {
@@ -75,6 +75,8 @@ export const BuscarInfoPsicologo = async (endpoint) => {
       Authorization: `Bearer ${token}`,
     },
   });
+
+  console.log(token)
 
   if (response.ok) {
     const userInfo = await response.json();

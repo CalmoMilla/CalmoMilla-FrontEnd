@@ -32,10 +32,10 @@ export default function Login() {
 
     // await LoginUsuario(login, "auth/login");
     await LoginPsicologo(login, "auth/login");
-    const tokenUser = localStorage.getItem("token");
-    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
-      router.push("/usuario");
-    }
+    // const tokenUser = localStorage.getItem("token");
+    // if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+    //   router.push("/usuario");
+    // }
   }
 
   if (showCadastro) {
