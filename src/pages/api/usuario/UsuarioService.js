@@ -24,9 +24,18 @@ export const LoginUsuario = async (login, endpoint) => {
     }
   } catch (error) {
     if (error.response) {
+      campos = ""
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
+      for (const campo in fields) {
+        campos += `${campo}: ${fields[campo]}`
+      }
+      Swal.fire({
+        title: title,
+        text: campos ? campos : "",
+        icon: "warning"
+      });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
     } else {
