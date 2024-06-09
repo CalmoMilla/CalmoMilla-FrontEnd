@@ -45,7 +45,7 @@ export default function CadastroUser() {
   return (
     <div className="h-full w-full flex flex-col justify-center items-center">
       <form
-        className="md:w-[70%] w-full flex flex-col text-start xs:h-[80%] 2xl:h-[90%] 2xl:gap-4 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
+        className="md:w-[70%] w-full flex flex-col text-start xs:h-[80%] 2xl:h-[90%] xl:gap-2 2xl:gap-4 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
         onSubmit={onSubmit}
       >
         <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
