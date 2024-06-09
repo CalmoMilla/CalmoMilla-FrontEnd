@@ -25,11 +25,12 @@ import ProfissionaisSalvos from "./Usuario/Psicologo/ProfissionaisSalvos/Profiss
 import JogoDisponivel from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogoDisponivel";
 import MateriaBlog from "./Usuario/MateriaBlog/MateriaBlog";
 import CadastroPsico from "./Cadastro/CadastroPsico/CadastroPsico";
+import PacientesVinculados from "./Psicologo/PacientesVinculados/PacientesVinculados";
 
 export default function Teste() {
   return (
     <>
-      <Cadastro />
+      <PacientesVinculados />
     </>
   );
 }
