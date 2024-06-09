@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
@@ -6,6 +8,7 @@ import { BsEmojiTearFill, BsEmojiGrimaceFill } from "react-icons/bs";
 
 const Modal = ({ onClose, children, title }) => {
   const handleCloseClick = (e) => {
+    console.log(emocao)
     e.preventDefault();
     if (onClose) {
       onClose();
@@ -14,13 +17,62 @@ const Modal = ({ onClose, children, title }) => {
 
   const [checkedTristeza, setCheckedTristeza] = useState(false)
   const [checkedAnsioso, setCheckedAnsioso] = useState(false)
+  const [emocao, setEmocao] = useState([])
+  const [existe, setExiste] = useState(false)
 
   const handleRadioTristeza = () => {
-    checkedTristeza ? "" : setCheckedTristeza(true), setCheckedAnsioso(false)
+    if (checkedTristeza)  {
+      setCheckedTristeza(false) 
+      retirarEmocao("tristeza")
+    } else {
+      setCheckedTristeza(true)
+      colocarEmocao("tristeza")
+    }
   }
 
   const handleRadioAnsioso = () => {
-    checkedAnsioso ? ""  : setCheckedAnsioso(true), setCheckedTristeza(false)
+    if (checkedAnsioso)  {
+      setCheckedAnsioso(false) 
+      retirarEmocao("ansioso")
+    } else {
+      setCheckedAnsioso(true)
+      colocarEmocao("ansioso")
+    }
+  }
+
+  const colocarEmocao = (emocaoDeclarada) => {
+    console.log(emocaoDeclarada)
+
+    // for (let index = 0; index < emocao.length; index++) {
+    //   if (emocao[index] == emocaoDeclarada) {
+    //     setExiste(true)
+    //   }
+    //   else {
+    //     setExiste(false)
+    //   }
+    // }
+
+    // if (existe == false){
+    //   setEmocao((emocoesAnteriores) => [...emocoesAnteriores, emocaoDeclarada])
+    // }
+
+    let emocoesAntigas = [...emocao]
+    emocoesAntigas.push(emocaoDeclarada)
+    setEmocao(emocoesAntigas)
+    
+    console.log(emocao, existe, emocao.length)
+
+  }
+
+  const retirarEmocao = (emocaoDeclarada) => {
+    const index = emocao.indexOf(emocaoDeclarada);
+
+    if (index !== -1) {
+      emocao.splice(index, 1);
+      console.log(emocao);
+    } else {
+      console.log("Emoção não encontrada");
+    }
   }
 
   useEffect(() => {
@@ -54,13 +106,11 @@ const Modal = ({ onClose, children, title }) => {
                   <div className={`w-full py-5 flex items-center gap-8 ${checkedTristeza ? "bg-amarelo1/70" : "bg-amarelo1/30" } duration-500 ease-out transition rounded-full px-5 hover:bg-amarelo1/70`} onClick={handleRadioTristeza}>
                     <BsEmojiTearFill className="w-[25%] h-auto text-amarelo2"/>
                     <h2 className="text-xl ">Tristeza</h2>
-                    <input className="hidden" type="radio" id="tristeza" name="tristeza" checked={checkedTristeza}/>
                   </div>
 
                   <div className={`w-full py-5 flex items-center gap-8 ${checkedAnsioso ? "bg-amarelo1/70" : "bg-amarelo1/30" } duration-500 ease-out transition rounded-full px-5 hover:bg-amarelo1/70`} onClick={handleRadioAnsioso}>
                     <BsEmojiGrimaceFill className="w-[25%] h-auto text-amarelo2"/>
                     <h2 className="text-xl ">Ansioso</h2>
-                    <input className="hidden" type="radio" id="tristeza" name="tristeza" checked={checkedAnsioso}/>
                   </div>
 
 
