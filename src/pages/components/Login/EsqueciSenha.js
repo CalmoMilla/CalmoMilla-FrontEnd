@@ -9,9 +9,10 @@ export default function EsqueciSenha() {
     console.log(recuperarSenha)
   }
   return(
-  <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
+
+<div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
       <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
-        <form className="grid-cols-2 h-[80%]">
+        <form className="grid-cols-2 h-[80%]"  onSubmit={onSubmit}>
           <div className="w-full h-[75%] mt-20">
             <div className=" border-b-2  border-black xs:m-auto">
               <label className="flex text-amarelo2 text-lg" htmlFor="email  ">
@@ -31,7 +32,6 @@ export default function EsqueciSenha() {
             <button
               className="w-80 h-12 bg-amarelo2 justify-center p-0 rounded-full text-white "
               type="submit"
-              onClick={onSubmit}
             >
               Recuperar
             </button>
