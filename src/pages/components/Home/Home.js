@@ -4,7 +4,7 @@ import PaginaInicial from "./PaginaInicial/PaginaInicial"
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
 import ComoFunciona from "./ComoFunciona/ComoFunciona"
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Parceiros from "./Parceiros/Parceiros"
@@ -13,8 +13,11 @@ import Blog from "./Blog/Blog"
 import Funcionalidades from "./Funcionalidade/Funcionalidades"
 import load_astv_script from "../../../../public/assistive/assistive"
 import Planos from "./Planos/Planos"
+import assistant from "../../../../public/assistant/assistant"
 
 export default function Home() {
+
+  const assistantRef = useRef(null);
 
   useEffect(() => {
     AOS.init({
@@ -41,6 +44,10 @@ export default function Home() {
     });
 
     load_astv_script();
+    if (!assistantRef.current) {
+      assistantRef.current = true;
+      assistant();
+    }
 
   }, [])
 
