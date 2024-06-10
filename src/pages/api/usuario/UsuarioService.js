@@ -52,10 +52,17 @@ export const LoginComGoogle = async (usuario, endpoint) => {
       },
     });
 
-    if (response.status == 201) {
-      LoginComGoogle(usuario);
+    if (response.status == 404) {
+     //mandar para o cadastro com os dados preenchidos
     }
-
+    if (response.status == 400) {
+      //Modal para confirmar a senha
+      LoginComGoogle(login,endpoint)
+     }
+     if (response.status == 200) {
+      // Logar 
+      
+     }
     if (response.data.token != null) {
       console.log(response.data);
     }
