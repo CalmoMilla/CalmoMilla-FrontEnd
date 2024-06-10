@@ -3,7 +3,7 @@ import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
 import Login from "../Login/Login";
 import React, { useState } from "react";
-import { signIn } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 import { useSession } from "next-auth/react"
 import { useEffect } from "react";
 
@@ -14,7 +14,7 @@ export default function Cadastro() {
   const { data: session } = useSession()
 
   useEffect(() => {
-    console.log(session)
+    console.log(session ? session.user : "")
   })
 
   return (
@@ -50,15 +50,16 @@ export default function Cadastro() {
               </div>
 
               <div className="flex flex-col justify-center lg:items-center w-full h-auto 2xl:items-start lg:w-[100%] mb-auto ">
-                {isUser ? <CadastroUser /> : <CadastroPsico />}
+                {isUser ? <CadastroUser session={session}/> : <CadastroPsico />}
 
-                <div className="xs:mx-auto md:w-[50%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
+                <div className="xs:mx-auto md:w-[70%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
                   <a
                     onClick={() => setIsUser(!isUser)}
                     className="font-nunito tracking-normal cursor-pointer font-bold p-0 "
                   >
 
                     <button className="bg-amarelo2 mx-auto text-branco" onClick={() => signIn('google')}>Fazer login com Google</button>
+                    <button className="bg-amarelo2 mx-auto text-branco" onClick={() => signOut()}>desloga</button>
                     {isUser ? (
                       <p className="mt-4">
                         Sou um <span className="text-amarelo2"> Psicólogo</span>
