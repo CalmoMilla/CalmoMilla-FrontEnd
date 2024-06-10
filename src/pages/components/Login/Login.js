@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Cadastro from "../Cadastro/Cadastro";
+import CadastroLogin from "../CadastroLogin";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
 import { LoginUsuario } from "@/pages/api/usuario/UsuarioService";
@@ -39,7 +39,7 @@ export default function Login() {
   }
 
   if (showCadastro) {
-    return <Cadastro />;
+    return <CadastroLogin />;
   }
 
   return (

@@ -1,12 +1,12 @@
 "use client"
 
 import { SessionProvider } from "next-auth/react"
-import User from "./Usuario/PaginaInicial/User"
+import Cadastro from "./Cadastro/Cadastro"
 
-export default function UsuarioInicial(){
+export default function CadastroLogin(){
   return (
     <SessionProvider>
-      <User/>
+      <Cadastro/>
     </SessionProvider>
   )
 }

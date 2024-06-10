@@ -8,12 +8,9 @@ import ModalEmocoes from "./Emocoes/ModalEmocoes"
 import EsqueciSenha from "../../Login/EsqueciSenha"
 import Emocoes from "./Emocoes/Emocoes"
 import Swal from "sweetalert2"
-import { signIn } from 'next-auth/react'
-import { useSession } from "next-auth/react"
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false)
-  const { data: session } = useSession()
 
   useEffect(() => {
     console.log(session)
@@ -43,8 +40,6 @@ export default function User() {
           <Emocoes/>
         </ModalEmocoes>
       )}
-
-      <button onClick={() => signIn('google')}>Fazer login com Google</button>
 
       <Footer/>
     </div>

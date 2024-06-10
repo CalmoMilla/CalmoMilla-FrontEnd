@@ -3,10 +3,19 @@ import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
 import Login from "../Login/Login";
 import React, { useState } from "react";
+import { signIn } from 'next-auth/react'
+import { useSession } from "next-auth/react"
+import { useEffect } from "react";
 
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
   const [isUser, setIsUser] = useState(true);
+
+  const { data: session } = useSession()
+
+  useEffect(() => {
+    console.log(session)
+  })
 
   return (
     <>
@@ -48,6 +57,8 @@ export default function Cadastro() {
                     onClick={() => setIsUser(!isUser)}
                     className="font-nunito tracking-normal cursor-pointer font-bold p-0 "
                   >
+
+                    <button className="bg-amarelo2 mx-auto text-branco" onClick={() => signIn('google')}>Fazer login com Google</button>
                     {isUser ? (
                       <p className="mt-4">
                         Sou um <span className="text-amarelo2"> Psicólogo</span>
