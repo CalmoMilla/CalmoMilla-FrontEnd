@@ -59,6 +59,10 @@ export default function InfoConta(props) {
       console.log(file.name);
       Atualizar(props.usuario, "pacientes");
       console.log("Imagem atualizada com sucesso");
+      let usuarioStorage = localStorage.getItem("usuario");
+      usuarioStorage = JSON.parse(usuarioStorage)
+      usuarioStorage.foto = props.usuario.foto
+      localStorage.setItem("usuario", JSON.stringify(usuarioStorage))
     } else {
       console.error("Upload failed.");
     }
