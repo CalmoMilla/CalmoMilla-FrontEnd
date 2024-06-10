@@ -18,7 +18,8 @@ export default function NovaSenha() {
         alert('As senhas não são iguais, tente novamente');
       } else {
         setIsSubmitting(true); 
-        console.log(novaSenha.senhaDigitada); 
+        console.log(novaSenha.senhaDigitada);
+         
         setTimeout(() => {
           router.push('/login')
         }, 500); // Atraso de 1 segundo

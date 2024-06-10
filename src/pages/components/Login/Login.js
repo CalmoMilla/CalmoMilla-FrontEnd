@@ -117,6 +117,7 @@ export default function Login() {
                   id="email"
                   name="email"
                   placeholder="Coloque seu Email."
+                  required
                 />
               </div>
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
@@ -129,6 +130,7 @@ export default function Login() {
                   name="senha"
                   className="border-none border-b-2 font-nunito placeholder:text-black text-sm"
                   placeholder="Escreva sua senha."
+                  required
                 />
               </div>
               <div className="flex w-[70%] justify-center xs:m-auto">
