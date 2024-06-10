@@ -29,6 +29,8 @@ export default function CadastroUser(props) {
         return;
       }
 
+      let pic = props.session ? props.session.user.image : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+
       let cadastro = {
         nome: data.get("nome"),
         email: data.get("email"),
@@ -37,7 +39,7 @@ export default function CadastroUser(props) {
         telefone: data.get("telefone"),
         dataNasc: data.get("datanasc"),
         genero: data.get("genero"),
-        foto: "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
+        foto: pic,
         role: "PACIENTE",
       };
 

@@ -12,9 +12,6 @@ import Swal from "sweetalert2"
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false)
 
-  useEffect(() => {
-    console.log(session)
-  })
 
   return (
     <div>
