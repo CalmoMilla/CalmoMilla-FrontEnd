@@ -106,7 +106,7 @@ export const Cadastro = async (paciente, endpoint) => {
 
 export const EsqueciASenha = async (email, endpoint) => {
   try {
-    const response = await axios.post(urlLocal + endpoint, email, {
+    const response = await axios.post(url + endpoint, email, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -145,7 +145,7 @@ export const EsqueciASenha = async (email, endpoint) => {
 
 export const RedefinirSenha = async (redefinir, endpoint) => {
   try {
-    const response = await axios.post(urlLocal + endpoint, redefinir, {
+    const response = await axios.post(url + endpoint, redefinir, {
       headers: {
         "Content-Type": "application/json",
       },
