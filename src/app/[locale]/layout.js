@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${calistoga.variable} ${nunito.variable} scroll-smooth`}>
+    <html lang="pt-br" className={`${calistoga.variable} ${nunito.variable} scroll-smooth`}>
       <body>
         {children}
       </body>

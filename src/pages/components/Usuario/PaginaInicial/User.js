@@ -3,27 +3,26 @@ import Header from "../../Header/Header"
 import Footer from "../../Footer/Footer"
 import ExercicioDia from "./ExercicioDia/ExercicioDia"
 import VisaoGeral from "./VisaoGeral/VisaoGeral"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ModalEmocoes from "./Emocoes/ModalEmocoes"
 import EsqueciSenha from "../../Login/EsqueciSenha"
 import Emocoes from "./Emocoes/Emocoes"
 import Swal from "sweetalert2"
 import { signIn } from 'next-auth/react'
+import { useSession } from "next-auth/react"
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false)
+  const { data: session } = useSession()
 
-  const handleClick = () => {
-    Swal.fire({
-      title: 'Alerta!',
-      text: 'Esta é uma mensagem de alerta.',
-      icon: 'warning',
-    });
-  };
+  useEffect(() => {
+    console.log(session)
+  })
 
   return (
     <div>
       <Header/>
+
 
       <div className="flex justify-center flex-col items-center pb-20">
         <ExercicioDia titulo={"Jogo da Memória"} desc={"Um teste diário que testa seu pensamento cognitivo"} 

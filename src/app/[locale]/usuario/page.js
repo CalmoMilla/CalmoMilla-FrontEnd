@@ -1,7 +1,7 @@
 import User from "@/pages/components/Usuario/PaginaInicial/User"
 import initTranslations from "../../i18n";
 import TranslationsProvider from "../../TranslationProvider";
-
+import UsuarioInicial from "@/pages/components/UsuarioInicial";
 const namespaces = ['home', 'common']
 
 export default async function Page({params: {locale} }) {
@@ -9,7 +9,7 @@ export default async function Page({params: {locale} }) {
 
   return (
     <TranslationsProvider locale={locale} resources={resources} namespaces={namespaces}>
-      <User/>
+      <UsuarioInicial/>
     </TranslationsProvider>
   )
 }
