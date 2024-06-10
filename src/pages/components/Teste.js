@@ -26,10 +26,10 @@ import JogoDisponivel from "./Usuario/TelaInicialJogos/JogosDisponiveis/JogoDisp
 import MateriaBlog from "./Usuario/MateriaBlog/MateriaBlog";
 import CadastroPsico from "./Cadastro/CadastroPsico/CadastroPsico";
 import PacientesVinculados from "./Psicologo/PacientesVinculados/PacientesVinculados";
-import NovaSenha from "./NovaSenha/NovaSenha";
+import NovaSenha from "./NovaSenha/[email]";
 
 export default function Teste() {
   return (
-    <NovaSenha></NovaSenha>
+    <NovaSenha/>
   );
 }

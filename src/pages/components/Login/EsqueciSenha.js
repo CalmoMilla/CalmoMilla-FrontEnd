@@ -1,3 +1,5 @@
+import { EsqueciASenha } from "@/pages/api/usuario/UsuarioService";
+
 export default function EsqueciSenha() {
   async function onSubmit(event) {
     event.preventDefault();
@@ -6,6 +8,9 @@ export default function EsqueciSenha() {
     let recuperarSenha = {
       email: data.get("emailRedefinir"),
     };
+
+    EsqueciASenha(recuperarSenha,"auth/esqueciASenha")
+
     console.log(recuperarSenha)
   }
   return(

@@ -102,6 +102,84 @@ export const Cadastro = async (paciente, endpoint) => {
     }
   }
 };
+
+
+export const EsqueciASenha = async (email, endpoint) => {
+  try {
+    const response = await axios.post(urlLocal + endpoint, email, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status == 200) {
+      Swal.fire({
+        title: "Email enviado com sucesso!",
+        text: "Acesse o email e siga as instruções!",
+        icon: "success"
+      });
+      console.log(response.data);
+    }
+  } catch (error) {
+    if (error.response) {
+      campos = ""
+      const { title, fields } = error.response.data;
+      console.log("Title:", title);
+      console.log(response.status)
+      console.log("Fields:", fields);
+      for (const campo in fields) {
+        campos += `${campo}: ${fields[campo]}`
+      }
+      Swal.fire({
+        title: title,
+        text: campos ? campos : "",
+        icon: "warning"
+      });
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};
+
+export const RedefinirSenha = async (redefinir, endpoint) => {
+  try {
+    const response = await axios.post(urlLocal + endpoint, redefinir, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status == 200) {
+      Swal.fire({
+        title: "Senha redefinida com sucesso!",
+        text: "Faça seu login agora!",
+        icon: "success"
+      });
+    }
+  } catch (error) {
+    if (error.response) {
+      campos = ""
+      const { title, fields } = error.response.data;
+      console.log("Title:", title);
+      console.log("Fields:", fields);
+      for (const campo in fields) {
+        campos += `${campo}: ${fields[campo]}`
+      }
+      Swal.fire({
+        title: title,
+        text: campos ? campos : "",
+        icon: "warning"
+      });
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};
+
 export const BuscarInfoUsuario = async (endpoint) => {
   if (typeof window === "undefined") {
     return null;
