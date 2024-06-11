@@ -59,7 +59,7 @@ export default function Login() {
         }`}
       >
         <div className="relative w-[60%] h-full hidden xl:block">
-          <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>
+          <div className="absolute inset-0 bg-login-gradient blur-md opacity-60 filter h-auto border"></div>
           <div className="relative h-[100%] w-auto font-calistoga p-10">
             <div className="h-1/2 text-amarelo2 flex-col justify-between">
               <h2 className="flex text-center justify-center h-1/2 text-6xl mt-5">

@@ -38,7 +38,7 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "login-gradient":
-          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(217,217,217,1) 20%)",
+          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(227,227,227,1) 30%)",
       },
       colors: {
         amarelo1: "#FFCE55",
@@ -69,13 +69,13 @@ module.exports = {
         },
         "100%": {
           opacity: "0",
-          transform: "translateX(-100px)",
+          transform: "translateX(-200px)",
         },
       },
     },
     animation: {
       toLogin: "toLogin 1s ease-in-out 0.1s ",
-      toCadastro: "toCadastro 1s ease-in 0.1s", // Duração de 1 segundo, ease-in-out, e forwards
+      toCadastro: "toCadastro 1s ease-in-out 0.1s", // Duração de 1 segundo, ease-in-out, e forwards
     },
   },
   plugins: [],
