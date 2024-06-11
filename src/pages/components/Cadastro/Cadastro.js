@@ -10,7 +10,7 @@ export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
   const [isUser, setIsUser] = useState(true);
 
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   return (
     <>
@@ -46,9 +46,9 @@ export default function Cadastro() {
 
               <div className="flex flex-col justify-center lg:items-center w-full h-auto 2xl:items-start lg:w-[100%] mb-auto ">
                 {isUser ? 
-                session ? <CadastroUser session={session}/> : <CadastroUser/> 
+                status !== 'loading' ? <CadastroUser session={session}/> : <CadastroUser/> 
                 : 
-                session ? <CadastroPsico session={session}/> : <CadastroPsico/>}
+                status !== 'loading' ? <CadastroPsico session={session}/> : <CadastroPsico/>}
 
                 <div className="xs:mx-auto md:w-[70%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
                   <a

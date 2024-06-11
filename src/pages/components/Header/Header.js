@@ -22,14 +22,12 @@ export default function Header() {
 
   useEffect(() => {
     let usuarioStorage = localStorage.getItem("usuario");
-    usuarioStorage = JSON.parse(usuarioStorage)
-    console.log(usuarioStorage)
-    setUsuario(usuarioStorage ? usuarioStorage : null);
-    setFoto(usuarioStorage.foto)
-    // setTimeout(() => {
-    //   setFoto(usuario.foto)
-    //   console.log(foto)
-    // }, 1000)
+    if (usuarioStorage != null) {
+      usuarioStorage = JSON.parse(usuarioStorage)
+      console.log(usuarioStorage)
+      setUsuario(usuarioStorage ? usuarioStorage : null);
+      setFoto(usuarioStorage.foto)
+    }
   },[]);
 
   useEffect(() => {
