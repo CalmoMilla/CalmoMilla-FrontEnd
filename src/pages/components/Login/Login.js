@@ -11,15 +11,24 @@ import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [showCadastro, setShowCadastro] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
   const router = useRouter();
+
+  const handleClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setShowCadastro(true);
+      setIsAnimating(false);
+    }, 1100); // 1000ms é a duração da animação
+  };
 
   useEffect(() => {
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
       router.push("/usuario");
     }
-  });
+  }, [router]);
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -44,8 +53,12 @@ export default function Login() {
 
   return (
     <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
-      <div className="m-auto flex justify-center items-center h-[90%] w-[80%] border rounded-lg shadow-lg">
-        <div className="relative w-[60%] h-full hidden lg:block">
+      <div
+        className={`m-auto flex justify-center items-center h-[90%] w-[80%] border rounded-lg shadow-lg  ${
+          isAnimating ? "animate-toCadastro" : ""
+        }`}
+      >
+        <div className="relative w-[60%] h-full hidden xl:block">
           <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>
           <div className="relative h-[100%] w-auto font-calistoga p-10">
             <div className="h-1/2 text-amarelo2 flex-col justify-between">
@@ -56,7 +69,7 @@ export default function Login() {
                 Entrar novamente
               </h4>
             </div>
-            
+
             <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
               <div className="flex justify-around w-[100%]">
                 <hr className="my-4 w-40 border-black"></hr>
@@ -65,25 +78,25 @@ export default function Login() {
               </div>
               <button
                 className="w-72 h-10 bg-amarelo2 justify-center p-0 rounded-full text-white"
-                type="submit"
-                onClick={() => setShowCadastro(true)}
+                type="button"
+                onClick={handleClick}
               >
                 Criar Conta
               </button>
             </div>
           </div>
         </div>
-        <div className=" flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex" >
-                  <Image
-                     onClick={() => setShowCadastro(true)}
-                    width={70}
-                    height={70}
-                    className="absolute   ml-[-40px]"
-                    src="/assets/Cadastro/changeLoginCadastro.png"
-                    alt="Login Change"
-                  />
-                </div>
-        <div className="flex justify-center items-center w-full h-[65%] lg:w-[100%]">
+        <div className="flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex">
+          <Image
+            onClick={handleClick}
+            width={70}
+            height={70}
+            className="absolute ml-[-40px]"
+            src="/assets/Cadastro/changeLoginCadastro.png"
+            alt="Login Change"
+          />
+        </div>
+        <div className="flex justify-center items-center w-full h-[65%] lg:w-[100%] ">
           <div className="h-full w-full m-auto grid-cols-2 border-black justify-center">
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
               <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
@@ -95,7 +108,7 @@ export default function Login() {
                 acesse o{" "}
                 <span
                   className="text-amarelo2 cursor-pointer"
-                  onClick={() => setShowCadastro(true)}
+                  onClick={handleClick}
                 >
                   Cadastro
                 </span>{" "}

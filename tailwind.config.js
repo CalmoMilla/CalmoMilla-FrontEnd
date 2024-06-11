@@ -51,6 +51,32 @@ module.exports = {
         preto: "#000000",
       },
     },
+    keyframes: {
+      toCadastro: {
+        "0%": {
+          opacity: "1",
+          transform: "translateX(0)",
+        },
+        "100%": {
+          opacity: "0",
+          transform: "translateX(200px)",
+        },
+      },
+      toLogin: {
+        "0%": {
+          opacity: "1",
+          transform: "translateX(0)",
+        },
+        "100%": {
+          opacity: "0",
+          transform: "translateX(-100px)",
+        },
+      },
+    },
+    animation: {
+      toLogin: "toLogin 1s ease-in-out 0.1s ",
+      toCadastro: "toCadastro 1s ease-in 0.1s", // Duração de 1 segundo, ease-in-out, e forwards
+    },
   },
   plugins: [],
 };

@@ -7,32 +7,45 @@ import React, { useState } from "react";
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
   const [isUser, setIsUser] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setShowLogin(true);
+    }, 1000); // 1000ms é a duração da animação
+  };
 
   return (
     <>
       {showLogin ? (
-        <Login />
+        <Login className={`${isAnimating ? "animate-toLogin" : ""}}`} />
       ) : (
         <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
-          <div className="m-auto flex justify-center lg:items-center xs:h-full xl:h-[95%]  w-[80%] border rounded-lg shadow-lg xs:items-start ">
+          <div
+            className={`m-auto flex justify-center lg:items-center xs:h-full xl:h-[95%]  w-[80%] border rounded-lg shadow-lg xs:items-start  ${
+              isAnimating ? "animate-toLogin" : ""
+            }`}
+          >
             <div className="h-full w-full m-auto flex flex-col justify-center items-center ">
-              <div className="lg:w-[50%] h-26 m-auto flex flex-col lg:text-center xs:w-full mb-0">
-                {isUser ? <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
-                  Cadastro <span className="text-amarelo2">Usuário</span>
-                </h2> :
-                <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
-                Cadastro <span className="text-amarelo2">Psicólogo</span>
-              </h2>
-              
-                }
-                
+              <div className="lg:w-[50%] h-26 m-auto flex flex-col lg:text-center xs:w-full mb-0 ">
+                {isUser ? (
+                  <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
+                    Cadastro <span className="text-amarelo2">Usuário</span>
+                  </h2>
+                ) : (
+                  <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga mt-2">
+                    Cadastro <span className="text-amarelo2">Psicólogo</span>
+                  </h2>
+                )}
+
                 <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start">
                   Se você já tiver uma conta,
                   <br />
                   acesse o{" "}
                   <span
                     className="text-amarelo2 cursor-pointer"
-                    onClick={() => setShowLogin(true)}
+                    onClick={() => handleClick(true)}
                   >
                     Login
                   </span>{" "}
@@ -62,23 +75,21 @@ export default function Cadastro() {
                 </div>
               </div>
             </div>
-            <div className="right-12 flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex" >
-                  <Image
-                                     onClick={() => setShowLogin(true)}
-                    width={70}
-                    height={70}
-                    className="absolute ml-12"
-                    src="/assets/Cadastro/changeLoginCadastro.png"
-                    alt="Login Change"
-                  />
-                </div>
-              <div className="relative w-[50%] h-full hidden xl:block">
+            <div className="right-12 flex items-center h-[100%] w-36 xl:h-[95%] cursor-pointer z-50 xs:hidden xl:flex ">
+              <Image
+                onClick={() => handleClick(true)}
+                width={70}
+                height={70}
+                className="absolute ml-12"
+                src="/assets/Cadastro/changeLoginCadastro.png"
+                alt="Login Change"
+              />
+            </div>
+            <div className="relative w-[50%] h-full hidden xl:block">
               <div className="absolute inset-0 bg-login-gradient blur-sm opacity-60 filter h-auto border"></div>
-              
+
               <div className="relative h-[100%] w-auto font-calistoga p-10">
-                      
                 <div className="h-1/2 text-amarelo2 flex-col justify-between">
-                  
                   <h2 className="flex text-center justify-center h-1/2 text-6xl mt-5">
                     Bem vindo
                   </h2>
@@ -86,7 +97,7 @@ export default function Cadastro() {
                     <a href="#"> Inscreva-se </a>
                   </h4>
                 </div>
-    
+
                 <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
                   <div className="flex justify-around w-[100%]">
                     <hr className="my-4 w-40 border-black"></hr>
@@ -96,7 +107,7 @@ export default function Cadastro() {
                   <button
                     className="w-72 h-10 bg-amarelo2 justify-center p-0 rounded-full text-white"
                     type="submit"
-                    onClick={() => setShowLogin(true)}
+                    onClick={() => handleClick(true)}
                   >
                     Fazer Login
                   </button>
