@@ -176,7 +176,7 @@ export default function Header() {
                 transition ease-in-out"
                 >
                 {foto ? 
-                  <Image width={70} height={70} src={foto} alt="..." className="rounded-full"/>
+                  <Image width={50} height={50} src={foto} alt="..." className="rounded-full"/>
                   :
                   <FaUser className="text-3xl cursor-pointer text-branco" /> 
                 }
