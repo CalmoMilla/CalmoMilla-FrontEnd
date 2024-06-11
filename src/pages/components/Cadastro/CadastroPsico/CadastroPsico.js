@@ -8,8 +8,8 @@ export default function CadastroPsico(props) {
 
   useEffect(() => {
     if (props.session) { 
-      setEmail(props.session.user.email) 
-      setNome(props.session.user.name) 
+      setEmail(props.session.data.user.email) 
+      setNome(props.session.data.user.name) 
     }
   }, [props.session])
 
