@@ -1,3 +1,5 @@
+"use client"
+
 import CadastroPsico from "./CadastroPsico/CadastroPsico";
 import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
