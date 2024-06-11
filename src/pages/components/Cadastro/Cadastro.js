@@ -5,17 +5,12 @@ import Login from "../Login/Login";
 import React, { useState } from "react";
 import { signIn, signOut } from 'next-auth/react'
 import { useSession } from "next-auth/react"
-import { useEffect } from "react";
 
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
   const [isUser, setIsUser] = useState(true);
 
   const { data: session } = useSession()
-
-  useEffect(() => {
-    console.log(session ? session.user : "")
-  })
 
   return (
     <>
