@@ -46,9 +46,17 @@ export default function Cadastro() {
 
               <div className="flex flex-col justify-center lg:items-center w-full h-auto 2xl:items-start lg:w-[100%] mb-auto ">
                 {isUser ? (
-                  status !== 'loading' ? <CadastroUser session={session} /> : <div>Carregando...</div>
+                  status !== 'loading' ? (
+                    <CadastroUser session={session} />
+                  ) : (
+                    <div>Carregando dados do usuário...</div>
+                  )
                 ) : (
-                  status !== 'loading' ? <CadastroPsico session={session} /> : <div>Carregando...</div>
+                  status !== 'loading' ? (
+                    <CadastroPsico session={session} />
+                  ) : (
+                    <div>Carregando dados do psicólogo...</div>
+                  )
                 )}
 
                 <div className="xs:mx-auto md:w-[70%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
