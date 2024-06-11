@@ -2,10 +2,10 @@ import PacienteVinculado from "./PacienteVinculado";
 
 export default function PacientesVinculados(){
   let dataUsuarios = [
-    {nome: "vitor", desc: "oioi"},
-    {nome: "vitor", desc: "oioi"},
-    {nome: "vitor", desc: "oioi"},
-    {nome: "vitor", desc: "oioi"}
+    {nome: "Vitor", desc: "oioi"},
+    {nome: "Vitor", desc: "oioi"},
+    {nome: "Vitor", desc: "oioi"},
+    {nome: "Vitor", desc: "oioi"}
   ]
 
   return (
@@ -14,10 +14,9 @@ export default function PacientesVinculados(){
           <h1 className="text-branco text-3xl font-calistoga ">Pacientes vinculados</h1>
         </div>
         <div className="h-fit w-full bg-branco grid grid-cols-1 lg:grid-cols-2 gap-8 py-10">
-          <PacienteVinculado nome={"Vitor"} desc={"oioioi"} />
-          <PacienteVinculado nome={"Vitor"} desc={"oioioi"} />
-          <PacienteVinculado nome={"Vitor"} desc={"oioioi"} />
-          <PacienteVinculado nome={"Vitor"} desc={"oioioi"} />
+          {dataUsuarios.map((usuario) => (
+            <PacienteVinculado key={usuario.nome} nome={usuario.nome} desc={usuario.desc} />
+          ))}
         </div>
     </div>
   )
