@@ -2,7 +2,7 @@ import CadastroPsico from "./CadastroPsico/CadastroPsico";
 import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
 import Login from "../Login/Login";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signIn, signOut } from 'next-auth/react'
 import { useSession } from "next-auth/react"
 
@@ -45,7 +45,10 @@ export default function Cadastro() {
               </div>
 
               <div className="flex flex-col justify-center lg:items-center w-full h-auto 2xl:items-start lg:w-[100%] mb-auto ">
-                {isUser ? <CadastroUser session={session}/> : <CadastroPsico session={session}/>}
+                {isUser ? 
+                session ? <CadastroUser session={session}/> : <CadastroUser/> 
+                : 
+                session ? <CadastroPsico session={session}/> : <CadastroPsico/>}
 
                 <div className="xs:mx-auto md:w-[70%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
                   <a
