@@ -3,22 +3,23 @@ import Header from "../../Header/Header"
 import Footer from "../../Footer/Footer"
 import ExercicioDia from "./ExercicioDia/ExercicioDia"
 import VisaoGeral from "./VisaoGeral/VisaoGeral"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ModalEmocoes from "./Emocoes/ModalEmocoes"
 import EsqueciSenha from "../../Login/EsqueciSenha"
 import Emocoes from "./Emocoes/Emocoes"
 import Swal from "sweetalert2"
+import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService"
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false)
 
-  const handleClick = () => {
-    Swal.fire({
-      title: 'Alerta!',
-      text: 'Esta é uma mensagem de alerta.',
-      icon: 'warning',
-    });
-  };
+  useEffect (() => {
+
+    let usuarioStorage = localStorage.getItem("usuario");
+    usuarioStorage = JSON.parse(usuarioStorage)
+
+    BuscarInfoEmocoes(`emocoes/pacientes/${usuarioStorage.id}`)
+  })
 
   return (
     <div>
