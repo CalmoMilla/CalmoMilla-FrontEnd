@@ -1,5 +1,4 @@
 import { Calistoga, Nunito } from "next/font/google";
-import "./globals.css";
 
 export const calistoga = Calistoga({ 
   subsets: ["latin"],

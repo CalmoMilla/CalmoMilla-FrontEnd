@@ -15,7 +15,7 @@ export default function PacientesVinculados(){
     {id: 6, nome: "Ruth Barbosa", idade: "18", cidade:"Guaianases - SP"},
   ]
 
-  const [selectedUser, setSelectedUser] = useState({});
+  const [selectedUser, setSelectedUser] = useState(null);
 
   function handleClick(user) {
     let usuario = {
