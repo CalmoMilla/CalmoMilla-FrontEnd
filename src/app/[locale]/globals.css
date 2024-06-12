@@ -952,6 +952,10 @@ ul {
         width: 350px;
     }
 
+    .info_box {
+      width: 350px;
+    }
+
     .result_box .complete_text{
         font-size: 14px;
     }
@@ -974,6 +978,10 @@ ul {
         opacity: 0;
         pointer-events: none;
         transition: all 0.3s ease;
+    }
+
+    .info_box {
+      width: 275px;
     }
 
     .next_btn {
