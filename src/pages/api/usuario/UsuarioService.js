@@ -2,7 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
-const urlLocal = "http://localhost:8080/";
+const urlLocal= "http://localhost:8080/";
 var campos = ""
 
 export const LoginUsuario = async (login, endpoint) => {
@@ -123,6 +123,45 @@ export const EsqueciASenha = async (email, endpoint) => {
       Swal.fire({
         title: "Email enviado com sucesso!",
         text: "Acesse o email e siga as instruções!",
+        icon: "success"
+      });
+      console.log(response.data);
+    }
+  } catch (error) {
+    if (error.response) {
+      campos = ""
+      const { title, fields } = error.response.data;
+      console.log("Title:", title);
+      console.log(response.status)
+      console.log("Fields:", fields);
+      for (const campo in fields) {
+        campos += `${campo}: ${fields[campo]}`
+      }
+      Swal.fire({
+        title: title,
+        text: campos ? campos : "",
+        icon: "warning"
+      });
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};
+
+export const EnviarQuestionarioDeEmocoes = async (email, endpoint) => {
+  try {
+    const response = await axios.post(url + endpoint, email, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status == 200) {
+      Swal.fire({
+        title: "Dados registrados com sucesso!",
+        text: `${response.data.mensagem}`,
         icon: "success"
       });
       console.log(response.data);
