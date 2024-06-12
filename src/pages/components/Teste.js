@@ -40,7 +40,6 @@ export default function Teste() {
     <div className="mt-32 flex gap-4 justify-around">
       <Filtro data={data}/>
       <PacientesVinculados/>
-      <InfoPaciente/>
     </div>
       
   );
