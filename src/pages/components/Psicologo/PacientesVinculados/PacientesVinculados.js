@@ -11,10 +11,10 @@ const data = [
 
 export default function PacientesVinculados(){
   return (
-    <div className="w-[65%] h-fit mx-auto">
+    <div className="w-[60%] h-fit">
         <h1 className="text-amarelo1 text-7xl font-calistoga text-center">Pacientes</h1>
         <h3 className="text-preto text-3xl font-nunito text-left">Total: {data.length} pacientes</h3>
-        <div className="h-fit w-full bg-branco grid grid-cols-3 gap-8 py-10">
+        <div className="h-fit w-full grid grid-cols-3 gap-8 py-10">
           {data.map((user)=> (
             <PacienteVinculado key={user.id} nome={user.nome} idade={user.idade} cidade={user.cidade} />
           ))}

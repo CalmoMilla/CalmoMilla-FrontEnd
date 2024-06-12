@@ -27,11 +27,20 @@ import MateriaBlog from "./Usuario/MateriaBlog/MateriaBlog";
 import CadastroPsico from "./Cadastro/CadastroPsico/CadastroPsico";
 import PacientesVinculados from "./Psicologo/PacientesVinculados/PacientesVinculados";
 import NovaSenha from "./NovaSenha/[email]";
+import InfoPaciente from "./Psicologo/PacientesVinculados/InfoPaciente";
 
 export default function Teste() {
+
+  let data = [
+    {id: 1, titulo: "Ordem Alfabética"},
+    {id: 2, titulo: "Data"},
+  ] 
+
   return (
-    <div className="mt-32">
-      <Filtro/>
+    <div className="mt-32 flex gap-4 justify-around">
+      <Filtro data={data}/>
+      <PacientesVinculados/>
+      <InfoPaciente/>
     </div>
       
   );
