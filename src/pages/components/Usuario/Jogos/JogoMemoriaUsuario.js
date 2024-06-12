@@ -2,9 +2,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import "../../../../app/[locale]/globals.css"
 
-export default function JogoMemoria(props) {
-
-  const dificuldade = props.dificuldade
+export default function JogoMemoria() {
 
   return (
     <>
