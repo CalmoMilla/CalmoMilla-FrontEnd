@@ -1,7 +1,15 @@
 "use client"
 import CampoPessoal from "../CampoPessoal"
+import { useRouter } from "next/navigation";
 
 export default function InfoPessoal(props) {
+  const router = useRouter();
+
+  const handleDeslogar = () => {
+    localStorage.removeItem("token")
+    localStorage.removeItem("usuario")
+    router.push("/login")
+  }
 
   let dataNasc = props.usuario ? props.usuario.dataNasc[2] + "/" + props.usuario.dataNasc[1] + "/" + 
   props.usuario.dataNasc[0] : ""
@@ -17,7 +25,7 @@ export default function InfoPessoal(props) {
   return (
     <>
       <h2 className="text-5xl text-amarelo1 font-calistoga text-center py-5">Informações Pessoais</h2>
-      <div className="flex justify-center flex-col items-center">     
+      <div className="flex justify-center flex-col items-center py-5">     
         <CampoPessoal texto1={"Nome"} texto2={props.usuario ? props.usuario.nome : ""}/>
         <CampoPessoal texto1={"Data de nascimento"} texto2={props.usuario ? dataNasc : ""}/>
         <CampoPessoal texto1={"Gênero"} texto2={props.usuario ? genero : ""}/>
@@ -25,6 +33,7 @@ export default function InfoPessoal(props) {
           <h2 className="text-2xl text-amarelo1 py-5">Mudar informações da conta</h2>
           <h2 className=""></h2>
         </div>
+        <button className="w-auto px-5 py-3 mx-auto bg-amarelo1 hover:bg-amarelo2 duration-500 ease-in-out p-0 rounded-full text-white text-xl" onClick={handleDeslogar}>Deslogar</button>
       </div>
     </>
   )

@@ -6,10 +6,12 @@ import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from 'react-dom/client';
 import { BsEmojiTearFill, BsEmojiGrimaceFill } from "react-icons/bs";
 import Emocao from "./Emocao";
+import { EnviarQuestionarioDeEmocoes } from "@/pages/api/usuario/UsuarioService";
 
 const Modal = ({ onClose, children, title }) => {
   const handleCloseClick = (e) => {
     console.log(formatarEmocoes())
+    EnviarQuestionarioDeEmocoes(formatarEmocoes(), "emocoes")
     e.preventDefault();
     if (onClose) {
       onClose();

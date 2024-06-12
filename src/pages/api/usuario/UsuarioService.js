@@ -150,9 +150,9 @@ export const EsqueciASenha = async (email, endpoint) => {
   }
 };
 
-export const EnviarQuestionarioDeEmocoes = async (email, endpoint) => {
+export const EnviarQuestionarioDeEmocoes = async (emocoes, endpoint) => {
   try {
-    const response = await axios.post(url + endpoint, email, {
+    const response = await axios.post(url + endpoint, emocoes, {
       headers: {
         "Content-Type": "application/json",
       },
