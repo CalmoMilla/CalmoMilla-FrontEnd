@@ -31,7 +31,7 @@ import NovaSenha from "./NovaSenha/[email]";
 export default function Teste() {
   return (
     <div className="mt-32">
-      <PacientesVinculados/>
+      <Filtro/>
     </div>
       
   );
