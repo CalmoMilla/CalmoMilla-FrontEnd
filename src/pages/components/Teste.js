@@ -30,6 +30,9 @@ import NovaSenha from "./NovaSenha/[email]";
 
 export default function Teste() {
   return (
-    <NovaSenha/>
+    <div className="mt-32">
+      <PacientesVinculados/>
+    </div>
+      
   );
 }
