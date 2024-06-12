@@ -11,7 +11,20 @@ import { EnviarQuestionarioDeEmocoes } from "@/pages/api/usuario/UsuarioService"
 const Modal = ({ onClose, children, title }) => {
   const handleCloseClick = (e) => {
     console.log(formatarEmocoes())
-    EnviarQuestionarioDeEmocoes(formatarEmocoes(), "emocoes")
+
+    let usuarioStorage = localStorage.getItem("usuario");
+    usuarioStorage = JSON.parse(usuarioStorage)
+
+    let emocoesReq = {
+      emocoes: formatarEmocoes(),
+      paciente: {
+        id: usuarioStorage.id,
+      }
+    }
+
+    console.log(emocoesReq)
+
+    EnviarQuestionarioDeEmocoes(emocoesReq, "emocoes")
     e.preventDefault();
     if (onClose) {
       onClose();
