@@ -1,5 +1,5 @@
 import Header from "../../Header/Header";
-import Filtro from "./Filtro/Filtro";
+import Filtro from "../../Filtro/Filtro";
 import ProfissionaisSalvos from "./ProfissionaisSalvos/ProfissionaisSalvos";
 import SecaoPsicologo from "./SecaoPsicologo/SecaoPsicologo";
 
