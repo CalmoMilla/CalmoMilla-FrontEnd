@@ -37,7 +37,7 @@ export default function Teste() {
   ] 
 
   return (
-    <div className="mt-32 flex gap-4 justify-around">
+    <div className="mt-32 flex gap-4 flex-col justify-center items-center lg:justify-around lg:items-start lg:flex-row">
       <Filtro data={data}/>
       <PacientesVinculados/>
     </div>

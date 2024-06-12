@@ -36,8 +36,8 @@ export default function PacientesVinculados(){
     <>
       <div className="w-[60%] h-fit">
           <h1 className="text-amarelo1 text-7xl font-calistoga text-center">Pacientes</h1>
-          <h3 className="text-preto text-3xl font-nunito text-left">Total: {data.length} pacientes</h3>
-          <div className="h-fit w-full grid grid-cols-3 gap-8 py-10">
+          <h3 className="text-preto text-3xl font-nunito text-center py-2 lg:text-left">Total: {data.length} pacientes</h3>
+          <div className="h-fit w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 py-10">
             {data.map((user)=> (
               <PacienteVinculado key={user.id} id={user.id} nome={user.nome} idade={user.idade} cidade={user.cidade} handleClick={handleClick}/>
             ))}
