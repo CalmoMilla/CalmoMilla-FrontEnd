@@ -4,7 +4,11 @@ export default function load_astv_script() {
   astv_tag.src = 'https://cdn.assistive.com.br/plugin/AssistiveWebPlugin.js';
   astv_tag.async = true;
   astv_tag.onload = function() {
-    assistive.init({});
+    assistive.init({
+      btnColor: "FFCE55",
+      bodyColor: "FFCE55",
+      vOffset: 45
+    });
   };
 
   var h = document.querySelector('head') || document.body;
