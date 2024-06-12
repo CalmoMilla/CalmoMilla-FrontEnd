@@ -5,9 +5,9 @@ export default function load_astv_script() {
   astv_tag.async = true;
   astv_tag.onload = function() {
     assistive.init({
-      btnColor: "FFCE55",
+      color: "FFCE55",
       bodyColor: "FFCE55",
-      vOffset: 45
+      vPositon: 'center'
     });
   };
 
