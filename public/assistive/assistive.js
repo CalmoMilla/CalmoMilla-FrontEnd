@@ -7,7 +7,7 @@ export default function load_astv_script() {
     assistive.init({
       color: "FFCE55",
       bodyColor: "FFCE55",
-      vPositon: 'center'
+      vPosition: 'center'
     });
   };
 
