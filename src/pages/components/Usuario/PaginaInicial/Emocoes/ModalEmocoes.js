@@ -5,10 +5,11 @@ import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from 'react-dom/client';
 import { BsEmojiTearFill, BsEmojiGrimaceFill } from "react-icons/bs";
+import Emocao from "./Emocao";
 
 const Modal = ({ onClose, children, title }) => {
   const handleCloseClick = (e) => {
-    console.log(emocao)
+    console.log(formatarEmocoes())
     e.preventDefault();
     if (onClose) {
       onClose();
@@ -17,6 +18,13 @@ const Modal = ({ onClose, children, title }) => {
 
   const [checkedTristeza, setCheckedTristeza] = useState(false)
   const [checkedAnsioso, setCheckedAnsioso] = useState(false)
+  const [checkedCalmo, setCheckedCalmo] = useState(false)
+  const [checkedFeliz, setCheckedFeliz] = useState(false)
+  const [checkedIrritado, setCheckedIrritado] = useState(false)
+  const [checkedDesanimado, setCheckedDesanimado] = useState(false)
+  const [checkedAlegre, setCheckedAlegre] = useState(false)
+  const [checkedTedio, setCheckedTedio] = useState(false)
+  const [checkedNeutro, setCheckedNeutro] = useState(false)
   const [emocao, setEmocao] = useState([])
   const [existe, setExiste] = useState(false)
 
@@ -40,21 +48,77 @@ const Modal = ({ onClose, children, title }) => {
     }
   }
 
+  const handleRadioFeliz = () => {
+    if (checkedFeliz)  {
+      setCheckedFeliz(false) 
+      retirarEmocao("feliz")
+    } else {
+      setCheckedFeliz(true)
+      colocarEmocao("feliz")
+    }
+  }
+
+  const handleRadioCalmo = () => {
+    if (checkedCalmo)  {
+      setCheckedCalmo(false) 
+      retirarEmocao("calmo")
+    } else {
+      setCheckedCalmo(true)
+      colocarEmocao("calmo")
+    }
+  }
+
+  const handleRadioIrritado = () => {
+    if (checkedIrritado)  {
+      setCheckedIrritado(false) 
+      retirarEmocao("irritado")
+    } else {
+      setCheckedIrritado(true)
+      colocarEmocao("irritado")
+    }
+  }
+
+  const handleRadioDesanimado = () => {
+    if (checkedDesanimado)  {
+      setCheckedDesanimado(false) 
+      retirarEmocao("desanimado")
+    } else {
+      setCheckedDesanimado(true)
+      colocarEmocao("desanimado")
+    }
+  }
+
+  const handleRadioAlegre = () => {
+    if (checkedAlegre)  {
+      setCheckedAlegre(false) 
+      retirarEmocao("alegre")
+    } else {
+      setCheckedAlegre(true)
+      colocarEmocao("alegre")
+    }
+  }
+
+  const handleRadioTedio = () => {
+    if (checkedTedio)  {
+      setCheckedTedio(false) 
+      retirarEmocao("tedio")
+    } else {
+      setCheckedTedio(true)
+      colocarEmocao("tedio")
+    }
+  }
+  const handleRadioNeutro = () => {
+    if (checkedNeutro)  {
+      setCheckedNeutro(false) 
+      retirarEmocao("neutro")
+    } else {
+      setCheckedNeutro(true)
+      colocarEmocao("neutro")
+    }
+  }
+
   const colocarEmocao = (emocaoDeclarada) => {
     console.log(emocaoDeclarada)
-
-    // for (let index = 0; index < emocao.length; index++) {
-    //   if (emocao[index] == emocaoDeclarada) {
-    //     setExiste(true)
-    //   }
-    //   else {
-    //     setExiste(false)
-    //   }
-    // }
-
-    // if (existe == false){
-    //   setEmocao((emocoesAnteriores) => [...emocoesAnteriores, emocaoDeclarada])
-    // }
 
     let emocoesAntigas = [...emocao]
     emocoesAntigas.push(emocaoDeclarada)
@@ -75,6 +139,40 @@ const Modal = ({ onClose, children, title }) => {
     }
   }
 
+  const formatarEmocoes = () => {
+    let listaEmocoes = []
+    emocao.map((emocaoSelecionada) => {
+      if (emocaoSelecionada == "tristeza") {
+        listaEmocoes.push("TRISTE")
+      }
+      if (emocaoSelecionada == "irritado") {
+        listaEmocoes.push("TRISTE")
+      }
+      if (emocaoSelecionada == "desanimado") {
+        listaEmocoes.push("TRISTE")
+      }
+      if (emocaoSelecionada == "ansioso") {
+        listaEmocoes.push("MEIOTERMO")
+      }
+      if (emocaoSelecionada == "tedio") {
+        listaEmocoes.push("MEIOTERMO")
+      }
+      if (emocaoSelecionada == "neutro") {
+        listaEmocoes.push("MEIOTERMO")
+      }
+      if (emocaoSelecionada == "feliz") {
+        listaEmocoes.push("FELIZ")
+      }
+      if (emocaoSelecionada == "alegre") {
+        listaEmocoes.push("FELIZ")
+      }
+      if (emocaoSelecionada == "calmo") {
+        listaEmocoes.push("FELIZ")
+      }
+    })
+    return listaEmocoes
+  }
+
   useEffect(() => {
 
     const modalContent = (
@@ -84,43 +182,29 @@ const Modal = ({ onClose, children, title }) => {
             <div className="h-20 w-screen text-center flex justify-center items-center ">
               <h2 className="font-calistoga w-full sm:text-3xl">O que você está sentindo hoje </h2>
             </div>
-            {/* <button
-              className="absolute w-auto h-auto p-0  sm:hidden"
-              onClick={handleCloseClick}
-            >
-              <IoCloseSharp size={20} />
-            </button>
-  
-            <button
-              className="sm:flex sm:absolute w-auto h-auto p-0 py-2 hidden"
-              onClick={handleCloseClick}
-            >
-              <IoCloseSharp size={45} />
-            </button> */}
           </div>
           {title && <h1 className="text-xl font-bold">{title}</h1>}
           <div className="w-full h-full">
             <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
-              <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
-                <form className="flex justify-center items-center flex-col gap-4">
-                  <div className={`w-full py-5 flex items-center gap-8 ${checkedTristeza ? "bg-amarelo1/70" : "bg-amarelo1/30" } duration-500 ease-out transition rounded-full px-5 hover:bg-amarelo1/70`} onClick={handleRadioTristeza}>
-                    <BsEmojiTearFill className="w-[25%] h-auto text-amarelo2"/>
-                    <h2 className="text-xl ">Tristeza</h2>
-                  </div>
+              <div className="flex-col flex md:w-[90%] xs:w-[100%] h-full">
+                <div className="grid grid-cols-2 gap-4">
 
-                  <div className={`w-full py-5 flex items-center gap-8 ${checkedAnsioso ? "bg-amarelo1/70" : "bg-amarelo1/30" } duration-500 ease-out transition rounded-full px-5 hover:bg-amarelo1/70`} onClick={handleRadioAnsioso}>
-                    <BsEmojiGrimaceFill className="w-[25%] h-auto text-amarelo2"/>
-                    <h2 className="text-xl ">Ansioso</h2>
-                  </div>
+                  <Emocao funcao={handleRadioCalmo} state={checkedCalmo} emoji={"\u{1F642}"} texto={"Calmo"} />
+                  <Emocao funcao={handleRadioIrritado} state={checkedIrritado} emoji={"\u{1F620}"} texto={"Irritado"} />
+                  <Emocao funcao={handleRadioDesanimado} state={checkedDesanimado} emoji={"\u{1F61E}"} texto={"Desanimado"} />
+                  <Emocao funcao={handleRadioTristeza} state={checkedTristeza} emoji={"\u{1F622}"} texto={"Tristeza"} />
+                  <Emocao funcao={handleRadioAnsioso} state={checkedAnsioso} emoji={"\u{1F623}"} texto={"Ansioso"} />
+                  <Emocao funcao={handleRadioFeliz} state={checkedFeliz} emoji={"\u{1F60A}"} texto={"Feliz"} />
+                  <Emocao funcao={handleRadioAlegre} state={checkedAlegre} emoji={"\u{1F61D}"} texto={"Alegre"} />
+                  <Emocao funcao={handleRadioTedio} state={checkedTedio} emoji={"\u{1F644}"} texto={"Tédio"} />
+                  <Emocao funcao={handleRadioNeutro} state={checkedNeutro} emoji={"\u{1F610}"} texto={"Neutro"} />
 
-
-
-                  <div className="w-full justify-center flex ">
-                    <button onClick={handleCloseClick} className="w-80 h-12 bg-amarelo2 justify-center p-0 rounded-full text-white" type="submit">
-                      Submeter
-                    </button>
-                  </div>
-                </form>
+                </div>
+                <div className="w-full justify-center flex my-5">
+                  <button onClick={handleCloseClick} className="w-[60%] h-12 bg-amarelo1 hover:bg-amarelo2 duration-500 ease-in-out justify-center p-0 rounded-full text-white text-xl" type="submit">
+                    Submeter
+                  </button>
+                </div>
               </div>
             </div>
           </div>
