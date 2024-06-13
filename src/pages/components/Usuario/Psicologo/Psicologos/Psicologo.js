@@ -1,7 +1,7 @@
 export default function Psicologo() {
     return (
-        <div className="w-[33%] h-[40vh] shadow-xl rounded-2xl">
-            <div className="bg-black/20 w-full h-[50%] rounded-b-2xl">
+        <div className="w-[31%] h-[40vh] shadow-xl rounded-2xl">
+            <div className="bg-black/20 w-full h-[50%] rounded-2xl">
 
             </div>
             <div className="w-full h-[50%] p-5">
