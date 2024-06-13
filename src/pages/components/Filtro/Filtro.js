@@ -22,7 +22,7 @@ export default function Filtro(props) {
         <div className="w-full h-full shadow-2xl py-5 rounded-xl">
           <h2 className="text-center text-preto text-4xl py-10 font-calistoga">Filtro</h2>
           {props.data && props.data.map((data) => (
-            <BarraFiltro key={data.id} titulo={data.titulo}/>
+            <BarraFiltro key={data.id} titulo={data.titulo} amarelo={data.amarelo}/>
           ))}
         </div>
       </div>

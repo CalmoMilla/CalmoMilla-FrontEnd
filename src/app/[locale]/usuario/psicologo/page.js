@@ -1,7 +1,7 @@
 import Perfil from "@/pages/components/Usuario/Perfil/Perfil";
 import initTranslations from "../../../i18n";
 import TranslationsProvider from "../../../TranslationProvider";
-import Psicologo from "@/pages/components/Usuario/Psicologo/Psicologo";
+import Psicologo from "@/pages/components/Usuario/Psicologo/PaginaPsicologo";
 
 const namespaces = ['home', 'common']
 
