@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { IoHeartOutline } from "react-icons/io5";
+import { IoHeartSharp } from "react-icons/io5";
 
 export default function InfoPsicologo(){
     return (
@@ -13,7 +15,7 @@ export default function InfoPsicologo(){
 
             <div className="w-[80%] h-[50vh] rounded-2xl bg-preto/20"></div>
 
-            <p className="text-left font-nunito">
+            <p className="text-left font-nunito w-[80%]">
             Lorem ipsum dolor sit amet. In eligendi molestiae est quia suscipit hic aspernatur nesciunt aut molestiae laborum. Sit labore quibusdam ut repellendus quod sed rerum accusamus est omnis quos et harum corporis est omnis dolores nam omnis minima. Qui laborum dolore et voluptates maxime qui voluptas repellendus et quos deleniti et inventore quas ut neque galisum. Et quia officiis qui sint inventore qui distinctio praesentium est quia ipsam quo nulla nulla.
             Sit quam quam eos consequatur quae vel deserunt aliquam cum consequuntur iste eum repellat perspiciatis et adipisci deserunt eum iure.
             </p>

@@ -8,10 +8,11 @@ import PaginaPsicologo from "./Usuario/Psicologo/PaginaPsicologo";
 import Header from "./Header/Header";
 import Psicologo from "./Usuario/Psicologo/Psicologos/Psicologo";
 import Psicologos from "./Usuario/Psicologo/Psicologos/Psicologos";
+import Recursos from "./Psicologo/Recursos/Recursos";
 
 export default function Teste() {
 
   return (
-    <InfoPsicologo/>
+    <Recursos/>
   );
 }

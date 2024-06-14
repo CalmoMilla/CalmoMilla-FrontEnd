@@ -1,15 +1,8 @@
 import Psicologo from "./Psicologo";
 
-export default function Psicologos() {
+export default function Psicologos({data}) {
 
-    let psicologos = [
-        {id: 1, nome: "vitorugo da gut", idade: 18, cidade: "naoénasusacasaficaempas"},
-        {id: 2, nome: "gabs caique", idade: 19, cidade: "CT"},
-        {id: 3, nome: "ruuh do crud", idade: 20, cidade: "jardim buturuçu"},
-        {id: 4, nome: "arthu", idade: 18, cidade: "tapevi"},
-        {id: 5, nome: "luiz", idade: 18, cidade: "numsei"},
-        {id: 6, nome: "guuh do crud e do vito", idade: 23, cidade: "ondezepovinhonlocaliza"}
-    ]
+    let psicologos = data
 
     return (
         <div className="w-[60%] h-fit">
