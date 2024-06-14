@@ -18,14 +18,22 @@ export default function Recursos() {
     {id:4, nome:"Jogo da Memória"},
   ]
 
-  const onClickVoltar = () => {
-    setShowBeneficio(false)
-  }
+  // const onClickBeneficio = (jogo) => {
+  //   setShowBeneficio(true)
+  //   let beneficio = Object.values(jogo)
+  //   setBeneficio(beneficio)
+  //   console.log(beneficio)
+  // }
+
+  // const onClickVoltar = () => {
+  //   setShowBeneficio(false)
+  //   setBeneficio(false)
+  // }
 
   return (
     <>
       {showBeneficio ? 
-        <BeneficioJogo funcao={() => setShowBeneficio(false)} jogo={beneficio}/>
+        <BeneficioJogo funcao={() => {setShowBeneficio(false)} }/>
         :
         <div className="w-full h-fit flex flex-col gap-8">
           <h1 className="font-calistoga text-7xl text-roxo text-center">Recursos</h1>
