@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import MateriaRecurso from "./MateriaRecurso"
 import JogoDispRecurso from "./JogoDispRecurso"
 import { useState } from "react"
@@ -12,10 +11,10 @@ export default function Recursos() {
   const [beneficio, setBeneficio] = useState(null)
 
   let jogos = [
-    {id:1, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png"},
-    {id:2, nome:"Sudoku", foto: "/assets/psicologo/recursos/sudoku.jpg"},
-    {id:3, nome:"Quiz", foto: "/assets/psicologo/recursos/quiz.jpg"},
-    {id:4, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png"},
+    {id:1, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png", fonte: "Fonte: https://urllongaparadedéuaqui.com.br (Acesso em 00/00/0000)"},
+    {id:2, nome:"Sudoku", foto: "/assets/psicologo/recursos/sudoku.jpg", fonte: "Fonte: https://urllongaparadedéuaqui.com.br (Acesso em 00/00/0000)"},
+    {id:3, nome:"Quiz", foto: "/assets/psicologo/recursos/quiz.jpg", fonte: "Fonte: https://urllongaparadedéuaqui.com.br (Acesso em 00/00/0000)"},
+    {id:4, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png", fonte: "Fonte: https://urllongaparadedéuaqui.com.br (Acesso em 00/00/0000)"},
   ]
 
   const onClickBeneficio = () => {

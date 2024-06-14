@@ -1,4 +1,3 @@
-import Image from "next/image"
 
 export default function JogoDispRecurso ({nome, funcao, funcao2, jogo, foto}) {
 
@@ -6,7 +5,6 @@ export default function JogoDispRecurso ({nome, funcao, funcao2, jogo, foto}) {
     funcao();
     let jogoFormatado = Object.values(jogo)
     funcao2(jogoFormatado);
-    console.log(jogoFormatado)
   };
 
   return (

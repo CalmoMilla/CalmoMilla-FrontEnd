@@ -13,7 +13,7 @@ export default function BeneficioJogo({funcao, jogo}) {
         Qui excepturi dolorum ut omnis dolor non labore deserunt est quos quia vel quod debitis. Qui repellat delectus qui similique culpa sed voluptas illum vel unde consequatur aut officia corporis hic dolor quas vel molestias fuga. Qui cumque deleniti a harum adipisci hic placeat iste est quibusdam magni 33 aspernatur galisum? A autem porro eos voluptate aperiam qui consequatur labore non sunt ipsum est molestiae repellat ab vero ipsam. Aut expedita neque ad accusamus eaque aut cupiditate rerum.
         Eum incidunt Quis ex debitis suscipit est consequatur modi aut voluptatem perspiciatis sed minima possimus eos atque aspernatur! Et magnam fugit eos repellat voluptates et quas molestiae. Qui cumque sint aut voluptatem maiores ex eius nisi qui consectetur sunt At quia praesentium? Est consequatur rerum et repellendus excepturi eum neque minus ea quis voluptatem. Eos dolor maiores aut accusamus obcaecati aut commodi reprehenderit aut maxime consectetur eos aliquam cupiditate ab molestiae provident a cumque debitis.</p>
       </div>
-      <p className="text-center text-xl font-bold font-nunito py-5">Fonte: https://urllongaparadedéuaqui.com.br (Acesso em 00/00/0000)</p>
+      <p className="text-center text-xl font-bold font-nunito py-5">{jogo[3]}</p>
       <IoIosArrowDropleftCircle className="absolute top-5 left-10 text-7xl text-amarelo1 hover:text-amarelo2 duration-500 ease-in-out hover:cursor-pointer hover:scale-110" onClick={funcao} />
     </div>
   )
