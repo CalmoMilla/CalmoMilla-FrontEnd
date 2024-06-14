@@ -13,6 +13,6 @@ import Recursos from "./Psicologo/Recursos/Recursos";
 export default function Teste() {
 
   return (
-    <Recursos/>
+    <PsicologoHome />
   );
 }
