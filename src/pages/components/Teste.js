@@ -9,10 +9,11 @@ import Header from "./Header/Header";
 import Psicologo from "./Usuario/Psicologo/Psicologos/Psicologo";
 import Psicologos from "./Usuario/Psicologo/Psicologos/Psicologos";
 import Recursos from "./Psicologo/Recursos/Recursos";
+import BeneficioJogo from "./Psicologo/Recursos/BeneficioJogo";
 
 export default function Teste() {
 
   return (
-    <PsicologoHome />
+    <Recursos />
   );
 }
