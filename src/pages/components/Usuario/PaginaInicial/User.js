@@ -12,14 +12,21 @@ import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService"
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false)
+  const [emocoes, setEmocoes] = useState(null)
 
-  useEffect (() => {
+  useEffect(() => {
+    buscarEmocoes()
+  }, []);
 
+
+  const buscarEmocoes = async () => {
     let usuarioStorage = localStorage.getItem("usuario");
-    usuarioStorage = JSON.parse(usuarioStorage)
-
-    BuscarInfoEmocoes(`emocoes/pacientes/${usuarioStorage.id}`)
-  })
+    usuarioStorage = JSON.parse(usuarioStorage);
+    
+    let emocoesPegas = await BuscarInfoEmocoes(`emocoes/pacientes/${usuarioStorage.id}`)
+    setEmocoes(emocoesPegas);
+    console.log(emocoesPegas)
+  }
 
   return (
     <div>
