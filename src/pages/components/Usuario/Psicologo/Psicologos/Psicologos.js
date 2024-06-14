@@ -12,7 +12,6 @@ export default function Psicologos() {
     ]
 
     return (
-
         <div className="w-[60%] h-fit">
             <h1 className="text-verdeagua text-7xl font-calistoga text-center drop-shadow-2xl">Psicologos</h1>
             <div className="h-fit w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 py-10">
