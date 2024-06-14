@@ -9,9 +9,7 @@ export default function Teste() {
 
 
   return (
-    <>
-  <Header/>  
+
   <PsicologoHome />
-  </>
   );
 }
