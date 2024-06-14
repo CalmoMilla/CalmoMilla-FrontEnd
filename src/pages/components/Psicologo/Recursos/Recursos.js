@@ -12,10 +12,10 @@ export default function Recursos() {
   const [beneficio, setBeneficio] = useState(null)
 
   let jogos = [
-    {id:1, nome:"Jogo da Memória"},
-    {id:2, nome:"Sudoku"},
-    {id:3, nome:"Quiz"},
-    {id:4, nome:"Jogo da Memória"},
+    {id:1, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png"},
+    {id:2, nome:"Sudoku", foto: "/assets/psicologo/recursos/sudoku.jpg"},
+    {id:3, nome:"Quiz", foto: "/assets/psicologo/recursos/quiz.jpg"},
+    {id:4, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png"},
   ]
 
   const onClickBeneficio = () => {
@@ -50,7 +50,7 @@ export default function Recursos() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 w-[50%] h-fit mx-auto gap-8">
             {jogos.map((jogo) => (
-              <JogoDispRecurso key={jogo.id} nome={jogo.nome} funcao={onClickBeneficio} funcao2={setBeneficio} jogo={jogo}/>
+              <JogoDispRecurso key={jogo.id} nome={jogo.nome} foto={jogo.foto} funcao={onClickBeneficio} funcao2={setBeneficio} jogo={jogo}/>
             ))}
           </div>
         </div>
