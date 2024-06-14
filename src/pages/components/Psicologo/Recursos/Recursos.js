@@ -18,22 +18,18 @@ export default function Recursos() {
     {id:4, nome:"Jogo da Memória"},
   ]
 
-  // const onClickBeneficio = (jogo) => {
-  //   setShowBeneficio(true)
-  //   let beneficio = Object.values(jogo)
-  //   setBeneficio(beneficio)
-  //   console.log(beneficio)
-  // }
+  const onClickBeneficio = () => {
+    setShowBeneficio(true)
+  }
 
-  // const onClickVoltar = () => {
-  //   setShowBeneficio(false)
-  //   setBeneficio(false)
-  // }
+  const onClickVoltar = () => {
+    setShowBeneficio(false)
+  }
 
   return (
     <>
       {showBeneficio ? 
-        <BeneficioJogo funcao={() => {setShowBeneficio(false)} }/>
+        <BeneficioJogo funcao={onClickVoltar} jogo={beneficio}/>
         :
         <div className="w-full h-fit flex flex-col gap-8">
           <h1 className="font-calistoga text-7xl text-roxo text-center">Recursos</h1>
@@ -54,7 +50,7 @@ export default function Recursos() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 w-[50%] h-fit mx-auto gap-8">
             {jogos.map((jogo) => (
-              <JogoDispRecurso key={jogo.id} nome={jogo.nome} funcao={() => setShowBeneficio(true)}/>
+              <JogoDispRecurso key={jogo.id} nome={jogo.nome} funcao={onClickBeneficio} funcao2={setBeneficio} jogo={jogo}/>
             ))}
           </div>
         </div>

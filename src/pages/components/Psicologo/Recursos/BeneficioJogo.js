@@ -9,7 +9,7 @@ export default function BeneficioJogo({funcao, jogo}) {
   return (
     <div className="w-full h-fit relative">
       <div className="w-[70%] h-fit relative mx-auto shadow-2xl rounded-xl">
-        <h1 className="text-center text-7xl font-calistoga">Jogo da Memória</h1>
+        <h1 className="text-center text-7xl font-calistoga">{jogo[1]}</h1>
         <h2 className="text-center text-3xl font-nunito">Sua história e benefícios</h2>
         <Image src={"/assets/psicologo/recursos/jogomemoria.png"} alt={"Imagem do Benefício"} width={800} height={800} className="mx-auto pt-12"/>
         <p className="w-[70%] font-nunito text-xl mx-auto py-10">Lorem ipsum dolor sit amet. Eos laboriosam nesciunt vel aliquam harum est voluptates natus est officiis voluptas. Qui eveniet rerum ut officia dolores et odit autem ad dicta quia nam fuga nihil et internos reiciendis est asperiores aperiam! Ut blanditiis ducimus est libero pariatur sit saepe quia hic sunt doloribus. Et assumenda repudiandae sed necessitatibus voluptas et officia temporibus quo aliquid ratione At officiis officiis. Sit magni tempora et architecto dolore eum distinctio quasi ut laboriosam totam eos dignissimos tempora non natus aliquam! Ut laudantium itaque est architecto debitis sit accusantium beatae sed nisi iure sed consequatur iure quo quis voluptates ea nemo quae. Sed animi reiciendis ex possimus unde sed veniam repudiandae.
