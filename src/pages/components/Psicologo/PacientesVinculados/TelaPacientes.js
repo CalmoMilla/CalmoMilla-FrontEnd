@@ -1,3 +1,6 @@
+import Filtro from "../../Filtro/Filtro";
+import PacientesVinculados from "./PacientesVinculados";
+
 export default function TelaPacientes() {
 
     let data = [
