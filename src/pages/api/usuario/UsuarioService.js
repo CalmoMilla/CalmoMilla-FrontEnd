@@ -217,7 +217,7 @@ export const BuscarInfoEmocoes = async (endpoint) => {
 
   if (response.ok) {
     const emocoes = await response.json();
-    console.log(emocoes);
+    return emocoes
   } else {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
@@ -280,7 +280,6 @@ export const BuscarInfoUsuario = async (endpoint) => {
 
   if (response.ok) {
     const userInfo = await response.json();
-    console.log(userInfo);
     localStorage.setItem("usuario", JSON.stringify(userInfo));
   } else {
     const errorMessage = await response.text();

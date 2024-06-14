@@ -11,7 +11,7 @@ export default function VisaoGeral() {
         </div>
         <Estatisticas/>
         <LinhaHorizontal/>
-        <Calendario titulo={"Calendário de Humor"}/>
+        <Calendario titulo={"Calendário de Humor"} emocoes={true}/>
         <LinhaHorizontal/>
         <Calendario titulo={"Rotina"}/>
       </div>
