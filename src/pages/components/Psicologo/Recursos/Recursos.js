@@ -47,7 +47,7 @@ export default function Recursos() {
           <div className="w-[90%] md:w-[35%] h-fit bg-roxo rounded-3xl mx-auto py-2 my-6">
             <h2 className="font-calistoga text-xl text-branco text-center">Sobre nossos jogos disponíveis </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 w-[50%] h-fit mx-auto gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 w-[90%] md:w-[70%] xl:w-[50%] h-fit mx-auto gap-8">
             {jogos.map((jogo) => (
               <JogoDispRecurso key={jogo.id} nome={jogo.nome} foto={jogo.foto} funcao={onClickBeneficio} funcao2={setBeneficio} jogo={jogo}/>
             ))}
