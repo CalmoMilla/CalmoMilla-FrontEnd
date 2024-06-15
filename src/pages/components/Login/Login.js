@@ -30,6 +30,7 @@ export default function Login() {
       setIsAnimating(false);
     }, 1100); // 1000ms é a duração da animação
   };
+  
   const session = useSession();
 
   useEffect(() => {

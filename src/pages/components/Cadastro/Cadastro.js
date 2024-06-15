@@ -22,6 +22,8 @@ export default function Cadastro() {
     }, 1000); // 1000ms é a duração da animação
   };
 
+  const session = useSession();
+
   return (
     <>
       {showLogin ? (

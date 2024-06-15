@@ -3,7 +3,7 @@ import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 import ExercicioDia from "./ExercicioDia/ExercicioDia";
 import VisaoGeral from "./VisaoGeral/VisaoGeral";
-import { useEffect, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ModalEmocoes from "./Emocoes/ModalEmocoes";
 import EsqueciSenha from "../../Login/EsqueciSenha";
 import Emocoes from "./Emocoes/Emocoes";
