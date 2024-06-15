@@ -46,7 +46,7 @@ export const LoginUsuario = async (login, endpoint) => {
 
 export const LoginComGoogle = async (usuario, endpoint) => {
   try {
-    const response = await axios.post(url + endpoint, usuario, {
+    const response = await axios.post(url+ endpoint, usuario, {
       headers: {
         "Content-Type": "application/json",
       },

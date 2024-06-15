@@ -34,8 +34,11 @@ export default function Login() {
   });
 
   async function onAuth() {
-    setEmail(session.data.user.email) 
-    LoginComGoogle(email, "auth/login/google")
+    let login = {
+      email: session.data.user.email
+    }
+    console.log(login)
+    LoginComGoogle(login, "auth/login/google")
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
       router.push("/usuario");
