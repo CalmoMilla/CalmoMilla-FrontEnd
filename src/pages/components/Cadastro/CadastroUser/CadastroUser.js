@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Cadastro } from "@/pages/api/usuario/UsuarioService";
 
-import Login from "../../Login/Login";
+import LoginGoogle from "../../Login/LoginGoogle";
 
 export default function CadastroUser(props) {
   const [showLogin, setShowLogin] = useState(false);
@@ -51,7 +51,7 @@ export default function CadastroUser(props) {
   }
 
   if (showLogin) {
-    return <Login />;
+    return <LoginGoogle />;
   }
 
   return (

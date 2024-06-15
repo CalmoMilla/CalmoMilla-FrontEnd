@@ -52,12 +52,12 @@ export const LoginComGoogle = async (usuario, endpoint) => {
       },
     });
 
-    if (response.status == 201) {
-      LoginComGoogle(usuario);
-    }
-
     if (response.data.token != null) {
-      console.log(response.data);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", response.data.token);
+        BuscarInfoUsuario("pacientes/eu");
+      }
+      return response.data.token;
     }
   } catch (error) {
     console.error("Erro ao fazer requisição para a API:", error);

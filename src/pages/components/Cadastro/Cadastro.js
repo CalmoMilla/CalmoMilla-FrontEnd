@@ -3,11 +3,11 @@
 import CadastroPsico from "./CadastroPsico/CadastroPsico";
 import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
-import Login from "../Login/Login";
 import React, { useEffect, useState } from "react";
 import { signIn, signOut } from 'next-auth/react'
 import { useSession } from "next-auth/react"
 import { FcGoogle } from "react-icons/fc";
+import LoginGoogle from "../Login/LoginGoogle";
 
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
@@ -18,7 +18,7 @@ export default function Cadastro() {
   return (
     <>
       {showLogin ? (
-        <Login />
+        <LoginGoogle />
       ) : (
         <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
           <div className="m-auto flex justify-center lg:items-center xs:h-full xl:h-[95%]  w-[80%] border rounded-lg shadow-lg xs:items-start ">

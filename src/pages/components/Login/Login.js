@@ -2,24 +2,45 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import CadastroLogin from "../CadastroLogin";
+import CadastroGoogle from "../Cadastro/CadastroGoogle";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
-import { LoginUsuario } from "@/pages/api/usuario/UsuarioService";
-import { LoginPsicologo } from "@/pages/api/usuario/PsicologoService";
+import { LoginComGoogle, LoginUsuario } from "@/pages/api/usuario/UsuarioService";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { signIn, signOut } from 'next-auth/react'
+import { useSession } from "next-auth/react"
 
 export default function Login() {
   const [showCadastro, setShowCadastro] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
-  const router = useRouter();
 
+  const [email, setEmail] = useState("")
+  
+  const router = useRouter();
+  const session = useSession();
+
+  useEffect(() => {
+    if (session && session.status === "authenticated") {
+      onAuth()
+    }
+  })
+  
   useEffect(() => {
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
       router.push("/usuario");
     }
   });
+
+  async function onAuth() {
+    setEmail(session.data.user.email) 
+    LoginComGoogle(email, "auth/login/google")
+    const tokenUser = localStorage.getItem("token");
+    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+      router.push("/usuario");
+    }
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -39,7 +60,7 @@ export default function Login() {
   }
 
   if (showCadastro) {
-    return <CadastroLogin />;
+    return <CadastroGoogle />;
   }
 
   return (
@@ -117,6 +138,7 @@ export default function Login() {
                   id="email"
                   name="email"
                   placeholder="Coloque seu Email."
+                  value={email} onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
@@ -131,13 +153,21 @@ export default function Login() {
                   placeholder="Escreva sua senha."
                 />
               </div>
-              <div className="flex w-[70%] justify-center xs:m-auto">
+              <div className="flex w-[70%] justify-center xs:m-auto flex-col items-center">
                 <button
                   type="submit"
-                  className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
-                >
+                  className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white">
                   Entrar
                 </button>
+                <button
+                  type="submit"
+                  className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white" onClick={() => signOut()}>
+                  Deslogar
+                </button>
+                <p className="font-nunito text-lg text-center">Ou</p>
+                <div className="bg-branco my-2 w-full h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer" onClick={() => signIn('google')}>
+                  <FcGoogle className="text-3xl"/>
+                </div>
               </div>
             </form>
             <div className="xs:mx-auto w-[60%] h-auto m-auto mt-4 xs:text-start gap-10">
