@@ -7,6 +7,6 @@ import PaginaPsicologo from "./Usuario/Psicologo/PaginaPsicologo";
 export default function Teste() {
 
   return (
-    <InfoPsicologo />
+    <PaginaPsicologo />
   );
 }
