@@ -30,7 +30,7 @@ export default function Login() {
       setIsAnimating(false);
     }, 1100); // 1000ms é a duração da animação
   };
-  
+
   const session = useSession();
 
   useEffect(() => {
@@ -191,7 +191,7 @@ export default function Login() {
                   Ou
                 </p>
                 <div
-                  className="bg-branco my-2 w-full h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex lg:hidden "
+                  className="bg-branco my-2 w-full lg:w-[70%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
                   onClick={() => signIn("google")}
                 >
                   <FcGoogle className="text-3xl my-4" />
