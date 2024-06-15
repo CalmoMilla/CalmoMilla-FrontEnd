@@ -12,19 +12,19 @@ const ModalInfoEmocao = ({ onClose, title, info, emoji }) => {
     }
   };
 
-  let diaFormatado = info[3][2] + "/" + info[3][1] + "/" + 
-  info[3][0]
 
   const formatarEmocao = () => {
-    if (info[1] == "FELIZ") {
-      return "Que ótimo! Você estava feliz nesse dia!"
-    } 
-    if (info[1] == "MEIOTERMO") {
-      return "Você parecia estar neutro no dia. Espero que nossa plataforma tenha ajudado!"
-    } 
-    if (info[1] == "TRISTE") {
-      return "Vimos que você estava triste, espero que você tenha dado um pulinho na nossa seção de Relaxamento! \u{1F60A}"
-    } 
+    if(info) {
+      if (info[1] == "FELIZ") {
+        return "Que ótimo! Você estava feliz nesse dia!"
+      } 
+      if (info[1] == "MEIOTERMO") {
+        return "Você parecia estar neutro no dia. Espero que nossa plataforma tenha ajudado!"
+      } 
+      if (info[1] == "TRISTE") {
+        return "Vimos que você estava triste, espero que você tenha dado um pulinho na nossa seção de Relaxamento! \u{1F60A}"
+      } 
+    }
   }
 
   let mensagemFormada = formatarEmocao()
@@ -62,8 +62,9 @@ const ModalInfoEmocao = ({ onClose, title, info, emoji }) => {
           {title && <h1 className="text-xl font-bold">{title}</h1>}
           <div className="w-full h-full">
             <h2 className="text-center text-5xl font-nunito my-4">{emoji}</h2>
-            <h2 className="text-center text-xl font-nunito my-4">{`Sentimento do Dia: ${info[1]}`}</h2>
-            <h2 className="text-center text-xl font-nunito my-4">{`Dia: ${diaFormatado}`}</h2>
+            <h2 className="text-center text-xl font-nunito my-4">{`Sentimento do Dia: ${info && info[1]}`}</h2>
+            <h2 className="text-center text-xl font-nunito my-4">{`Dia: ${info && info[3][2] + "/" + info[3][1] + "/" + 
+  info[3][0]}`}</h2>
             <h2 className="text-center text-xl font-nunito my-4 w-[80%] mx-auto">{mensagemFormada}</h2>
           </div>
         </div>

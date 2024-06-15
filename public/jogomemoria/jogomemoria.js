@@ -184,7 +184,7 @@ const matrixGenerator = (cardValues, size = tamanho) => {
                     <h4>Movimentos: ${movesCount}</h4>
                     <h4>Tempo Total: ${minutesShowed}:${secondsShowed}</h4>`;
                     dificuldade = 1
-                    stopGame()
+                    restartGame()
                   }, 500) 
                 }
             }
@@ -210,20 +210,19 @@ const matrixGenerator = (cardValues, size = tamanho) => {
 startButton.addEventListener("click", () => {
   tempoAcabou = false
 
-  movesCount = 0;
-  secondsShowed = 0 
-  minutesShowed = 0
-
   if (dificuldade == 1){
+    tamanho = 4
     seconds = 30;
     minutes = 1;
+    wrapper.style.width = '26.87em'
   } else if (dificuldade == 2) {
     seconds = 59;
     minutes = 0;
     tamanho = 4
+    wrapper.style.width = '26.87em'
   } else if (dificuldade == 3) {
     seconds = 30;
-    minutes = 2;
+    minutes = 3;
     tamanho = 6
     wrapper.style.width = '45em'
   }
@@ -244,9 +243,6 @@ startButton.addEventListener("click", () => {
 stopButton.addEventListener(
   "click",
   (stopGame = () => {
-    movesCount = 0;
-    secondsShowed = 0 
-    minutesShowed = 0
     wrapper.classList.add("hide");
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
@@ -254,6 +250,19 @@ stopButton.addEventListener(
     clearInterval(interval);
   })
 );
+
+restartGame = () => {
+  seconds = 0,
+  minutes = 0, 
+  secondsShowed = 0, 
+  minutesShowed = 0;
+  movesCount = 0;
+  wrapper.classList.add("hide");
+  controls.classList.remove("hide");
+  stopButton.classList.add("hide");
+  startButton.classList.remove("hide");
+  clearInterval(interval);
+}
 
 continueGame = () => {
   tempoAcabou = false
@@ -274,7 +283,7 @@ continueGame = () => {
       wrapper.style.width = '26.87em'
     } else if (dificuldade == 3) {
       seconds = 30;
-      minutes = 2;
+      minutes = 3;
       tamanho = 6
       wrapper.style.width = '45em'
     }
