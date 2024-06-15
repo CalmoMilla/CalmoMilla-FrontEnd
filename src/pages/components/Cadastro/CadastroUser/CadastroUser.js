@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Cadastro } from "@/pages/api/usuario/UsuarioService";
 
-import Login from "../../Login/Login";
+import LoginGoogle from "../../Login/LoginGoogle";
 
-export default function CadastroUser() {
+export default function CadastroUser(props) {
   const [showLogin, setShowLogin] = useState(false);
+
+  const [email, setEmail] = useState("")
+  const [nome, setNome] = useState("")
+
+  useEffect(() => {
+    if (props.session) { 
+      setEmail(props.session.data.user.email) 
+      setNome(props.session.data.user.name) 
+    }
+  }, [props.session])
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -19,6 +29,8 @@ export default function CadastroUser() {
         return;
       }
 
+      let pic = props.session ? props.session.user.image : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+
       let cadastro = {
         nome: data.get("nome"),
         email: data.get("email"),
@@ -27,7 +39,7 @@ export default function CadastroUser() {
         telefone: data.get("telefone"),
         dataNasc: data.get("datanasc"),
         genero: data.get("genero"),
-        foto: "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
+        foto: pic,
         role: "PACIENTE",
       };
 
@@ -39,7 +51,7 @@ export default function CadastroUser() {
   }
 
   if (showLogin) {
-    return <Login />;
+    return <LoginGoogle />;
   }
 
   return (
@@ -58,7 +70,7 @@ export default function CadastroUser() {
             id="nome"
             name="nome"
             placeholder="Coloque Seu Nome."
-            required
+            required value={nome} onChange={(event) => setNome(event.target.value)}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
@@ -71,7 +83,7 @@ export default function CadastroUser() {
             id="email"
             name="email"
             placeholder="Coloque seu Email."
-            required
+            required value={email} onChange={(event) => setEmail(event.target.value)}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">

@@ -18,11 +18,17 @@ export default function Header() {
 
   const [logado, setLogado] = useState(false);
   const [usuario, setUsuario] = useState(null);
+  const [foto, setFoto] = useState(null)
 
   useEffect(() => {
-    const usuarioStorage = localStorage.getItem("usuario");
-    setUsuario(usuarioStorage ? usuarioStorage : null);
-  }, []);
+    let usuarioStorage = localStorage.getItem("usuario");
+    if (usuarioStorage != null) {
+      usuarioStorage = JSON.parse(usuarioStorage)
+      console.log(usuarioStorage)
+      setUsuario(usuarioStorage ? usuarioStorage : null);
+      setFoto(usuarioStorage.foto)
+    }
+  },[]);
 
   useEffect(() => {
     if (usuario != null) {
@@ -167,7 +173,11 @@ export default function Header() {
                   className="w-fit p-3 hover:bg-amarelo2 rounded-full duration-500 
                 transition ease-in-out"
                 >
-                  <FaUser className="text-3xl cursor-pointer text-branco" />
+                {foto ? 
+                  <Image width={50} height={50} src={foto} alt="..." className="rounded-full"/>
+                  :
+                  <FaUser className="text-3xl cursor-pointer text-branco" /> 
+                }
                 </Link>
                 {isOpen ? (
                   <FaTimes
