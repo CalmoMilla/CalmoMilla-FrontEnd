@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import IntegranteSobreNos from "./IntegranteSobreNos";
 
 export default function SobreNos() {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ export default function SobreNos() {
         {t("sobreNosTitulo1")}
       </h2>
       <div className="flex justify-center">
-        <div className="w-[90%] md:w-[70%] items-center md:h-auto bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
+        <div className="w-[90%] md:w-[70%] h-fit items-center md:h-auto bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
           <div className="flex justify-around ">
             <Image src={"/assets/home/sobrenos/membrosmilla.png"} alt="Membros com a Milla" width={600} height={600} quality={100}/>
             <p className="text-3xl text-branco w-[50%] pt-10 text-center mx-auto font-nunito font-medium ">
@@ -55,7 +56,37 @@ export default function SobreNos() {
             </div>
             <p className="w-[50%] text-2xl font-nunito text-center text-branco">O azul simboliza a água, o céu e outros elementos da natureza que simbolizam tranquilidade. Transmitindo harmonia, calma e segurança.</p>
           </div>
-          
+          <h2 className="text-4xl md:text-7xl text-branco text-center mx-auto font-calistoga py-5 md:pt-2">
+          Nome e Logo
+          </h2>
+          <div className="flex justify-around items-center py-5">
+            <p className="w-[50%] text-2xl font-nunito text-center text-branco">O nome CalmoMilla é uma combinação criativa que vem da palavra camomila e do conceito de calmaria. A camomila é uma flor conhecida por suas propriedades calmantes, frequentemente usada em chás para promover relaxamento e bem-estar. Unindo calmo e camomila, o nome reflete a missão do projeto de trazer tranquilidade e apoio para a saúde mental dos usuários.
+            </p>
+            <div className="flex justify-center items-center">
+              <Image src={"/assets/home/sobrenos/camomila.png"} alt="Camomila" width={200} height={200}/>
+              <p className="text-7xl text-branco ">=</p>
+              <Image src={"/assets/logo.png"} alt="Camomila" width={200} height={200}/>
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-7xl text-branco text-center mx-auto font-calistoga py-5 md:pt-2">
+          Milla
+          </h2>
+          <div className="flex justify-center items-center">
+            <Image src={"/assets/millazinha/milla05.png"} alt="Milla" height={600} width={600} quality={100} className="w-[40%]"/>
+            <p className="w-[50%] text-2xl font-nunito text-center text-branco">Para reforçar esses valores, apresentamos nossa mascote, Milla. Seu nome é derivado da camomila, em linha com o conceito do projeto. Representada como uma criança, Milla foi criada para inspirar sentimentos de esperança, acolhimento e empatia. Com seu design cativante, ela simboliza a inocência e a pureza, tornando o ambiente do CalmoMilla ainda mais acolhedor para todos os usuários.
+            </p>
+          </div>
+          <h2 className="text-4xl md:text-[7rem] text-branco text-center mx-auto font-calistoga py-5 md:py-20 underline">
+          A equipe por trás
+          </h2>
+          <div className="w-full grid grid-cols-3 gap-8">
+            <IntegranteSobreNos src={"/assets/home/sobrenos/artu.png"} nome={"Arthur Selingin"} funcao={"Desenvolvedor Full Stack"} link={"#"}/>
+            <IntegranteSobreNos src={"/assets/home/sobrenos/gab.png"} nome={"Gabriel Caique"} funcao={"Financeiro e Desenvolvedor Back End"} link={"#"}/>
+            <IntegranteSobreNos src={"/assets/home/sobrenos/lulu.png"} nome={"Luiz Henrique"} funcao={"UI/UX e Desenvolvedor Front End"} link={"#"}/>
+            <IntegranteSobreNos src={"/assets/home/sobrenos/ruru.png"} nome={"Ruth Barbosa"} funcao={"Scrum Master, UI/UX, Social Media, Back End"} link={"#"}/>
+            <IntegranteSobreNos src={"/assets/home/sobrenos/gu.png"} nome={"Augusta Barreto"} funcao={"Banco de Dados e Desenvolvedora Full Stack"} link={"#"}/>
+            <IntegranteSobreNos src={"/assets/home/sobrenos/vito.png"} nome={"Vitor Hugo"} funcao={"P.O e Desenvolvedor Full Stack"} link={"#"}/>
+          </div>
         </div>
       </div>
     </div>
