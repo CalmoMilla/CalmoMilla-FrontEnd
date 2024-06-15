@@ -16,7 +16,7 @@ export default function Funcionalidade(props) {
           </section>
           <section className="w-[80%] sm:w-[50%] h-auto lg:pt-0 pt-12">
             <h3 className={`${props.cor} font-calistoga text-center text-5xl sm:text-7xl w-full`}>{props.titulo}</h3>
-            <p className="text-justify font-nunito mt-12 text-2xl text-preto font-medium">{
+            <p className="text-left font-nunito mt-12 text-2xl text-preto font-medium">{
             props.texto}
             </p>
           </section>
@@ -26,7 +26,7 @@ export default function Funcionalidade(props) {
             <section className="py-36 flex lg:flex-row flex-col justify-center items-center">
               <section className="w-[80%] sm:w-[50%] h-auto lg:pt-0 pt-12">
                 <h3 className={`${props.cor} font-calistoga text-center text-5xl sm:text-7xl w-full`}>{props.titulo}</h3>
-                <p className="text-justify font-nunito mt-12 text-2xl text-preto font-medium">{
+                <p className="text-left font-nunito mt-12 text-2xl text-preto font-medium">{
                 props.texto}
                 </p>
               </section>
@@ -42,7 +42,7 @@ export default function Funcionalidade(props) {
               </section>
               <section className="w-[80%] sm:w-[50%] h-auto lg:pt-0 pt-12">
                 <h3 className={`${props.cor} font-calistoga text-center text-5xl sm:text-7xl w-full`}>{props.titulo}</h3>
-                <p className="text-justify font-nunito mt-12 text-2xl text-preto font-medium">{
+                <p className="text-left font-nunito mt-12 text-2xl text-preto font-medium">{
                 props.texto}
                 </p>
               </section>
