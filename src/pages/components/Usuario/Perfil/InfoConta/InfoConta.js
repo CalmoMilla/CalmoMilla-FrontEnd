@@ -7,7 +7,7 @@ export default function InfoConta(props) {
   const [btn, setBtn] = useState(true);
 
   const handleFileChange = (e) => {
-    setBtn(false)
+    setBtn(false);
     const selectedFile = e.target.files[0];
     if (!selectedFile) return;
 
@@ -23,7 +23,7 @@ export default function InfoConta(props) {
   };
 
   const handleUpload = async () => {
-    setBtn(true)
+    setBtn(true);
     if (!file) return;
 
     const { name, type, file: selectedFile } = file;
@@ -60,9 +60,9 @@ export default function InfoConta(props) {
       Atualizar(props.usuario, "pacientes");
       console.log("Imagem atualizada com sucesso");
       let usuarioStorage = localStorage.getItem("usuario");
-      usuarioStorage = JSON.parse(usuarioStorage)
-      usuarioStorage.foto = props.usuario.foto
-      localStorage.setItem("usuario", JSON.stringify(usuarioStorage))
+      usuarioStorage = JSON.parse(usuarioStorage);
+      usuarioStorage.foto = props.usuario.foto;
+      localStorage.setItem("usuario", JSON.stringify(usuarioStorage));
     } else {
       console.error("Upload failed.");
     }
@@ -79,16 +79,31 @@ export default function InfoConta(props) {
             alt="Foto do Usuário"
             width={400}
             height={400}
-           priority={true}
+            priority={true}
           />
-          <label htmlFor="imagem-user" className="hover:bg-preto/30 duration-500 transition ease-in-out h-60 w-60 absolute top-0 rounded-full text-center text-branco z-50"></label>
-          <input type="file" className="mt-5 font-nunito w-auto hidden" id="imagem-user" onChange={handleFileChange} />
-          {btn ? 
-            <h2 className="font-nunito text-xl pt-5">Clique na imagem para trocar sua foto</h2>
-            :
-            <button onClick={handleUpload} className="bg-amarelo1 mt-5 py-2 rounded-xl text-xl hover:bg-amarelo2 duration-500 transition ease-in-out">Fazer upload da imagem</button>
-          }
-          
+          <label
+            htmlFor="imagem-user"
+            className="hover:bg-preto/30 duration-500 transition ease-in-out h-60 w-60 absolute top-0 rounded-full text-center text-branco z-2"
+          ></label>
+          <input
+            type="file"
+            className="mt-5 font-nunito w-auto hidden"
+            id="imagem-user"
+            onChange={handleFileChange}
+          />
+          {btn ? (
+            <h2 className="font-nunito text-xl pt-5">
+              Clique na imagem para trocar sua foto
+            </h2>
+          ) : (
+            <button
+              onClick={handleUpload}
+              className="bg-amarelo1 mt-5 py-2 rounded-xl text-xl hover:bg-amarelo2 duration-500 transition ease-in-out"
+            >
+              Fazer upload da imagem
+            </button>
+          )}
+
           {/* <Image
           className="w-60 h-60 rounded-full"
           src={props.usuario ? props.usuario.foto : ""}
