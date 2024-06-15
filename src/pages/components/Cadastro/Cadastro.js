@@ -7,6 +7,7 @@ import Login from "../Login/Login";
 import React, { useEffect, useState } from "react";
 import { signIn, signOut } from 'next-auth/react'
 import { useSession } from "next-auth/react"
+import { FcGoogle } from "react-icons/fc";
 
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
@@ -53,16 +54,18 @@ export default function Cadastro() {
                 session && session.status === "authenticated" ? <CadastroPsico session={session}/> : <CadastroPsico/>  }
 
                 <div className="xs:mx-auto md:w-[70%] h-5 m-auto xs:mt-4 2xl:mt-0 xs:text-center p-0 mb-4 lg:text-start">
+                <p className="text-center font-nunito">Ou</p>
+                <div className="bg-branco my-2 w-[60%] h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer" onClick={() => signIn('google')}>
+                  <FcGoogle className="text-3xl"/>
+                </div>
+                {/* <button className="bg-amarelo2 mx-auto text-branco" onClick={() => signOut()}>desloga</button>
+                {session && session.status === "authenticated" && <button className="bg-amarelo2 mx-auto text-branco" onClick={console.log(session.data.user)}>xove</button> } */}
                   <a
                     onClick={() => setIsUser(!isUser)}
                     className="font-nunito tracking-normal cursor-pointer font-bold p-0 "
                   >
-
-                    <button className="bg-amarelo2 mx-auto text-branco" onClick={() => signIn('google')}>Fazer login com Google</button>
-                    <button className="bg-amarelo2 mx-auto text-branco" onClick={() => signOut()}>desloga</button>
-                    {session && session.status === "authenticated" && <button className="bg-amarelo2 mx-auto text-branco" onClick={console.log(session.data.user)}>xove</button> }
                     {isUser ? (
-                      <p className="mt-4">
+                      <p className="mt-0">
                         Sou um <span className="text-amarelo2"> Psicólogo</span>
                         !
                       </p>
