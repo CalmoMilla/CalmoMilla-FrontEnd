@@ -59,6 +59,10 @@ export default function InfoConta(props) {
       console.log(file.name);
       Atualizar(props.usuario, "pacientes");
       console.log("Imagem atualizada com sucesso");
+      let usuarioStorage = localStorage.getItem("usuario");
+      usuarioStorage = JSON.parse(usuarioStorage)
+      usuarioStorage.foto = props.usuario.foto
+      localStorage.setItem("usuario", JSON.stringify(usuarioStorage))
     } else {
       console.error("Upload failed.");
     }
@@ -75,6 +79,7 @@ export default function InfoConta(props) {
             alt="Foto do Usuário"
             width={400}
             height={400}
+           priority={true}
           />
           <label htmlFor="imagem-user" className="hover:bg-preto/30 duration-500 transition ease-in-out h-60 w-60 absolute top-0 rounded-full text-center text-branco z-50"></label>
           <input type="file" className="mt-5 font-nunito w-auto hidden" id="imagem-user" onChange={handleFileChange} />

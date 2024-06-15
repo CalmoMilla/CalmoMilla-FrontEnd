@@ -1,11 +1,26 @@
 import { CadastroPsicologo } from "@/pages/api/usuario/PsicologoService";
+import { useState, useEffect } from "react";
 
-export default function CadastroPsico() {
+export default function CadastroPsico(props) {
+
+  const [email, setEmail] = useState("")
+  const [nome, setNome] = useState("")
+
+  useEffect(() => {
+    if (props.session) { 
+      setEmail(props.session.data.user.email) 
+      setNome(props.session.data.user.name) 
+    }
+  }, [props.session])
+
   async function onSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     try {
       const data = new FormData(event.currentTarget);
+
+      let pic = props.session ? props.session.user.image : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+
       let cadastro = {
         nome: data.get("nome"),
         email: data.get("email"),
@@ -15,7 +30,7 @@ export default function CadastroPsico() {
         dataNasc: data.get("datanasc"),
         genero: data.get("genero"),
         especializacoes: [data.get("especializacao")],
-        foto: "https://cdn.discordapp.com/attachments/1239448415910498308/1242199675147128873/642902-200.png?ex=664cf819&is=664ba699&hm=635b81ace1c4444f6458d34dd5ecda004b91c20341bf9983bdd22eb5967a4e10&",
+        foto: pic,
         numeroRegistro: "123344",
         role: "PSICOLOGO",
       };
@@ -45,7 +60,7 @@ export default function CadastroPsico() {
             id="nome"
             name="nome"
             placeholder="Coloque Seu Nome."
-            required
+            required value={nome} onChange={(event) => setNome(event.target.value)}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
@@ -58,7 +73,7 @@ export default function CadastroPsico() {
             id="email"
             name="email"
             placeholder="Coloque seu Email."
-            required
+            required value={email} onChange={(event) => setEmail(event.target.value)}
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
