@@ -6,9 +6,15 @@ import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 
-export default function InfoPsicologo({funcao, informacoesPsicologo}){
+export default function InfoPsicologo({funcao, informacoesPsicologo, listaPsicologos}){
 
     const [showHeart, setShowHeart] = useState(false)
+
+    const onClickCoracaoVazio = () => {
+      setShowHeart(true)
+      listaPsicologos.push(informacoesPsicologo)
+      console.log(listaPsicologos)
+    }
 
     return (
       <>
@@ -16,8 +22,8 @@ export default function InfoPsicologo({funcao, informacoesPsicologo}){
           <div className="w-[80%] justify-start flex items-start gap-3">
             <Image src={"https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt={"Imagem do Usuario"} width={80} height={80} className="rounded-full"/>
             <div>  
-              <p className="font-nunito text-3xl">{informacoesPsicologo[0]}</p>
-              <p className="font-nunito text-xl">{informacoesPsicologo[1]}</p>
+              <p className="font-nunito text-3xl">{informacoesPsicologo[1]}</p>
+              <p className="font-nunito text-xl">{informacoesPsicologo[2]}</p>
             </div>
           </div>
 
@@ -35,7 +41,7 @@ export default function InfoPsicologo({funcao, informacoesPsicologo}){
             {showHeart ?
                <IoHeartSharp className="text-5xl absolute bottom-1 -left-36 text-roxo duration-500 ease-in-out" onClick={() => setShowHeart(false)}/>
                :
-               <IoHeartOutline onClick={() => setShowHeart(true)} className="text-5xl absolute bottom-1 -left-36 hover:text-roxo duration-500 ease-in-out"/>
+               <IoHeartOutline onClick={onClickCoracaoVazio} className="text-5xl absolute bottom-1 -left-36 hover:text-roxo duration-500 ease-in-out"/>
             }
           </div>
           <IoIosArrowDropleftCircle onClick={funcao} className="absolute text-5xl text-verde1 hover:text-verde2 hover:scale-110 duration-500 ease-in-out top-5 left-5 hover:cursor-pointer" />

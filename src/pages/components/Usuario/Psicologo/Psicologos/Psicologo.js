@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function Psicologo({nome, esp, cidade, funcao, guardarInfo}) {
+export default function Psicologo({id, nome, esp, cidade, funcao, guardarInfo}) {
 
     function abbreviateName(name, maxLength = 15) {
         if (!name || name.length <= maxLength) {
@@ -16,7 +16,7 @@ export default function Psicologo({nome, esp, cidade, funcao, guardarInfo}) {
 
     // para mostrar as informacoes do psicologo e guardar ela
     const onClickPsicologo = () => {
-      guardarInfo([nome, esp, cidade])
+      guardarInfo({id: id, nome: nome, esp: esp, cidade: cidade})
       funcao()
     }
  
