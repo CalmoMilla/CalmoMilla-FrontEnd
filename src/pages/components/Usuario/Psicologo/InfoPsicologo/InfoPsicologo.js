@@ -6,15 +6,16 @@ import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 
-export default function InfoPsicologo({funcao, informacoesPsicologo, listaPsicologos}){
+export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsicologos}){
 
     const [showHeart, setShowHeart] = useState(false)
 
     const onClickCoracaoVazio = () => {
       setShowHeart(true)
-      listaPsicologos.push(informacoesPsicologo)
-      console.log(listaPsicologos)
+      setListaPsicologos((prev) => [...prev, informacoesPsicologo])
     }
+
+    let informacoesFormatadas = Object.values(informacoesPsicologo)
 
     return (
       <>
@@ -22,8 +23,8 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, listaPsicol
           <div className="w-[80%] justify-start flex items-start gap-3">
             <Image src={"https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt={"Imagem do Usuario"} width={80} height={80} className="rounded-full"/>
             <div>  
-              <p className="font-nunito text-3xl">{informacoesPsicologo[1]}</p>
-              <p className="font-nunito text-xl">{informacoesPsicologo[2]}</p>
+              <p className="font-nunito text-3xl">{informacoesFormatadas[1]}</p>
+              <p className="font-nunito text-xl">{informacoesFormatadas[2]}</p>
             </div>
           </div>
 

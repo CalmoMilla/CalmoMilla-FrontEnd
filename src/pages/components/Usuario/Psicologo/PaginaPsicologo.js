@@ -6,11 +6,13 @@ import ProfissionaisSalvos from "./ProfissionaisSalvos/ProfissionaisSalvos";
 import Psicologos from "./Psicologos/Psicologos";
 import InfoPsicologo from "./InfoPsicologo/InfoPsicologo";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function PaginaPsicologo() {
 
   const [showInfo, setShowInfo] = useState(false)
   const [psicologo, setPsicologo] = useState({})
+  const [profissionaisSalvos, setProfissionaisSalvos] = useState([])
 
   let dataFiltro = [
     {id: 1, titulo: "Especialidade", amarelo: false},
@@ -28,17 +30,22 @@ export default function PaginaPsicologo() {
     {id: 6, nome: "guuh do crud e do vito", esp: "mina do crud", cidade: "coracaodovi"}
   ]
 
-  let profissionaisSalvos = [
-    {id: 1, nome: "vitorugo da gut", esp: "ama a gu", cidade: "naoénasusacasaficaempas"},
-    {id: 2, nome: "gabs caique", esp: "java", cidade: "CT"},
-  ]
+  useEffect(() => {
+
+    let profissionaisBase = [
+      {id: 1, nome: "vitorugo da gut", esp: "ama a gu", cidade: "naoénasusacasaficaempas"},
+      {id: 2, nome: "gabs caique", esp: "java", cidade: "CT"}
+    ]
+
+    setProfissionaisSalvos(profissionaisBase)
+  }, [])
 
   return (
     <>
       <Header/>
       <div className="flex justify-around pt-40">
         {
-          showInfo ? <InfoPsicologo funcao={() => setShowInfo(false)} informacoesPsicologo={psicologo} listaPsicologos={profissionaisSalvos}/>
+          showInfo ? <InfoPsicologo funcao={() => setShowInfo(false)} informacoesPsicologo={psicologo} setListaPsicologos={setProfissionaisSalvos}/>
           :
           <>
             <Filtro data={dataFiltro} amarelo={false}/>
