@@ -2,17 +2,25 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Cadastro from "../Cadastro/Cadastro";
+import CadastroGoogle from "../Cadastro/CadastroGoogle";
 import Modal from "./modalAlterarSenha";
 import EsqueciSenha from "./EsqueciSenha";
-import { LoginUsuario } from "@/pages/api/usuario/UsuarioService";
-import { LoginPsicologo } from "@/pages/api/usuario/PsicologoService";
+import {
+  LoginComGoogle,
+  LoginUsuario,
+} from "@/pages/api/usuario/UsuarioService";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function Login() {
   const [showCadastro, setShowCadastro] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
+
+  const [email, setEmail] = useState("");
+
   const router = useRouter();
 
   const handleClick = () => {
@@ -23,12 +31,31 @@ export default function Login() {
     }, 1100); // 1000ms é a duração da animação
   };
 
+  const session = useSession();
+
+  useEffect(() => {
+    if (session && session.status === "authenticated") {
+      onAuth();
+    }
+  });
+
   useEffect(() => {
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
       router.push("/usuario");
     }
-  }, [router]);
+  });
+
+  async function onAuth() {
+    let login = {
+      email: session.data.user.email,
+    };
+    LoginComGoogle(login, "auth/login/google");
+    const tokenUser = localStorage.getItem("token");
+    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+      router.push("/usuario");
+    }
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -48,7 +75,7 @@ export default function Login() {
   }
 
   if (showCadastro) {
-    return <Cadastro />;
+    return <CadastroGoogle />;
   }
 
   return (
@@ -71,6 +98,12 @@ export default function Login() {
             </div>
 
             <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
+              <div
+                className="bg-branco my-2 w-full h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer"
+                onClick={() => signIn("google")}
+              >
+                <FcGoogle className="text-3xl my-4" />
+              </div>
               <div className="flex justify-around w-[100%]">
                 <hr className="my-4 w-40 border-black"></hr>
                 <p className="flex items-center mx-3 text-sm">Ou</p>
@@ -96,7 +129,7 @@ export default function Login() {
             alt="Login Change"
           />
         </div>
-        <div className="flex justify-center items-center w-full h-[65%] lg:w-[100%] ">
+        <div className="flex justify-center items-center w-full xs:h-auto lg:h-[65%] lg:w-[100%] ">
           <div className="h-full w-full m-auto grid-cols-2 border-black justify-center">
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
               <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
@@ -146,13 +179,23 @@ export default function Login() {
                   required
                 />
               </div>
-              <div className="flex w-[70%] justify-center xs:m-auto">
+              <div className="flex w-[70%] justify-center xs:m-auto flex-col items-center">
                 <button
                   type="submit"
                   className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
                 >
                   Entrar
                 </button>
+
+                <p className="font-nunito text-lg lg:hidden my-2 xs:flex text-center">
+                  Ou
+                </p>
+                <div
+                  className="bg-branco my-2 w-full lg:w-[70%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
+                  onClick={() => signIn("google")}
+                >
+                  <FcGoogle className="text-3xl my-4" />
+                </div>
               </div>
             </form>
             <div className="xs:mx-auto w-[60%] h-auto m-auto mt-4 xs:text-start gap-10">

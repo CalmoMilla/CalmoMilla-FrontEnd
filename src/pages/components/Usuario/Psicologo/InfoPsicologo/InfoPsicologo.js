@@ -4,13 +4,15 @@ import Image from "next/image"
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
 
-export default function InfoPsicologo(){
+export default function InfoPsicologo({funcao}){
 
     const [showHeart, setShowHeart] = useState(false)
 
     return (
-        <div className="w-[70%] h-fit shadow-2xl flex flex-col justify-center items-center py-5 gap-5">     
+      <>
+        <div className="w-[70%] h-fit shadow-2xl flex flex-col justify-center items-center py-5 gap-5 relative">     
           <div className="w-[80%] justify-start flex items-start gap-3">
             <Image src={"https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt={"Imagem do Usuario"} width={80} height={80} className="rounded-full"/>
             <div>  
@@ -36,7 +38,9 @@ export default function InfoPsicologo(){
                <IoHeartOutline onClick={() => setShowHeart(true)} className="text-5xl absolute bottom-1 -left-36 hover:text-roxo duration-500 ease-in-out"/>
             }
           </div>
+          <IoIosArrowDropleftCircle onClick={funcao} className="absolute text-5xl text-verde1 hover:text-verde2 hover:scale-110 duration-500 ease-in-out top-5 left-5 hover:cursor-pointer" />
 
         </div>
+      </>
     )
 }

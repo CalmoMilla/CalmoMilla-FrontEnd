@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
 const urlLocal = "http://localhost:8080/";
-var campos = ""
+var campos = "";
 
 export const LoginUsuario = async (login, endpoint) => {
   try {
@@ -24,17 +24,17 @@ export const LoginUsuario = async (login, endpoint) => {
     }
   } catch (error) {
     if (error.response) {
-      campos = ""
+      campos = "";
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
@@ -52,19 +52,12 @@ export const LoginComGoogle = async (usuario, endpoint) => {
       },
     });
 
-    if (response.status == 404) {
-     //mandar para o cadastro com os dados preenchidos
-    }
-    if (response.status == 400) {
-      //Modal para confirmar a senha
-      LoginComGoogle(login,endpoint)
-     }
-     if (response.status == 200) {
-      // Logar 
-      
-     }
     if (response.data.token != null) {
-      console.log(response.data);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", response.data.token);
+        BuscarInfoUsuario("pacientes/eu");
+      }
+      return response.data.token;
     }
   } catch (error) {
     console.error("Erro ao fazer requisição para a API:", error);
@@ -84,23 +77,23 @@ export const Cadastro = async (paciente, endpoint) => {
       Swal.fire({
         title: "Cadastro feito!",
         text: "Seu cadastro foi feito com sucesso na plataforma!",
-        icon: "success"
+        icon: "success",
       });
       console.log(response.data);
     }
   } catch (error) {
     if (error.response) {
-      campos = ""
+      campos = "";
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
@@ -109,7 +102,6 @@ export const Cadastro = async (paciente, endpoint) => {
     }
   }
 };
-
 
 export const EsqueciASenha = async (email, endpoint) => {
   try {
@@ -123,24 +115,24 @@ export const EsqueciASenha = async (email, endpoint) => {
       Swal.fire({
         title: "Email enviado com sucesso!",
         text: "Acesse o email e siga as instruções!",
-        icon: "success"
+        icon: "success",
       });
       console.log(response.data);
     }
   } catch (error) {
     if (error.response) {
-      campos = ""
+      campos = "";
       const { title, fields } = error.response.data;
       console.log("Title:", title);
-      console.log(response.status)
+      console.log(response.status);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
@@ -155,7 +147,7 @@ export const EnviarQuestionarioDeEmocoes = async (emocoes, endpoint) => {
     if (typeof window === "undefined") {
       return null;
     }
-  
+
     const token = localStorage.getItem("token");
     if (!token) {
       throw new Error("No token found");
@@ -171,24 +163,24 @@ export const EnviarQuestionarioDeEmocoes = async (emocoes, endpoint) => {
       Swal.fire({
         title: "Dados registrados com sucesso!",
         text: `${response.data.mensagem}`,
-        icon: "success"
+        icon: "success",
       });
       console.log(response.data);
     }
   } catch (error) {
     if (error.response) {
-      campos = ""
+      campos = "";
       const { title, fields } = error.response.data;
       console.log("Title:", title);
-      console.log(response.status)
+      console.log(response.status);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
@@ -217,7 +209,7 @@ export const BuscarInfoEmocoes = async (endpoint) => {
 
   if (response.ok) {
     const emocoes = await response.json();
-    return emocoes
+    return emocoes;
   } else {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
@@ -236,22 +228,22 @@ export const RedefinirSenha = async (redefinir, endpoint) => {
       Swal.fire({
         title: "Senha redefinida com sucesso!",
         text: "Faça seu login agora!",
-        icon: "success"
+        icon: "success",
       });
     }
   } catch (error) {
     if (error.response) {
-      campos = ""
+      campos = "";
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
