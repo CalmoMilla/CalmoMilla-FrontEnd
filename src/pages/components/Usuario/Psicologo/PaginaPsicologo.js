@@ -28,6 +28,11 @@ export default function PaginaPsicologo() {
     {id: 6, nome: "guuh do crud e do vito", esp: "mina do crud", cidade: "coracaodovi"}
   ]
 
+  let profissionaisSalvos = [
+    {id: 1, nome: "vitorugo da gut", esp: "ama a gu", cidade: "naoénasusacasaficaempas"},
+    {id: 2, nome: "gabs caique", esp: "java", cidade: "CT"},
+  ]
+
   return (
     <>
       <Header/>
@@ -40,7 +45,7 @@ export default function PaginaPsicologo() {
             <Psicologos data={psicologos} funcao={() => setShowInfo(true)} guardarInfo={setPsicologo}/>
           </>
         }
-        <ProfissionaisSalvos/>
+        <ProfissionaisSalvos profissionaisSalvos={profissionaisSalvos}/>
       </div>
     </>
   )
