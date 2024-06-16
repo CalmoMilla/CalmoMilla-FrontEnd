@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import IntegranteSobreNos from "./IntegranteSobreNos";
@@ -6,7 +8,7 @@ export default function SobreNos() {
   const { t } = useTranslation();
 
   return (
-    <div id="sobrenos">
+    <div className="pt-32">
       <h2 className="text-roxo text-7xl font-calistoga text-center pb-20">
         {t("sobreNosTitulo1")}
       </h2>

@@ -79,13 +79,13 @@ export default function Header() {
                     </a>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="#sobrenos"
+                      href={"sobrenos"}
                       onClick={toggleMenu}
                     >
                       {t("common:headerSobreNos")}
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a
