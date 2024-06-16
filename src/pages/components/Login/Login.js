@@ -33,11 +33,11 @@ export default function Login() {
 
   const session = useSession();
 
-  useEffect(() => {
-    if (session && session.status === "authenticated") {
-      onAuth();
-    }
-  });
+  // useEffect(() => {
+  //   if (session && session.status === "authenticated") {
+  //     onAuth();
+  //   }
+  // });
 
   useEffect(() => {
     const tokenUser = localStorage.getItem("token");
@@ -46,16 +46,16 @@ export default function Login() {
     }
   });
 
-  async function onAuth() {
-    let login = {
-      email: session.data.user.email,
-    };
-    LoginComGoogle(login, "auth/login/google");
-    const tokenUser = localStorage.getItem("token");
-    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
-      router.push("/usuario");
-    }
-  }
+  // async function onAuth() {
+  //   let login = {
+  //     email: session.data.user.email,
+  //   };
+  //   LoginComGoogle(login, "auth/login/google");
+  //   const tokenUser = localStorage.getItem("token");
+  //   if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+  //     router.push("/usuario");
+  //   }
+  // }
 
   async function onSubmit(event) {
     event.preventDefault();

@@ -7,6 +7,7 @@ import Psicologos from "./Psicologos/Psicologos";
 import InfoPsicologo from "./InfoPsicologo/InfoPsicologo";
 import { useState } from "react";
 import { useEffect } from "react";
+import { BuscarPsicologos } from "@/pages/api/usuario/UsuarioService";
 
 export default function PaginaPsicologo() {
 
@@ -40,12 +41,21 @@ export default function PaginaPsicologo() {
     setProfissionaisSalvos(profissionaisBase)
   }, [])
 
+  useEffect(() => {
+    buscarPsicologos()
+  })
+
+  const buscarPsicologos = async () => {
+    psicologos = await BuscarPsicologos("psicologos");
+    console.log(psicologos)
+  };
+
   return (
     <>
       <Header/>
       <div className="flex justify-around pt-40">
         {
-          showInfo ? <InfoPsicologo funcao={() => setShowInfo(false)} informacoesPsicologo={psicologo} setListaPsicologos={setProfissionaisSalvos}/>
+          showInfo ? <InfoPsicologo funcao={() => setShowInfo(false)} informacoesPsicologo={psicologo} setListaPsicologos={setProfissionaisSalvos} listaPsicologos={profissionaisSalvos}/>
           :
           <>
             <Filtro data={dataFiltro} amarelo={false}/>
@@ -54,6 +64,6 @@ export default function PaginaPsicologo() {
         }
         <ProfissionaisSalvos profissionaisSalvos={profissionaisSalvos}/>
       </div>
-    </>
+    </> 
   )
 }

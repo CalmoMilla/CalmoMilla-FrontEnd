@@ -1,8 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
-const urlLocal = "http://localhost:8080/";
+const urlLocal = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
+const url = "http://localhost:8080/";
 var campos = "";
 
 export const LoginUsuario = async (login, endpoint) => {
@@ -44,25 +44,25 @@ export const LoginUsuario = async (login, endpoint) => {
   }
 };
 
-export const LoginComGoogle = async (usuario, endpoint) => {
-  try {
-    const response = await axios.post(url + endpoint, usuario, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+// export const LoginComGoogle = async (usuario, endpoint) => {
+//   try {
+//     const response = await axios.post(url + endpoint, usuario, {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
 
-    if (response.data.token != null) {
-      if (typeof window !== "undefined") {
-        localStorage.setItem("token", response.data.token);
-        BuscarInfoUsuario("pacientes/eu");
-      }
-      return response.data.token;
-    }
-  } catch (error) {
-    console.error("Erro ao fazer requisição para a API:", error);
-  }
-};
+//     if (response.data.token != null) {
+//       if (typeof window !== "undefined") {
+//         localStorage.setItem("token", response.data.token);
+//         BuscarInfoUsuario("pacientes/eu");
+//       }
+//       return response.data.token;
+//     }
+//   } catch (error) {
+//     console.error("Erro ao fazer requisição para a API:", error);
+//   }
+// };
 
 export const Cadastro = async (paciente, endpoint) => {
   try {
@@ -299,6 +299,32 @@ export const BuscarUsuario = async (endpoint, id) => {
   if (response.ok) {
     const userInfo = await response.json();
     return userInfo;
+  } else {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+};
+
+export const BuscarPsicologos = async (endpoint) => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("No token found");
+  }
+
+  const response = await fetch(url + endpoint, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.ok) {
+    const psicologos = await response.json();
+    return psicologos;
   } else {
     const errorMessage = await response.text();
     throw new Error(errorMessage);

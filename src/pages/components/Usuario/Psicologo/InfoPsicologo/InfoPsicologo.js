@@ -5,17 +5,52 @@ import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { useEffect } from "react";
 
-export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsicologos}){
+export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsicologos, listaPsicologos}){
 
     const [showHeart, setShowHeart] = useState(false)
 
-    const onClickCoracaoVazio = () => {
-      setShowHeart(true)
-      setListaPsicologos((prev) => [...prev, informacoesPsicologo])
+    let informacoesFormatadas = Object.values(informacoesPsicologo)
+
+    const existeProfissional = (profissionais, novoProfissional) => {
+      return profissionais.find(profissional => profissional.id === novoProfissional.id);
     }
 
-    let informacoesFormatadas = Object.values(informacoesPsicologo)
+    const removerProfissionalPorId = (profissionais) => {
+      const indice = profissionais.findIndex(profissional => profissional.id === informacoesFormatadas[0]);
+    
+      if (indice !== -1) {
+        profissionais.splice(indice, 1);
+        return true;
+      }
+    
+      return false;
+    }
+
+    useEffect(() => {
+      existeProfissional(listaPsicologos, informacoesPsicologo)
+      if (existeProfissional(listaPsicologos, informacoesPsicologo)) {
+        setShowHeart(true)
+      }
+    }, [listaPsicologos, informacoesPsicologo])
+
+    const onClickCoracaoVazio = () => {
+      setShowHeart(true)
+      const prof = existeProfissional(listaPsicologos, informacoesPsicologo)
+      if (!prof) {
+        setListaPsicologos((prev) => [...prev, informacoesPsicologo])
+      }
+    }
+
+    // const onClickCoracaoCheio = () => {
+    //   setShowHeart(false)
+    //   const prof = existeProfissional(listaPsicologos, informacoesPsicologo)
+    //   removerProfissionalPorId()
+    //   if (!prof) {
+    //     setListaPsicologos((prev) => [...prev, informacoesPsicologo])
+    //   }
+    // }
 
     return (
       <>
