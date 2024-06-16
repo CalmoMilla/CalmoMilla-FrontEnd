@@ -3,12 +3,16 @@ import Plano from "./Plano";
 
 export default function Planos() {
   return (
-    <div className="bg-amber-100/20">
-      <h2 className="text-verdeagua text-7xl font-calistoga text-center pt-10 pb-24 lg:pb-40 ">Planos do Usuário</h2>
+    <div className="bg-branco p-5">
+      <h2 className="text-verdeagua text-7xl font-calistoga text-center py-5 ">Planos Disponíveis</h2>
+      <h2 className="text-preto text-5xl font-calistoga text-center py-5 ">Usuários</h2>
       <div className="sm:flex-col lg:flex lg:flex-row justify-around pb-12">
-        <Plano titulo={"Remova os ADS"} preco={"R$15.00"} plano={"Mensal"}/>
-        <Plano titulo={"Remova os ADS"} preco={"R$90.00"} plano={"Anual"}/>
+        <Plano preco={"R$15.00"} plano={"Mensal"}/>
+        <Plano preco={"R$30.00"} plano={"Vitalício"}/>
       </div>
+      <div className="w-[80%] h-1 bg-preto/20 mx-auto"></div>
+      <h2 className="text-preto text-5xl font-calistoga text-center py-10">Psicólogos</h2>
+      <Plano preco={"R$15.00"} plano={"Vitalício"} psicologo={true}/>
     </div>
   )
 }
