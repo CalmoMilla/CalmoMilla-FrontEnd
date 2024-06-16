@@ -33,7 +33,8 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
       if (existeProfissional(listaPsicologos, informacoesPsicologo)) {
         setShowHeart(true)
       }
-    }, [listaPsicologos, informacoesPsicologo])
+      console.log(informacoesFormatadas)
+    }, [listaPsicologos, informacoesPsicologo, informacoesFormatadas])
 
     const onClickCoracaoVazio = () => {
       setShowHeart(true)
@@ -56,7 +57,7 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
       <>
         <div className="w-[70%] h-fit shadow-2xl flex flex-col justify-center items-center py-5 gap-5 relative">     
           <div className="w-[80%] justify-start flex items-start gap-3">
-            <Image src={"https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt={"Imagem do Usuario"} width={80} height={80} className="rounded-full"/>
+            <Image src={informacoesFormatadas[9]} alt={"Imagem do Usuario"} width={80} height={80} className="rounded-full"/>
             <div>  
               <p className="font-nunito text-3xl">{informacoesFormatadas[1]}</p>
               <p className="font-nunito text-xl">{informacoesFormatadas[2]}</p>

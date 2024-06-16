@@ -1,14 +1,13 @@
 import { FaUser } from "react-icons/fa"
+import Image from "next/image"
 
-export default function ProfissionalSalvo({nome, especialidade}) {
+export default function ProfissionalSalvo({nome, email, foto}) {
   return (
-    <div className="flex gap-4 items-center py-6">
-      <div className="w-fit h-fit bg-gray-200 p-3 rounded-full">
-        <FaUser className="text-3xl cursor-pointer text-branco"/>
-      </div>
+    <div className="flex gap-4 items-center py-6 hover:cursor-pointer">
+      <Image src={foto} alt={"Imagem do Usuario"} width={70} height={70} className="rounded-full"/>
       <div>
         <p>{nome}</p>
-        <p>{especialidade}</p>
+        <p>{email}</p>
       </div>
     </div>
   )

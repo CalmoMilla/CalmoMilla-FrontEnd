@@ -7,13 +7,14 @@ import Psicologos from "./Psicologos/Psicologos";
 import InfoPsicologo from "./InfoPsicologo/InfoPsicologo";
 import { useState } from "react";
 import { useEffect } from "react";
-import { BuscarPsicologos } from "@/pages/api/usuario/UsuarioService";
+import { BuscarInfoUsuario, BuscarPsicologos, BuscarPsicologosSalvos } from "@/pages/api/usuario/UsuarioService";
 
 export default function PaginaPsicologo() {
 
   const [showInfo, setShowInfo] = useState(false)
   const [psicologo, setPsicologo] = useState({})
   const [profissionaisSalvos, setProfissionaisSalvos] = useState([])
+  const [psicologos, setPsicologos] = useState([])
 
   let dataFiltro = [
     {id: 1, titulo: "Especialidade", amarelo: false},
@@ -22,33 +23,32 @@ export default function PaginaPsicologo() {
     {id: 4, titulo: "Gênero", amarelo: false},
   ] 
 
-  let psicologos = [
-    {id: 1, nome: "vitorugo da gut", esp: "ama a gu", cidade: "naoénasusacasaficaempas"},
-    {id: 2, nome: "gabs caique", esp: "java", cidade: "CT"},
-    {id: 3, nome: "ruuh do crud", esp: "mina do crud", cidade: "jardim buturuçu"},
-    {id: 4, nome: "arthu", esp: "bola pastel", cidade: "itapevi"},
-    {id: 5, nome: "luiz", esp: "ux designer", cidade: "numsei"},
-    {id: 6, nome: "guuh do crud e do vito", esp: "mina do crud", cidade: "coracaodovi"}
-  ]
+  // useEffect(() => {
 
-  useEffect(() => {
+  //   let profissionaisBase = [
+  //     {id: 1, nome: "vitorugo da gut", esp: "ama a gu", cidade: "naoénasusacasaficaempas"},
+  //     {id: 2, nome: "gabs caique", esp: "java", cidade: "CT"}
+  //   ]
 
-    let profissionaisBase = [
-      {id: 1, nome: "vitorugo da gut", esp: "ama a gu", cidade: "naoénasusacasaficaempas"},
-      {id: 2, nome: "gabs caique", esp: "java", cidade: "CT"}
-    ]
-
-    setProfissionaisSalvos(profissionaisBase)
-  }, [])
+  //   setProfissionaisSalvos(profissionaisBase)
+  // }, [])
 
   useEffect(() => {
     buscarPsicologos()
-  })
+    buscarPsicologosSalvos()
+  }, [])
 
   const buscarPsicologos = async () => {
-    psicologos = await BuscarPsicologos("psicologos");
+    let psicologos = await BuscarPsicologos("psicologos");
     console.log(psicologos)
+    setPsicologos(psicologos)
   };
+
+  const buscarPsicologosSalvos = async () => {
+    let psicologosSalvos = await BuscarPsicologosSalvos("pacientes/eu");
+    setProfissionaisSalvos(psicologosSalvos.psicologos)
+  }
+
 
   return (
     <>
