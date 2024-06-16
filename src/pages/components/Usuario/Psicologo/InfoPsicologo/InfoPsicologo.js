@@ -6,7 +6,7 @@ import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { useEffect } from "react";
-import { FavoritarPsicologo } from "@/pages/api/usuario/UsuarioService";
+import { DeletarPsicologo, FavoritarPsicologo } from "@/pages/api/usuario/UsuarioService";
 
 export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsicologos, listaPsicologos}){
 
@@ -41,7 +41,14 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
       setShowHeart(true)
       var usuario = JSON.parse(localStorage.getItem("usuario"));
       var objeto = {idPaciente: usuario.id, idPsicologo: informacoesFormatadas[0]}
-      FavoritarPsicologo("pacientes/favoritar", objeto)
+      FavoritarPsicologo("pacientes/favoritos", objeto)
+    }
+
+    const onClickCoracaoCheio = () => {
+      var usuario = JSON.parse(localStorage.getItem("usuario"));
+      var objeto = {idPaciente: usuario.id, idPsicologo: informacoesFormatadas[0]}
+      DeletarPsicologo("pacientes/favoritos", objeto)
+      setShowHeart(false)
     }
 
     // const onClickCoracaoCheio = () => {
@@ -76,7 +83,7 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
             Contatar profissional
             </button>
             {showHeart ?
-               <IoHeartSharp className="text-5xl absolute bottom-1 -left-36 text-roxo duration-500 ease-in-out" onClick={() => setShowHeart(false)}/>
+               <IoHeartSharp className="text-5xl absolute bottom-1 -left-36 text-roxo duration-500 ease-in-out" onClick={onClickCoracaoCheio}/>
                :
                <IoHeartOutline onClick={onClickCoracaoVazio} className="text-5xl absolute bottom-1 -left-36 hover:text-roxo duration-500 ease-in-out"/>
             }

@@ -348,6 +348,49 @@ export const FavoritarPsicologo = async (endpoint, obj) => {
   }
 };
 
+export const DeletarPsicologo = async (endpoint, obj) => {
+  try {
+    if (typeof window === "undefined") {
+      return null;
+    }
+  
+    const token = localStorage.getItem("token");
+    if (!token) {
+      throw new Error("No token found");
+    }
+
+    const response = await axios.delete(url + endpoint, obj, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status === 200) {
+      console.log("deleto")
+    }
+  } catch (error) {
+    if (error.response) {
+      campos = "";
+      const { title, fields } = error.response.data;
+      console.log("Title:", title);
+      console.log("Fields:", fields);
+      for (const campo in fields) {
+        campos += `${campo}: ${fields[campo]}`;
+      }
+      Swal.fire({
+        title: title,
+        text: campos ? campos : "",
+        icon: "warning",
+      });
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};
+
 export const BuscarUsuario = async (endpoint, id) => {
   if (typeof window === "undefined") {
     return null;
