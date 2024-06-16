@@ -6,6 +6,7 @@ import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { useEffect } from "react";
+import { FavoritarPsicologo } from "@/pages/api/usuario/UsuarioService";
 
 export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsicologos, listaPsicologos}){
 
@@ -38,10 +39,9 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
 
     const onClickCoracaoVazio = () => {
       setShowHeart(true)
-      const prof = existeProfissional(listaPsicologos, informacoesPsicologo)
-      if (!prof) {
-        setListaPsicologos((prev) => [...prev, informacoesPsicologo])
-      }
+      var usuario = JSON.parse(localStorage.getItem("usuario"));
+      var objeto = {idPaciente: usuario.id, idPsicologo: informacoesFormatadas[0]}
+      FavoritarPsicologo("pacientes/favoritar", objeto)
     }
 
     // const onClickCoracaoCheio = () => {
