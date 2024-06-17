@@ -11,6 +11,8 @@ import { DeletarPsicologo, FavoritarPsicologo } from "@/pages/api/usuario/Usuari
 export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsicologos, listaPsicologos}){
 
     const [showHeart, setShowHeart] = useState(false)
+    
+    informacoesPsicologo = informacoesPsicologo ? informacoesPsicologo : "" 
 
     let informacoesFormatadas = Object.values(informacoesPsicologo)
 
