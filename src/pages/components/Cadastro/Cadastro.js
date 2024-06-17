@@ -29,7 +29,7 @@ export default function Cadastro() {
       {showLogin ? (
         <Login className={`${isAnimating ? "animate-toLogin" : ""}}`} />
       ) : (
-        <div className="flex w-screen xs:h-auto xl:h-screen  xl:overflow-hidden  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
+        <div className="flex w-screen xs:h-auto lg:h-screen  xl:overflow-hidden  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
           <div
             className={`m-auto flex justify-center lg:items-center xs:h-auto xl:h-[99%]  w-[80%] border rounded-lg shadow-lg xs:items-start  ${
               isAnimating ? "animate-toLogin" : ""
