@@ -133,12 +133,12 @@ export default function Header() {
           ) : (
             <>
            <div
-                className={`bg-amarelo1 nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
-                  isOpen ? "xs:top-[100%] absolute duration-300  h-96  items-center z-10 "  : "  h-12"
+                className={`bg-amarelo1 nav-links  xl:flex lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 flex-re ${
+                  isOpen ? "xs:top-[100%] absolute duration-300  items-center z-10 "  : "  h-12"
                 } z-0`} 
               >
             
-                <ul className={`flex xl:flex-row flex-col sm:items-center   xs:flex xl:flex xl:gap-[4vw] gap-8  ${
+                <ul className={`flex lg:flex-row flex-col sm:items-center  xs:flex xl:flex :gap-[4vw] gap-8  ${
                   isOpen ? "w-full " : " "
                 }`}>
                   <li>
