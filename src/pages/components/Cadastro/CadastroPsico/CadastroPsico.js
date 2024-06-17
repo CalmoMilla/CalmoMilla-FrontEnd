@@ -169,7 +169,8 @@ export default function CadastroPsico(props) {
             className="text-black py-[5px]"
           >
             <option value="pG">Psicólogo Geral</option>
-            <option value="f">Psicólogo Neuroseila</option>
+            <option value="pC">Psicólogo Cliníco</option>
+            <optio value="pE">Psicólogo Escolar</optio>
             <option value="o">Outros</option>
           </select>
         </div>
