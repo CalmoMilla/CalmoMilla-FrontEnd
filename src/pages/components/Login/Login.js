@@ -79,7 +79,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex w-screen h-screen overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
+    <div className=" flex w-screen  xs:h-full lg:h-screen xl:overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
       <div
         className={`m-auto flex justify-center items-center h-[90%] w-[80%] border rounded-lg shadow-lg  ${
           isAnimating ? "animate-toCadastro" : ""
@@ -130,7 +130,7 @@ export default function Login() {
           />
         </div>
         <div className="flex justify-center items-center w-full xs:h-auto lg:h-[65%] lg:w-[100%] ">
-          <div className="h-full w-full m-auto grid-cols-2 border-black justify-center">
+          <div className="md:h-full xs:h-screen w-full m-auto grid-cols-2 border-black justify-center items-centers">
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
               <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
                 Login
