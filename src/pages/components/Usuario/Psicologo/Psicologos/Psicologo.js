@@ -20,9 +20,9 @@ export default function Psicologo({psi, guardarInfo, funcao}) {
     funcao()
   }
 
-  const anoNascimento = psi.dataNasc[0];
-  const mesNascimento = psi.dataNasc[1];
-  const diaNascimento = psi.dataNasc[2];
+  const anoNascimento = psi && psi.dataNasc[0];
+  const mesNascimento = psi && psi.dataNasc[1];
+  const diaNascimento = psi && psi.dataNasc[2];
 
   const dataAtual = new Date();
   const anoAtual = dataAtual.getFullYear();
@@ -40,7 +40,7 @@ export default function Psicologo({psi, guardarInfo, funcao}) {
   return (
     <div className="w-[90%] h-full shadow-2xl rounded-xl mx-auto hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" onClick={onClickPsicologo}>
       <div className="w-full h-[55%] bg-preto/20 flex justify-start items-end p-5 rounded-t-lg">
-          <Image src={psi.foto} alt={"Imagem do Usuario"} width={100} height={100} className="rounded-full"/>
+          <Image src={psi && psi.foto} alt={"Imagem do Usuario"} width={100} height={100} className="rounded-full"/>
       </div>
       <div className="w-full h-[45%] py-2 px-5">
         <h2 className={`font-nunito text-3xl`}>{nomeAbreviado}</h2>

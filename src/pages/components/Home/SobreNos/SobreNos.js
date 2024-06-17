@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import IntegranteSobreNos from "./IntegranteSobreNos";
+import FuturoPlataforma from "./FuturoPlataforma";
 
 export default function SobreNos() {
   const { t } = useTranslation();
@@ -77,6 +78,7 @@ export default function SobreNos() {
             <p className="w-[90%] md:w-[50%] text-2xl font-nunito text-center text-branco">{t("sobreNosTexto15")}
             </p>
           </div>
+          {/* <FuturoPlataforma/> */}
           <h2 className="text-7xl xl:text-[7rem] text-branco text-center mx-auto font-calistoga py-5 md:py-20 underline">
           {t("sobreNosTitulo6")}
           </h2>
