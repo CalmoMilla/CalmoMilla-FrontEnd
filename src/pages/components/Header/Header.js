@@ -39,18 +39,27 @@ export default function Header() {
   return (
     <>
       <header className="bg-amarelo1 py-3 z-50 w-screen fixed">
-        <nav className="flex justify-between items-center w-[92%] mx-auto z-50">
+        <nav className={`flex justify-between items-center w-[92%] mx-auto z-50${
+                  isOpen ? "   z-50"  : " "
+                } z-50`}>
           <Link href={`${logado ? "/usuario" : "/"}`} className="w-fit">
             <Image width={70} height={70} src="/assets/logo.png" alt="..." />
           </Link>
           {!logado ? (
             <>
+          
               <div
-                className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 ${
-                  isOpen ? "xs:top-[12%] md:top-[11%]" : " "
-                } z-50`}
+                className={`bg-amarelo1 nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
+                  isOpen ? "xs:top-[100%] absolute duration-300  h-96  items-center z-10 "  : "  h-12"
+                } z-0`} 
               >
-                <ul className="flex lg:flex-row flex-col lg:items-center  xs:hidden xl:flex lg:gap-[4vw] gap-8">
+            
+                <ul className={`flex xl:flex-row flex-col sm:items-center   xs:flex xl:flex xl:gap-[4vw] gap-8  ${
+                  isOpen ? "w-full " : " "
+                }`}>
+                       <button className="bg-branco px-8 py-3 rounded-full  md:hidden xs:w-[60%] md:w-auto hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
+                    {t("common:headerEntrar")}
+                  </button>
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
@@ -98,17 +107,18 @@ export default function Header() {
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-6">
+                       
+              <div className="flex items-center  gap-6">
                 <LanguageChanger />
                 <Link href={"/login"}>
-                  <button className="bg-branco px-8 py-3 rounded-full hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
+                  <button className="bg-branco px-8 py-3 rounded-full xs:hidden md:flex hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
                     {t("common:headerEntrar")}
                   </button>
                 </Link>
                 {isOpen ? (
                   <FaTimes
                     id="menu-navbar"
-                    className="text-3xl cursor-pointer lg:hidden"
+                    className="text-3xl cursor-pointer xl:hidden"
                     onClick={toggleMenu}
                   ></FaTimes>
                 ) : (
@@ -122,12 +132,15 @@ export default function Header() {
             </>
           ) : (
             <>
-              <div
-                className={`bg-amarelo1 nav-links duration-500 lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-auto flex items-center px-5 ${
-                  isOpen ? " xs:top-[11%] md:top-[11%]" : " "
-                } z-50`}
+           <div
+                className={`bg-amarelo1 nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
+                  isOpen ? "xs:top-[100%] absolute duration-300  h-96  items-center z-10 "  : "  h-12"
+                } z-0`} 
               >
-                <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
+            
+                <ul className={`flex xl:flex-row flex-col sm:items-center   xs:flex xl:flex xl:gap-[4vw] gap-8  ${
+                  isOpen ? "w-full " : " "
+                }`}>
                   <li>
                     <Link
                       href={"/usuario/jogos"}
@@ -195,6 +208,7 @@ export default function Header() {
               </div>
             </>
           )}
+          
         </nav>
       </header>
     </>
