@@ -80,6 +80,7 @@ export default function InfoConta(props) {
             width={400}
             height={400}
             priority={true}
+            quality={100}
           />
           <label
             htmlFor="imagem-user"

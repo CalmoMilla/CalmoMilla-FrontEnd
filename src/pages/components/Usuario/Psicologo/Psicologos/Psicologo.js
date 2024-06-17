@@ -12,7 +12,7 @@ export default function Psicologo({psi, guardarInfo, funcao}) {
     return `${truncatedName}...`;
   }
     
-  const nomeAbreviado = abbreviateName(psi.nome);
+  const nomeAbreviado = abbreviateName(psi && psi.nome);
 
   // para mostrar as informacoes do psicologo e guardar ela
   const onClickPsicologo = () => {
