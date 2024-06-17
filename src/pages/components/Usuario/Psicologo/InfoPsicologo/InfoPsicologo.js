@@ -20,17 +20,6 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
       return profissionais.find(profissional => profissional.id === novoProfissional.id);
     }
 
-    const removerProfissionalPorId = (profissionais) => {
-      const indice = profissionais.findIndex(profissional => profissional.id === informacoesFormatadas[0]);
-    
-      if (indice !== -1) {
-        profissionais.splice(indice, 1);
-        return true;
-      }
-    
-      return false;
-    }
-
     useEffect(() => {
       existeProfissional(listaPsicologos, informacoesPsicologo)
       if (existeProfissional(listaPsicologos, informacoesPsicologo)) {

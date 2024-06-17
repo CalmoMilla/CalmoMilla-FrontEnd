@@ -1,8 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
-const urlLocal = "http://localhost:8080/";
+const urlLocal = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
+const url = "http://localhost:8080/";
 var campos = "";
 
 export const LoginUsuario = async (login, endpoint) => {
@@ -349,6 +349,9 @@ export const FavoritarPsicologo = async (endpoint, obj) => {
 };
 
 export const DeletarPsicologo = async (endpoint, obj) => {
+
+  console.log(obj)
+
   try {
     if (typeof window === "undefined") {
       return null;
@@ -359,17 +362,21 @@ export const DeletarPsicologo = async (endpoint, obj) => {
       throw new Error("No token found");
     }
 
-    const response = await axios.delete(url + endpoint, obj, {
+    const response = await fetch(url + endpoint, {
+      method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(obj)
     });
 
-    if (response.status === 200) {
+
+    if (response.status === 204) {
       console.log("deleto")
     }
   } catch (error) {
+    console.log(error)
     if (error.response) {
       campos = "";
       const { title, fields } = error.response.data;
