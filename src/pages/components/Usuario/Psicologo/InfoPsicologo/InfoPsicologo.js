@@ -26,7 +26,7 @@ export default function InfoPsicologo({funcao, informacoesPsicologo, setListaPsi
         setShowHeart(true)
       }
       console.log(informacoesFormatadas)
-    }, [listaPsicologos, informacoesPsicologo, informacoesFormatadas])
+    }, [])
 
     const onClickCoracaoVazio = () => {
       setShowHeart(true)
