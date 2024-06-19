@@ -9,6 +9,7 @@ import EsqueciSenha from "../../Login/EsqueciSenha";
 import Emocoes from "./Emocoes/Emocoes";
 import Swal from "sweetalert2";
 import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService";
+import Rotina from "./Rotina/Rotina";
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
@@ -31,6 +32,8 @@ export default function User() {
           desc={"Um teste diário que testa seu pensamento cognitivo"}
           link={"/jogomemoria"}
         />
+
+        <Rotina/>
 
         <VisaoGeral />
       </div>
