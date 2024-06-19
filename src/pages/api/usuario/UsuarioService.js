@@ -120,15 +120,11 @@ export const EsqueciASenha = async (email, endpoint) => {
       console.log(response.data);
     }
   } catch (error) {
+    console.log(error);
     if (error.response) {
-      campos = "";
-      const { title, fields } = error.response.data;
+      let campos = "";
+      const { title } = error.response.data;
       console.log("Title:", title);
-      console.log(response.status);
-      console.log("Fields:", fields);
-      for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`;
-      }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
@@ -323,9 +319,6 @@ export const FavoritarPsicologo = async (endpoint, obj) => {
       },
     });
 
-    if (response.status === 200) {
-      console.log("foi")
-    }
   } catch (error) {
     if (error.response) {
       campos = "";
