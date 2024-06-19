@@ -22,6 +22,11 @@ export default function User() {
     });
   };
 
+  const tarefas = [
+    {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: false},
+    {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: false},
+  ]
+
   return (
     <div>
       <Header />
@@ -33,7 +38,7 @@ export default function User() {
           link={"/jogomemoria"}
         />
 
-        <Rotina/>
+        <Rotina tarefas={tarefas}/>
 
         <VisaoGeral />
       </div>
