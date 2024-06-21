@@ -46,16 +46,16 @@ export default function Login() {
     }
   });
 
-  // async function onAuth() {
-  //   let login = {
-  //     email: session.data.user.email,
-  //   };
-  //   LoginComGoogle(login, "auth/login/google");
-  //   const tokenUser = localStorage.getItem("token");
-  //   if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
-  //     router.push("/usuario");
-  //   }
-  // }
+  async function onAuth() {
+    let login = {
+      email: session.data.user.email,
+    };
+    LoginComGoogle(login, "auth/login/google");
+    const tokenUser = localStorage.getItem("token");
+    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+      router.push("/usuario");
+    }
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -100,7 +100,7 @@ export default function Login() {
             <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
               <div
                 className="bg-branco my-2 w-full h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer"
-                onClick={() => signIn("google")}
+                onClick={onAuth}
               >
                 <FcGoogle className="text-3xl my-4" />
               </div>
@@ -176,7 +176,7 @@ export default function Login() {
                   name="senha"
                   className="border-none border-b-2 font-nunito placeholder:text-black text-sm"
                   placeholder="Escreva sua senha."
-                  required
+                  
                 />
               </div>
               <div className="flex w-[70%] justify-center xs:m-auto flex-col items-center">
@@ -192,7 +192,7 @@ export default function Login() {
                 </p>
                 <div
                   className="bg-branco my-2 w-full lg:w-[70%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
-                  onClick={() => signIn("google")}
+                  onClick={onAuth}
                 >
                   <FcGoogle className="text-3xl my-4" />
                 </div>

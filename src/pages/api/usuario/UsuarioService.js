@@ -1,8 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const urlLocal = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
-const url = "http://localhost:8080/";
+const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
+const urlLocal = "http://localhost:8080/";
 var campos = "";
 
 export const LoginUsuario = async (login, endpoint) => {
@@ -44,25 +44,25 @@ export const LoginUsuario = async (login, endpoint) => {
   }
 };
 
-// export const LoginComGoogle = async (usuario, endpoint) => {
-//   try {
-//     const response = await axios.post(url + endpoint, usuario, {
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
+export const LoginComGoogle = async (usuario, endpoint) => {
+  try {
+    const response = await axios.post(url + endpoint, usuario, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-//     if (response.data.token != null) {
-//       if (typeof window !== "undefined") {
-//         localStorage.setItem("token", response.data.token);
-//         BuscarInfoUsuario("pacientes/eu");
-//       }
-//       return response.data.token;
-//     }
-//   } catch (error) {
-//     console.error("Erro ao fazer requisição para a API:", error);
-//   }
-// };
+    if (response.data.token != null) {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", response.data.token);
+        BuscarInfoUsuario("pacientes/eu");
+      }
+      return response.data.token;
+    }
+  } catch (error) {
+    console.error("Erro ao fazer requisição para a API:", error);
+  }
+};
 
 export const Cadastro = async (paciente, endpoint) => {
   try {
