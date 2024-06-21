@@ -33,11 +33,12 @@ export default function Login() {
 
   const session = useSession();
 
-  // useEffect(() => {
-  //   if (session && session.status === "authenticated") {
-  //     onAuth();
-  //   }
-  // });
+  useEffect(() => {
+    if (session && session.status === "authenticated") {
+      setEmail(session.data.user.email)
+      onAuth()
+    }
+  }, [session]);
 
   useEffect(() => {
     const tokenUser = localStorage.getItem("token");
@@ -100,7 +101,7 @@ export default function Login() {
             <div className="flex h-1/2 flex-col w-auto items-center gap-5 justify-end">
               <div
                 className="bg-branco my-2 w-full h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer"
-                onClick={onAuth}
+                onClick={() => signIn("google")}
               >
                 <FcGoogle className="text-3xl my-4" />
               </div>
@@ -163,7 +164,7 @@ export default function Login() {
                   id="email"
                   name="email"
                   placeholder="Coloque seu Email."
-                  required
+                  required value={email} onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
@@ -192,7 +193,7 @@ export default function Login() {
                 </p>
                 <div
                   className="bg-branco my-2 w-full lg:w-[70%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
-                  onClick={onAuth}
+                  onClick={() => signIn("google")}
                 >
                   <FcGoogle className="text-3xl my-4" />
                 </div>

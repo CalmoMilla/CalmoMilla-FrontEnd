@@ -1,4 +1,6 @@
 "use client";
+
+import { signOut } from "next-auth/react";
 import CampoPessoal from "../CampoPessoal";
 import { useRouter } from "next/navigation";
 
@@ -8,6 +10,7 @@ export default function InfoPessoal(props) {
   const handleDeslogar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
+    signOut()
     router.push("/login");
   };
 

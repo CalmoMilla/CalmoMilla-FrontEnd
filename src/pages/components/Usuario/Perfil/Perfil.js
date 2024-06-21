@@ -1,10 +1,14 @@
 "use client";
+import { useRouter } from "next/navigation";
 import Header from "../../Header/Header";
 import InfoConta from "./InfoConta/InfoConta";
 import InfoPessoal from "./InfoPessoal/InfoPessoal";
 import { BuscarUsuario } from "@/pages/api/usuario/UsuarioService";
 import { useEffect, useState } from "react";
 export default function Perfil() {
+
+  const router = useRouter();
+
   const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
@@ -13,9 +17,13 @@ export default function Perfil() {
 
   const buscar = async () => {
     var usuarioLocal = JSON.parse(localStorage.getItem("usuario"));
-    const id = usuarioLocal.id;
-    usuarioLocal = await BuscarUsuario("pacientes/", id);
-    setUsuario(usuarioLocal);
+    if (usuarioLocal != "" && usuarioLocal != undefined && usuarioLocal != null) {
+      const id = usuarioLocal.id;
+      usuarioLocal = await BuscarUsuario("pacientes/", id);
+      setUsuario(usuarioLocal);
+    } else {
+      router.push("/login");
+    }
   };
 
   return (
