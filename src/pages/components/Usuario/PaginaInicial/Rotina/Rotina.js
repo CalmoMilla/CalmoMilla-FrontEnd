@@ -1,16 +1,8 @@
-"use client"
-
-import { useState, useEffect } from "react";
 import TarefaRotina from "./TarefaRotina";
 
 export default function Rotina({tarefas}) {
 
-  const [concluido, setConcluido] = useState(0)
-  const [tamanhoTarefas, setTamanhoTarefas] = useState(0)
-
-  // useEffect(() => {
-  //   setTamanhoTarefas(tarefas.length)
-  // }, [tarefas.length])
+  const tarefasFeitas = tarefas.every((tarefa) => tarefa.feito);
 
   return (
     <div className="w-[70%] lg:w-[50%] h-auto border-solid border-2 border-roxo rounded-3xl mb-10">
@@ -20,14 +12,13 @@ export default function Rotina({tarefas}) {
       {tarefas && tarefas.map((tarefa) => (
         <TarefaRotina key={tarefa.id} tarefa={tarefa.tarefa} concluido={tarefa.feito}/>
       ))}
-
-      {/* {tarefas && tarefas.map((tarefa) => (
-        tarefa.feito && setConcluido(concluido + 1)
-      ))}
-
-      {concluido == tamanhoTarefas && console.log("oi")} */}
-
-
+      {tarefasFeitas && 
+        <div className="flex justify-center items-center w-full">        
+          <button className="mx-auto bg-roxo/50 hover:bg-roxo hover:text-branco duration-500 ease-in-out font-nunito rounded-full w-[50%] text-xl py-4 ">
+            Concluir Rotina do Dia
+          </button>
+        </div>
+      }
     </div>
   )
 }
