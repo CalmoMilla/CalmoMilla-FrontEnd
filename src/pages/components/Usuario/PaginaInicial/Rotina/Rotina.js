@@ -1,6 +1,6 @@
 import TarefaRotina from "./TarefaRotina";
 
-export default function Rotina({tarefas, mostrarTarefa, updateTarefa }) {
+export default function Rotina({tarefas, mostrarTarefa }) {
 
   return (
     <div className="w-[70%] lg:w-[50%] h-auto border-solid border-2 border-roxo rounded-3xl mb-10">

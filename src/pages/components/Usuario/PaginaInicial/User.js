@@ -17,20 +17,26 @@ export default function User() {
 
   useEffect(() => {
     setTarefas([
-      {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: true},
-      {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: true},
+      {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: false},
+      {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: false},
     ])
 
-    setShowTarefasFeitas(tarefas.every((tarefa) => tarefa.feito))
-  }, [tarefas])
+    setShowTarefasFeitas(false)
+  }, [])
 
-  // const updateTarefa = (id, feito) => {
-  //   setTarefas((prevTarefas) =>
-  //     prevTarefas.map((tarefa) =>
-  //       tarefa.id === id ? { ...tarefa, feito } : tarefa
-  //     )
-  //   );
-  // };
+  const updateTarefa = (tarefaId) => {
+    const updatedTarefas = tarefas.map((tarefa) => {
+      if (tarefa.id === tarefaId) {
+        return { ...tarefa, feito: !tarefa.feito };
+      }
+      return tarefa;
+    });
+    setTarefas(updatedTarefas);
+    console.log(tarefas)
+
+    setShowTarefasFeitas(tarefas.every((tarefa) => tarefa.feito));
+  };
+  
 
   return (
     <div>
@@ -56,6 +62,15 @@ export default function User() {
       >
         Teste
       </button>
+
+      <button
+        className="w-16 h-16 bg-amarelo1"
+        onClick={() => updateTarefa(2)}
+      >
+        Teste
+      </button>
+
+      
 
       <div id="modal-root"></div>
       {showEmocoes && (
