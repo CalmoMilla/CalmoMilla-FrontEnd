@@ -15,13 +15,11 @@ export default function User() {
   const [tarefas, setTarefas] = useState([])
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
 
-  useEffect(() => {
+  useEffect( () => {
     setTarefas([
       {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: false},
       {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: false},
     ])
-
-    setShowTarefasFeitas(false)
   }, [])
 
   const updateTarefa = (tarefaId) => {
@@ -31,10 +29,10 @@ export default function User() {
       }
       return tarefa;
     });
+  
     setTarefas(updatedTarefas);
-    console.log(tarefas)
-
-    setShowTarefasFeitas(tarefas.every((tarefa) => tarefa.feito));
+    const allDone = updatedTarefas.every((tarefa) => tarefa.feito);
+    setShowTarefasFeitas(allDone);
   };
   
 
@@ -49,26 +47,35 @@ export default function User() {
           link={"/jogomemoria"}
         />
 
-        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas}/>
+        <Rotina tarefas={tarefas}/>
 
         <VisaoGeral />
       </div>
 
       {/* <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button> */}
 
-      <button
+      {/* <button
         className="w-16 h-16 bg-amarelo1"
         onClick={() => setShowEmocoes(true)}
       >
         Teste
-      </button>
+      </button> */}
+
+      {showTarefasFeitas ? "feitas" : "nao feitas"}
+
+      <button
+        className="w-16 h-16 bg-amarelo1"
+        onClick={() => updateTarefa(1)}
+      >
+        Teste
+      </button> 
 
       <button
         className="w-16 h-16 bg-amarelo1"
         onClick={() => updateTarefa(2)}
       >
         Teste
-      </button>
+      </button> 
 
       
 
