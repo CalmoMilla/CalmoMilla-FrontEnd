@@ -47,7 +47,7 @@ export default function User() {
           link={"/jogomemoria"}
         />
 
-        <Rotina tarefas={tarefas}/>
+        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas}/>
 
         <VisaoGeral />
       </div>
