@@ -1,6 +1,6 @@
 import TarefaRotina from "./TarefaRotina";
 
-export default function Rotina({tarefas, mostrarTarefa }) {
+export default function Rotina({tarefas, mostrarTarefa, updateTarefa }) {
 
   return (
     <div className="w-[70%] lg:w-[50%] h-auto border-solid border-2 border-roxo rounded-3xl mb-10">
@@ -8,7 +8,7 @@ export default function Rotina({tarefas, mostrarTarefa }) {
         <h2 className="text-branco text-3xl font-nunito">Veja sua rotina</h2>
       </div>
       {tarefas && tarefas.map((tarefa) => (
-        <TarefaRotina key={tarefa.id} tarefa={tarefa.tarefa} concluido={tarefa.feito} />
+        <TarefaRotina key={tarefa.id} id={tarefa.id} tarefa={tarefa.tarefa} concluido={tarefa.feito} updateTarefa={updateTarefa}/>
       ))}
       {mostrarTarefa && 
         <div className="flex justify-center items-center w-full">        

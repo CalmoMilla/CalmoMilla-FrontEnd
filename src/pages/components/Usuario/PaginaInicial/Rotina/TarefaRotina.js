@@ -5,7 +5,7 @@ import { FaRegCheckSquare } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export default function TarefaRotina({tarefa, concluido}) {
+export default function TarefaRotina({tarefa, concluido, id, updateTarefa}) {
 
   const [checked, setChecked] = useState(false)
 
@@ -19,6 +19,7 @@ export default function TarefaRotina({tarefa, concluido}) {
     } else {
       setChecked(true)
     }
+    updateTarefa(id)
   }
 
   return (

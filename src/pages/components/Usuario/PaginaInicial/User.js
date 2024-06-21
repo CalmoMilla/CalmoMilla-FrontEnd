@@ -47,7 +47,7 @@ export default function User() {
           link={"/jogomemoria"}
         />
 
-        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas}/>
+        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas} updateTarefa={updateTarefa}/>
 
         <VisaoGeral />
       </div>
@@ -60,24 +60,6 @@ export default function User() {
       >
         Teste
       </button> */}
-
-      {showTarefasFeitas ? "feitas" : "nao feitas"}
-
-      <button
-        className="w-16 h-16 bg-amarelo1"
-        onClick={() => updateTarefa(1)}
-      >
-        Teste
-      </button> 
-
-      <button
-        className="w-16 h-16 bg-amarelo1"
-        onClick={() => updateTarefa(2)}
-      >
-        Teste
-      </button> 
-
-      
 
       <div id="modal-root"></div>
       {showEmocoes && (
