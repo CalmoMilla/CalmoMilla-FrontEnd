@@ -53,7 +53,7 @@ export default function PaginaPsicologo() {
   return (
     <>
       <Header/>
-      <div className="flex justify-around pt-40">
+      <div className="flex xl:justify-around xl:pt-40 flex-col xl:flex-row items-center">
         {
           showInfo ? <InfoPsicologo funcao={() => setShowInfo(false)} informacoesPsicologo={psicologo} setListaPsicologos={setProfissionaisSalvos} listaPsicologos={profissionaisSalvos}/>
           :
