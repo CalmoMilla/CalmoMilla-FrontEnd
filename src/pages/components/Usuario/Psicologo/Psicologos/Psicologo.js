@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Psicologo({psi, guardarInfo, funcao}) {
 
   const corPsicologo = () => {
-    const cores = ["bg-amarelo1", "bg-verde2", "bg-roxo"]; // Array de cores disponíveis
+    const cores = ["bg-amarelo1/80", "bg-verde2/80", "bg-roxo/80", "bg-verdeagua/80", "bg-roxo/80"]; // Array de cores disponíveis
 
     // Gera um índice aleatório
     const indiceAleatorio = Math.floor(Math.random() * cores.length);

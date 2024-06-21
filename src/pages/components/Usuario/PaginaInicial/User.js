@@ -7,25 +7,30 @@ import { useEffect, useState } from "react";
 import ModalEmocoes from "./Emocoes/ModalEmocoes";
 import EsqueciSenha from "../../Login/EsqueciSenha";
 import Emocoes from "./Emocoes/Emocoes";
-import Swal from "sweetalert2";
 import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService";
 import Rotina from "./Rotina/Rotina";
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
+  const [tarefas, setTarefas] = useState([])
+  const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
 
-  const handleClick = () => {
-    Swal.fire({
-      title: "Alerta!",
-      text: "Esta é uma mensagem de alerta.",
-      icon: "warning",
-    });
-  };
+  useEffect(() => {
+    setTarefas([
+      {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: true},
+      {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: true},
+    ])
 
-  const tarefas = [
-    {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: true},
-    {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: true},
-  ]
+    setShowTarefasFeitas(tarefas.every((tarefa) => tarefa.feito))
+  }, [tarefas])
+
+  // const updateTarefa = (id, feito) => {
+  //   setTarefas((prevTarefas) =>
+  //     prevTarefas.map((tarefa) =>
+  //       tarefa.id === id ? { ...tarefa, feito } : tarefa
+  //     )
+  //   );
+  // };
 
   return (
     <div>
@@ -38,7 +43,7 @@ export default function User() {
           link={"/jogomemoria"}
         />
 
-        <Rotina tarefas={tarefas}/>
+        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas}/>
 
         <VisaoGeral />
       </div>
