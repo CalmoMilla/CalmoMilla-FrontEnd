@@ -26,7 +26,7 @@ export default function Login() {
     setTimeout(() => {
       setShowCadastro(true);
       setIsAnimating(false);
-    }, 1100); // 1000ms é a duração da animação
+    }, 1100);
   };
 
   const session = useSession();
