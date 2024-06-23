@@ -21,6 +21,21 @@ export default function CadastroPsico(props) {
 
       let pic = props.session ? props.session.user.image : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
 
+      let pg = data.get("pG")
+      let pc = data.get("pC")
+      let pe = data.get("pE")
+  
+      let especializacoes = []
+      if (pg != null) {
+        especializacoes.push("PSICOLOGIA_GERAL")
+      }
+      if (pc != null) {
+        especializacoes.push("PSICOLOGIA_CLINICA")
+      }
+      if (pe != null) {
+        especializacoes.push("PSICOLOGIA_ESCOLAR")
+      }
+
       let cadastro = {
         nome: data.get("nome"),
         email: data.get("email"),
@@ -29,18 +44,20 @@ export default function CadastroPsico(props) {
         telefone: data.get("telefone"),
         dataNasc: data.get("datanasc"),
         genero: data.get("genero"),
-        especializacoes: [data.get("especializacao")],
+        especializacoes: especializacoes,
         foto: pic,
-        numeroRegistro: "123344",
+        numeroRegistro: data.get("numreg"),
         role: "PSICOLOGO",
       };
 
-      CadastroPsicologo(cadastro, "auth/cadastro-psicologo")
+      // CadastroPsicologo(cadastro, "auth/cadastro-psicologo")
 
       console.log(cadastro);
     } catch (error) {
       console.error(error);
     }
+
+
   }
 
   return (
@@ -131,6 +148,19 @@ export default function CadastroPsico(props) {
             minLength={11}
           />
         </div>
+        <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
+          <label className="flex text-amarelo2" htmlFor="numreg">
+            Número de Registro
+          </label>
+          <input
+            type="text"
+            id="numreg"
+            name="numreg"
+            className="border-none border-b-2  font-nunito   placeholder:text-black   text-sm"
+            placeholder="Digite seu número de registro"
+            required
+          />
+        </div>
 
         <div className="grid-cols-2 flex-col flex justify-center  border-b-2 w-[70%] border-black xs:m-auto">
           <label className="flex text-amarelo2" htmlFor="telef one">
@@ -155,24 +185,21 @@ export default function CadastroPsico(props) {
           text-black
           py-[5px]
           "
+          required
           >
             <option value="m">Masculino</option>
             <option value="f">Feminino</option>
             <option value="o">Outros</option>
           </select>
         </div>
-        <div className="grid-cols-2 flex-col flex justify-center w-[70%]   h-16 text-amarelo2 xs:m-auto">
-          <label htmlFor="especializacao">Especialização</label>
-          <select
-            name="especializacao"
-            id="especializacao"
-            className="text-black py-[5px]"
-          >
-            <option value="pG">Psicólogo Geral</option>
-            <option value="pC">Psicólogo Cliníco</option>
-            <option value="pE">Psicólogo Escolar</option>
-            <option value="o">Outros</option>
-          </select>
+        <div className="w-[70%] h-fit mx-auto text-lg">
+          <label className="text-amarelo2">Especialização</label><br/>
+          <input type="checkbox" id="pG" name="pG" value="pG"/>
+          <label htmlFor="pG" className=" hover:text-amarelo2 duration-500 ease-in-out"> Psicologia Geral</label><br/>
+          <input type="checkbox" id="pC" name="pC" value="pC"/>
+          <label htmlFor="pC" className=" hover:text-amarelo2 duration-500 ease-in-out"> Psicologia Clínica</label><br/>
+          <input type="checkbox" id="pE" name="pE" value="pE"/>
+          <label htmlFor="pE" className=" hover:text-amarelo2 duration-500 ease-in-out"> Psicologia Escolar</label><br/>
         </div>
         <div className="flex w-[70%] justify-center xs:m-auto">
           <button
