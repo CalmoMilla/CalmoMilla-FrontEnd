@@ -5,13 +5,13 @@ import { FaRegCheckSquare } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export default function TarefaRotina({tarefa, concluido, id, updateTarefa}) {
+export default function TarefaRotina({tarefa, updateTarefa}) {
 
   const [checked, setChecked] = useState(false)
 
   useEffect(() => {
-    setChecked(concluido)
-  }, [concluido])
+    setChecked(tarefa.feito)
+  }, [tarefa.feito])
 
   const handleClick = () => {
     if (checked) {
@@ -19,7 +19,7 @@ export default function TarefaRotina({tarefa, concluido, id, updateTarefa}) {
     } else {
       setChecked(true)
     }
-    updateTarefa(id)
+    updateTarefa(tarefa.id)
   }
 
   return (
@@ -29,7 +29,7 @@ export default function TarefaRotina({tarefa, concluido, id, updateTarefa}) {
         :
         <FaRegSquare className="text-5xl hover:cursor-pointer hover:scale-110 duration-500 ease-in-out" onClick={() => handleClick()}/>  
       }
-      <p className={`text-xl font-nunito ${checked && "line-through"} `}>{tarefa}</p>
+      <p className={`text-xl font-nunito ${checked && "line-through"} `}>{tarefa.titulo}</p>
     </div>
   )
 }

@@ -10,9 +10,7 @@ export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
         tarefas.map((tarefa) => (
           <TarefaRotina
             key={tarefa.id}
-            id={tarefa.id}
-            tarefa={tarefa.titulo}
-            concluido={tarefa.status}
+            tarefa={tarefa}
             updateTarefa={updateTarefa}
           />
         ))}

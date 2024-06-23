@@ -26,19 +26,40 @@ export default function User() {
     let usuarioStorage = localStorage.getItem("usuario");
     if (usuarioStorage != null) {
       usuarioStorage = JSON.parse(usuarioStorage)
-      setTarefas(usuarioStorage.rotinas[0].tarefas)
+      let tarefasStorage = localStorage.getItem("tarefas");
+      if (tarefasStorage == null || tarefasStorage == undefined || tarefasStorage == "" ) {
+        localStorage.setItem("tarefas", JSON.stringify(usuarioStorage.rotinas[0].tarefas));
+        let tarefas = localStorage.getItem("tarefas")
+        tarefas = JSON.parse(tarefas)
+        setTarefas(tarefas)
+      } 
+      else {
+        let tarefas = localStorage.getItem("tarefas")
+        tarefas = JSON.parse(tarefas)
+        setTarefas(tarefas)
+        const allDone = tarefas.every((tarefa) => tarefa.feito);
+        setShowTarefasFeitas(allDone);
+      }
     }
   },[]);
 
   const updateTarefa = (tarefaId) => {
-    const updatedTarefas = tarefas.map((tarefa) => {
+    let tarefasLocal = localStorage.getItem("tarefas")
+    tarefasLocal = JSON.parse(tarefasLocal)
+
+    const updatedTarefas = tarefasLocal.map((tarefa) => {
       if (tarefa.id === tarefaId) {
         return { ...tarefa, feito: !tarefa.feito };
       }
       return tarefa;
     });
+
+    localStorage.setItem("tarefas", JSON.stringify(updatedTarefas));
   
-    setTarefas(updatedTarefas);
+    let tarefas = localStorage.getItem("tarefas")
+    tarefas = JSON.parse(tarefas)
+    setTarefas(tarefas)
+    
     const allDone = updatedTarefas.every((tarefa) => tarefa.feito);
     setShowTarefasFeitas(allDone);
   };
