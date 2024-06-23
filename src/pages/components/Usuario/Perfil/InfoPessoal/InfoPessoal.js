@@ -11,7 +11,7 @@ export default function InfoPessoal(props) {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
     signOut()
-    router.push("/login");
+    setTimeout(() => {router.push("/login")}, 2000) 
   };
 
   let dataNasc = props.usuario
