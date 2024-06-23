@@ -11,8 +11,8 @@ export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
           <TarefaRotina
             key={tarefa.id}
             id={tarefa.id}
-            tarefa={tarefa.tarefa}
-            concluido={tarefa.feito}
+            tarefa={tarefa.titulo}
+            concluido={tarefa.status}
             updateTarefa={updateTarefa}
           />
         ))}

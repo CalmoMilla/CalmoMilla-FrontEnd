@@ -15,12 +15,20 @@ export default function User() {
   const [tarefas, setTarefas] = useState([])
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
 
-  useEffect( () => {
-    setTarefas([
-      {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: false},
-      {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: false},
-    ])
-  }, [])
+  // useEffect( () => {
+  //   setTarefas([
+  //     {id: 1, tarefa: "Jogue o Jogo da Memória por 15 minutos", feito: false},
+  //     {id: 2, tarefa: "Jogue o Jogo da Memória por 30 minutos", feito: false},
+  //   ])
+  // }, [])
+
+  useEffect(() => {
+    let usuarioStorage = localStorage.getItem("usuario");
+    if (usuarioStorage != null) {
+      usuarioStorage = JSON.parse(usuarioStorage)
+      setTarefas(usuarioStorage.rotinas[0].tarefas)
+    }
+  },[]);
 
   const updateTarefa = (tarefaId) => {
     const updatedTarefas = tarefas.map((tarefa) => {

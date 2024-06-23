@@ -50,7 +50,7 @@ export default function CadastroPsico(props) {
         role: "PSICOLOGO",
       };
 
-      // CadastroPsicologo(cadastro, "auth/cadastro-psicologo")
+      CadastroPsicologo(cadastro, "auth/cadastro-psicologo")
 
       console.log(cadastro);
     } catch (error) {

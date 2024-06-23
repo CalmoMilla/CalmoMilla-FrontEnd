@@ -30,7 +30,7 @@ export default function CadastroUser(props) {
         return;
       }
 
-      let pic = props.session.data.user.image ? props.session.data.user.image : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+      let pic = props.session ? props.session.data.user.image : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
 
       let cadastro = {
         nome: data.get("nome"),
