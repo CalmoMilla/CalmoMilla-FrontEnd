@@ -1,3 +1,9 @@
+import axios from "axios";
+import Swal from "sweetalert2";
+
+const urlLocal = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
+const url = "http://localhost:8080/";
+
 export const AtualizarRotina = async (rotina, endpoint) => {
   try {
     const token = localStorage.getItem("token");
@@ -11,8 +17,8 @@ export const AtualizarRotina = async (rotina, endpoint) => {
       },
     });
 
-    if (response.status == 201) {
-      console.log("Cadastro feito com sucesso");
+    if (response.status == 200) {
+      console.log("Rotina atualizada com sucesso");
       console.log(response.data);
     }
   } catch (error) {

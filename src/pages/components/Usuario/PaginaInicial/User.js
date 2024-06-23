@@ -14,7 +14,6 @@ export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
   const [tarefas, setTarefas] = useState([])
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
-  const [rotina, setRotina] = useState(null)
 
   // useEffect( () => {
   //   setTarefas([
@@ -30,13 +29,13 @@ export default function User() {
       let tarefasStorage = localStorage.getItem("tarefas");
       if (tarefasStorage == null || tarefasStorage == undefined || tarefasStorage == "" ) {
         localStorage.setItem("tarefas", JSON.stringify(usuarioStorage.rotinas[0].tarefas));
-        setRotina(usuarioStorage.rotinas[0])
+        localStorage.setItem("rotina", JSON.stringify(usuarioStorage.rotinas[0]));
         let tarefas = localStorage.getItem("tarefas")
         tarefas = JSON.parse(tarefas)
         setTarefas(tarefas)
       } 
       else {
-        
+
         let tarefas = localStorage.getItem("tarefas")
         tarefas = JSON.parse(tarefas)
         setTarefas(tarefas)
@@ -80,7 +79,7 @@ export default function User() {
           link={"/jogomemoria"}
         />
 
-        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas} updateTarefa={updateTarefa} rotina={rotina}/>
+        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas} updateTarefa={updateTarefa}/>
 
         <VisaoGeral />
       </div>
