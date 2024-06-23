@@ -147,7 +147,7 @@ export default function CadastroPsico(props) {
           />
         </div>
         <div className="grid-cols-2 flex-col flex justify-center w-[70%] h-16 text-amarelo2 xs:m-auto">
-          <label htmlFor="especializacao">Gênero</label>
+          <label htmlFor="genero">Gênero</label>
           <select
             name="genero"
             id="genero"
@@ -170,7 +170,7 @@ export default function CadastroPsico(props) {
           >
             <option value="pG">Psicólogo Geral</option>
             <option value="pC">Psicólogo Cliníco</option>
-            <optio value="pE">Psicólogo Escolar</optio>
+            <option value="pE">Psicólogo Escolar</option>
             <option value="o">Outros</option>
           </select>
         </div>

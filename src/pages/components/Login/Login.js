@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { LoginPsicologo } from "@/pages/api/usuario/PsicologoService";
 
 export default function Login() {
   const [showCadastro, setShowCadastro] = useState(false);
@@ -69,12 +70,20 @@ export default function Login() {
       senha: data.get("senha"),
     };
 
-    await LoginUsuario(login, "auth/login");
-    // await LoginPsicologo(login, "auth/login");
-    const tokenUser = localStorage.getItem("token");
-    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
-      router.push("/usuario");
+    if (alterarLogin) {
+      await LoginPsicologo(login, "auth/login");
+      const tokenUser = localStorage.getItem("token");
+      if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+        router.push("/teste");
+      }
+    } else {
+      await LoginUsuario(login, "auth/login");
+      const tokenUser = localStorage.getItem("token");
+      if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+        router.push("/usuario");
+      }
     }
+
   }
 
   if (showCadastro) {
