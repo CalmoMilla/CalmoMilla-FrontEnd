@@ -1,6 +1,6 @@
 import TarefaRotina from "./TarefaRotina";
 
-export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
+export default function Rotina({ tarefas, mostrarTarefa, updateTarefa, rotina }) {
   return (
     <div className="w-[70%] lg:w-[50%] h-auto border-solid border-2 border-roxo rounded-3xl mb-10">
       <div className="w-full h-20 bg-roxo rounded-t-2xl flex justify-start pl-10 items-center">
@@ -16,7 +16,7 @@ export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
         ))}
       {mostrarTarefa && (
         <div className="flex justify-center items-center w-full">
-          <button className="mx-auto bg-roxo/50 hover:bg-roxo hover:text-branco duration-500 ease-in-out font-nunito rounded-full w-[50%] text-xl py-4 mb-5 ">
+          <button className="mx-auto bg-roxo/50 hover:bg-roxo hover:text-branco duration-500 ease-in-out font-nunito rounded-full w-[90%] md:w-[50%] text-xl py-4 mb-5" onClick={() => console.log(rotina)} >
             Concluir Rotina do Dia
           </button>
         </div>
