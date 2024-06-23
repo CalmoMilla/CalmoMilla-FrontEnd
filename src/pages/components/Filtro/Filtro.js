@@ -4,8 +4,8 @@ import { SlArrowDown } from "react-icons/sl";
 export default function Filtro({ amarelo, data }) {
   return (
     <>
-      <div className="xl:block hidden w-[20%]">
-        <div className="xl:block hidden xl:w-[70%] ml-4 h-fit">
+      <div className="xl:block hidden w-[20%] h-auto">
+        <div className="xl:block hidden xl:w-[70%] ml-4 h-fit  mt-32  ">
           <div className="w-full h-[10%] shadow-2xl py-5 rounded-xl">
             <h2 className="text-center text-preto text-4xl py-10 font-calistoga">
               Filtro
@@ -21,8 +21,8 @@ export default function Filtro({ amarelo, data }) {
           </div>
         </div>
       </div>
-      <div className="w-[100%] flex justify-center xl:hidden ">
-        <div className="xl:hidden block xs:w-44 md:w-52 lg:w-56 h-fit mb-10 mt-32">
+      <div className="w-[100%] flex justify-center xl:hidden  ">
+        <div className="xl:hidden block xs:w-44 md:w-52 lg:w-56 h-fit mb-10 mt-20">
           <div
             className={`${
               amarelo ? "bg-amarelo1" : "bg-verdeagua"
