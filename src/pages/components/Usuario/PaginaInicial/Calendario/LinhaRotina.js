@@ -1,26 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BuscarRotina } from "@/pages/api/rotina/RotinaService";
 
 export default function LinhaRotina() {
 
+  const [rotina, setRotina] = useState([])
+
+
   useEffect(() => {
     buscarRotina()
-  })
+  }, [])
 
 
   const buscarRotina = async () => {
     let usuarioStorage = localStorage.getItem("usuario");
     usuarioStorage = JSON.parse(usuarioStorage);
 
-    let rotina = await BuscarRotina(`rotinas/pacientes/${usuarioStorage.id}`)
-    console.log(rotina)
+    let rotinas = await BuscarRotina(`rotinas/pacientes/${usuarioStorage.id}`)
+    setRotina(rotinas)
   }
 
 
 
   return (
     <div className="grid grid-cols-7 gap-4 py-5 content-center justify-items-center">
-      <div className="hover:scale-110 duration-500 ease-in-out w-4 md:w-12 rounded-full h-4 md:h-12 bg-verde2 flex justify-center items-center text-lg text-branco">24</div>
+      {rotina && rotina.map((ro) => (
+        <div key={ro.id} className={`hover:scale-110 duration-500 ease-in-out hover:cursor-pointer w-4 md:w-10 rounded-full h-4 md:h-10 ${ro.status ? "bg-verde2" : "bg-red-700"} flex justify-center items-center text-lg text-branco`}>{ro.diaRotina[2]}</div>
+      ))}
     </div>
   )
 }
