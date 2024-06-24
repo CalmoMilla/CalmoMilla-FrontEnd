@@ -69,7 +69,7 @@ export default function Header() {
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="#funcionalidade"
+                      href="/#funcionalidade"
                       onClick={toggleMenu}
                     >
                       {t("common:headerFuncionalidades")}
@@ -78,7 +78,7 @@ export default function Header() {
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="#comofunciona"
+                      href="/#comofunciona"
                       onClick={toggleMenu}
                     >
                       {t("common:headerComoFunciona")}
@@ -87,7 +87,7 @@ export default function Header() {
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="#parceiros"
+                      href="/#parceiros"
                       onClick={toggleMenu}
                     >
                       {t("common:headerParceiros")}
@@ -105,7 +105,7 @@ export default function Header() {
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="#blogpage"
+                      href="/#blogpage"
                       onClick={toggleMenu}
                     >
                       Blog
