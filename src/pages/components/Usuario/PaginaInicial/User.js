@@ -24,10 +24,18 @@ export default function User() {
   // }, [])
 
   useEffect(() => {
+
     let usuarioStorage = localStorage.getItem("usuario");
     if (usuarioStorage != null) {
+
       usuarioStorage = JSON.parse(usuarioStorage)
+
+      if (usuarioStorage.precisaPreencherQuestionario) {
+        setShowEmocoes(true)
+      }
+
       let tarefasStorage = localStorage.getItem("tarefas");
+      
       if (tarefasStorage == null || tarefasStorage == undefined || tarefasStorage == "" ) {
         localStorage.setItem("tarefas", JSON.stringify(usuarioStorage.rotinas[0].tarefas));
         localStorage.setItem("rotina", JSON.stringify(usuarioStorage.rotinas[0]));

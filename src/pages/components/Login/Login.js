@@ -240,6 +240,20 @@ export default function Login() {
               </div>
             </form>
             <div className="xs:mx-auto w-[60%] h-auto m-auto mt-4 xs:text-start gap-10">
+              <div className="w-full h-5 flex items-center mb-4">
+                <input
+                  name="continuar"
+                  type="checkbox"
+                  className="w-5 h-5 mr-2 border-black"
+                />
+                <label
+                  name="continuar"
+                  htmlFor="continuar"
+                  className="text-sm font-nunito"
+                >
+                  Continuar conectado.
+                </label>
+              </div>
               {alterarLogin ? (
                 <button
                   onClick={() => setAlterarLogin(false)}
@@ -255,20 +269,6 @@ export default function Login() {
                   Sou um<span className="text-amarelo2"> Psicólogo </span>!
                 </button>
               )}
-              <div className="w-full h-5 flex items-center mb-4">
-                <input
-                  name="continuar"
-                  type="checkbox"
-                  className="w-5 h-5 mr-2 border-black"
-                />
-                <label
-                  name="continuar"
-                  htmlFor="continuar"
-                  className="text-sm font-nunito"
-                >
-                  Continuar conectado.
-                </label>
-              </div>
               <button
                 onClick={() => setAlterarSenha(true)}
                 className="w-full font-nunito tracking-normal cursor-pointer font-bold text-start p-0"

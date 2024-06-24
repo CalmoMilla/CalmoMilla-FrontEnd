@@ -205,6 +205,7 @@ export const BuscarInfoEmocoes = async (endpoint) => {
 
   if (response.ok) {
     const emocoes = await response.json();
+    BuscarInfoUsuario("pacientes/eu");
     return emocoes;
   } else {
     const errorMessage = await response.text();
