@@ -30,6 +30,7 @@ export default function JogosDisponiveis() {
             nome={jogo.nome}
             link={jogo.link}
             foto={jogo.foto}
+            jogo={jogo}
           />
         ))}
       </div>
