@@ -63,9 +63,14 @@ export default function Header() {
                     isOpen ? "w-full " : " "
                   }`}
                 >
-                  <button className="bg-branco px-8 py-3 rounded-full  md:hidden xs:w-[60%] md:w-auto hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
-                    {t("common:headerEntrar")}
-                  </button>
+                  <Link
+                    href={"/login"}
+                    className="w-full sm:flex justify-center md:hidden"
+                  >
+                    <button className="bg-branco px-8 py-3 rounded-full  md:hidden xs:w-[60%] md:w-auto hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
+                      {t("common:headerEntrar")}
+                    </button>
+                  </Link>
                   <li>
                     <a
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
