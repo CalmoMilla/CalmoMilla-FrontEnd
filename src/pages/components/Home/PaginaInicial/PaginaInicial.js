@@ -7,8 +7,8 @@ export default function PaginaInicial() {
 
   return (
     <>
-      <div className="w-full xl:h-[100vh] lg:h-[120vh]  md:h-[80vh] h-screen bg-cover bg-no-repeat bg-[url('/assets/home/homepage/fundo2.jpg')] md:bg-[url('/assets/home/homepage/fundo3.jpg')]">
-        <div className="bg-preto/50 w-full xl:h-[100vh] lg:h-[120vh] md:h-[80vh] h-screen flex justify-center m-0">
+      <div className="w-full xl:h-[100vh] lg:h-[120vh]  md:h-[auto] h-screen bg-cover bg-no-repeat bg-[url('/assets/home/homepage/fundo2.jpg')] md:bg-[url('/assets/home/homepage/fundo3.jpg')]">
+        <div className="bg-preto/50 w-full xl:h-[100vh] lg:h-[120vh] md:h-auto    h-screen flex justify-center m-0">
           <div className="w-[full] flex xl:justify-between xl:gap-20 items-center lg:flex-row flex-col pt-40">
             <div>
               <h1 className="font-calistoga xs:pb-8 xs:text-6xl md:text-[8rem] text-branco">
@@ -23,7 +23,7 @@ export default function PaginaInicial() {
                 <span className="text-amarelo1">{t("paginaInicial4")}</span>
               </h2>
               <Link href={"/login"} className="w-fit">
-                <button className="text-xl lg:text-3xl xs:text-3xl bg-branco mt-20 px-10 py-4 rounded-full hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out">
+                <button className="text-xl lg:text-3xl xs:text-3xl bg-branco mt-20 px-10 py-4 rounded-full hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out md:mb-6 lg:mb-0">
                   {t("paginaInicialBotao")}
                 </button>
               </Link>
