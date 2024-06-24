@@ -1,5 +1,7 @@
 "use client";
-
+import { IoArrowBackCircle } from "react-icons/io5";
+import Router from "next/router";
+import Link from "next/link";
 import CadastroPsico from "./CadastroPsico/CadastroPsico";
 import CadastroUser from "./CadastroUser/CadastroUser";
 import Image from "next/image";
@@ -30,6 +32,14 @@ export default function Cadastro() {
         <Login className={`${isAnimating ? "animate-toLogin" : ""}}`} />
       ) : (
         <div className="flex w-screen xs:h-auto xl:h-screen  xl:overflow-hidden  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
+          <div className="absolute xs:top-2 xs:left-1 lg:top-4 lg:left-4 bg-white rounded-full p-0  ">
+            <Link href={"/"}>
+              <IoArrowBackCircle
+                className=" text-amarelo2 xs:w-12 xs:h-12 md:w-16 md:h-16 lg:w-20  lg:h-20 m-0
+         "
+              />
+            </Link>
+          </div>
           <div
             className={`m-auto flex justify-center lg:items-center xs:h-auto xl:h-[99%]  w-[80%] border rounded-lg shadow-lg xs:items-start  ${
               isAnimating ? "animate-toLogin" : ""
