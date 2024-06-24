@@ -1,3 +1,34 @@
+async function EnviarDesempenho(jogo) {
+
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("No token found");
+  }
+
+  try {
+    const url = "http://localhost:8080/desempenhos";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      body: JSON.stringify(jogo),
+    });
+
+    if (response.status === 200) {
+      console.log("Desempenho enviado com sucesso");
+      const data = await response.json();
+      console.log(data);
+    } else {
+      console.error("Erro ao enviar desempenho:", response.statusText);
+    }
+  } catch (error) {
+    console.error("Erro:", error);
+  }
+}
+
 const moves = document.getElementById("moves-count");
 const timeValue = document.getElementById("time");
 const difficultyValue = document.getElementById("dificuldade");
@@ -14,6 +45,11 @@ let secondCard = false;
 let podeClicar = true;
 let tempoAcabou = false;
 let dificuldade = 1;
+
+let jogoPego = localStorage.getItem("jogo");
+let usuario = localStorage.getItem("usuario");
+jogoPego = JSON.parse(jogoPego)
+usuario = JSON.parse(usuario)
 
 //array dos nomes e imagems das cartinhas
 const items = [
@@ -77,6 +113,20 @@ const timeGenerator = () => {
 
 
   timePassed = () => {
+    console.log(dificuldade + " " + movesCount)
+    console.log(jogoPego.id + " " + usuario.id)
+    let desempenho = {
+      nivel: dificuldade,
+      pontuacao: movesCount,
+      usuario:{
+        id:usuario.id
+      },
+      jogos:{
+        id:jogoPego.id
+      }
+    }
+
+    EnviarDesempenho(desempenho)
     wrapper.classList.add("hide");
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
@@ -179,6 +229,7 @@ const matrixGenerator = (cardValues, size = tamanho) => {
                   }, 500) 
               }
               if (dificuldade >= 3) {
+                console.log(dificuldade + " " + movesCount)
                 setTimeout(() => {
                     result.innerHTML = `<h2>Você venceu o jogo :) </h2>
                     <h4>Movimentos: ${movesCount}</h4>
@@ -212,8 +263,8 @@ startButton.addEventListener("click", () => {
 
   if (dificuldade == 1){
     tamanho = 4
-    seconds = 30;
-    minutes = 1;
+    seconds = 3;
+    minutes = 0;
     wrapper.style.width = '26.87em'
   } else if (dificuldade == 2) {
     seconds = 59;
@@ -243,6 +294,7 @@ startButton.addEventListener("click", () => {
 stopButton.addEventListener(
   "click",
   (stopGame = () => {
+    console.log(dificuldade + " " + movesCount)
     wrapper.classList.add("hide");
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
