@@ -24,9 +24,6 @@ export default function User() {
   // }, [])
 
   useEffect(() => {
-
-    buscarRotina()
-
     let usuarioStorage = localStorage.getItem("usuario");
     if (usuarioStorage != null) {
       usuarioStorage = JSON.parse(usuarioStorage)
@@ -49,14 +46,6 @@ export default function User() {
       }
     }
   },[]);
-
-const buscarRotina = async () => {
-   let usuarioStorage = localStorage.getItem("usuario");
-   usuarioStorage = JSON.parse(usuarioStorage);
-
-   let rotina = await BuscarRotina(`rotinas/pacientes/${usuarioStorage.id}`)
-     console.log("a"+rotina)
-  }
 
   const updateTarefa = (tarefaId) => {
     let tarefasLocal = localStorage.getItem("tarefas")

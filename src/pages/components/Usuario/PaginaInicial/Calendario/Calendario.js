@@ -1,4 +1,4 @@
-import LinhaCalendario from "./LinhaCalendario"
+import LinhaRotina from "./LinhaRotina"
 import LinhaEmocoes from "./LinhaEmocoes"
 
 export default function Calendario({titulo, emocoes}) {
@@ -7,7 +7,7 @@ export default function Calendario({titulo, emocoes}) {
       <h2 className="text-3xl md:text-5xl font-nunito text-amarelo2 py-10">{titulo}</h2>
       <div className="md:w-[80%] w-[95%] bg-branco border-solid border-2 border-verde2/50 rounded-lg">
         {emocoes ? 
-        <LinhaEmocoes/> : <LinhaCalendario/>
+        <LinhaEmocoes/> : <LinhaRotina/>
         }      
       </div>
     </div>
