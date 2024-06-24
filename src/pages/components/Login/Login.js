@@ -171,7 +171,7 @@ export default function Login() {
           />
         </div>
         <div className="flex justify-center items-center w-full xs:h-auto lg:h-[65%] lg:w-[100%] ">
-          <div className="lg:h-full xs:h-screen w-full m-auto grid-cols-2 border-black justify-center items-centers">
+          <div className="lg:h-full xs:h-screen w-full m-auto grid-cols-2 border-black justify-center items-center flex flex-col ">
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
               {alterarLogin ? (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
@@ -196,7 +196,7 @@ export default function Login() {
               </p>
             </div>
             <form
-              className="md:w-[85%] flex-col text-start flex h-[50%] items-start mx-auto mt-4 justify-around gap-1 sm:w-full sm:px-0"
+              className="md:w-[85%] w-full flex-col text-start flex h-[50%] items-start mx-auto mt-4 justify-around gap-1 sm:w-full sm:px-0"
               action="post"
               onSubmit={onSubmit}
             >
