@@ -1,19 +1,16 @@
 import Link from "next/link";
 
-export default function JogoDisponivel(props) {
+export default function JogoDisponivel({nome, link, foto}) {
   return (
-    <div className="w-[100%] h-[350px] mt-10 lg:py-0 lg:w-[40%] rounded-xl shadow-2xl">
-      <div className="w-full h-[35%] bg-roxo/50 rounded-xl"></div>
-      <div className=" sm:h-[65%] text-start flex flex-col ">
-        <Link href={props.jogo ? props.jogo : "#"}>
-          <button className="hover:scale-110 duration-500 transition ease-in-out ml-7  mt-6 py-3 px-9 text-2xl text-branco bg-roxo/50 hover:bg-roxo w-fit rounded-2xl">
-            {props.titulo}
-          </button>
-        </Link>
-        <h3 className="ml-7 my-4 py-0.5 px-9 w-[80%] h-auto text-branco bg-roxo/50 rounded-2xl">
-          {props.texto}
-        </h3>
-      </div>
+    <div className="w-[90%] h-80 shadow-2xl rounded-xl mx-auto">
+    <div className="w-full h-[60%] flex justify-start items-end p-5 rounded-xl" style={{ backgroundImage: `url(${foto})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
     </div>
+    <div className="w-full h-[40%] py-2 px-5 flex flex-col justify-center gap-4">
+      <h2 className="font-nunito text-xl font-bold xl:text-3xl">{nome}</h2>
+      <Link href={link && link}>
+        <button className="text-lg lg:text-xl md:text-md text-branco bg-roxo/70 hover:bg-roxo py-2 md:py-0 xl:py-2 rounded-3xl hover:scale-110 hover:cursor-pointer duration-500 ease-in-out w-full xl:w-[70%]">Jogar</button>
+      </Link>
+    </div>
+  </div>
   );
 }

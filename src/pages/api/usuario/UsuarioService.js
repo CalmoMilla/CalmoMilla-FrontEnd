@@ -473,3 +473,29 @@ export const Atualizar = async (paciente, endpoint) => {
     }
   }
 };
+
+export const BuscarJogos = async (endpoint) => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("No token found");
+  }
+
+  const response = await fetch(url + endpoint, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.ok) {
+    const jogos = await response.json();
+    return jogos
+  } else {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+};

@@ -1,34 +1,37 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import JogoDisponivel from "./JogoDisponivel";
+import { BuscarJogos } from "@/pages/api/usuario/UsuarioService";
 
 export default function JogosDisponiveis() {
+
+  const [jogos, setJogos] = useState(null)
+
+  useEffect(() => {
+    buscarJogos()
+  }, [])
+
+  const buscarJogos = async () => {
+    let jogosPegos = await BuscarJogos(`jogos`)
+    setJogos(jogosPegos);
+    console.log(jogosPegos)
+  }
+
   return (
     <div className=" w-[85%] lg:w-[70%] h-screen mt-4">
       <div className="text-roxo font-calistoga text-6xl mb-3 mt-4 text-center lg:hidden">
         <p>Jogos</p>
       </div>
-      <div className="w-[100%] md:h-[50%] gap-5 lg:gap-0 flex justify-around  xs:items-start lg:items-center flex-col md:flex-row">
+      <div className="w-[100%] h-fit gap-5 mt-0 md:mt-32 grid grid-cols-1 md:grid-cols-2">
+        {jogos && jogos.map((jogo) => (
         <JogoDisponivel
-          titulo={"Jogo da Memória"}
-          texto={"Para você se divertir enquanto treina a memória"}
-          jogo={"/jogomemoria"}
-        />
-        <JogoDisponivel
-          titulo={"Sudoku"}
-          texto={
-            "Sudoku é um jogo de lógica simples que ajuda a melhorar a sua habilidade mental."
-          }
-          jogo={"/sudoku"}
-        />
-      </div>
-      <div className="w-[100%]  md:h-[50%] mt-16 lg:mt-20  gap-5 lg:gap-0 flex justify-around  xs:items-start lg:items-center flex-col md:flex-row">
-        <JogoDisponivel
-          titulo={"Xadrez"}
-          texto={"Lorem ipsum lorem ipsum lorem ipsum lorem ipsum "}
-        />
-        <JogoDisponivel
-          titulo={"Palavras Cruzadas"}
-          texto={"Lorem ipsum lorem ipsum lorem ipsum lorem ipsum "}
-        />
+            key={jogo.id}
+            nome={jogo.nome}
+            link={jogo.link}
+            foto={jogo.foto}
+          />
+        ))}
       </div>
     </div>
   );
