@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import CadastroGoogle from "../Cadastro/CadastroGoogle";
 import Modal from "./modalAlterarSenha";
@@ -37,9 +37,11 @@ export default function Login() {
 
   useEffect(() => {
     if (session && session.status === "authenticated") {
-      setEmail(session.data.user.email)
-      onAuth()
-      setTimeout(() => {window.location.reload()}, 1000)
+      setEmail(session.data.user.email);
+      onAuth();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     }
   }, [session]);
 
@@ -83,7 +85,6 @@ export default function Login() {
         router.push("/usuario");
       }
     }
-
   }
 
   if (showCadastro) {
@@ -109,8 +110,12 @@ export default function Login() {
               </h4>
             </div>
 
-            <div className={`flex h-1/2 flex-col w-auto items-center gap-5 ${alterarLogin ? "justify-center" : "justify-end"} `}>
-              {!alterarLogin && 
+            <div
+              className={`flex h-1/2 flex-col w-auto items-center gap-5 ${
+                alterarLogin ? "justify-center" : "justify-end"
+              } `}
+            >
+              {!alterarLogin && (
                 <>
                   <div
                     className="bg-branco my-2 w-full h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer"
@@ -123,9 +128,9 @@ export default function Login() {
                     <p className="flex items-center mx-3 text-sm">Ou</p>
                     <hr className="my-4 w-40 border-black"></hr>
                   </div>
-                </>              
-              }
-              {!alterarLogin ?
+                </>
+              )}
+              {!alterarLogin ? (
                 <button
                   className="w-72 h-10 bg-amarelo2 justify-center p-0 rounded-full text-white"
                   type="button"
@@ -133,15 +138,15 @@ export default function Login() {
                 >
                   Criar Conta
                 </button>
-                :
+              ) : (
                 <button
-                className="w-72 h-10 bg-amarelo2 justify-center p-0 rounded-full text-white"
-                type="button"
-                onClick={handleClick}
+                  className="w-72 h-10 bg-amarelo2 justify-center p-0 rounded-full text-white"
+                  type="button"
+                  onClick={handleClick}
                 >
                   Criar Conta
                 </button>
-              }
+              )}
             </div>
           </div>
         </div>
@@ -156,17 +161,17 @@ export default function Login() {
           />
         </div>
         <div className="flex justify-center items-center w-full xs:h-auto lg:h-[65%] lg:w-[100%] ">
-          <div className="md:h-full xs:h-screen w-full m-auto grid-cols-2 border-black justify-center items-centers">
+          <div className="lg:h-full xs:h-screen w-full m-auto grid-cols-2 border-black justify-center items-centers">
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
-              {alterarLogin ? 
+              {alterarLogin ? (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
                   Login <span className="text-amarelo1">Psicólogo</span>
                 </h2>
-                :
+              ) : (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
                   Login <span className="text-amarelo1">Usuário</span>
                 </h2>
-              }
+              )}
               <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start">
                 Se você não tiver uma conta,
                 <br />
@@ -195,7 +200,9 @@ export default function Login() {
                   id="email"
                   name="email"
                   placeholder="Coloque seu Email."
-                  required value={email} onChange={(event) => setEmail(event.target.value)}
+                  required
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
@@ -208,25 +215,24 @@ export default function Login() {
                   name="senha"
                   className="border-none border-b-2 font-nunito placeholder:text-black text-sm"
                   placeholder="Escreva sua senha."
-                  
                 />
               </div>
               <div className="flex w-[70%] justify-center xs:m-auto flex-col items-center">
-                {alterarLogin ?   
+                {alterarLogin ? (
                   <button
                     type="submit"
                     className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
                   >
                     Entrar como Psicólogo
                   </button>
-                  :
+                ) : (
                   <button
                     type="submit"
                     className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
                   >
                     Entrar como Usuário
                   </button>
-                }
+                )}
 
                 <p className="font-nunito text-lg lg:hidden my-2 xs:flex text-center">
                   Ou
