@@ -499,3 +499,26 @@ export const BuscarJogos = async (endpoint) => {
     throw new Error(errorMessage);
   }
 };
+
+export const EnviarDesempenho = async (jogo, endpoint) => {
+  try {
+    const response = await axios.post(url + endpoint, jogo, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status == 200) {
+      console.log("Desempenho feito com sucesso");
+      console.log(response.data);
+    }
+  } catch (error) {
+    if (error.response) {
+      console.log(error)
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};
