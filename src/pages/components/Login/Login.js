@@ -175,11 +175,11 @@ export default function Login() {
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
               {alterarLogin ? (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
-                  Login <span className="text-amarelo1">Psicólogo</span>
+                  Login do <span className="text-amarelo2">Psicólogo</span>
                 </h2>
               ) : (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
-                  Login <span className="text-amarelo1">Usuário</span>
+                  Login do <span className="text-amarelo2">Usuário</span>
                 </h2>
               )}
               <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start">
