@@ -127,6 +127,8 @@ const timeGenerator = () => {
     }
 
     EnviarDesempenho(desempenho)
+
+
     wrapper.classList.add("hide");
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
@@ -134,6 +136,11 @@ const timeGenerator = () => {
     result.innerHTML = `<h2>O tempo acabou :( </h2>
     <h4>Movimentos: ${movesCount}</h4>
     <h4>Tempo Total: ${minutesShowedValue}:${secondsShowedValue}</h4>`;
+    seconds = 0,
+    minutes = 0, 
+    secondsShowed = 0, 
+    minutesShowed = 0;
+    movesCount = 0;
     clearInterval(interval);
   }
 
@@ -230,6 +237,20 @@ const matrixGenerator = (cardValues, size = tamanho) => {
               }
               if (dificuldade >= 3) {
                 console.log(dificuldade + " " + movesCount)
+                console.log(jogoPego.id + " " + usuario.id)
+                let desempenho = {
+                  nivel: dificuldade,
+                  pontuacao: movesCount,
+                  usuario:{
+                    id:usuario.id
+                  },
+                  jogos:{
+                    id:jogoPego.id
+                  }
+                }
+            
+                EnviarDesempenho(desempenho)
+
                 setTimeout(() => {
                     result.innerHTML = `<h2>Você venceu o jogo :) </h2>
                     <h4>Movimentos: ${movesCount}</h4>
@@ -294,6 +315,22 @@ startButton.addEventListener("click", () => {
 stopButton.addEventListener(
   "click",
   (stopGame = () => {
+
+    console.log(dificuldade + " " + movesCount)
+    console.log(jogoPego.id + " " + usuario.id)
+    let desempenho = {
+      nivel: dificuldade,
+      pontuacao: movesCount,
+      usuario:{
+        id:usuario.id
+      },
+      jogos:{
+        id:jogoPego.id
+      }
+    }
+
+    EnviarDesempenho(desempenho)
+
     console.log(dificuldade + " " + movesCount)
     wrapper.classList.add("hide");
     controls.classList.remove("hide");
