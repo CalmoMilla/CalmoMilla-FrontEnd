@@ -31,7 +31,7 @@ export default function Cadastro() {
       {showLogin ? (
         <Login className={`${isAnimating ? "animate-toLogin" : ""}}`} />
       ) : (
-        <div className="flex w-full xs:h-auto  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
+        <div className="flex w-full xs:h-auto min-h-screen  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
           <div className="absolute xs:top-2 xs:left-1 lg:top-4 lg:left-4 bg-white rounded-full p-0  ">
             <Link href={"/"}>
               <IoArrowBackCircle
