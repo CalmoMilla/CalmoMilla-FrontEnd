@@ -3,8 +3,8 @@ import { FaRegCheckCircle } from "react-icons/fa";
 export default function Plano(props) {
   return (
     <div className="flex flex-col justify-center items-center ">
-      <div className="xs:mb-20 xs:mt-10 lg:mb-0 xs:w-[80%] sm:w-auto shadow-2xl rounded-2xl">
-        <div className="w-fill h-fill flex flex-col sm:px-12 py-5 items-center justify-center bg-branco shadow-2xl rounded-2xl">
+      <div className="xs:mb-20 xs:mt-10 lg:mb-0 xs:w-[80%]  sm:w-auto shadow-2xl rounded-2xl">
+        <div className="w-fill h-fill flex flex-col sm:px-12 xl:w-96 py-5 items-center justify-center bg-branco shadow-2xl rounded-2xl">
           <h3 className="text-center w-full text-5xl font-calistoga text-preto">
             {props.plano}
           </h3>
