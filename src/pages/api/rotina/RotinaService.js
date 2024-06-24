@@ -19,7 +19,7 @@ export const AtualizarRotina = async (rotina, endpoint) => {
 
     if (response.status == 200) {
       console.log("Rotina atualizada com sucesso");
-      console.log(response.data);
+      return response.data
     }
   } catch (error) {
     if (error.response) {

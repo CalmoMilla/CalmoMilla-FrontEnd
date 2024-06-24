@@ -25,7 +25,7 @@ export default function User() {
 
   useEffect(() => {
 
-    // buscarRotina()
+    buscarRotina()
 
     let usuarioStorage = localStorage.getItem("usuario");
     if (usuarioStorage != null) {
@@ -50,13 +50,13 @@ export default function User() {
     }
   },[]);
 
-  // const buscarRotina = async () => {
-  //   let usuarioStorage = localStorage.getItem("usuario");
-  //   usuarioStorage = JSON.parse(usuarioStorage);
+const buscarRotina = async () => {
+   let usuarioStorage = localStorage.getItem("usuario");
+   usuarioStorage = JSON.parse(usuarioStorage);
 
-  //   let rotina = await BuscarRotina(`rotinas/pacientes/${usuarioStorage.id}`)
-  //   console.log(rotina)
-  // }
+   let rotina = await BuscarRotina(`rotinas/pacientes/${usuarioStorage.id}`)
+     console.log("a"+rotina)
+  }
 
   const updateTarefa = (tarefaId) => {
     let tarefasLocal = localStorage.getItem("tarefas")
