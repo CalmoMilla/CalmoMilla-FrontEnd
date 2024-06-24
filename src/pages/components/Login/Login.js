@@ -94,7 +94,7 @@ export default function Login() {
   }
 
   return (
-    <div className=" flex w-screen  xs:h-full lg:h-screen xl:overflow-hidden items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')]">
+    <div className=" flex w-full  xs:h-full lg:h-screen  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] m-0">
       <div className="absolute xs:top-2 xs:left-1 lg:top-4 lg:left-4 bg-white rounded-full p-0  ">
         <Link href={"/"}>
           <IoArrowBackCircle
@@ -248,7 +248,7 @@ export default function Login() {
                   Ou
                 </p>
                 <div
-                  className="bg-branco my-2 w-full lg:w-[70%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
+                  className="bg-branco my-2 w-full lg:w-[100%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
                   onClick={() => signIn("google")}
                 >
                   <FcGoogle className="text-3xl my-4" />

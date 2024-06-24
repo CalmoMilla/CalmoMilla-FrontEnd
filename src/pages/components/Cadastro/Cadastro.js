@@ -31,7 +31,7 @@ export default function Cadastro() {
       {showLogin ? (
         <Login className={`${isAnimating ? "animate-toLogin" : ""}}`} />
       ) : (
-        <div className="flex w-screen xs:h-auto xl:h-screen  xl:overflow-hidden  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
+        <div className="flex w-full xs:h-auto  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
           <div className="absolute xs:top-2 xs:left-1 lg:top-4 lg:left-4 bg-white rounded-full p-0  ">
             <Link href={"/"}>
               <IoArrowBackCircle
@@ -41,7 +41,7 @@ export default function Cadastro() {
             </Link>
           </div>
           <div
-            className={`m-auto flex justify-center lg:items-center xs:h-auto xl:h-[99%]  w-[80%] border rounded-lg shadow-lg xs:items-start  ${
+            className={`m-auto flex justify-center lg:items-center xs:h-auto xl:h-[90%]  w-[80%] border rounded-lg shadow-lg xs:items-start  ${
               isAnimating ? "animate-toLogin" : ""
             }`}
           >
@@ -87,7 +87,7 @@ export default function Cadastro() {
                   Ou
                 </p>
                 <div
-                  className="bg-branco my-2 w-full xs:w-[70%] lg:w-[50%] lg:mt-4   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
+                  className="bg-branco my-2 w-full xs:w-[70%] md:w-[50%] lg:mt-4   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
                   onClick={() => signIn("google")}
                 >
                   <FcGoogle className="text-3xl my-4" />
@@ -123,7 +123,7 @@ export default function Cadastro() {
                 alt="Login Change"
               />
             </div>
-            <div className="relative w-[50%] h-full hidden xl:block">
+            <div className="relative w-[50%] h-screen hidden xl:block">
               <div className="absolute inset-0 bg-login-gradient blur-md opacity-60 filter h-auto border"></div>
 
               <div className="relative h-[100%] w-auto font-calistoga p-10">
