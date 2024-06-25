@@ -1,8 +1,9 @@
 export default function CacaPalavras() {
 
   let cacaPalavras = [
-    {jogo: <iframe style={{maxWidth: "100%"}} src="https://wordwall.net/pt/embed/e3ebf1f338c846958edf2826b3061e34?themeId=51&templateId=10&fontStackId=0" width="700" height="500" frameborder="0" allowfullscreen></iframe> },
-    {jogo: <iframe style={{maxWidth: "100%"}} src="https://wordwall.net/pt/embed/e3ebf1f338c846958edf2826b3061e34?themeId=50&templateId=10&fontStackId=0" width="700" height="500" frameborder="0" allowfullscreen></iframe> },
+    {jogo : <iframe style={{maxWidth: "100%"}} src="https://wordwall.net/pt/embed/1522a2f84ad14d7c83c180aebf916081?themeId=51&templateId=10&fontStackId=1" width="1200" height="700" frameborder="0" allowfullscreen></iframe> },
+    {jogo: <iframe  style={{maxWidth: "100%"}} src="https://wordwall.net/pt/embed/470fb35ba5a440ef9c0a7fe5273446a9?themeId=51&templateId=10&fontStackId=0" width="1200" height="700" frameborder="0" allowfullscreen></iframe>},
+    {jogo: <iframe  style={{maxWidth: "100%"}} src="https://wordwall.net/pt/embed/a9aeef243f6447929ffb59a132906770?themeId=51&templateId=10&fontStackId=0" width="1200" height="700" frameborder="0" allowfullscreen></iframe>}
   ]
 
   const cacaPalavraEscolhido = () => {
