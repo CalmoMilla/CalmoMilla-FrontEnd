@@ -48,7 +48,16 @@ export default function Psicologo({psi, guardarInfo, funcao}) {
   const idade = diferencaAnos;
 
   const especializacoes = psi && psi.especializacoes
-  const primeiraEspecializacao = especializacoes && especializacoes[0]
+  let primeiraEspecializacao = especializacoes && especializacoes[0]
+  if (primeiraEspecializacao == "PSICOLOGIA_GERAL") {
+    primeiraEspecializacao = "Psicologia Geral"
+  }
+  if (primeiraEspecializacao == "PSICOLOGIA_CLINICA") {
+    primeiraEspecializacao = "Psicologia Clínica"
+  }
+  if (primeiraEspecializacao == "PSICOLOGIA_ESCOLAR") {
+    primeiraEspecializacao = "Psicologia Escolar"
+  }
 
   return (
     <div className="w-[90%] h-full shadow-2xl rounded-xl mx-auto hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" onClick={onClickPsicologo}>
