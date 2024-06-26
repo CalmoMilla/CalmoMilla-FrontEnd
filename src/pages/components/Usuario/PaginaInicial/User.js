@@ -112,9 +112,8 @@ export default function User() {
   const buscarDesempenho = async () => {
     let usuarioStorage = localStorage.getItem("usuario");
     usuarioStorage = JSON.parse(usuarioStorage);
-    let id = usuarioStorage.id
 
-    let desempenhosPegos = await BuscarDesempenho(`desempenhos/usuario/${id}`)
+    let desempenhosPegos = await BuscarDesempenho(`desempenhos/usuario/${usuarioStorage.id}`)
     setDesempenhos(desempenhosPegos);
     console.log(desempenhosPegos)
   }

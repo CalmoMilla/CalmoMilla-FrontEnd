@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const urlLocal = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
 const url = "http://localhost:8080/";
 
-export const BuscarDesempenho = async (endpoint, id) => {
+export const BuscarDesempenho = async (endpoint) => {
   if (typeof window === "undefined") {
     return null;
   }
@@ -14,7 +14,7 @@ export const BuscarDesempenho = async (endpoint, id) => {
     throw new Error("No token found");
   }
 
-  const response = await fetch(url + endpoint + id, {
+  const response = await fetch(url + endpoint, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
