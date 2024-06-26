@@ -1,8 +1,9 @@
 import Image from "next/image"
+import { IoIosArrowDropleftCircle } from "react-icons/io";
 
-export default function RelaxamentoEscolhido() {
+export default function RelaxamentoEscolhido({funcao}) {
   return (
-    <>
+    <div className="relative">
       <div className="w-full h-fit bg-roxo py-10 flex justify-around items-center">
       <Image src={"/assets/usuario/relaxamento/relaxamentoescolhido.png"} width={400} height={400} alt="..." className="hover:scale-110 duration-500 ease-in-out" />
         <div className="w-[50%] h-fit">
@@ -16,6 +17,21 @@ export default function RelaxamentoEscolhido() {
         Et quia voluptas aut corrupti incidunt vel quos dolores. In officiis ducimus eos pariatur nesciunt et placeat rerum.
         Ab nostrum aliquam sed rerum iusto aut delectus deleniti qui possimus quia 33 enim culpa. Ut beatae harum qui expedita dolor et perferendis provident vel repellendus numquam qui veniam praesentium et veritatis repellendus. Cum corrupti asperiores est eligendi dicta ab illo perferendis rem omnis sequi 33 ipsa quia cum pariatur enim in dolores reprehenderit. Ad obcaecati inventore et ullam molestiae At accusantium nemo qui quisquam odit.</p>
       </div>
-    </>
+      <div className="w-full h-fit bg-branco py-10 px-20">
+        <h2 className="text-5xl font-calistoga text-left text-verdeagua my-8">Insira um titulo</h2>
+        <div className="flex justify-between items-center">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+        </div>
+      </div>
+      <div className="w-full h-fit bg-verdeagua py-10 px-20">
+        <h2 className="text-5xl font-calistoga text-right text-branco my-8">Insira um titulo</h2>
+        <div className="flex justify-between items-center">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+        </div>
+      </div>
+      <IoIosArrowDropleftCircle className="fixed top-40 left-5 text-5xl hover:cursor-pointer hover:scale-110 duration-500 ease-in-out text-preto" onClick={funcao}/>
+    </div>
   )
 }

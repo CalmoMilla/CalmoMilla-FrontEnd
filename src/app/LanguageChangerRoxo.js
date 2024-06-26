@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import i18nConfig from '../../i18nConfig';
 import load_astv_script from '../../public/assistive/assistive';
 
-export default function LanguageChanger() {
+export default function LanguageChangerRoxo() {
   const { i18n } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
@@ -41,7 +41,7 @@ export default function LanguageChanger() {
   };
 
   return (
-    <select className={`bg-amarelo1 p-2 transition duration-300 ease-out border-solid shadow-2xl `} onChange={handleChange} value={currentLocale}>
+    <select className={`bg-branco p-2 transition duration-300 ease-out border-solid shadow-2xl text-preto`} onChange={handleChange} value={currentLocale}>
       <option value="pt-BR">Português</option>
       <option value="en">English</option>
       <option value="es">Español</option>

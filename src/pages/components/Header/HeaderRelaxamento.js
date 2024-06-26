@@ -6,8 +6,9 @@ import { FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import LanguageChanger from "@/app/LanguageChanger";
 import Link from "next/link";
+import LanguageChangerRoxo from "@/app/LanguageChangerRoxo";
 
-export default function Header() {
+export default function HeaderRelaxamento() {
   const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`bg-amarelo1 py-3 z-50 w-screen fixed`}>
+      <header className={`bg-roxo py-3 z-50 w-screen fixed`}>
         <nav
           className={`flex justify-between items-center w-[92%] mx-auto z-50${
             isOpen ? "   z-50" : " "
@@ -61,7 +62,7 @@ export default function Header() {
           {!logado ? (
             <>
               <div
-                className={` bg-amarelo1 nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
+                className={` bg-roxo nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
                   isOpen
                     ? "xs:top-[100%] absolute duration-300  h-96  items-center z-10 "
                     : "  h-12"
@@ -76,13 +77,13 @@ export default function Header() {
                     href={"/login"}
                     className="w-full sm:flex justify-center md:hidden"
                   >
-                    <button className="bg-branco px-8 py-3 rounded-full  md:hidden xs:w-[60%] md:w-auto hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
+                    <button className="bg-branco px-8 py-3 rounded-full  md:hidden xs:w-[60%] md:w-auto hover:scale-110 transition duration-300 ease-out text-xl xl:text-2xl">
                       {t("common:headerEntrar")}
                     </button>
                   </Link>
                   <li>
                     <a
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href="/#funcionalidade"
                       onClick={toggleMenu}
                     >
@@ -91,7 +92,7 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href="/#comofunciona"
                       onClick={toggleMenu}
                     >
@@ -100,7 +101,7 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href="/#parceiros"
                       onClick={toggleMenu}
                     >
@@ -109,7 +110,7 @@ export default function Header() {
                   </li>
                   <li>
                     <Link
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href={"sobrenos"}
                       onClick={toggleMenu}
                     >
@@ -118,7 +119,7 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href="/#blogpage"
                       onClick={toggleMenu}
                     >
@@ -129,9 +130,9 @@ export default function Header() {
               </div>
 
               <div className="flex items-center  gap-6">
-                <LanguageChanger />
+                <LanguageChangerRoxo />
                 <Link href={"/login"}>
-                  <button className="bg-branco px-8 py-3 rounded-full xs:hidden md:flex hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
+                  <button className="bg-branco px-8 py-3 rounded-full xs:hidden md:flex hover:scale-110 transition duration-300 ease-out text-xl xl:text-2xl">
                     {t("common:headerEntrar")}
                   </button>
                 </Link>
@@ -153,7 +154,7 @@ export default function Header() {
           ) : (
             <>
               <div
-                className={`bg-amarelo1 nav-links  xl:flex lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 flex-re ${
+                className={`bg-roxo nav-links  xl:flex lg:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5 flex-re ${
                   isOpen
                     ? "xs:top-[100%] absolute duration-300  items-center z-10 "
                     : "  h-12"
@@ -168,7 +169,7 @@ export default function Header() {
                     {isPaciente ?                     
                       <Link
                         href={"/usuario/jogos"}
-                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
                         {t("common:headerJogos")}
@@ -176,7 +177,7 @@ export default function Header() {
                       : 
                       <Link
                       href={"/psicologo/pacientes"}
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       onClick={toggleMenu}
                     >
                       Pacientes
@@ -187,7 +188,7 @@ export default function Header() {
                     {isPaciente ?                     
                       <Link
                         href={"/usuario/psicologo"}
-                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
                         {t("common:headerPsicoterapia")}
@@ -195,7 +196,7 @@ export default function Header() {
                       :
                       <Link
                       href={"/usuario/psicologo"}
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       onClick={toggleMenu}
                       >
                         Estatísticas
@@ -205,7 +206,7 @@ export default function Header() {
                   <li>
                     {isPaciente ? 
                       <Link
-                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                         href="#"
                         onClick={toggleMenu}
                       >
@@ -213,7 +214,7 @@ export default function Header() {
                       </Link>
                       :
                       <Link
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href={"/psicologo/recursos"}
                       onClick={toggleMenu}
                       >
@@ -225,14 +226,14 @@ export default function Header() {
                     {isPaciente ?                     
                       <Link
                         href={"#"}
-                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
                         Blog
                       </Link>
                       :
                       <Link
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                       href={"/psicologo/recursos"}
                       onClick={toggleMenu}
                       >
@@ -243,11 +244,11 @@ export default function Header() {
                 </ul>
               </div>
               <div className="flex items-center gap-6">
-                <LanguageChanger/>
+                <LanguageChangerRoxo/>
 
                 <Link
                   href={"/usuario/perfil"}
-                  className="w-fit p-3 hover:bg-amarelo2 rounded-full duration-500 
+                  className="w-fit p-3 hover:bg-branco rounded-full duration-500 
                 transition ease-in-out"
                 >
                   {foto ? (
