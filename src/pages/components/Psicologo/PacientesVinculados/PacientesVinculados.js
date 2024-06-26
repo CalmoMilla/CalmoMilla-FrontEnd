@@ -36,6 +36,7 @@ export default function PacientesVinculados() {
       nome: user.nome,
       dataNasc: user.dataNasc,
       endereco: user.endereco,
+      foto: user.foto
     };
     console.log(usuario);
     setSelectedUser(usuario);
@@ -62,6 +63,7 @@ export default function PacientesVinculados() {
               nome={user.nome}
               dataNasc={user.dataNasc}
               endereco={user.endereco}
+              foto={user.foto}
               handleClick={handleClick}
             />
           ))}
@@ -72,6 +74,7 @@ export default function PacientesVinculados() {
           nome={selectedUser.nome}
           dataNasc={selectedUser.dataNasc}
           endereco={selectedUser.endereco}
+          foto={selectedUser.foto}
           onClose={onClose}
         />
       )}
