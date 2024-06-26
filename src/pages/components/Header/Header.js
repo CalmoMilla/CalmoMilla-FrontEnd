@@ -206,7 +206,7 @@ export default function Header() {
                     {isPaciente ? 
                       <Link
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                        href="#"
+                        href={"/usuario/relaxamento"}
                         onClick={toggleMenu}
                       >
                         {t("common:headerComunidade")}

@@ -36,8 +36,8 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
     <div className="relative">
       <div className={`w-full h-fit ${fundo} py-10 flex lg:flex-row flex-col justify-around items-center`}>
       <Image src={foto ? foto : ""} width={400} height={400} alt="..." className="hover:scale-110 duration-500 ease-in-out" />
-        <div className="w-[50%] h-fit">
-          <h1 className="text-7xl text-branco font-calistoga my-2 text-center">{titulo && titulo}</h1>
+        <div className="w-[50%] h-fit flex flex-col justify-center items-center">
+          <h1 className="text-5xl md:text-7xl text-branco font-calistoga my-2 text-center">{titulo && titulo}</h1>
           <h2 className="text-3xl text-branco font-calistoga my-2 text-center" >{desc && desc}</h2>
         </div>
       </div>
@@ -50,15 +50,15 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
       <div className="w-full h-fit bg-branco py-10 px-20">
         <h2 className="text-5xl font-calistoga text-left text-verdeagua my-8">Insira um titulo</h2>
         <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
+          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
+          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
         </div>
       </div>
       <div className="w-full h-fit bg-verdeagua py-10 px-20">
         <h2 className="text-5xl font-calistoga text-right text-branco my-8">Insira um titulo</h2>
         <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
+          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
+          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
         </div>
       </div>
       <IoIosArrowDropleftCircle className="fixed top-40 left-5 text-5xl hover:cursor-pointer hover:scale-110 duration-500 ease-in-out text-preto" onClick={funcao}/>

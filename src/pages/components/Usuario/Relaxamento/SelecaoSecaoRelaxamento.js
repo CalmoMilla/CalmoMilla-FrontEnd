@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function SelecaoSecaoRelaxamento({ funcao }) {
   return (
-    <div className="w-full h-fit pb-0 lg:pb-20 lg:h-[100vh] bg-verdeagua">
+    <div className="w-full h-fit pb-0 lg:pb-20 lg:h-[90vh] bg-verdeagua">
       <h1 className="text-center text-branco text-5xl font-calistoga mt-10">O que te acalmaria no momento?</h1>
       <div className="w-[80%] h-fit flex lg:justify-around justify-center items-center lg:items-start mx-auto mt-32 lg:flex-row flex-col">
 
