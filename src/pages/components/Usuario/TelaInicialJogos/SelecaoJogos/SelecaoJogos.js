@@ -16,10 +16,10 @@ export default function SelecaoJogos() {
         <Link href={"/sudoku"}>Sudoku</Link>
       </p>
       <p className="py-10 text-xl hover:scale-125 hover:text-roxo duration-500 transition ease-in-out">
-        <Link href={"#"}>Insira um nome</Link>
+        <Link href={"/cacapalavras"}>Caça Palavras</Link>
       </p>
       <p className="py-10 text-xl hover:scale-125 hover:text-roxo duration-500 transition ease-in-out">
-        <Link href={"#"}>Insira um nome</Link>
+        <Link href={"/quiz"}>Quiz</Link>
       </p>
     </div>
   );

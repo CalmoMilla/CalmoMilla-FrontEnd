@@ -15,6 +15,7 @@ export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
   const [tarefas, setTarefas] = useState([])
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
+  const [emocoes, setEmocoes] = useState(null)
 
   // useEffect( () => {
   //   setTarefas([
@@ -26,13 +27,16 @@ export default function User() {
   useEffect(() => {
 
     let usuarioStorage = localStorage.getItem("usuario");
+
+    buscarEmocoes()
+
     if (usuarioStorage != null) {
 
       usuarioStorage = JSON.parse(usuarioStorage)
 
-      if (usuarioStorage.precisaPreencherQuestionario) {
-        setShowEmocoes(true)
-      }
+      // if (usuarioStorage.precisaPreencherQuestionario) {
+      //   setShowEmocoes(true)
+      // }
 
       let tarefasStorage = localStorage.getItem("tarefas");
       
@@ -75,6 +79,32 @@ export default function User() {
     const allDone = updatedTarefas.every((tarefa) => tarefa.feito);
     setShowTarefasFeitas(allDone);
   };
+
+  const buscarEmocoes = async () => {
+    let usuarioStorage = localStorage.getItem("usuario");
+    usuarioStorage = JSON.parse(usuarioStorage);
+
+    let emocoesPegas = await BuscarInfoEmocoes(`emocoes/pacientes/${usuarioStorage.id}`)
+    setEmocoes(emocoesPegas);
+
+    if (emocoesPegas[0] != undefined) {
+      let dataAtual = new Date();
+      const anoAtual = dataAtual.getFullYear();
+      const mesAtual = dataAtual.getMonth() + 1;
+      const diaAtual = dataAtual.getDate();
+
+      dataAtual = [anoAtual, mesAtual, diaAtual]
+
+      if (dataAtual[0] == emocoesPegas[0].dataRegistro[0] && dataAtual[1] == emocoesPegas[0].dataRegistro[1] && dataAtual[2] == emocoesPegas[0].dataRegistro[2] ) {
+        console.log("dia igual")
+      } else {
+        setShowEmocoes(true)
+      }
+    } else {
+      setShowEmocoes(true)
+    }
+  
+  }
   
 
   return (
@@ -95,12 +125,12 @@ export default function User() {
 
       {/* <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button> */}
 
-      <button
+      {/* <button
         className="w-16 h-16 bg-amarelo1"
         onClick={() => setShowEmocoes(true)}
       >
         Teste
-      </button> 
+      </button>  */}
 
       <div id="modal-root"></div>
       {showEmocoes && (
