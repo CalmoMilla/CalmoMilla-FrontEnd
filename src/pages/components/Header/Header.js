@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import LanguageChanger from "@/app/LanguageChanger";
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({roxo}) {
   const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-amarelo1 py-3 z-50 w-screen fixed">
+      <header className={`${roxo ? "bg-roxo" : "bg-amarelo1"} bg-amarelo1 py-3 z-50 w-screen fixed`}>
         <nav
           className={`flex justify-between items-center w-[92%] mx-auto z-50${
             isOpen ? "   z-50" : " "
@@ -61,7 +61,7 @@ export default function Header() {
           {!logado ? (
             <>
               <div
-                className={`bg-amarelo1 nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
+                className={`${roxo ? "bg-roxo" : "bg-amarelo1"} bg-amarelo1 nav-links  xl:flex xl:static fixed lg:min-h-fit min-h-[60vh] left-0 top-[-100%] xl:w-auto w-full flex items-center px-5 flex-re ${
                   isOpen
                     ? "xs:top-[100%] absolute duration-300  h-96  items-center z-10 "
                     : "  h-12"
@@ -243,7 +243,11 @@ export default function Header() {
                 </ul>
               </div>
               <div className="flex items-center gap-6">
-                <LanguageChanger />
+                {roxo ? 
+                  <LanguageChanger showRoxo={true} />
+                  :
+                  <LanguageChanger showRoxo={false} />
+                }
                 <Link
                   href={"/usuario/perfil"}
                   className="w-fit p-3 hover:bg-amarelo2 rounded-full duration-500 

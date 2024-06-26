@@ -8,6 +8,7 @@ import CacaPalavras from "./Usuario/Jogos/CacaPalavras";
 import EstatisticasPsicologo from "./Usuario/Psicologo/EstatisticasPsicologo/EstatisticasPsicologo";
 import InfoPsicologo from "./Usuario/Psicologo/InfoPsicologo/InfoPsicologo";
 import PaginaPsicologo from "./Usuario/Psicologo/PaginaPsicologo";
+import RelaxamentoEscolhido from "./Usuario/Relaxamento/RelaxamentoEscolhido";
 import RelaxamentoPage from "./Usuario/Relaxamento/RelaxamentoPage";
 
 export default function Teste() {
