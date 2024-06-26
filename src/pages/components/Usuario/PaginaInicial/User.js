@@ -10,12 +10,14 @@ import Emocoes from "./Emocoes/Emocoes";
 import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService";
 import Rotina from "./Rotina/Rotina";
 import { BuscarRotina } from "@/pages/api/rotina/RotinaService";
+import { BuscarDesempenho } from "@/pages/api/desempenho/DesempenhoService";
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
   const [tarefas, setTarefas] = useState([])
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
   const [emocoes, setEmocoes] = useState(null)
+  const [desempenhos, setDesempenhos] = useState(null)
 
   // useEffect( () => {
   //   setTarefas([
@@ -29,6 +31,7 @@ export default function User() {
     let usuarioStorage = localStorage.getItem("usuario");
 
     buscarEmocoes()
+    buscarDesempenho()
 
     if (usuarioStorage != null) {
 
@@ -104,6 +107,16 @@ export default function User() {
       setShowEmocoes(true)
     }
   
+  }
+
+  const buscarDesempenho = async () => {
+    let usuarioStorage = localStorage.getItem("usuario");
+    usuarioStorage = JSON.parse(usuarioStorage);
+    let id = usuarioStorage.id
+
+    let desempenhosPegos = await BuscarDesempenho(`desempenhos/usuario/${id}`)
+    setDesempenhos(desempenhosPegos);
+    console.log(desempenhosPegos)
   }
   
 
