@@ -166,3 +166,29 @@ export const Atualizar = async (psicologo, endpoint) => {
     }
   }
 };
+
+export const BuscarPacientes = async (endpoint) => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("No token found");
+  }
+
+  const response = await fetch(url + endpoint, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.ok) {
+    const pacientes = await response.json();
+    return pacientes
+  } else {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+};
