@@ -1,14 +1,44 @@
 import Image from "next/image"
+import { useEffect, useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 
-export default function RelaxamentoEscolhido({funcao}) {
+export default function RelaxamentoEscolhido({funcao, secao}) {
+
+  const [foto, setFoto] = useState(null)
+  const [fundo, setFundo] = useState(null)
+  const [titulo, setTitulo] = useState(null)
+  const [desc, setDesc] = useState(null)
+
+  useEffect(() => {
+    definirSecao()
+  }, [])
+
+  const definirSecao = () => {
+    if (secao == "m") {
+      setFoto("/assets/usuario/relaxamento/relaxamentoescolhido.png")
+      setFundo("bg-roxo")
+      setTitulo("Meditação")
+      setDesc("A alma parece-me apenas uma simples respiração do corpo.")
+    } else if (secao == "r") {
+      setFoto("/assets/usuario/relaxamento/respiracaoescolhido.png")
+      setFundo("bg-amarelo2")
+      setTitulo("Relaxamento")
+      setDesc("Estar cheio de vida é respirar profundamente, mover-se livremente e sentir com intensidade.")
+    } else if (secao == "y") {
+      setFoto("/assets/usuario/relaxamento/yogaescolhido.png")
+      setFundo("bg-verde2")
+      setTitulo("Yoga")
+      setDesc("A libertação do desejo conduz à paz interior.")
+    }
+  }
+
   return (
     <div className="relative">
-      <div className="w-full h-fit bg-roxo py-10 flex justify-around items-center">
-      <Image src={"/assets/usuario/relaxamento/relaxamentoescolhido.png"} width={400} height={400} alt="..." className="hover:scale-110 duration-500 ease-in-out" />
+      <div className={`w-full h-fit ${fundo} py-10 flex lg:flex-row flex-col justify-around items-center`}>
+      <Image src={foto ? foto : ""} width={400} height={400} alt="..." className="hover:scale-110 duration-500 ease-in-out" />
         <div className="w-[50%] h-fit">
-          <h1 className="text-7xl text-branco font-calistoga text-center">Relaxamento</h1>
-          <h2 className="text-3xl text-branco font-nunito text-center" >A alma parece-me apenas uma simples respiração do corpo</h2>
+          <h1 className="text-7xl text-branco font-calistoga my-2 text-center">{titulo && titulo}</h1>
+          <h2 className="text-3xl text-branco font-calistoga my-2 text-center" >{desc && desc}</h2>
         </div>
       </div>
       <div className="w-full h-fit bg-verdeagua py-10">
@@ -19,14 +49,14 @@ export default function RelaxamentoEscolhido({funcao}) {
       </div>
       <div className="w-full h-fit bg-branco py-10 px-20">
         <h2 className="text-5xl font-calistoga text-left text-verdeagua my-8">Insira um titulo</h2>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
         </div>
       </div>
       <div className="w-full h-fit bg-verdeagua py-10 px-20">
         <h2 className="text-5xl font-calistoga text-right text-branco my-8">Insira um titulo</h2>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
         </div>

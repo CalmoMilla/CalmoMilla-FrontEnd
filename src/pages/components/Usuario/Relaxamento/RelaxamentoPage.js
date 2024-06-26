@@ -22,7 +22,7 @@ export default function RelaxamentoPage() {
       <HeaderRelaxamento/>
       <div className={`pt-28 ${showRelaxamento ? "bg-roxo" : "bg-verdeagua"}`}>
         {showRelaxamento ? 
-        <RelaxamentoEscolhido funcao={() => setShowRelaxamento(false)}/>
+        <RelaxamentoEscolhido funcao={() => setShowRelaxamento(false)} secao={relaxamento}/>
         :
         <SelecaoSecaoRelaxamento funcao={onClickRelaxamento}/>
         }
