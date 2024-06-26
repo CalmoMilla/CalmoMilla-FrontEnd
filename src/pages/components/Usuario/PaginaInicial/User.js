@@ -34,9 +34,9 @@ export default function User() {
 
       usuarioStorage = JSON.parse(usuarioStorage)
 
-      if (usuarioStorage.precisaPreencherQuestionario) {
-        setShowEmocoes(true)
-      }
+      // if (usuarioStorage.precisaPreencherQuestionario) {
+      //   setShowEmocoes(true)
+      // }
 
       let tarefasStorage = localStorage.getItem("tarefas");
       
@@ -87,7 +87,22 @@ export default function User() {
     let emocoesPegas = await BuscarInfoEmocoes(`emocoes/pacientes/${usuarioStorage.id}`)
     setEmocoes(emocoesPegas);
 
-    console.log(emocoesPegas[0].dataRegistro)
+    if (emocoesPegas[0] != undefined) {
+      let dataAtual = new Date();
+      const anoAtual = dataAtual.getFullYear();
+      const mesAtual = dataAtual.getMonth() + 1;
+      const diaAtual = dataAtual.getDate();
+
+      dataAtual = [anoAtual, mesAtual, diaAtual]
+
+      if (dataAtual[0] == emocoesPegas[0].dataRegistro[0] && dataAtual[1] == emocoesPegas[0].dataRegistro[1] && dataAtual[2] == emocoesPegas[0].dataRegistro[2] ) {
+        console.log("dia igual")
+      } else {
+        setShowEmocoes(true)
+      }
+    } else {
+      setShowEmocoes(true)
+    }
   
   }
   
