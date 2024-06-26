@@ -15,6 +15,7 @@ export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
   const [tarefas, setTarefas] = useState([])
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
+  const [emocoes, setEmocoes] = useState(null)
 
   // useEffect( () => {
   //   setTarefas([
@@ -26,6 +27,9 @@ export default function User() {
   useEffect(() => {
 
     let usuarioStorage = localStorage.getItem("usuario");
+
+    buscarEmocoes()
+
     if (usuarioStorage != null) {
 
       usuarioStorage = JSON.parse(usuarioStorage)
@@ -75,6 +79,17 @@ export default function User() {
     const allDone = updatedTarefas.every((tarefa) => tarefa.feito);
     setShowTarefasFeitas(allDone);
   };
+
+  const buscarEmocoes = async () => {
+    let usuarioStorage = localStorage.getItem("usuario");
+    usuarioStorage = JSON.parse(usuarioStorage);
+
+    let emocoesPegas = await BuscarInfoEmocoes(`emocoes/pacientes/${usuarioStorage.id}`)
+    setEmocoes(emocoesPegas);
+
+    console.log(emocoesPegas[0].dataRegistro)
+  
+  }
   
 
   return (
