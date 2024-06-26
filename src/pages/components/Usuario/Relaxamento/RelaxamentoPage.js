@@ -8,16 +8,23 @@ import { useState } from "react";
 
 export default function RelaxamentoPage() {
 
-  const [relaxamentoEscolhido, setRelaxamentoEscolhido] = useState(false)
+  const [showRelaxamento, setShowRelaxamento] = useState(false)
+  const [relaxamento, setRelaxamento] = useState(false)
+
+  const onClickRelaxamento = (relaxamentoPego) => {
+    setShowRelaxamento(true)
+    setRelaxamento(relaxamentoPego)
+    console.log(relaxamentoPego)
+  }
 
   return (
     <>
       <HeaderRelaxamento/>
-      <div className={`pt-28 ${relaxamentoEscolhido ? "bg-roxo" : "bg-verdeagua"}`}>
-        {relaxamentoEscolhido ? 
-        <RelaxamentoEscolhido funcao={() => setRelaxamentoEscolhido(false)}/>
+      <div className={`pt-28 ${showRelaxamento ? "bg-roxo" : "bg-verdeagua"}`}>
+        {showRelaxamento ? 
+        <RelaxamentoEscolhido funcao={() => setShowRelaxamento(false)}/>
         :
-        <SelecaoSecaoRelaxamento funcao={() => setRelaxamentoEscolhido(true)}/>
+        <SelecaoSecaoRelaxamento funcao={onClickRelaxamento}/>
         }
       </div>
     </>

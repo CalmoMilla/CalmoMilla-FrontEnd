@@ -20,15 +20,15 @@ export default function RelaxamentoEscolhido({funcao}) {
       <div className="w-full h-fit bg-branco py-10 px-20">
         <h2 className="text-5xl font-calistoga text-left text-verdeagua my-8">Insira um titulo</h2>
         <div className="flex justify-between items-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
         </div>
       </div>
       <div className="w-full h-fit bg-verdeagua py-10 px-20">
         <h2 className="text-5xl font-calistoga text-right text-branco my-8">Insira um titulo</h2>
         <div className="flex justify-between items-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="rounded-2xl"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
         </div>
       </div>
       <IoIosArrowDropleftCircle className="fixed top-40 left-5 text-5xl hover:cursor-pointer hover:scale-110 duration-500 ease-in-out text-preto" onClick={funcao}/>
