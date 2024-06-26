@@ -125,12 +125,12 @@ export default function User() {
 
       {/* <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button> */}
 
-      <button
+      {/* <button
         className="w-16 h-16 bg-amarelo1"
         onClick={() => setShowEmocoes(true)}
       >
         Teste
-      </button> 
+      </button>  */}
 
       <div id="modal-root"></div>
       {showEmocoes && (

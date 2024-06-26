@@ -284,8 +284,8 @@ startButton.addEventListener("click", () => {
 
   if (dificuldade == 1){
     tamanho = 4
-    seconds = 3;
-    minutes = 0;
+    seconds = 30;
+    minutes = 1;
     wrapper.style.width = '26.87em'
   } else if (dificuldade == 2) {
     seconds = 59;
