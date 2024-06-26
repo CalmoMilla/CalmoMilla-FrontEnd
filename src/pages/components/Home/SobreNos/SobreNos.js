@@ -4,8 +4,25 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import IntegranteSobreNos from "./IntegranteSobreNos";
 import FuturoPlataforma from "./FuturoPlataforma";
+import { useState } from "react";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 export default function SobreNos() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+    console.log("1");
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+  const closeModalAlert = () => {
+    setModalOpen(false);
+    alert("Muito obrigado pela sua contribuição!");
+  };
+
   const { t } = useTranslation();
 
   return (
@@ -14,7 +31,7 @@ export default function SobreNos() {
         {t("sobreNosTitulo1")}
       </h2>
       <div className="flex justify-center">
-        <div className="w-[90%] lg:w-[80%]  px-5 h-fit items-center md:h-auto bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)]">
+        <div className="w-[90%] lg:w-[80%]  px-5 h-fit items-center md:h-auto bg-roxo rounded-3xl shadow-[0_35px_30px_-15px_rgba(0,0,0,0.3)] mb-5">
           <div className="flex flex-col xl:flex-row justify-around items-center">
             <Image
               src={"/assets/home/sobrenos/membrosmilla.png"}
@@ -193,6 +210,55 @@ export default function SobreNos() {
               link={"#"}
             />
           </div>
+          <div className="w-full flex items-center my-10">
+            <button
+              type="submit"
+              onClick={toggleModal}
+              className="w-80 h-20 mx-auto bg-amarelo1  justify-center text-2xl p-2 mt-4 rounded-full text-black hover:bg-amarelo2 hover:text-white mb-5"
+            >
+              APOIAR O PROJETO
+            </button>
+          </div>
+          {modalOpen ? (
+            <div
+              id="popup-modal"
+              tabIndex="-1"
+              className="  overflow-y-auto overflow-x-hidden fixed top-0 left-0 flex  z-40 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+            >
+              <div
+                className="
+               relative p-4 w-full max-w-md max-h-full"
+              >
+                <div className="relative bg-white rounded-lg shadow flex items-center justify-center dark:bg-gray-600">
+                  <div className="p-4 md:p-5 text-center  ">
+                    <RiMoneyDollarCircleLine className="w-full h-20 text-amarelo2" />
+
+                    <h3 className="mb-5 text-xl font-normal  text-white">
+                      Deseja contribuir com o Calmomilla?
+                    </h3>
+                    <button
+                      onClick={closeModalAlert}
+                      type="button"
+                      className="text-white hover:text-black bg-amarelo2 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
+                      data-modal-hide="popup-modal"
+                    >
+                      Sim!
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      type="button"
+                      className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border hover:bg-gray-600 hover:text-white"
+                      data-modal-hide="popup-modal"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
