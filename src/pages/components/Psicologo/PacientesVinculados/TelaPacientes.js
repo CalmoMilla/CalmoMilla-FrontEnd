@@ -1,4 +1,5 @@
 import Filtro from "../../Filtro/Filtro";
+import Header from "../../Header/Header";
 import PacientesVinculados from "./PacientesVinculados";
 
 export default function TelaPacientes() {
@@ -9,10 +10,12 @@ export default function TelaPacientes() {
     ] 
   
     return (
-      <div className="mt-32 flex gap-4 flex-col justify-center items-center lg:justify-around lg:items-start lg:flex-row">
-        <Filtro data={data}/>
-        <PacientesVinculados/>
-      </div>
-        
+      <>
+        <Header/>
+        <div className="pt-40 flex gap-4 flex-col justify-center items-center lg:justify-around lg:items-start lg:flex-row">
+          <Filtro data={data}/>
+          <PacientesVinculados/>
+        </div>  
+      </>
     );
   }
