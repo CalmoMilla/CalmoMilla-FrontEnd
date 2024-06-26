@@ -78,7 +78,7 @@ export default function Login() {
       await LoginPsicologo(login, "auth/login");
       const tokenUser = localStorage.getItem("token");
       if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
-        router.push("/teste");
+        router.push("/psicologo");
       }
     } else {
       await LoginUsuario(login, "auth/login");

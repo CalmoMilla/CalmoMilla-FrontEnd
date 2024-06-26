@@ -21,14 +21,23 @@ export default function Header() {
   const [logado, setLogado] = useState(false);
   const [usuario, setUsuario] = useState(null);
   const [foto, setFoto] = useState(null);
+  const [isPaciente, setIsPaciente] = useState(false);
 
   useEffect(() => {
     let usuarioStorage = localStorage.getItem("usuario");
+    let psiStorage = localStorage.getItem("psicologo");
     if (usuarioStorage != null) {
       usuarioStorage = JSON.parse(usuarioStorage);
       console.log(usuarioStorage);
       setUsuario(usuarioStorage ? usuarioStorage : null);
       setFoto(usuarioStorage.foto);
+      setIsPaciente(true)
+    } else if (psiStorage != null) {
+      psiStorage = JSON.parse(psiStorage);
+      console.log(psiStorage);
+      setUsuario(psiStorage ? psiStorage : null);
+      setFoto(psiStorage.foto);
+      setIsPaciente(false)
     }
   }, []);
 
@@ -46,7 +55,7 @@ export default function Header() {
             isOpen ? "   z-50" : " "
           } z-50`}
         >
-          <Link href={`${logado ? "/usuario" : "/"}`} className="w-fit">
+          <Link href={`${!logado ? "/" : isPaciente? "/usuario" : "/psicologo"}`} className="w-fit">
             <Image width={70} height={70} src="/assets/logo.png" alt="..." />
           </Link>
           {!logado ? (
@@ -156,40 +165,80 @@ export default function Header() {
                   }`}
                 >
                   <li>
-                    <Link
-                      href={"/usuario/jogos"}
+                    {isPaciente ?                     
+                      <Link
+                        href={"/usuario/jogos"}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        onClick={toggleMenu}
+                      >
+                        {t("common:headerJogos")}
+                      </Link> 
+                      : 
+                      <Link
+                      href={"/psicologo/pacientes"}
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                       onClick={toggleMenu}
                     >
-                      {t("common:headerJogos")}
-                    </Link>
+                      Pacientes
+                    </Link> 
+                    }
                   </li>
                   <li>
-                    <Link
+                    {isPaciente ?                     
+                      <Link
+                        href={"/usuario/psicologo"}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        onClick={toggleMenu}
+                      >
+                        {t("common:headerPsicoterapia")}
+                      </Link>
+                      :
+                      <Link
                       href={"/usuario/psicologo"}
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                       onClick={toggleMenu}
-                    >
-                      {t("common:headerPsicoterapia")}
-                    </Link>
+                      >
+                        Estatísticas
+                      </Link>
+                    }
                   </li>
                   <li>
-                    <a
+                    {isPaciente ? 
+                      <Link
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        href="#"
+                        onClick={toggleMenu}
+                      >
+                        {t("common:headerComunidade")}
+                      </Link>
+                      :
+                      <Link
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="#"
+                      href={"/psicologo/recursos"}
                       onClick={toggleMenu}
-                    >
-                      {t("common:headerComunidade")}
-                    </a>
+                      >
+                        Recursos
+                      </Link>
+                    }
                   </li>
                   <li>
-                    <Link
-                      href={"#"}
+                    {isPaciente ?                     
+                      <Link
+                        href={"#"}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        onClick={toggleMenu}
+                      >
+                        Blog
+                      </Link>
+                      :
+                      <Link
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                      href={"/psicologo/recursos"}
                       onClick={toggleMenu}
-                    >
-                      Blog
-                    </Link>
+                      >
+                        FAQ
+                      </Link>
+                    }
                   </li>
                 </ul>
               </div>
