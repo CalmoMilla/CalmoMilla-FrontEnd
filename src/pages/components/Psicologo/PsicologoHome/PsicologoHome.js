@@ -1,13 +1,39 @@
+"use client"
+
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Header from "../../Header/Header";
+import { useEffect, useState } from "react";
+import { BuscarPsicologo } from "@/pages/api/usuario/PsicologoService";
 
 export default function PsicologoHome(){
+
+    const router = useRouter()
+
+    const [psicologo, setPsicologo] = useState(null)
+
+    useEffect(() => {
+        buscar();
+    }, []);
+    
+    const buscar = async () => {
+        var PsicologoLocal = JSON.parse(localStorage.getItem("psicologo"));
+        if (PsicologoLocal != "" && PsicologoLocal != undefined && PsicologoLocal != null) {
+            const id = PsicologoLocal.id;
+            PsicologoLocal = await BuscarPsicologo("psicologos/", id);
+            setPsicologo(PsicologoLocal);
+            console.log(PsicologoLocal)
+        } else {
+            router.push("/login");
+        }
+    };
+
     return (
     <>
         <Header/>
         <div className="w-[100%] h-auto flex items-center pt-40 ">
             <div className="flex flex-col justify-center items-center h-screen w-[40%] mt-10">
-                <h1 className="font-calistoga text-7xl w-full text-center">Olá,Nome do profissional</h1>
+                <h1 className="font-calistoga text-7xl w-full text-center">Olá, {psicologo && psicologo.nome }</h1>
                 <p className="font-nunito text-4xl font-medium mt-6">Aqui estão algumas coisas <br/>que podem te interessar.</p>
             </div>
             <div className="flex flex-col justify-between items-center h-[95%] w-[60%] px-8 gap-3">
