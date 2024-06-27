@@ -20,12 +20,16 @@ export default function MateriaPage() {
     console.log(blogPego)
   }
 
+  const onClickMateria = () => {
+    setShowMateria(true)
+  }
+
   return (
     <>
       {showMateria ?
         <Materia funcao={() => setShowMateria(false)} blog={blog}/>
         :
-        <MateriaBlog funcao={() => setShowMateria(true)}/>
+        <MateriaBlog funcao={onClickMateria} blog={blog}/>
       }
     </>
   )
