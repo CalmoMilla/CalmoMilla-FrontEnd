@@ -9,6 +9,7 @@ export default function MateriaPage() {
 
   const [showMateria, setShowMateria] = useState(false)
   const [blog, setBlog] = useState(null)
+  const [materia, setMateria] = useState(null)
 
   useEffect(() => {
     buscarBlog()
@@ -20,14 +21,19 @@ export default function MateriaPage() {
     console.log(blogPego)
   }
 
-  const onClickMateria = () => {
+  const onClickMateria = (materia) => {
     setShowMateria(true)
+    setMateria(materia)
+  }
+
+  const onClickOutrasMaterias = (materia) => {
+    setMateria(materia)
   }
 
   return (
     <>
       {showMateria ?
-        <Materia funcao={() => setShowMateria(false)} blog={blog}/>
+        <Materia retornar={() => setShowMateria(false)} blog={blog} materia={materia} funcao={onClickOutrasMaterias}/>
         :
         <MateriaBlog funcao={onClickMateria} blog={blog}/>
       }
