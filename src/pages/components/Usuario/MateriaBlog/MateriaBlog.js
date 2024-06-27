@@ -6,7 +6,7 @@ import MateriaFinal from "./MateriaFinal/MateriaFinal"
 import MateriaCarrossel from "./MateriaCarrossel/MateriaCarrossel"
 import Footer from "../../Footer/Footer"
 
-export default function MateriaBlog() {
+export default function MateriaBlog({funcao}) {
   return(
     <>
 
@@ -15,16 +15,16 @@ export default function MateriaBlog() {
       <BannerLogo/>
 
       <div className="xl:block hidden">
-        <MateriasLinks/>
+        <MateriasLinks funcao={funcao}/>
       </div>
       
       <div className="block xl:hidden">
-        <MateriaCarrossel/>
+        <MateriaCarrossel funcao={funcao}/>
       </div>
 
-      <MateriaPrincipal/>
+      <MateriaPrincipal funcao={funcao}/>
 
-      <MateriaFinal/>
+      <MateriaFinal funcao={funcao}/>
 
       <Footer/>
 

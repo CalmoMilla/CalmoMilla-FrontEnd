@@ -1,11 +1,11 @@
 import Image from "next/image"
 
-export default function MateriaPrincipal() {
+export default function MateriaPrincipal({funcao}) {
     return(
-        <div className="w-11/12 space-y-7 m-auto">
+        <div className="w-11/12 space-y-7 m-auto" >
             <h2 className="text-4xl font-calistoga">Lorem ipsum dolor sit amet. Ut dignissimos neque</h2>
              
-            <div className="flex justify-center w-full">
+            <div className="flex justify-center w-full hover:cursor-pointer" onClick={funcao}>
                 <Image width={1800} height={450} src={"/assets/usuario/materiablog/materia4.png"} alt="Imagem da matéria principal"/>
             </div>
 

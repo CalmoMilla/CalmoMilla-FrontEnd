@@ -1,9 +1,9 @@
 import Image from "next/image"
 
-export default function MateriaFinal() {
+export default function MateriaFinal({funcao}) {
     return(
         <div className="flex lg:items-start items-center justify-center m-auto lg:space-x-7 lg:space-y-7 space-y-3 pt-10 pb-12 flex-col lg:flex-row xl:flex-row 2xl:flex-row w-11/12">
-            <div className="w-[70%] lg:w-[400%] 2xl:w-[150%]">
+            <div className="w-[70%] lg:w-[400%] 2xl:w-[150%] hover:cursor-pointer" onClick={funcao}>
                 <Image width={1200} height={800} src={"/assets/usuario/materiablog/materia5.png"} alt="Imagem da matéria final"/>
             </div>
             <div className="space-y-6 lg:pb-36 text-center lg:text-left xl:text-left">

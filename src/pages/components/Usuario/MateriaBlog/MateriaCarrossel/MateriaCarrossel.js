@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-export default function MateriaCarrossel(){
+export default function MateriaCarrossel({funcao}){
     const settings = {
         dots: true,
         fade: true,
@@ -22,7 +22,7 @@ export default function MateriaCarrossel(){
             <div className="mt-20">
             <Slider {...settings}>
             {data.map((d) => (
-                <div key={d.id} className="bg-branco h-fit rounded-2xl flex flex-col justify-center">
+                <div key={d.id} className="bg-branco h-fit rounded-2xl flex flex-col justify-center hover:cursor-pointer" onClick={funcao}>
                     <Image className="grayscale-[20%]" quality={80} src={d.img} width={1000} height={1000} alt=""/>
                     <p className={`text-branco text-2xl font-bold font-nunito relative ${d.baixo ? "bottom-40" : "bottom-[500px]"} left-5`}>{d.texto}</p>
                 </div>
