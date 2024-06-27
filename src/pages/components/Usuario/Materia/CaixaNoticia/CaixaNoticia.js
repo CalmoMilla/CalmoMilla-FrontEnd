@@ -16,7 +16,7 @@ export default function CaixaNoticia({materia}){
   const definirTitulo = () => {
     if (materia.tituloPostagem == "Como jogos de estímulos mentais beneficiam sua saúde cerebral") {
       setTituloPostagem( 
-        <h1 className="text-5xl w-[80%] mx-auto font-calistoga text-center pt-14">{t("comoFuncionaTexto1")}</h1> 
+        <h1 className="text-5xl w-[80%] mx-auto font-calistoga text-center pt-14">{t("tituloPostagem1")}</h1> 
       ) 
     } else {
       setTituloPostagem (

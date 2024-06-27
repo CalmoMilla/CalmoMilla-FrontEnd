@@ -2,7 +2,7 @@ import Teste from "@/pages/components/Teste";
 import initTranslations from "../../i18n";
 import TranslationsProvider from "../../TranslationProvider";
 
-const namespaces = ['home', 'common']
+const namespaces = ['blog', 'common']
 
 export default async function Page({params: {locale} }) {
   const { t, resources } = await initTranslations(locale, namespaces)
