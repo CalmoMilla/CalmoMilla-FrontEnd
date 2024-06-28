@@ -1,10 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from 'react-dom/client';
 import Emocao from "../Emocoes/Emocao";
+import { useTranslation } from "react-i18next";
 
 const ModalInfoEmocao = ({ onClose, title, info, emoji }) => {
+
+  const { t } = useTranslation()
+  const [date, setDate] = useState(null)
+  const [sentimento, setSentimento] = useState(null)
+
   const handleCloseClick = (e) => {
     e.preventDefault();
     if (onClose) {
@@ -12,17 +18,42 @@ const ModalInfoEmocao = ({ onClose, title, info, emoji }) => {
     }
   };
 
+  useEffect(() => {
+    setDate(info && info[3][2] + " " + info[3][1] + " " + info[3][0])
+    traduzirPagina()
+  }, [])
+
 
   const formatarEmocao = () => {
     if(info) {
       if (info[1] == "FELIZ") {
-        return "Que ótimo! Você estava feliz nesse dia!"
+        return t('emocaoFeliz')
       } 
       if (info[1] == "MEIOTERMO") {
-        return "Você parecia estar neutro no dia. Espero que nossa plataforma tenha ajudado!"
+        return t('emocaoMt')
       } 
       if (info[1] == "TRISTE") {
-        return "Vimos que você estava triste, espero que você tenha dado um pulinho na nossa seção de Relaxamento! \u{1F60A}"
+        return t('emocaoTriste')
+      } 
+    }
+  }
+
+  const traduzirPagina = () => {
+    if(info) {
+      if (info[1] == "FELIZ") {
+        setSentimento(
+          <h2 className="text-center text-xl font-nunito my-4">{t('emocaoSentidaFeliz')}</h2>
+        )
+      } 
+      if (info[1] == "MEIOTERMO") {
+        setSentimento(
+          <h2 className="text-center text-xl font-nunito my-4">{t('emocaoSentidaMt')}</h2>
+        )
+      } 
+      if (info[1] == "TRISTE") {
+        setSentimento(
+          <h2 className="text-center text-xl font-nunito my-4">{t('emocaoSentidaTriste')}</h2>
+        )
       } 
     }
   }
@@ -42,7 +73,7 @@ const ModalInfoEmocao = ({ onClose, title, info, emoji }) => {
              text-center flex justify-center items-center "
             >
               <h2 className="font-calistoga w-full sm:text-3xl">
-                Emoção do Dia
+                {t('emocaoTitulo')}
               </h2>
             </div>
             <button
@@ -62,9 +93,8 @@ const ModalInfoEmocao = ({ onClose, title, info, emoji }) => {
           {title && <h1 className="text-xl font-bold">{title}</h1>}
           <div className="w-full h-full">
             <h2 className="text-center text-5xl font-nunito my-4">{emoji}</h2>
-            <h2 className="text-center text-xl font-nunito my-4">{`Sentimento do Dia: ${info && info[1]}`}</h2>
-            <h2 className="text-center text-xl font-nunito my-4">{`Dia: ${info && info[3][2] + "/" + info[3][1] + "/" + 
-  info[3][0]}`}</h2>
+            {sentimento}
+            <h2 className="text-center text-xl font-nunito my-4">{t('emocaoDia', { date })}</h2>
             <h2 className="text-center text-xl font-nunito my-4 w-[80%] mx-auto">{mensagemFormada}</h2>
           </div>
         </div>
