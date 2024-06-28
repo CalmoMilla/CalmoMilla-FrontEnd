@@ -8,11 +8,11 @@ Primeiro, certifique de ter o Node.js instalado em sua maquína, após, execute 
 
 # npm run dev
 ou
-#yarn dev 
+# yarn dev 
 ou
-#pnpm dev
+# pnpm dev
  ou
-#bun dev
+# bun dev
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
