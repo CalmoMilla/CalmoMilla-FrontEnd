@@ -99,13 +99,13 @@ export default function Header() {
                     </a>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href="/#parceiros"
+                      href={"/parceiros"}
                       onClick={toggleMenu}
                     >
                       {t("common:headerParceiros")}
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link

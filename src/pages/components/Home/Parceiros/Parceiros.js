@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { IoIosArrowDown } from "react-icons/io";
@@ -16,12 +18,12 @@ export default function Parceiros() {
 
     {id: 3, titulo: "Intermentes", desc: "A Intermentes é uma plataforma que facilita o acesso à psicologia para que as pessoas possam cuidar da sua saúde mental. Para isso, oferecem sessões online com valores acessíveis para todos os públicos, diversidade de profissionais com especialidades variadas para diferentes situações, e a oportunidade para que pessoas sem condições financeiras também possam cuidar da sua mente, por meio da centralização de ONGs que oferecem esse cuidado gratuitamente.", cor1: "bg-gradient-to-r from-[#E5B8FA] to-[#B66FD8]", cor2: "text-branco", logo: "/assets/home/parceiros/intermentes.png", foto1: "/assets/home/parceiros/itm/itm1.jpeg", foto2: "/assets/home/parceiros/itm/itm2.jpeg"},
 
-    {id: 4, titulo: "Mundo da Estampa", desc: "Com o objetivo de ajudar as pessoas a terem uma vida mais equilibrada, o Clube de Meditação é uma plataforma de relaxamento da mente que através da meditação, busca mergulhar no seu interior para observar pensamentos e energias que induzem o comportamento com uma compreensão mais profunda.", cor1: "bg-branco", cor2: "text-[#1EB2B1]", logo: "/assets/home/parceiros/mundodaestampa.png", foto1: "/assets/home/parceiros/cm/meditacao1.jpeg", foto2: "/assets/home/parceiros/cm/meditacao2.jpeg"},
+    {id: 4, titulo: "Mundo da Estampa", desc: "O Mundo da Estampa se destaca pela alta qualidade de seus produtos e serviços. Eles utilizam técnicas de estamparia modernas e duráveis, garantindo que suas camisetas, banners e outros itens personalizados durem por muito tempo. Além disso, oferecem uma grande variedade de estampas para você escolher, desde designs clássicos até os mais criativos e modernos.", cor1: "bg-branco", cor2: "text-[#1EB2B1]", logo: "/assets/home/parceiros/mundodaestampa.png", foto1: "/assets/home/parceiros/cm/meditacao1.jpeg", foto2: "/assets/home/parceiros/cm/meditacao2.jpeg"},
   ]
 
   return (
     <div id="parceiros">
-      <div className="w-full h-fit bg-amarelo1 flex justify-around items-center gap-4 flex-col md:flex-row py-5">
+      <div className="w-full h-fit bg-amarelo1 pt-32 flex justify-around items-center gap-4 flex-col md:flex-row py-5">
         <div className="w-60 h-60 border-branco border-solid border-4 rounded-full overflow-hidden">
           <Image src={"/assets/millazinha/milla02.png"} alt="Imagem da Milla" width={150} height={150} className="mx-auto block"/>
         </div>
