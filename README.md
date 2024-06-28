@@ -11,8 +11,8 @@ yarn dev
 # ou
 pnpm dev
 # ou
-bun dev´´´´
-
+bun dev
+exit
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
 Você pode começar a editar a página modificando app/page.js. A página será atualizada automaticamente conforme você edita o arquivo.
