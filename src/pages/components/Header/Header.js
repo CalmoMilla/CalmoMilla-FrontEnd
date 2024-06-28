@@ -246,7 +246,7 @@ export default function Header() {
                 <LanguageChanger/>
 
                 <Link
-                  href={"/usuario/perfil"}
+                  href={isPaciente ? "/usuario/perfil" : "/psicologo/perfil"}
                   className="w-fit p-3 hover:bg-amarelo2 rounded-full duration-500 
                 transition ease-in-out"
                 >

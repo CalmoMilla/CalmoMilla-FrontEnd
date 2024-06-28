@@ -10,6 +10,7 @@ export default function InfoPessoal(props) {
   const handleDeslogar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
+    localStorage.removeItem("psicologo");
     localStorage.removeItem("tarefas");
     signOut()
     setTimeout(() => {router.push("/login")}, 2000) 

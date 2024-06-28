@@ -5,6 +5,7 @@ import Parceiros from "./Home/Parceiros/Parceiros";
 import SobreNos from "./Home/SobreNos/SobreNos";
 import PerfilPaciente from "./Psicologo/PacientesVinculados/PerfilPaciente";
 import TelaPacientes from "./Psicologo/PacientesVinculados/TelaPacientes";
+import PerfilPsicologo from "./Psicologo/PerfilPsicologo/PerfilPsicologo";
 import PsicologoHome from "./Psicologo/PsicologoHome/PsicologoHome";
 import Recursos from "./Psicologo/Recursos/Recursos";
 import RecursosPage from "./Psicologo/Recursos/RecursosPage";
@@ -21,6 +22,6 @@ import { useTranslation } from "react-i18next";
 export default function Teste() {
 
   return (
-    <TelaPacientes/>
+    <PerfilPsicologo/>
   );
 }
