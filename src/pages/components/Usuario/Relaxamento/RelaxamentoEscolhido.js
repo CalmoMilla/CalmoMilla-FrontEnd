@@ -2,6 +2,7 @@ import { BuscarRelaxamento } from "@/pages/api/relaxamento/RelaxamentoService";
 import Image from "next/image"
 import { useEffect, useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
+import VideoRelaxamento from "./VideoRelaxamento";
 
 export default function RelaxamentoEscolhido({funcao, secao}) {
 
@@ -9,6 +10,10 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
   const [fundo, setFundo] = useState(null)
   const [titulo, setTitulo] = useState(null)
   const [desc, setDesc] = useState(null)
+  const [subTitulo, setSubTitulo] = useState(null)
+  const [videos, setVideos] = useState(null)
+  const [imporTitulo, setImporTitulo] = useState(null)
+  const [imporDesc, setImporDesc] = useState(null)
 
   useEffect(() => {
     definirSecao()
@@ -16,6 +21,7 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
 
   const buscarRelaxamento = async (endpoint) => {
     let relaxamentosPegos = await BuscarRelaxamento(`relaxamentos/${endpoint}`)
+    setVideos(relaxamentosPegos)
     console.log(relaxamentosPegos)
   }
   
@@ -26,18 +32,27 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
       setFundo("bg-roxo")
       setTitulo("Meditação")
       setDesc("A alma parece-me apenas uma simples respiração do corpo.")
+      setSubTitulo("Vídeos para Meditação")
+      setImporTitulo("Importância da Meditação")
+      setImporDesc("A meditação, prática milenar com raízes em diversas culturas, consiste em treinar a mente para alcançar um estado de clareza e calma. Através de técnicas como concentração na respiração, mantras ou simplesmente observar os pensamentos, a meditação oferece diversos benefícios para a saúde física e mental.")
       buscarRelaxamento("meditacao")
     } else if (secao == "r") {
       setFoto("/assets/usuario/relaxamento/respiracaoescolhido.png")
       setFundo("bg-amarelo2")
       setTitulo("Respiração")
       setDesc("Estar cheio de vida é respirar profundamente, mover-se livremente e sentir com intensidade.")
+      setSubTitulo("Vídeos para Respiração")
+      setImporTitulo("Importância da Respiração")
+      setImporDesc("A respiração, muitas vezes subestimada, é um processo fundamental para a vida, tão natural que nem sempre percebemos sua importância. Mais do que apenas a troca de gases, respirar corretamente impacta nossa saúde física e mental de maneiras surpreendentes.")
       buscarRelaxamento("respiracao")
     } else if (secao == "y") {
       setFoto("/assets/usuario/relaxamento/yogaescolhido.png")
       setFundo("bg-verde2")
       setTitulo("Yoga")
       setDesc("A libertação do desejo conduz à paz interior.")
+      setSubTitulo("Vídeos para Yoga")
+      setImporTitulo("Importância do Yoga")
+      setImporDesc("O Yoga, uma prática milenar com origens na Índia, transcende a simples atividade física e se configura como um caminho holístico para o bem-estar integral. Através da combinação de asanas (posturas físicas), pranayama (controle da respiração), meditação e princípios filosóficos, o Yoga oferece uma gama abrangente de benefícios para o corpo, a mente e o espírito.")
       buscarRelaxamento("yoga")
     }
   }
@@ -52,24 +67,26 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
         </div>
       </div>
       <div className="w-full h-fit bg-verdeagua py-10">
-        <h2 className="text-7xl font-calistoga text-center text-branco my-8">Digite algo</h2>
-        <p className="text-xl w-[80%] font-calistoga text-left text-branco my-8 mx-auto block">Lorem ipsum dolor sit amet. Aut quia ratione est dolores aspernatur aut nulla dolor et distinctio sapiente ut aperiam rerum. Sed molestiae aperiam in rerum iste qui rerum dignissimos.
-        Et quia voluptas aut corrupti incidunt vel quos dolores. In officiis ducimus eos pariatur nesciunt et placeat rerum.
-        Ab nostrum aliquam sed rerum iusto aut delectus deleniti qui possimus quia 33 enim culpa. Ut beatae harum qui expedita dolor et perferendis provident vel repellendus numquam qui veniam praesentium et veritatis repellendus. Cum corrupti asperiores est eligendi dicta ab illo perferendis rem omnis sequi 33 ipsa quia cum pariatur enim in dolores reprehenderit. Ad obcaecati inventore et ullam molestiae At accusantium nemo qui quisquam odit.</p>
+        <h2 className="text-7xl font-calistoga text-center text-branco my-8">{imporTitulo}</h2>
+        <p className="text-2xl w-[80%] font-calistoga text-left text-branco my-8 mx-auto block">{imporDesc}</p>
       </div>
       <div className="w-full h-fit bg-branco py-10 px-20">
-        <h2 className="text-5xl font-calistoga text-left text-verdeagua my-8">Insira um titulo</h2>
-        <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
-          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
-          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
-        </div>
+        <h2 className="text-5xl font-calistoga text-left text-verdeagua my-8">{subTitulo}</h2>
+        {videos && (
+          <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
+              <VideoRelaxamento url={videos[0].link}/>
+              <VideoRelaxamento url={videos[1].link}/>
+          </div>
+        )}
       </div>
       <div className="w-full h-fit bg-verdeagua py-10 px-20">
-        <h2 className="text-5xl font-calistoga text-right text-branco my-8">Insira um titulo</h2>
-        <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
-          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
-          <iframe width="400" height="315" src="https://www.youtube.com/embed/jkdCGgrA4N4?si=lWoEHH8XVi0bIVQX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="rounded-2xl"></iframe>
-        </div>
+        <h2 className="text-5xl font-calistoga text-right text-branco my-8">{subTitulo}</h2>
+        {videos && (
+          <div className="flex justify-between items-center flex-col lg:flex-row gap-8 lg:gap-0">
+              <VideoRelaxamento url={videos[2].link}/>
+              <VideoRelaxamento url={videos[3].link}/>
+          </div>
+        )}
       </div>
       <IoIosArrowDropleftCircle className="fixed top-40 left-5 text-5xl hover:cursor-pointer hover:scale-110 duration-500 ease-in-out text-preto" onClick={funcao}/>
     </div>
