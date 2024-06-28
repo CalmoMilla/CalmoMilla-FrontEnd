@@ -1,3 +1,4 @@
+import { BuscarRelaxamento } from "@/pages/api/relaxamento/RelaxamentoService";
 import Image from "next/image"
 import { useEffect, useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
@@ -13,22 +14,31 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
     definirSecao()
   }, [])
 
+  const buscarRelaxamento = async (endpoint) => {
+    let relaxamentosPegos = await BuscarRelaxamento(`relaxamentos/${endpoint}`)
+    console.log(relaxamentosPegos)
+  }
+  
+
   const definirSecao = () => {
     if (secao == "m") {
       setFoto("/assets/usuario/relaxamento/relaxamentoescolhido.png")
       setFundo("bg-roxo")
       setTitulo("Meditação")
       setDesc("A alma parece-me apenas uma simples respiração do corpo.")
+      buscarRelaxamento("meditacao")
     } else if (secao == "r") {
       setFoto("/assets/usuario/relaxamento/respiracaoescolhido.png")
       setFundo("bg-amarelo2")
-      setTitulo("Relaxamento")
+      setTitulo("Respiração")
       setDesc("Estar cheio de vida é respirar profundamente, mover-se livremente e sentir com intensidade.")
+      buscarRelaxamento("respiracao")
     } else if (secao == "y") {
       setFoto("/assets/usuario/relaxamento/yogaescolhido.png")
       setFundo("bg-verde2")
       setTitulo("Yoga")
       setDesc("A libertação do desejo conduz à paz interior.")
+      buscarRelaxamento("yoga")
     }
   }
 

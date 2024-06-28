@@ -11,6 +11,7 @@ import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService";
 import Rotina from "./Rotina/Rotina";
 import { BuscarRotina } from "@/pages/api/rotina/RotinaService";
 import { BuscarDesempenho } from "@/pages/api/desempenho/DesempenhoService";
+import { BuscarRelaxamento } from "@/pages/api/relaxamento/RelaxamentoService";
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
@@ -117,7 +118,6 @@ export default function User() {
     setDesempenhos(desempenhosPegos);
     console.log(desempenhosPegos)
   }
-  
 
   return (
     <div>
