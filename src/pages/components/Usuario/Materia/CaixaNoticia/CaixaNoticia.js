@@ -26,7 +26,7 @@ export default function CaixaNoticia({materia}){
   }
 
   return (
-    <div className="bg-branco w-[60%] h-fit py-5 rounded-lg shadow-xl">
+    <div className="bg-branco w-[90%] md:w-[60%] h-fit py-5 rounded-lg shadow-xl">
       {tituloPostagem}
       <div className="pl-10 h-fit">
         <div className="flex pt-10 gap-4 items-center pb-10">

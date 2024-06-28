@@ -224,7 +224,7 @@ export default function Header() {
                   <li>
                     {isPaciente ?                     
                       <Link
-                        href={"#"}
+                        href={"/usuario/blog"}
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >

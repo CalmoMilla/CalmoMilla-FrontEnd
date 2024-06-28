@@ -11,7 +11,7 @@ export default function Materia({funcao, blog, materia, retornar}){
     <div className="h-fit w-full bg-gray-200 pb-10 relative">
       <Header/>
  
-      <div className="pt-40 flex justify-around">
+      <div className="pt-40 flex justify-around md:flex-row md:gap-0 gap-8 items-center flex-col">
         <CaixaNoticia materia={materia} />
 
         <OutrasMaterias blog={blog} funcao={funcao}/>

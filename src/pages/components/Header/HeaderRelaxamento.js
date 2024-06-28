@@ -225,7 +225,7 @@ export default function HeaderRelaxamento() {
                   <li>
                     {isPaciente ?                     
                       <Link
-                        href={"#"}
+                        href={"/usuario/blog"}
                         className="text-branco font-nunito xl:text-2xl text-lg hover:text-purple-300 duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
