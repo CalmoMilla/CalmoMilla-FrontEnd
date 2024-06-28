@@ -42,7 +42,7 @@ export default function LinhaEmocoes() {
         {emocoes && emocoes.map((emocao) => (
           emocao.descricao == "FELIZ" ? <span key={emocao.id} onClick={() => onClickEmocao(emocao, "\u{1F60A}")} className="xl:text-5xl lg:text-4xl md:text-5xl text-3xl  hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" >{"\u{1F60A}"}</span> :
           emocao.descricao == "MEIOTERMO" ? <span key={emocao.id} className="xl:text-5xl lg:text-4xl md:text-5xl text-3xl hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" onClick={() => onClickEmocao(emocao, "\u{1F610}")}>{"\u{1F610}"}</span> : 
-            <span key={emocao.id} className="xl:text-5xl lg:text-4xl md:text-5xl text-3xl hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" onClick={() => onClickEmocao(emocao, "\u{1F622}")}>{"\u{1F622}"}</span>
+          <span key={emocao.id} className="xl:text-5xl lg:text-4xl md:text-5xl text-3xl hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" onClick={() => onClickEmocao(emocao, "\u{1F622}")}>{"\u{1F622}"}</span>
         ))}
       </div>
       <div id="modal-root"></div>

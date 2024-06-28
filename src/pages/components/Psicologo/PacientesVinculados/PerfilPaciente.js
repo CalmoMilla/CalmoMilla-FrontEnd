@@ -3,6 +3,7 @@ import EmocaoPaciente from "./PerfilPaciente/EmocaoPaciente"
 import VisaoGeralPaciente from "./PerfilPaciente/VisaoGeralPaciente"
 import InformacoesPessoaisPaciente from "./PerfilPaciente/InformacoesPessoaisPaciente"
 import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { use } from "i18next";
 
 export default function PerfilPaciente({user, onClick}) {
 
@@ -35,7 +36,7 @@ export default function PerfilPaciente({user, onClick}) {
         </div>
       </div>
       <div className="w-[90%] lg:w-[50%] h-fit">
-        <EmocaoPaciente/>
+        <EmocaoPaciente user={user}/>
         <VisaoGeralPaciente/>
         <InformacoesPessoaisPaciente user={user}/>
       </div>
