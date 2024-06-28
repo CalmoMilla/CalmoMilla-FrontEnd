@@ -19,27 +19,11 @@ export default function PacientesVinculados() {
     console.log(pacientesPegos)
   };
 
-  // const data = [
-  //   { id: 1, nome: "Vitor", idade: "18", cidade: "Guaianases - SP" },
-  //   { id: 2, nome: "Luiz Henrique", idade: "18", cidade: "Guaianases - SP" },
-  //   { id: 3, nome: "Gabs Caique", idade: "18", cidade: "Guaianases - SP" },
-  //   { id: 4, nome: "Arthur Selingin", idade: "18", cidade: "Guaianases - SP" },
-  //   { id: 5, nome: "Augusta Coelho", idade: "18", cidade: "Guaianases - SP" },
-  //   { id: 6, nome: "Ruth Barbosa", idade: "18", cidade: "Guaianases - SP" },
-  // ];
-
   const [selectedUser, setSelectedUser] = useState(null);
 
   function handleClick(user) {
-    let usuario = {
-      id: user.id,
-      nome: user.nome,
-      dataNasc: user.dataNasc,
-      endereco: user.endereco,
-      foto: user.foto
-    };
-    console.log(usuario);
-    setSelectedUser(usuario);
+    console.log(user);
+    setSelectedUser(user);
   }
 
   function onClose() {
@@ -59,11 +43,7 @@ export default function PacientesVinculados() {
           {pacientes && pacientes.map((user) => (
             <PacienteVinculado
               key={user.id}
-              id={user.id}
-              nome={user.nome}
-              dataNasc={user.dataNasc}
-              endereco={user.endereco}
-              foto={user.foto}
+              user={user}
               handleClick={handleClick}
             />
           ))}
@@ -71,10 +51,7 @@ export default function PacientesVinculados() {
       </div>
       {selectedUser && (
         <InfoPaciente
-          nome={selectedUser.nome}
-          dataNasc={selectedUser.dataNasc}
-          endereco={selectedUser.endereco}
-          foto={selectedUser.foto}
+          user={selectedUser}
           onClose={onClose}
         />
       )}

@@ -1,11 +1,11 @@
 import Image from "next/image"
 import { IoIosClose } from "react-icons/io";
 
-export default function InfoPaciente({nome, dataNasc, endereco, foto, onClose}) {
+export default function InfoPaciente({user, onClose}) {
 
-  const anoNascimento = dataNasc && dataNasc[0];
-  const mesNascimento = dataNasc && dataNasc[1];
-  const diaNascimento = dataNasc && dataNasc[2];
+  const anoNascimento = user.dataNasc && user.dataNasc[0];
+  const mesNascimento = user.dataNasc && user.dataNasc[1];
+  const diaNascimento = user.dataNasc && user.dataNasc[2];
 
   const dataAtual = new Date();
   const anoAtual = dataAtual.getFullYear();
@@ -26,10 +26,10 @@ export default function InfoPaciente({nome, dataNasc, endereco, foto, onClose}) 
         <IoIosClose className="w-16 h-16 hover:cursor-pointer text-preto hover:text-amarelo1 duration-500 ease-in-out"
         onClick={onClose}/>
       </div>
-      <Image src={foto ? foto : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt={"Imagem do Usuario"} width={200} height={200} className="rounded-full"/>
-      <h2 className="font-nunito text-3xl font-bold">{nome}</h2>
+      <Image src={user.foto ? user.foto : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt={"Imagem do Usuario"} width={200} height={200} className="rounded-full"/>
+      <h2 className="font-nunito text-3xl font-bold">{user.nome}</h2>
       <h2 className="font-nunito text-xl font-bold">{idade} anos</h2>
-      <h2 className="font-nunito text-xl font-bold">{endereco}</h2>
+      <h2 className="font-nunito text-xl font-bold">{user.endereco}</h2>
 
       <button className="font-nunito px-8 py-3 bg-amarelo1 hover:bg-amarelo2 duration-500 ease-in-out rounded-3xl">Abrir perfil</button>
     </div>
