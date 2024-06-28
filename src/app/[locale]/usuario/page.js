@@ -1,8 +1,10 @@
 import User from "@/pages/components/Usuario/PaginaInicial/User"
 import initTranslations from "../../i18n";
 import TranslationsProvider from "../../TranslationProvider";
+import ExercicioDia from "@/pages/components/Usuario/PaginaInicial/ExercicioDia/ExercicioDia";
+import Header from "@/pages/components/Header/Header";
 
-const namespaces = ['home', 'common']
+const namespaces = ['homeUser', 'common']
 
 export default async function Page({params: {locale} }) {
   const { t, resources } = await initTranslations(locale, namespaces)

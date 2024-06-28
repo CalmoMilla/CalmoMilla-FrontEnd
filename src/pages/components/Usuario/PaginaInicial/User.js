@@ -125,9 +125,9 @@ export default function User() {
 
       <div className="flex justify-center flex-col items-center pb-20">
         <ExercicioDia
-          titulo={"Jogo da Memória"}
+          titulo={"Caça Palavras"}
           desc={"Um teste diário que testa seu pensamento cognitivo"}
-          link={"/jogomemoria"}
+          link={"/usuario/jogos"}
         />
 
         <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas} updateTarefa={updateTarefa}/>
