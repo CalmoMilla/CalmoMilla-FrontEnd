@@ -5,6 +5,7 @@ import Filtro from "../../Filtro/Filtro";
 import Header from "../../Header/Header";
 import PacientesVinculados from "./PacientesVinculados";
 import { useEffect, useState } from "react";
+import PerfilPaciente from "./PerfilPaciente";
 
 export default function TelaPacientes() {
 
@@ -12,13 +13,21 @@ export default function TelaPacientes() {
     {id: 1, titulo: "Ordem Alfabética", amarelo: true},
     {id: 2, titulo: "Data", amarelo: true},
   ] 
+
+  const [user, setUser] = useState(null)
   
   return (
     <>
       <Header/>
       <div className="pt-40 flex gap-4 flex-col justify-center items-center xl:justify-around xl:items-start xl:flex-row">
-        <Filtro data={data}/>
-        <PacientesVinculados/>
+        {user ?
+          <PerfilPaciente onClick={() => setUser(null)} user={user}/>
+        : 
+        <>
+          <Filtro data={data}/>
+          <PacientesVinculados onClick={setUser}/>
+        </>
+        }
       </div>  
     </>
   );

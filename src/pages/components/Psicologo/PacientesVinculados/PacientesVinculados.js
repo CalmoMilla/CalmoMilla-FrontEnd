@@ -5,7 +5,7 @@ import InfoPaciente from "./InfoPaciente";
 import PacienteVinculado from "./PacienteVinculado";
 import { useState, useEffect } from "react";
 
-export default function PacientesVinculados() {
+export default function PacientesVinculados({onClick}) {
 
   const [pacientes, setPacientes] = useState(null)
 
@@ -53,6 +53,7 @@ export default function PacientesVinculados() {
         <InfoPaciente
           user={selectedUser}
           onClose={onClose}
+          onClick={onClick}
         />
       )}
     </>
