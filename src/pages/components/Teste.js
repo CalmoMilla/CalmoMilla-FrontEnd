@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "./Header/Header";
+import Parceiros from "./Home/Parceiros/Parceiros";
 import SobreNos from "./Home/SobreNos/SobreNos";
 import PsicologoHome from "./Psicologo/PsicologoHome/PsicologoHome";
 import Recursos from "./Psicologo/Recursos/Recursos";
@@ -16,13 +17,8 @@ import RelaxamentoPage from "./Usuario/Relaxamento/RelaxamentoPage";
 import { useTranslation } from "react-i18next";
 
 export default function Teste() {
-  const { t } = useTranslation();
-
-  const strings = ["Olá", "Mundo", "!"];
-
-  const translatedStrings = strings.map((string) => t(string));
 
   return (
-    <MateriaPage/>
+    <Parceiros/>
   );
 }
