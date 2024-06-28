@@ -30,9 +30,9 @@ export default function Psicologo({psi, guardarInfo, funcao}) {
     funcao()
   }
 
-  const anoNascimento = psi && psi.dataNasc[0];
-  const mesNascimento = psi && psi.dataNasc[1];
-  const diaNascimento = psi && psi.dataNasc[2];
+  const anoNascimento = psi.dataNasc[0] && psi.dataNasc[0];
+  const mesNascimento = psi.dataNasc[1] && psi.dataNasc[1];
+  const diaNascimento = psi.dataNasc[2] && psi.dataNasc[2];
 
   const dataAtual = new Date();
   const anoAtual = dataAtual.getFullYear();

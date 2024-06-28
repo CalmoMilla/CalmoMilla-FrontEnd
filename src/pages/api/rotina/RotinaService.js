@@ -1,8 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/";
-const urlLocal = "http://localhost:8080/";
+import { url } from "../urls";
 
 export const AtualizarRotina = async (rotina, endpoint) => {
   try {

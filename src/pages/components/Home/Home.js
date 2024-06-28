@@ -58,7 +58,6 @@ export default function Home() {
       <PaginaInicial/>
       <Funcionalidades/>
       <ComoFunciona/>
-      <Parceiros/>
       <Blog/>
       <Planos/>
       <Footer/>
