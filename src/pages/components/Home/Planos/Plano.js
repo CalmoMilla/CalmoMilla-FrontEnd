@@ -1,8 +1,9 @@
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useState } from "react";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
-
+import { useTranslation } from "react-i18next";
 export default function Plano(props) {
+  const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -26,24 +27,28 @@ export default function Plano(props) {
           <div className="w-full h-fit flex flex-col gap-4 items-center justify-around py-5">
             <div className="w-fit h-fit flex items-center justify-around">
               <FaRegCheckCircle className="text-2xl text-verde2" />
-              <p className="font-nunito text-xl">Sem anúncio</p>
+              <p className="font-nunito text-xl">
+                {t("planosAtributoSemAnuncio")}
+              </p>
             </div>
             {props.psicologo && (
               <div className="w-fit h-fit flex items-center justify-around">
                 <FaRegCheckCircle className="text-2xl text-verde2" />
-                <p className="font-nunito text-md">Acesso a estatísticas</p>
+                <p className="font-nunito text-md">
+                  {t("planosAtributoAcessoEstatisticas")}
+                </p>
               </div>
             )}
           </div>
           <p className="w-full text-3xl text-center pt-20 pb-10 font-nunito">
-            Apenas <br />
+            {t("planosApenas")} <br />
             {props.preco}
           </p>
           <button
             className="bg-verdeagua/50 hover:bg-verdeagua text-branco mx-auto block text-2xl px-10 py-3 font-nunito duration-500 ease-in-out rounded-2xl"
             onClick={toggleModal}
           >
-            Assinar
+            {t("planosTextoBotaoAssinar")}
           </button>
           {modalOpen ? (
             <div
@@ -60,7 +65,7 @@ export default function Plano(props) {
                     <RiMoneyDollarCircleLine className="w-full h-20 text-amarelo2" />
 
                     <h3 className="mb-5 text-xl font-normal  text-white">
-                      Deseja assinar este plano?
+                      {t("planosConfirmarCompraPlano")}
                     </h3>
                     <button
                       onClick={closeModalAlert}
