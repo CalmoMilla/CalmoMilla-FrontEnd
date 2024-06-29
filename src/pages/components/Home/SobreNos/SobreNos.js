@@ -176,38 +176,38 @@ export default function SobreNos() {
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/artu.png"}
               nome={"Arthur Selingin"}
-              funcao={"Desenvolvedor Full Stack"}
-              link={"#"}
+              funcao={t("arthurCargoSobreNos")}
+              link={"#https://github.com/selingindev"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/gab.png"}
               nome={"Gabriel Caique"}
-              funcao={"Financeiro e Desenvolvedor Back End"}
-              link={"#"}
+              funcao={t("gabrielCargoSobreNos")}
+              link={"#https://github.com/APBielzinx"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/lulu.png"}
               nome={"Luiz Henrique"}
-              funcao={"UI/UX e Desenvolvedor Front End"}
-              link={"#"}
+              funcao={t("luizCargoSobreNos")}
+              link={"#https://github.com/LuizHms55"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/ruru.png"}
               nome={"Ruth Barbosa"}
-              funcao={"Scrum Master, UI/UX, Social Media, Back End"}
-              link={"#"}
+              funcao={t("ruthCargoSobreNos")}
+              link={"#https://github.com/Ruuhbcs"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/gu.png"}
               nome={"Augusta Barreto"}
-              funcao={"Banco de Dados e Desenvolvedora Full Stack"}
-              link={"#"}
+              funcao={t("augustaCargoSobreNos")}
+              link={"#https://github.com/AvgvstaDev"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/vito.png"}
               nome={"Vitor Hugo"}
-              funcao={"P.O e Desenvolvedor Full Stack"}
-              link={"#"}
+              funcao={t("victorCargoSobreNos")}
+              link={"#https://github.com/vitorvhsilva"}
             />
           </div>
           <div className="w-full flex items-center my-10">
@@ -216,7 +216,7 @@ export default function SobreNos() {
               onClick={toggleModal}
               className="w-80 h-20 mx-auto bg-amarelo1  justify-center text-2xl p-2 mt-4 rounded-full text-black hover:bg-amarelo2 hover:text-white mb-5"
             >
-              APOIAR O PROJETO
+              {t("sobreNosbotaoParceiro")}
             </button>
           </div>
           {modalOpen ? (
