@@ -10,31 +10,8 @@ export default function CaixaNoticia({materia}){
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (materia.tituloPostagem == "Como jogos de estímulos mentais beneficiam sua saúde cerebral") {
-      setTitulo(t('tituloPostagem1'))
-    } 
-    if (materia.tituloPostagem == "Entenda a relação entre atividade física e saúde mental") {
-      setTitulo(t('tituloPostagem2'))
-    } 
-    if (materia.tituloPostagem == "Técnicas de relaxamento para ansiedade") {
-      setTitulo(t('tituloPostagem3'))
-    } 
-    if (materia.tituloPostagem == "O que é autocuidado? Por que é tão importante?") {
-      setTitulo(t('tituloPostagem4'))
-    } 
-    if (materia.tituloPostagem == "Conheça mais sobre a prática do yoga e seus benefícios para a saúde.") {
-      setTitulo(t('tituloPostagem5'))
-    } 
-    if (materia.tituloPostagem == "O que é mindfulness e por que ele beneficia todas as esferas da vida?") {
-      setTitulo(t('tituloPostagem6'))
-    } 
-    if (materia.tituloPostagem == "Confira os cuidados essenciais com a saúde mental na melhor idade") {
-      setTitulo(t('tituloPostagem7'))
-    } 
-    if (materia.tituloPostagem == "Como cuidar da saúde de jovens e adolescentes?") {
-      setTitulo(t('tituloPostagem8'))
-    } 
-  }, [])
+   definirTraducao()
+  }, [materia])
 
   const definirTraducao = () => {
     if (materia.tituloPostagem == "Como jogos de estímulos mentais beneficiam sua saúde cerebral") {
