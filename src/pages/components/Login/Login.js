@@ -15,9 +15,11 @@ import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 import { LoginPsicologo } from "@/pages/api/usuario/PsicologoService";
 
 export default function Login() {
+  const { t } = useTranslation();
   const [showCadastro, setShowCadastro] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
@@ -113,10 +115,10 @@ export default function Login() {
           <div className="relative h-[100%] w-auto font-calistoga p-10">
             <div className="h-1/2 text-amarelo2 flex-col justify-between">
               <h2 className="flex text-center justify-center h-1/2 text-6xl mt-5">
-                Bem vindo
+                {t("bemVindoLogin")}
               </h2>
               <h4 className="flex ps-8 h-1/2 text-start items-center text-4xl">
-                Entrar novamente
+                {t("entrarNovamenteLogin")}
               </h4>
             </div>
 
@@ -135,7 +137,9 @@ export default function Login() {
                   </div>
                   <div className="flex justify-around w-[100%]">
                     <hr className="my-4 w-40 border-black"></hr>
-                    <p className="flex items-center mx-3 text-sm">Ou</p>
+                    <p className="flex items-center mx-3 text-sm">
+                      {t("common:ouLoginCadastro")}
+                    </p>
                     <hr className="my-4 w-40 border-black"></hr>
                   </div>
                 </>
@@ -146,7 +150,7 @@ export default function Login() {
                   type="button"
                   onClick={handleClick}
                 >
-                  Criar Conta
+                  {t("criarContaLogin")}
                 </button>
               ) : (
                 <button
@@ -154,7 +158,7 @@ export default function Login() {
                   type="button"
                   onClick={handleClick}
                 >
-                  Criar Conta
+                  {t("criarContaLogin")}
                 </button>
               )}
             </div>
@@ -175,24 +179,28 @@ export default function Login() {
             <div className="lg:w-[60%] h-20 m-auto flex-col lg:text-start xs:w-full">
               {alterarLogin ? (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
-                  Login do <span className="text-amarelo2">Psicólogo</span>
+                  {t("loginDo")}
+                  <span className="text-amarelo2">
+                    {t("psicologoLoginText")}
+                  </span>
                 </h2>
               ) : (
                 <h2 className="h-1/2 xs:text-center xs:text-xl sm:text-2xl xl:text-3xl lg:text-start font-calistoga">
-                  Login do <span className="text-amarelo2">Usuário</span>
+                  {t("loginDo")}
+                  <span className="text-amarelo2">{t("usuarioLoginText")}</span>
                 </h2>
               )}
               <p className="font-nunito font-bold h-1/2 xs:text-center lg:text-start">
-                Se você não tiver uma conta,
+                {t("seVoceNaoTiverCONTA")}
                 <br />
-                acesse o{" "}
+                {t("acesseOtextLogin")}
                 <span
                   className="text-amarelo2 cursor-pointer"
                   onClick={handleClick}
                 >
-                  Cadastro
+                  {t("CadastroTextLogin")}
                 </span>{" "}
-                aqui!
+                {t("aquiTextLogin")}
               </p>
             </div>
             <form
@@ -202,14 +210,14 @@ export default function Login() {
             >
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
                 <label className="flex text-amarelo2" htmlFor="email">
-                  Email{" "}
+                  email{t("")}
                 </label>
                 <input
                   className="border-none border-b-2 font-nunito placeholder:text-black text-sm"
                   type="text"
                   id="email"
                   name="email"
-                  placeholder="Coloque seu Email."
+                  placeholder={t("coloqueSeuEmailAqui")}
                   required
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
@@ -217,14 +225,14 @@ export default function Login() {
               </div>
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
                 <label htmlFor="senha" className="flex text-amarelo2">
-                  Senha{" "}
+                  {t("senhaLoginText")}
                 </label>
                 <input
                   type="password"
                   id="senha"
                   name="senha"
                   className="border-none border-b-2 font-nunito placeholder:text-black text-sm"
-                  placeholder="Escreva sua senha."
+                  placeholder={t("escrevaSuaSenhaLogin")}
                 />
               </div>
               <div className="flex w-[70%] justify-center xs:m-auto flex-col items-center">
@@ -233,19 +241,19 @@ export default function Login() {
                     type="submit"
                     className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
                   >
-                    Entrar como Psicólogo
+                    {t("entrarComoTextLogin")}
                   </button>
                 ) : (
                   <button
                     type="submit"
                     className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
                   >
-                    Entrar como Usuário
+                    {t("entrarComoTextUserLogin")}
                   </button>
                 )}
 
                 <p className="font-nunito text-lg lg:hidden my-2 xs:flex text-center">
-                  Ou
+                  {t("common:ouLoginCadastro")}
                 </p>
                 <div
                   className="bg-branco my-2 w-full lg:w-[100%]   h-8 flex justify-center items-center border rounded-3xl border-preto/50 mx-auto hover:cursor-pointer xs:flex xl:hidden "
@@ -267,7 +275,7 @@ export default function Login() {
                   htmlFor="continuar"
                   className="text-sm font-nunito"
                 >
-                  Continuar conectado.
+                  {t("continuarConectadoText")}
                 </label>
               </div>
               {alterarLogin ? (
@@ -275,21 +283,28 @@ export default function Login() {
                   onClick={() => setAlterarLogin(false)}
                   className="w-full font-nunito tracking-normal cursor-pointer p-0 mt-2 mb-4 font-bold text-start "
                 >
-                  Sou um<span className="text-amarelo2"> Usuário </span>!
+                  {t("souUmTextLogin")}
+                  <span className="text-amarelo2">{t("usuarioLoginText")}</span>
+                  !
                 </button>
               ) : (
                 <button
                   onClick={() => setAlterarLogin(true)}
                   className="w-full font-nunito tracking-normal cursor-pointer p-0 mt-2 mb-4 font-bold text-start "
                 >
-                  Sou um<span className="text-amarelo2"> Psicólogo </span>!
+                  {t("souUmTextLogin")}
+                  <span className="text-amarelo2">
+                    {t("psicologoLoginText")}
+                  </span>
+                  !
                 </button>
               )}
               <button
                 onClick={() => setAlterarSenha(true)}
                 className="w-full font-nunito tracking-normal cursor-pointer font-bold text-start p-0"
               >
-                Esqueci minha<span className="text-amarelo2"> Senha </span>!
+                {t("esqueciMinhaTextLogin")}
+                <span className="text-amarelo2"> {t("senhaLoginText")} </span>!
               </button>
               <div id="modal-root"></div>
               {alterarSenha && (
