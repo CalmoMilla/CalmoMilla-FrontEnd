@@ -4,7 +4,7 @@ import TranslationsProvider from "../../../TranslationProvider";
 import Materia from "@/pages/components/Usuario/Materia/Materia";
 import MateriaPage from "@/pages/components/Usuario/MateriaPage/MateriaPage";
 
-const namespaces = ['home', 'common']
+const namespaces = ['blog', 'common']
 
 export default async function Page({params: {locale} }) {
   const { t, resources } = await initTranslations(locale, namespaces)
