@@ -210,7 +210,7 @@ export default function Login() {
             >
               <div className="grid-cols-2 flex-col flex justify-center border-b-2 w-[70%] border-black xs:m-auto">
                 <label className="flex text-amarelo2" htmlFor="email">
-                  email{t("")}
+                  Email
                 </label>
                 <input
                   className="border-none border-b-2 font-nunito placeholder:text-black text-sm"

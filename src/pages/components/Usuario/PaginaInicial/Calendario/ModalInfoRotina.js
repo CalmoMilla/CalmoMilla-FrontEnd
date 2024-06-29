@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from 'react-dom/client';
 import Emocao from "../Emocoes/Emocao";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 const ModalInfoRotina = ({ onClose, rotina}) => {
+
+  const { t } = useTranslation()
+  const [date, setDate] = useState(null)
+
   const handleCloseClick = (e) => {
     e.preventDefault();
     if (onClose) {
@@ -14,7 +19,19 @@ const ModalInfoRotina = ({ onClose, rotina}) => {
     }
   };
 
-  let diaFormatado = rotina[1][2] + "/" + rotina[1][1] + "/" + rotina[1][0]
+  useEffect(() => {
+    setDate(rotina && rotina[1][2] + " " + rotina[1][1] + " " + rotina[1][0])
+  }, [])
+
+  const definirTraducao = (tarefa) => {
+    if (tarefa.titulo == "Jogar Jogo da Memória por 10 minutos") {
+      return t('tarefa1')
+    } else if (tarefa.titulo == "Jogar Quiz por 5 minutos"){
+      return t('tarefa2')
+    } else {
+      return tarefa.titulo
+    }
+  }
 
 
   useEffect(() => {
@@ -30,7 +47,7 @@ const ModalInfoRotina = ({ onClose, rotina}) => {
              text-center flex justify-center items-center "
             >
               <h2 className="font-calistoga w-full sm:text-3xl">
-                Rotina do Dia
+                {t('rotinaDia')}
               </h2>
             </div>
             <button
@@ -48,9 +65,9 @@ const ModalInfoRotina = ({ onClose, rotina}) => {
             </button>
           </div>
           <div className="w-full h-full">
-            <h2 className="text-center text-2xl font-nunito my-4">{`Dia: ${diaFormatado && diaFormatado}`}</h2>
+            <h2 className="text-center text-2xl font-nunito my-4">{t('emocaoDia', { date })}</h2>
             <div className="flex justify-center gap-4 items-center">
-              <h2 className="text-center text-2xl font-nunito my-4">Concluido:</h2>
+              <h2 className="text-center text-2xl font-nunito my-4">{t('rotinaDiaConcluido')}</h2>
               {rotina[2] ? 
                 <FaCheck className="text-verde2 text-3xl"/>
                 :
@@ -59,7 +76,7 @@ const ModalInfoRotina = ({ onClose, rotina}) => {
             </div>
             <h2 className="text-center text-2xl font-nunito my-4">Tarefas do Dia:</h2>
             {rotina[3].map((tarefa) =>(
-              <h2 key={tarefa.id} className={`text-center text-xl font-nunito my-4 ${rotina[2] ? "text-verde2" : "text-red-500 line-through"}`}>{tarefa.titulo}</h2>
+              <h2 key={tarefa.id} className={`text-center text-xl font-nunito my-4 ${rotina[2] ? "text-verde2" : "text-red-500 line-through"}`}>{definirTraducao(tarefa)}</h2>
             ))}
           </div>
         </div>
