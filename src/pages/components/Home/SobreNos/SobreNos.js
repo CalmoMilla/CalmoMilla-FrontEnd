@@ -177,37 +177,37 @@ export default function SobreNos() {
               src={"/assets/home/sobrenos/artu.png"}
               nome={"Arthur Selingin"}
               funcao={t("arthurCargoSobreNos")}
-              link={"#https://github.com/selingindev"}
+              link={"https://github.com/selingindev"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/gab.png"}
               nome={"Gabriel Caique"}
               funcao={t("gabrielCargoSobreNos")}
-              link={"#https://github.com/APBielzinx"}
+              link={"https://github.com/APBielzinx"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/lulu.png"}
               nome={"Luiz Henrique"}
               funcao={t("luizCargoSobreNos")}
-              link={"#https://github.com/LuizHms55"}
+              link={"https://github.com/LuizHms55"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/ruru.png"}
               nome={"Ruth Barbosa"}
               funcao={t("ruthCargoSobreNos")}
-              link={"#https://github.com/Ruuhbcs"}
+              link={"https://github.com/Ruuhbcs"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/gu.png"}
               nome={"Augusta Barreto"}
               funcao={t("augustaCargoSobreNos")}
-              link={"#https://github.com/AvgvstaDev"}
+              link={"https://github.com/AvgvstaDev"}
             />
             <IntegranteSobreNos
               src={"/assets/home/sobrenos/vito.png"}
               nome={"Vitor Hugo"}
               funcao={t("victorCargoSobreNos")}
-              link={"#https://github.com/vitorvhsilva"}
+              link={"https://github.com/vitorvhsilva"}
             />
           </div>
           <div className="w-full flex items-center my-10">
