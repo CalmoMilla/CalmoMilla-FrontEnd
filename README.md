@@ -81,7 +81,7 @@ Você pode verificar o repositório [do Next.js no GitHub](https://github.com/ve
     </td>
      <td align="center">
       <a href="https://github.com/vitorvhsilva" title="Github Vitor">
-        <img src="https://uploaddeimagens.com.br/images/004/806/093/thumb/vitor2.jpg?1719608853" width="100px; height="100px"" alt="Foto de um membro"/><br>
+        <img src="https://uploaddeimagens.com.br/images/004/806/182/thumb/Pitch_CalmoMilla.png?1719619231" width="100px; height="100px"" alt="Foto de um membro"/><br>
         <sub>
           <b>Vitor Hugo</b>
         </sub>
