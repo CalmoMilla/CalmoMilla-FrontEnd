@@ -9,6 +9,8 @@ import { useState } from "react";
 
 export default function Parceiros() {
 
+  const { t } = useTranslation()
+
   const [parceiro, setParceiro] = useState(null)
 
   let data = [
@@ -18,7 +20,7 @@ export default function Parceiros() {
 
     {id: 3, titulo: "Intermentes", desc: "A Intermentes é uma plataforma que facilita o acesso à psicologia para que as pessoas possam cuidar da sua saúde mental. Para isso, oferecem sessões online com valores acessíveis para todos os públicos, diversidade de profissionais com especialidades variadas para diferentes situações, e a oportunidade para que pessoas sem condições financeiras também possam cuidar da sua mente, por meio da centralização de ONGs que oferecem esse cuidado gratuitamente.", cor1: "bg-gradient-to-r from-[#E5B8FA] to-[#B66FD8]", cor2: "text-branco", logo: "/assets/home/parceiros/intermentes.png", foto1: "/assets/home/parceiros/itm/itm1.jpeg", foto2: "/assets/home/parceiros/itm/itm2.jpeg"},
 
-    {id: 4, titulo: "Mundo da Estampa", desc: "O Mundo da Estampa se destaca pela alta qualidade de seus produtos e serviços. Eles utilizam técnicas de estamparia modernas e duráveis, garantindo que suas camisetas, banners e outros itens personalizados durem por muito tempo. Além disso, oferecem uma grande variedade de estampas para você escolher, desde designs clássicos até os mais criativos e modernos.", cor1: "bg-branco", cor2: "text-[#1EB2B1]", logo: "/assets/home/parceiros/mundodaestampa.png", foto1: "/assets/home/parceiros/cm/meditacao1.jpeg", foto2: "/assets/home/parceiros/cm/meditacao2.jpeg"},
+    {id: 4, titulo: "Mundo da Estampa", desc: "O Mundo da Estampa se destaca pela alta qualidade de seus produtos e serviços. Eles utilizam técnicas de estamparia modernas e duráveis, garantindo que suas camisetas, banners e outros itens personalizados durem por muito tempo. Além disso, oferecem uma grande variedade de estampas para você escolher, desde designs clássicos até os mais criativos e modernos.", cor1: "bg-branco", cor2: "text-[#1EB2B1]", logo: "/assets/home/parceiros/mundodaestampa.png", foto1: "/assets/home/parceiros/me/me1.jpg", foto2: "/assets/home/parceiros/me/me2.jpg"},
   ]
 
   return (
@@ -28,8 +30,8 @@ export default function Parceiros() {
           <Image src={"/assets/millazinha/milla02.png"} alt="Imagem da Milla" width={150} height={150} className="mx-auto block"/>
         </div>
         <div className="flex flex-col justify-around items-center w-[70%]">
-          <h1 className="font-calistoga text-6xl lg:text-7xl text-branco">Parceiros</h1>
-          <h2 className="font-calistoga text-3xl lg:text-5xl text-branco text-center w-[70%]">Conheçam as nossas parcerias que sustentam o nosso projeto</h2>
+          <h1 className="font-calistoga text-6xl lg:text-7xl text-branco">{t('parceirosTit')}</h1>
+          <h2 className="font-calistoga text-3xl lg:text-5xl text-branco text-center w-[70%]">{t('parceirosDesc')}</h2>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">

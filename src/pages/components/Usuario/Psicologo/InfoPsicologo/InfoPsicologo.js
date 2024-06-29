@@ -68,8 +68,8 @@ export default function InfoPsicologo({
 
   return (
     <>
-      <div className="w-[70%] h-fit shadow-2xl flex flex-col justify-center items-center py-5 gap-5 relative mt-36 rounded-md">
-        <div className="w-[80%] xs:mt-16 justify-start flex xs:flex-col sm:flex-row  xs:items-center  gap-3">
+      <div className="w-[90%] lg:w-[70%] h-fit shadow-2xl flex flex-col justify-center items-center py-5 gap-5 relative mt-36 rounded-md">
+        {/* <div className="w-[80%] xs:mt-16 justify-start flex xs:flex-col sm:flex-row  xs:items-center  gap-3">
           <Image
             src={informacoesFormatadas[9]}
             alt={"Imagem do Usuario"}
@@ -85,20 +85,20 @@ export default function InfoPsicologo({
               {informacoesFormatadas[2]}
             </p>
           </div>
-        </div>
+        </div> */}
 
-        <div className="w-[80%] h-[50vh] rounded-2xl bg-preto/20"></div>
+        <h1 className="text-5xl font-nunito">{informacoesFormatadas[1]}</h1>
+
+        <Image
+            src={informacoesFormatadas[9]}
+            alt={"Imagem do Usuario"}
+            width={600}
+            height={600}
+            className="rounded-lg"
+          />
 
         <p className="text-left font-nunito w-[80%]">
-          Lorem ipsum dolor sit amet. In eligendi molestiae est quia suscipit
-          hic aspernatur nesciunt aut molestiae laborum. Sit labore quibusdam ut
-          repellendus quod sed rerum accusamus est omnis quos et harum corporis
-          est omnis dolores nam omnis minima. Qui laborum dolore et voluptates
-          maxime qui voluptas repellendus et quos deleniti et inventore quas ut
-          neque galisum. Et quia officiis qui sint inventore qui distinctio
-          praesentium est quia ipsam quo nulla nulla. Sit quam quam eos
-          consequatur quae vel deserunt aliquam cum consequuntur iste eum
-          repellat perspiciatis et adipisci deserunt eum iure.
+          {informacoesFormatadas[10]}
         </p>
 
         <div className="relative w-[50%] mx-auto mb-10">

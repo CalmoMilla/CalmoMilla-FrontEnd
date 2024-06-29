@@ -4,7 +4,7 @@ import Header from "@/pages/components/Header/Header";
 import Parceiros from "@/pages/components/Home/Parceiros/Parceiros";
 import SobreNos from "@/pages/components/Home/SobreNos/SobreNos";
 
-const namespaces = ['home', 'common']
+const namespaces = ['parceiros', 'common']
 
 export default async function Page({params: {locale} }) {
   const { t, resources } = await initTranslations(locale, namespaces)
