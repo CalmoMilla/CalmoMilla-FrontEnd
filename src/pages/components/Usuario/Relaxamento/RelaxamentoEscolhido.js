@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import VideoRelaxamento from "./VideoRelaxamento";
+import { useTranslation } from "react-i18next";
 
 export default function RelaxamentoEscolhido({funcao, secao}) {
 
@@ -15,6 +16,8 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
   const [imporTitulo, setImporTitulo] = useState(null)
   const [imporDesc, setImporDesc] = useState(null)
 
+  const { t } = useTranslation()
+
   useEffect(() => {
     definirSecao()
   }, [])
@@ -25,12 +28,11 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
     console.log(relaxamentosPegos)
   }
   
-
   const definirSecao = () => {
     if (secao == "m") {
       setFoto("/assets/usuario/relaxamento/relaxamentoescolhido.png")
       setFundo("bg-roxo")
-      setTitulo("Meditação")
+      setTitulo(t('relaxamentoTituloMed'))
       setDesc("A alma parece-me apenas uma simples respiração do corpo.")
       setSubTitulo("Vídeos para Meditação")
       setImporTitulo("Importância da Meditação")
@@ -39,7 +41,7 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
     } else if (secao == "r") {
       setFoto("/assets/usuario/relaxamento/respiracaoescolhido.png")
       setFundo("bg-amarelo2")
-      setTitulo("Respiração")
+      setTitulo(t('relaxamentoTituloRes'))
       setDesc("Estar cheio de vida é respirar profundamente, mover-se livremente e sentir com intensidade.")
       setSubTitulo("Vídeos para Respiração")
       setImporTitulo("Importância da Respiração")
@@ -48,7 +50,7 @@ export default function RelaxamentoEscolhido({funcao, secao}) {
     } else if (secao == "y") {
       setFoto("/assets/usuario/relaxamento/yogaescolhido.png")
       setFundo("bg-verde2")
-      setTitulo("Yoga")
+      setTitulo(t('relaxamentoTituloYoga'))
       setDesc("A libertação do desejo conduz à paz interior.")
       setSubTitulo("Vídeos para Yoga")
       setImporTitulo("Importância do Yoga")
