@@ -32,36 +32,29 @@ export default function RelaxamentoEscolhido({ funcao, secao }) {
       setFoto("/assets/usuario/relaxamento/relaxamentoescolhido.png");
       setFundo("bg-roxo");
       setTitulo(t("relaxamentoTituloMed"));
-      setDesc("A alma parece-me apenas uma simples respiração do corpo.");
-      setSubTitulo("Vídeos para Meditação");
-      setImporTitulo("Importância da Meditação");
-      setImporDesc(
-        "A meditação, prática milenar com raízes em diversas culturas, consiste em treinar a mente para alcançar um estado de clareza e calma. Através de técnicas como concentração na respiração, mantras ou simplesmente observar os pensamentos, a meditação oferece diversos benefícios para a saúde física e mental."
-      );
+      setDesc(t("relaxamentoDescMed"));
+      setSubTitulo(t("relaxamentosubTituloMed"));
+      setImporTitulo(t("relaxamentoImporTituloMed"));
+      setImporDesc(t("relaxamentoImporDescMed"));
       buscarRelaxamento("meditacao");
     } else if (secao == "r") {
       setFoto("/assets/usuario/relaxamento/respiracaoescolhido.png");
       setFundo("bg-amarelo2");
       setTitulo(t("relaxamentoTituloRes"));
-      setDesc(
-        "Estar cheio de vida é respirar profundamente, mover-se livremente e sentir com intensidade."
-      );
-      setSubTitulo("Vídeos para Respiração");
-      setImporTitulo("Importância da Respiração");
-      setImporDesc(
-        "A respiração, muitas vezes subestimada, é um processo fundamental para a vida, tão natural que nem sempre percebemos sua importância. Mais do que apenas a troca de gases, respirar corretamente impacta nossa saúde física e mental de maneiras surpreendentes."
-      );
+      setDesc(t("relaxamentoDescRep"));
+      setSubTitulo(t("relaxamentosubTituloRep"));
+      setImporTitulo(t("relaxamentoImporTituloRep"));
+      setImporDesc(t("relaxamentoImporDescRep"));
       buscarRelaxamento("respiracao");
     } else if (secao == "y") {
       setFoto("/assets/usuario/relaxamento/yogaescolhido.png");
       setFundo("bg-verde2");
       setTitulo(t("relaxamentoTituloYoga"));
-      setDesc("A libertação do desejo conduz à paz interior.");
-      setSubTitulo("Vídeos para Yoga");
-      setImporTitulo("Importância do Yoga");
-      setImporDesc(
-        "O Yoga, uma prática milenar com origens na Índia, transcende a simples atividade física e se configura como um caminho holístico para o bem-estar integral. Através da combinação de asanas (posturas físicas), pranayama (controle da respiração), meditação e princípios filosóficos, o Yoga oferece uma gama abrangente de benefícios para o corpo, a mente e o espírito."
-      );
+
+      setDesc(t("relaxamentoDescYoga"));
+      setSubTitulo(t("relaxamentosubTituloYoga"));
+      setImporTitulo(t("relaxamentoImporTituloYoga"));
+      setImporDesc(t("relaxamentoImporDescYoga"));
       buscarRelaxamento("yoga");
     }
   };
