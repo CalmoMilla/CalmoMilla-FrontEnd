@@ -5,7 +5,7 @@ import { IoIosArrowDropleftCircle } from "react-icons/io";
 import VideoRelaxamento from "./VideoRelaxamento";
 import { useTranslation } from "react-i18next";
 
-export default function RelaxamentoEscolhido({ funcao, secao }) {
+export default function RelaxamentoEscolhido({ funcao, funcao2, secao }) {
   const [foto, setFoto] = useState(null);
   const [fundo, setFundo] = useState(null);
   const [titulo, setTitulo] = useState(null);
@@ -94,8 +94,8 @@ export default function RelaxamentoEscolhido({ funcao, secao }) {
         </h2>
         {videos && (
           <div className="flex justify-around items-center flex-col lg:flex-row gap-8 lg:gap-0">
-            <VideoRelaxamento video={videos[0]} />
-            <VideoRelaxamento video={videos[1]} />
+            <VideoRelaxamento funcao={funcao2} video={videos[0]} />
+            <VideoRelaxamento funcao={funcao2} video={videos[1]} />
           </div>
         )}
       </div>
@@ -105,8 +105,8 @@ export default function RelaxamentoEscolhido({ funcao, secao }) {
         </h2>
         {videos && (
           <div className="flex justify-around items-center flex-col lg:flex-row gap-8 lg:gap-0">
-            <VideoRelaxamento video={videos[2]} />
-            <VideoRelaxamento video={videos[3]} />
+            <VideoRelaxamento funcao={funcao2} video={videos[2]} />
+            <VideoRelaxamento funcao={funcao2} video={videos[3]} />
           </div>
         )}
       </div>
