@@ -3,7 +3,7 @@ import initTranslations from "../../../i18n";
 import TranslationsProvider from "../../../TranslationProvider";
 import Psicologo from "@/pages/components/Usuario/Psicologo/PaginaPsicologo";
 
-const namespaces = ['home', 'common']
+const namespaces = ['psicologos', 'common']
 
 export default async function Page({params: {locale} }) {
   const { t, resources } = await initTranslations(locale, namespaces)

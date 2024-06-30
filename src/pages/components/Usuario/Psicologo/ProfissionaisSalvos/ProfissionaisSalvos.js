@@ -1,11 +1,14 @@
+import { useTranslation } from "react-i18next";
 import ProfissionalSalvo from "./ProfissionalSalvo";
 
 export default function ProfissionaisSalvos({ profissionaisSalvos }) {
+  
+  const { t } = useTranslation()
+
   return (
     <div className="w-fit px-10 xl:p-0 xl:w-[15%] min-h-[350px] h-fit shadow-2xl flex flex-col items-center mt-36 rounded-md">
       <h2 className="text-center text-preto text-3xl py-10 mt-4 font-calistoga">
-        Profissionais <br />
-        Salvos
+        {t('psicologosSalvos')}
       </h2>
       {profissionaisSalvos &&
         profissionaisSalvos.map((profissional) => (

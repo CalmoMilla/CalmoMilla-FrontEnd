@@ -68,7 +68,7 @@ export default function PaginaPsicologo() {
             <h1 className="text-verdeagua  xs:text-6xl sm:text-7xl font-calistoga xs:mt-40 md:mt-48 text-center drop-shadow-2xl xl:hidden ">
               Psicólogos
             </h1>
-            <Filtro data={dataFiltro} amarelo={false} />
+            {/* <Filtro data={dataFiltro} amarelo={false} /> */}
             <Psicologos
               data={psicologos}
               funcao={() => setShowInfo(true)}
