@@ -1,3 +1,34 @@
+async function EnviarDesempenho(jogo) {
+
+    if (typeof window === "undefined") {
+        return null;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+        throw new Error("No token found");
+    }
+
+    try {
+        const url = "http://localhost:8080/desempenhos";
+        const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify(jogo),
+        });
+
+        if (response.status === 200) {
+        console.log("Desempenho enviado com sucesso");
+        const data = await response.json();
+        console.log(data);
+        } else {
+        console.error("Erro ao enviar desempenho:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Erro:", error);
+    }
+}
+
 //selecting all required elements
 const start_btn = document.querySelector(".start_btn button");
 const info_box = document.querySelector(".info_box");
@@ -10,6 +41,11 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 const listaPerguntas = [questoes1, questoes2, questoes3, questoes4, questoes5, questoes6, questoes7, questoes8]
+
+let jogoPego = localStorage.getItem("jogo");
+let usuario = localStorage.getItem("usuario");
+jogoPego = JSON.parse(jogoPego)
+usuario = JSON.parse(usuario)
 
 function pickRandomList(...lists) {
     const randomIndex = Math.floor(Math.random() * lists.length);
@@ -162,19 +198,18 @@ function showResult(){
     const scoreText = result_box.querySelector(".score_text");
     let scoreTag = '<span>Parabéns, você conseguiu acertar  <p>'+ userScore +'</p> de <p>'+ questoes.length +'!</p></span>';
     scoreText.innerHTML = scoreTag;
-    // if (userScore > 3){ // if user scored more than 3
-    //     //creating a new span tag and passing the user score number and total question number
-    //     let scoreTag = '<span>Parabéns, você conseguiu acertar  <p>'+ userScore +'</p> de <p>'+ questoes.length +'</p></span>';
-    //     scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
-    // }
-    // else if(userScore > 1){ // if user scored more than 1
-    //     let scoreTag = '<span>Você conseguiu <p>'+ userScore +'</p> out of <p>'+ questoes.length +'</p></span>';
-    //     scoreText.innerHTML = scoreTag;
-    // }
-    // else{ // if user scored less than 1
-    //     let scoreTag = '<span>Você conseguiu <p>'+ userScore +'</p> de <p>'+ questoes.length +'</p></span>';
-    //     scoreText.innerHTML = scoreTag;
-    // }
+    let desempenho = {
+        nivel: 10,
+        pontuacao: userScore,
+        usuario:{
+          id:usuario.id
+        },
+        jogos:{
+          id:jogoPego.id
+        }
+      }
+  
+    EnviarDesempenho(desempenho)
 }
 
 function startTimer(time){
