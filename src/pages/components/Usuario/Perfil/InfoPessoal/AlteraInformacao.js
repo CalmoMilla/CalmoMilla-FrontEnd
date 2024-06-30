@@ -1,18 +1,62 @@
-import { AlterarInfo } from "@/pages/api/usuario/UsuarioService";
+import { Atualizar, BuscarUsuario } from "@/pages/api/usuario/UsuarioService";
+import { useEffect, useState } from "react";
+
 
 export default function AlteraInformacao() {
+
+  const [usuario, setUsuario] = useState(null)
+
+  useEffect(() => {
+    buscarUsuario()
+  }, [])
+
   async function onSubmit(event) {
     event.preventDefault();
 
     const data = new FormData(event.currentTarget);
-    let recuperarSenha = {
-      email: data.get("emailRedefinir"),
+    let formulario = {
+      nome: data.get("nome"),
+      senha: data.get("senha"),
+      genero: data.get("genero"),
     };
 
-    EsqueciASenha(recuperarSenha, "auth/esqueciASenha");
+    if (formulario.nome) {
+      usuario.nome = formulario.nome
+    }
+    if (formulario.senha) {
+      usuario.senha = formulario.senha
+    }
+    if (formulario.genero) {
+      if (formulario.genero == "m") {
+        usuario.genero = "MASCULINO"
+      }
+      if (formulario.genero == "f") {
+        usuario.genero = "FEMININO"
+      }
+      if (formulario.genero == "o") {
+        usuario.genero = "OUTROS"
+      }
+    }
 
-    console.log(recuperarSenha);
+    Atualizar(usuario, "pacientes");
+
+    console.log(usuario);
   }
+
+  const buscarUsuario = async () => {
+    var usuarioLocal = JSON.parse(localStorage.getItem("usuario"));
+    if (
+      usuarioLocal != "" &&
+      usuarioLocal != undefined &&
+      usuarioLocal != null
+    ) {
+      const id = usuarioLocal.id;
+      let usuarioPego = await BuscarUsuario("pacientes/", id);
+      setUsuario(usuarioPego)
+      console.log(usuarioPego)
+    } 
+  };
+
   return (
     <div className=" w-[90%] h-[90%] flex flex-col items-center justify-center mx-auto ">
       <div className="flex-col flex md:w-[70%] xs:w-[100%] h-full">
@@ -28,8 +72,8 @@ export default function AlteraInformacao() {
               <input
                 className="border-none border-b-2  font-nunito   placeholder:text-black   text-md w-full p-2"
                 type="text"
-                id="emailRedefinir"
-                name="emailRedefinir"
+                id="nome"
+                name="nome"
                 placeholder="Coloque seu novo nome."
               />
             </div>
@@ -39,9 +83,9 @@ export default function AlteraInformacao() {
                 name="genero"
                 id="genero"
                 className="w
-          text-black
-          py-[5px]
-          "
+                text-black
+                py-[5px]
+                "
               >
                 <option value="m">Masculino</option>
                 <option value="f">Feminino</option>
@@ -54,9 +98,9 @@ export default function AlteraInformacao() {
               </label>
               <input
                 className="border-none border-b-2  font-nunito   placeholder:text-black   text-md w-full p-2"
-                type="text"
-                id="emailRedefinir"
-                name="emailRedefinir"
+                type="password"
+                id="senha"
+                name="senha"
                 placeholder="Redefina sua senha."
               />
             </div>

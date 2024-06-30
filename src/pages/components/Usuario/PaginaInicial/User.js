@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import ModalEmocoes from "./Emocoes/ModalEmocoes";
 import EsqueciSenha from "../../Login/EsqueciSenha";
 import Emocoes from "./Emocoes/Emocoes";
-import { BuscarInfoEmocoes } from "@/pages/api/usuario/UsuarioService";
+import { BuscarInfoEmocoes, BuscarUsuario } from "@/pages/api/usuario/UsuarioService";
 import Rotina from "./Rotina/Rotina";
 import { BuscarRotina } from "@/pages/api/rotina/RotinaService";
 import { BuscarDesempenho } from "@/pages/api/desempenho/DesempenhoService";

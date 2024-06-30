@@ -30,9 +30,9 @@ export default function InfoPessoal(props) {
       props.usuario.dataNasc[0]
     : "";
   let genero = props.usuario ? props.usuario.genero : "";
-  if (genero == "m") {
+  if (genero == "MASCULINO") {
     genero = "Masculino";
-  } else if (genero == "f") {
+  } else if (genero == "FEMININO") {
     genero = "Feminino";
   } else {
     genero = "Outros";

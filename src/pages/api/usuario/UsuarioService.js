@@ -457,7 +457,7 @@ export const Atualizar = async (paciente, endpoint) => {
     });
 
     if (response.status == 201) {
-      console.log("Cadastro feito com sucesso");
+      console.log("Atualizado com sucesso");
       console.log(response.data);
     }
   } catch (error) {
