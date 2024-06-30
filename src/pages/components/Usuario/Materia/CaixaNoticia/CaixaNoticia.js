@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next"
 export default function CaixaNoticia({materia}){
 
   const [titulo, setTitulo] = useState(null)
+  const [desc, setDesc] = useState(null)
 
   const { t } = useTranslation();
 
@@ -16,27 +17,35 @@ export default function CaixaNoticia({materia}){
   const definirTraducao = () => {
     if (materia.tituloPostagem == "Como jogos de estímulos mentais beneficiam sua saúde cerebral") {
       setTitulo(t('tituloPostagem1'))
+      setDesc(t('descPostagem1'))
     } 
     if (materia.tituloPostagem == "Entenda a relação entre atividade física e saúde mental") {
       setTitulo(t('tituloPostagem2'))
+      setDesc(t('descPostagem2'))
     } 
     if (materia.tituloPostagem == "Técnicas de relaxamento para ansiedade") {
       setTitulo(t('tituloPostagem3'))
+      setDesc(t('descPostagem3'))
     } 
     if (materia.tituloPostagem == "O que é autocuidado? Por que é tão importante?") {
       setTitulo(t('tituloPostagem4'))
+      setDesc(t('descPostagem4'))
     } 
     if (materia.tituloPostagem == "Conheça mais sobre a prática do yoga e seus benefícios para a saúde") {
       setTitulo(t('tituloPostagem5'))
+      setDesc(t('descPostagem5'))
     } 
     if (materia.tituloPostagem == "O que é mindfulness e por que ele beneficia todas as esferas da vida?") {
       setTitulo(t('tituloPostagem6'))
+      setDesc(t('descPostagem6'))
     } 
     if (materia.tituloPostagem == "Confira os cuidados essenciais com a saúde mental na melhor idade") {
       setTitulo(t('tituloPostagem7'))
+      setDesc(t('descPostagem7'))
     } 
     if (materia.tituloPostagem == "Como cuidar da saúde de jovens e adolescentes?") {
       setTitulo(t('tituloPostagem8'))
+      setDesc(t('descPostagem8'))
     } 
   }
 
@@ -52,7 +61,7 @@ export default function CaixaNoticia({materia}){
           <Image width={1000} height={1000} src={materia.foto} alt="..." className="rounded-lg" />
         </div>
         <p className="font-nunito text-xl pt-10 w-[90%]">
-          {materia.descPostagem}
+          {desc}
         </p>
       </div>
     </div>
