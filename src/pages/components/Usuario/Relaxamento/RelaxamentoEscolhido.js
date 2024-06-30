@@ -101,8 +101,8 @@ export default function RelaxamentoEscolhido({ funcao, secao }) {
         </h2>
         {videos && (
           <div className="flex justify-around items-center flex-col lg:flex-row gap-8 lg:gap-0">
-            <VideoRelaxamento url={videos[0].link} />
-            <VideoRelaxamento url={videos[1].link} />
+            <VideoRelaxamento video={videos[0]} />
+            <VideoRelaxamento video={videos[1]} />
           </div>
         )}
       </div>
@@ -112,8 +112,8 @@ export default function RelaxamentoEscolhido({ funcao, secao }) {
         </h2>
         {videos && (
           <div className="flex justify-around items-center flex-col lg:flex-row gap-8 lg:gap-0">
-            <VideoRelaxamento url={videos[2].link} />
-            <VideoRelaxamento url={videos[3].link} />
+            <VideoRelaxamento video={videos[2]} />
+            <VideoRelaxamento video={videos[3]} />
           </div>
         )}
       </div>

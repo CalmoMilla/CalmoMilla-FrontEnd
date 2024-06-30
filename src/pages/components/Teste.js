@@ -15,6 +15,7 @@ import MateriaPage from "./Usuario/MateriaPage/MateriaPage";
 import EstatisticasPsicologo from "./Usuario/Psicologo/EstatisticasPsicologo/EstatisticasPsicologo";
 import InfoPsicologo from "./Usuario/Psicologo/InfoPsicologo/InfoPsicologo";
 import PaginaPsicologo from "./Usuario/Psicologo/PaginaPsicologo";
+import PaginaVideoRelaxamento from "./Usuario/Relaxamento/PaginaVideoRelaxamento";
 import RelaxamentoEscolhido from "./Usuario/Relaxamento/RelaxamentoEscolhido";
 import RelaxamentoPage from "./Usuario/Relaxamento/RelaxamentoPage";
 import { useTranslation } from "react-i18next";
@@ -22,6 +23,6 @@ import { useTranslation } from "react-i18next";
 export default function Teste() {
 
   return (
-    <PerfilPsicologo/>
+    <PaginaVideoRelaxamento/>
   );
 }
