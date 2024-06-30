@@ -1,8 +1,11 @@
 import { Atualizar, BuscarUsuario } from "@/pages/api/usuario/UsuarioService";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 
 export default function AlteraInformacao() {
+
+  const { t } = useTranslation()
 
   const [usuario, setUsuario] = useState(null)
 
@@ -67,18 +70,18 @@ export default function AlteraInformacao() {
           <div className="w-full h-[75%] mt-2 flex flex-col justify-around ">
             <div className=" border-b-2  border-black xs:m-auto w-full">
               <label className="flex text-amarelo2 text-lg" htmlFor="email  ">
-                Nome{" "}
+                {t('perfilCampoPessoal1')}
               </label>
               <input
                 className="border-none border-b-2  font-nunito   placeholder:text-black   text-md w-full p-2"
                 type="text"
                 id="nome"
                 name="nome"
-                placeholder="Coloque seu novo nome."
+                placeholder={t('perfilAlterarNome')}
               />
             </div>
             <div className="grid-cols-2 flex-col flex justify-center w-full h-16 text-amarelo2 xs:m-auto">
-              <label htmlFor="genero">Gênero</label>
+              <label htmlFor="genero">{t('perfilCampoPessoal3')}</label>
               <select
                 name="genero"
                 id="genero"
@@ -87,21 +90,21 @@ export default function AlteraInformacao() {
                 py-[5px]
                 "
               >
-                <option value="m">Masculino</option>
-                <option value="f">Feminino</option>
-                <option value="o">Outros</option>
+                <option value="m">{t('perfilMasculino')}</option>
+                <option value="f">{t('perfilFeminino')}</option>
+                <option value="o">{t('perfilOutros')}</option>
               </select>
             </div>
             <div className=" border-b-2  border-black xs:m-auto w-full">
               <label className="flex text-amarelo2 text-lg" htmlFor="email  ">
-                Senha{" "}
+                {t('perfilSenha')}
               </label>
               <input
                 className="border-none border-b-2  font-nunito   placeholder:text-black   text-md w-full p-2"
                 type="password"
                 id="senha"
                 name="senha"
-                placeholder="Redefina sua senha."
+                placeholder={t('perfilAlterarSenha')}
               />
             </div>
           </div>

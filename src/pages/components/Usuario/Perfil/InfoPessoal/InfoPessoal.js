@@ -6,10 +6,13 @@ import { useRouter } from "next/navigation";
 import Modal from "./ModalAlterarInformacoes";
 import AlterarInformacao from "./AlteraInformacao";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function InfoPessoal(props) {
   const router = useRouter();
   const [alterarInfo, setalterarInfo] = useState(false);
+
+  const { t } = useTranslation()
 
   const handleDeslogar = () => {
     localStorage.removeItem("token");
@@ -31,17 +34,17 @@ export default function InfoPessoal(props) {
     : "";
   let genero = props.usuario ? props.usuario.genero : "";
   if (genero == "MASCULINO") {
-    genero = "Masculino";
+    genero = t('perfilMasculino');
   } else if (genero == "FEMININO") {
-    genero = "Feminino";
+    genero = t('perfilFeminino');
   } else {
-    genero = "Outros";
+    genero = t('perfilOutros');
   }
 
   return (
     <>
       <h2 className="xs:text-4xl sm:text-5xl text-amarelo2 font-calistoga text-center py-5">
-        Informações Pessoais
+        {t('perfilInfoPessoalTit')}
       </h2>
       <div className="flex justify-center flex-col items-center py-5">
         <CampoPessoal
@@ -58,7 +61,7 @@ export default function InfoPessoal(props) {
             className="text-2xl hover:text-amarelo2 text-amarelo1 py-5 cursor-pointer "
             onClick={() => setalterarInfo(true)}
           >
-            Mudar informações da conta
+            {t('perfilMudarInfo')}
           </h2>
           <h2 className=""></h2>
         </div>
@@ -66,7 +69,7 @@ export default function InfoPessoal(props) {
           className=" xs:w-[250px] sm:w-[300px] px-5 py-3 mx-auto xs:bg-amarelo2 lg:bg-amarelo1  hover:bg-amarelo2 duration-500 ease-in-out p-0 rounded-full text-white text-xl"
           onClick={handleDeslogar}
         >
-          DESLOGAR
+          {t('perfilDeslogar')}
         </button>
       </div>
       <div id="modal-root"></div>

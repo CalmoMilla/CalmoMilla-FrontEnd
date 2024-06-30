@@ -2,8 +2,12 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { createRoot } from "react-dom/client";
+import { useTranslation } from "react-i18next";
 
 const Modal = ({ onClose, children, title }) => {
+  
+  const { t } = useTranslation()
+
   const handleCloseClick = (e) => {
     e.preventDefault();
     if (onClose) {
@@ -27,10 +31,10 @@ const Modal = ({ onClose, children, title }) => {
              text-center flex flex-col justify-center items-center "
             >
               <h2 className="font-calistoga w-full sm:text-3xl">
-                Mude seus dados
+                {t('perfilAlterarTit')}
               </h2>
               <p className="text-amarelo2 lg:text-lg xs:text-base">
-                Você pode deixar campos sem preencher
+                {t('perfilAlterarDesc')}
               </p>
             </div>
 

@@ -1,10 +1,21 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Atualizar } from "../../../../api/usuario/UsuarioService";
+import { useTranslation } from "react-i18next";
 export default function InfoConta(props) {
   const [file, setFile] = useState(null);
   const [btn, setBtn] = useState(true);
+  const [nome, setNome] = useState(true);
+  
+
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    if (props.usuario) {
+      setNome(props.usuario.nome)
+    }
+  }, [props])
 
   const handleFileChange = (e) => {
     setBtn(false);
@@ -94,14 +105,14 @@ export default function InfoConta(props) {
           />
           {btn ? (
             <h2 className="font-nunito text-xl pt-5">
-              Clique na imagem para trocar sua foto
+              {t('perfilTrocarFt')}
             </h2>
           ) : (
             <button
               onClick={handleUpload}
               className="bg-amarelo1 mt-5 py-2 rounded-xl text-xl hover:bg-amarelo2 duration-500 transition ease-in-out"
             >
-              Fazer upload da imagem
+              {t('perfilTrocarBtn')}
             </button>
           )}
 
@@ -115,21 +126,21 @@ export default function InfoConta(props) {
         </div>
         <div className="lg:pt-0 pt-10 text-center lg:text-left w-fit h-[100%] ml">
           <p className="text-3xl font-nunito pb-10">
-            Olá, {props.usuario ? props.usuario.nome : ""}
+            {t('perfilUsuarioNome', {nome })}
           </p>
           <p className="text-2xl font-nunito">
-            Aqui estão suas informações pessoais na plataforma
+            {t('perfilInfoPessoal')}
           </p>
         </div>
       </div>
       <div className="pl-8 lg:pl-32 pt-20">
-        <h1 className="text-3xl py-5">Informações da conta</h1>
+        <h1 className="text-3xl py-5">{t('perfilInfoConta')}</h1>
         <div className="lg:w-[90%] w-[80%] md:flex-row flex-col md:items-center flex justify-between py-5">
           <p className="text-xl">Email </p>
           <p className="text-xl"> {props.usuario ? props.usuario.email : ""}</p>
         </div>
         <div className="lg:w-[90%] w-[80%] md:flex-row flex-col flex justify-between md:items-center py-5">
-          <p className="text-xl">Senha</p>
+          <p className="text-xl">{t('perfilSenha')}</p>
           <p className="text-xl">**********</p>
         </div>
       </div>

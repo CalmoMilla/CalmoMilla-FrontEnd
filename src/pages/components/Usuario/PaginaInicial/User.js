@@ -114,7 +114,7 @@ export default function User() {
     let usuarioStorage = localStorage.getItem("usuario");
     usuarioStorage = JSON.parse(usuarioStorage);
 
-    let desempenhosPegos = await BuscarDesempenho(`desempenhos/usuario/${usuarioStorage.id}`)
+    let desempenhosPegos = await BuscarDesempenho(`desempenhos/usuario/estatistica/${usuarioStorage.id}`)
     setDesempenhos(desempenhosPegos);
     console.log(desempenhosPegos)
   }
