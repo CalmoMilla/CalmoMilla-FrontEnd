@@ -2,10 +2,12 @@ import Head from "next/head"
 import Script from "next/script"
 import "../../../../app/[locale]/globals.css"
 import { CiPause1 } from "react-icons/ci";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import Link from "next/link";
 
 export default function SudokuUsuario() {
     return (
-        <>
+        <div className="absolute w-full h-[100vh]">
             <Head>
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -170,10 +172,13 @@ export default function SudokuUsuario() {
                 </div>
                 {/* end result screen */}
                 </div>
+                <Link href={"/usuario"}>
+                    <IoIosArrowDropleftCircle className='absolute top-5 left-5 text-5xl text-roxo'/>
+                </Link>
                 <Script src="../sudoku/constant.js"/>
                 <Script src="../sudoku/sudoku.js"/>
                 <Script src="../sudoku/app.js"/>
             </div>
-        </>
+        </div>
     )
 }

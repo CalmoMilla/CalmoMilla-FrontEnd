@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Script from "next/script";
 import "../../../../app/[locale]/globals.css"
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import Link from "next/link";
 
 export default function QuizUsuario() {
   return (
-    <>
+    <div className="absolute w-full h-[100vh]">
       <Head>    
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,8 +76,11 @@ export default function QuizUsuario() {
           <button className="quit">Sair</button>
         </div>
       </div>
+      <Link href={"/usuario"}>
+        <IoIosArrowDropleftCircle className='absolute top-5 left-5 text-5xl text-amarelo1'/>
+      </Link>
       <Script src="../quiz/questoes.js"/>
       <Script src="../quiz/quiz.js"/>
-    </>
+    </div>
   )
 }

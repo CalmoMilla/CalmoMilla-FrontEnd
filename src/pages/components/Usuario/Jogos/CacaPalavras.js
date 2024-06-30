@@ -1,3 +1,6 @@
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import Link from "next/link";
+
 export default function CacaPalavras() {
 
   let cacaPalavras = [
@@ -16,8 +19,11 @@ export default function CacaPalavras() {
   }
 
   return (
-    <div className="w-full h-[100vh] bg-roxo flex justify-center items-center">
+    <div className="w-full h-[100vh] bg-roxo flex justify-center items-center relative">
       {cacaPalavraEscolhido()}
+      <Link href={"/usuario"}>
+        <IoIosArrowDropleftCircle className='absolute top-5 left-5 text-5xl text-amarelo1'/>
+      </Link>
     </div>
 
   )
