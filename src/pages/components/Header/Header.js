@@ -31,13 +31,13 @@ export default function Header() {
       console.log(usuarioStorage);
       setUsuario(usuarioStorage ? usuarioStorage : null);
       setFoto(usuarioStorage.foto);
-      setIsPaciente(true)
+      setIsPaciente(true);
     } else if (psiStorage != null) {
       psiStorage = JSON.parse(psiStorage);
       console.log(psiStorage);
       setUsuario(psiStorage ? psiStorage : null);
       setFoto(psiStorage.foto);
-      setIsPaciente(false)
+      setIsPaciente(false);
     }
   }, []);
 
@@ -55,7 +55,10 @@ export default function Header() {
             isOpen ? "   z-50" : " "
           } z-50`}
         >
-          <Link href={`${!logado ? "/" : isPaciente? "/usuario" : "/psicologo"}`} className="w-fit">
+          <Link
+            href={`${!logado ? "/" : isPaciente ? "/usuario" : "/psicologo"}`}
+            className="w-fit"
+          >
             <Image width={70} height={70} src="/assets/logo.png" alt="..." />
           </Link>
           {!logado ? (
@@ -128,7 +131,7 @@ export default function Header() {
                 </ul>
               </div>
 
-              <div className="flex items-center  gap-6">
+              <div className="flex items-center  xs:gap-4 sm:gap-6">
                 <LanguageChanger />
                 <Link href={"/login"}>
                   <button className="bg-branco px-8 py-3 rounded-full xs:hidden md:flex hover:bg-amarelo2 hover:text-branco transition duration-300 ease-out text-xl xl:text-2xl">
@@ -165,26 +168,26 @@ export default function Header() {
                   }`}
                 >
                   <li>
-                    {isPaciente ?                     
+                    {isPaciente ? (
                       <Link
                         href={"/usuario/jogos"}
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
                         {t("common:headerJogos")}
-                      </Link> 
-                      : 
+                      </Link>
+                    ) : (
                       <Link
-                      href={"/psicologo/pacientes"}
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      onClick={toggleMenu}
-                    >
-                      Pacientes
-                    </Link> 
-                    }
+                        href={"/psicologo/pacientes"}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        onClick={toggleMenu}
+                      >
+                        Pacientes
+                      </Link>
+                    )}
                   </li>
                   <li>
-                    {isPaciente ?                     
+                    {isPaciente ? (
                       <Link
                         href={"/usuario/psicologo"}
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
@@ -192,18 +195,18 @@ export default function Header() {
                       >
                         {t("common:headerPsicoterapia")}
                       </Link>
-                      :
+                    ) : (
                       <Link
-                      href={"/usuario/psicologo"}
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      onClick={toggleMenu}
+                        href={"/usuario/psicologo"}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        onClick={toggleMenu}
                       >
                         Estatísticas
                       </Link>
-                    }
+                    )}
                   </li>
                   <li>
-                    {isPaciente ? 
+                    {isPaciente ? (
                       <Link
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                         href={"/usuario/relaxamento"}
@@ -211,18 +214,18 @@ export default function Header() {
                       >
                         {t("common:headerComunidade")}
                       </Link>
-                      :
+                    ) : (
                       <Link
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href={"/psicologo/recursos"}
-                      onClick={toggleMenu}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        href={"/psicologo/recursos"}
+                        onClick={toggleMenu}
                       >
                         Recursos
                       </Link>
-                    }
+                    )}
                   </li>
                   <li>
-                    {isPaciente ?                     
+                    {isPaciente ? (
                       <Link
                         href={"/usuario/blog"}
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
@@ -230,20 +233,20 @@ export default function Header() {
                       >
                         Blog
                       </Link>
-                      :
+                    ) : (
                       <Link
-                      className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
-                      href={"/psicologo/recursos"}
-                      onClick={toggleMenu}
+                        className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
+                        href={"/psicologo/recursos"}
+                        onClick={toggleMenu}
                       >
                         FAQ
                       </Link>
-                    }
+                    )}
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-6">
-                <LanguageChanger/>
+              <div className="flex items-center   xs:gap-4 sm:gap-6">
+                <LanguageChanger />
 
                 <Link
                   href={isPaciente ? "/usuario/perfil" : "/psicologo/perfil"}
