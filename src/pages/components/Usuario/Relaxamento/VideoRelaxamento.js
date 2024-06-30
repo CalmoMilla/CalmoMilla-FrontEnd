@@ -17,7 +17,7 @@ export default function VideoRelaxamento({ video, funcao }) {
           allowFullScreen
           className="rounded-2xl xs:hidden sm:flex"
         ></iframe>
-        <div className="h-full w-full absolute top-0 left-0 bg-preto/10"></div>
+        <div className="h-full w-full absolute top-0 left-0"></div>
       </div>
       <div className="h-fit w-fit relative" onClick={() => funcao(video)}>
         <iframe
@@ -31,7 +31,7 @@ export default function VideoRelaxamento({ video, funcao }) {
           allowFullScreen
           className="rounded-2xl sm:hidden"
         ></iframe>
-        <div className="h-full w-full absolute top-0 left-0 bg-preto/10"></div>
+        <div className="h-full w-full absolute top-0 left-0"></div>
       </div>
     </>
   );

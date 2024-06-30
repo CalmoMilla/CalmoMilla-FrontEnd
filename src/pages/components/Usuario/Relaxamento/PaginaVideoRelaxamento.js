@@ -4,7 +4,7 @@ export default function PaginaVideoRelaxamento({ video, funcao }) {
 
   return (
     <div className="w-full h-fit bg-roxo relative pt-8">
-      <h1 className="text-center text-branco font-calistoga text-3xl md:text-5xl py-10">Meditação Bla Bla Bla</h1>
+      <h1 className="text-center text-branco font-calistoga text-3xl md:text-5xl py-10 w-[80%] mx-auto">{video.titulo}</h1>
       <iframe
         width="800"
         height="600"
@@ -38,7 +38,7 @@ export default function PaginaVideoRelaxamento({ video, funcao }) {
         allowFullScreen
         className="mx-auto rounded-xl block md:hidden"
       ></iframe>
-      <p className="text-center text-branco text-xl md:text-3xl py-10 w-[80%] mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias temporibus dolor velit quaerat reprehenderit doloremque libero est voluptatem nesciunt sint.</p>
+      <p className="text-center text-branco text-xl md:text-3xl py-10 w-[80%] mx-auto">{video.descricao}</p>
       <IoIosArrowDropleftCircle className="fixed top-32 left-5 text-3xl md:text-5xl text-branco hover:scale-110 duration-500 ease-in-out cursor-pointer" onClick={funcao}/>
     </div>
   )
