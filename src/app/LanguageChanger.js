@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
-import i18nConfig from '../../i18nConfig';
-import load_astv_script from '../../public/assistive/assistive';
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
+import i18nConfig from "../../i18nConfig";
+import load_astv_script from "../../public/assistive/assistive";
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -12,8 +12,7 @@ export default function LanguageChanger() {
   const router = useRouter();
   const currentPathname = usePathname();
 
-  const handleChange = e => {
-
+  const handleChange = (e) => {
     const newLocale = e.target.value;
 
     // set cookie for next-i18n-router
@@ -28,7 +27,7 @@ export default function LanguageChanger() {
       currentLocale === i18nConfig.defaultLocale &&
       !i18nConfig.prefixDefault
     ) {
-      router.push('/' + newLocale + currentPathname);
+      router.push("/" + newLocale + currentPathname);
     } else {
       router.push(
         currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
@@ -37,11 +36,15 @@ export default function LanguageChanger() {
 
     router.refresh();
 
-    load_astv_script()
+    load_astv_script();
   };
 
   return (
-    <select className={`bg-amarelo1 p-2 transition duration-300 ease-out border-solid shadow-2xl `} onChange={handleChange} value={currentLocale}>
+    <select
+      className={`bg-amarelo1 sm:p-2 transition duration-300 ease-out border-solid shadow-2xl `}
+      onChange={handleChange}
+      value={currentLocale}
+    >
       <option value="pt-BR">Português</option>
       <option value="en">English</option>
       <option value="es">Español</option>
