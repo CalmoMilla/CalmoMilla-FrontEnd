@@ -5,14 +5,19 @@ import CampoPessoal from "../CampoPessoal";
 import { useRouter } from "next/navigation";
 import Modal from "./ModalAlterarInformacoes";
 import AlterarInformacao from "./AlteraInformacao";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function InfoPessoal(props) {
   const router = useRouter();
   const [alterarInfo, setalterarInfo] = useState(false);
+  const [dataNasc, setDataNasc] = useState(null)
 
   const { t } = useTranslation()
+
+  useEffect(() => {
+    setDataNasc(props.usuario?.dataNasc?.[2] + "/" + props.usuario?.dataNasc?.[1] + "/" + props.usuario?.dataNasc?.[0]);
+  }, [props.usuario]);
 
   const handleDeslogar = () => {
     localStorage.removeItem("token");
@@ -25,13 +30,6 @@ export default function InfoPessoal(props) {
     }, 2000);
   };
 
-  let dataNasc = props.usuario
-    ? props.usuario.dataNasc[2] +
-      "/" +
-      props.usuario.dataNasc[1] +
-      "/" +
-      props.usuario.dataNasc[0]
-    : "";
   let genero = props.usuario ? props.usuario.genero : "";
   if (genero == "MASCULINO") {
     genero = t('perfilMasculino');

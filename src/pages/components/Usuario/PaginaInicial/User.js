@@ -45,8 +45,10 @@ export default function User() {
       let tarefasStorage = localStorage.getItem("tarefas");
       
       if (tarefasStorage == null || tarefasStorage == undefined || tarefasStorage == "" ) {
-        localStorage.setItem("tarefas", JSON.stringify(usuarioStorage.rotinas[0].tarefas));
-        localStorage.setItem("rotina", JSON.stringify(usuarioStorage.rotinas[0]));
+        if (usuarioStorage.rotinas.length > 0) {
+          localStorage.setItem("tarefas", JSON.stringify(usuarioStorage.rotinas[0].tarefas));
+          localStorage.setItem("rotina", JSON.stringify(usuarioStorage.rotinas[0]));
+        }
         let tarefas = localStorage.getItem("tarefas")
         tarefas = JSON.parse(tarefas)
         setTarefas(tarefas)
