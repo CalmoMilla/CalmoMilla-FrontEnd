@@ -3,17 +3,23 @@
 import { signOut } from "next-auth/react";
 import CampoPessoal from "../CampoPessoal";
 import { useRouter } from "next/navigation";
+import Modal from "./ModalAlterarInformacoes";
+import AlterarInformacao from "./AlteraInformacao";
+import { useState } from "react";
 
 export default function InfoPessoal(props) {
   const router = useRouter();
+  const [alterarInfo, setalterarInfo] = useState(false);
 
   const handleDeslogar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
     localStorage.removeItem("psicologo");
     localStorage.removeItem("tarefas");
-    signOut()
-    setTimeout(() => {router.push("/login")}, 2000) 
+    signOut();
+    setTimeout(() => {
+      router.push("/login");
+    }, 2000);
   };
 
   let dataNasc = props.usuario
@@ -48,7 +54,10 @@ export default function InfoPessoal(props) {
         />
         <CampoPessoal texto1={"Gênero"} texto2={props.usuario ? genero : ""} />
         <div className="w-[80%] flex justify-between items-center py-5">
-          <h2 className="text-2xl text-amarelo2 py-5">
+          <h2
+            className="text-2xl hover:text-amarelo2 text-amarelo1 py-5 cursor-pointer "
+            onClick={() => setalterarInfo(true)}
+          >
             Mudar informações da conta
           </h2>
           <h2 className=""></h2>
@@ -60,6 +69,12 @@ export default function InfoPessoal(props) {
           DESLOGAR
         </button>
       </div>
+      <div id="modal-root"></div>
+      {alterarInfo && (
+        <Modal onClose={() => setalterarInfo(false)}>
+          <AlterarInformacao />
+        </Modal>
+      )}
     </>
   );
 }
