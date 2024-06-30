@@ -40,7 +40,7 @@ export default function InfoPessoal(props) {
 
   return (
     <>
-      <h2 className="text-5xl text-amarelo2 font-calistoga text-center py-5">
+      <h2 className="xs:text-4xl sm:text-5xl text-amarelo2 font-calistoga text-center py-5">
         Informações Pessoais
       </h2>
       <div className="flex justify-center flex-col items-center py-5">
