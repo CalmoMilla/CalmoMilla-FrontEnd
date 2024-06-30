@@ -11,7 +11,7 @@ export default function ParceriaEscolhida({parceiro, funcao }) {
 
   useEffect(() => {
     definirTraducao()
-  }, [])
+  }, [parceiro])
 
   const definirTraducao = () => {
     if (parceiro.titulo == "Clube de Meditação"){
