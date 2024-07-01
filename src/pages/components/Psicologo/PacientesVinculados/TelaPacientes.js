@@ -24,7 +24,7 @@ export default function TelaPacientes() {
           <PerfilPaciente onClick={() => setUser(null)} user={user}/>
         : 
         <>
-          <Filtro data={data}/>
+          {/* <Filtro data={data}/> */}
           <PacientesVinculados onClick={setUser}/>
         </>
         }
