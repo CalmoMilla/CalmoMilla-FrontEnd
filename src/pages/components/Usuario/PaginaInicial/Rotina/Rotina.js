@@ -3,7 +3,7 @@ import TarefaRotina from "./TarefaRotina";
 import { AtualizarRotina, CadastrarRotina } from "@/pages/api/rotina/RotinaService";
 import { useTranslation } from "react-i18next";
 
-export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
+export default function Rotina({ tarefas, mostrarTarefa, updateTarefa, setVideo }) {
   const { t } = useTranslation();
 
   const handleSubmitRotina = () => {
@@ -26,6 +26,7 @@ export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
               key={tarefa.id}
               tarefa={tarefa}
               updateTarefa={updateTarefa}
+              setVideo={setVideo}
             />
           ))
         :

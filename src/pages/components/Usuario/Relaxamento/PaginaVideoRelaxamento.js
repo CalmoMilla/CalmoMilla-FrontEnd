@@ -3,7 +3,7 @@ import { IoIosArrowDropleftCircle } from "react-icons/io";
 export default function PaginaVideoRelaxamento({ video, funcao }) {
 
   return (
-    <div className="w-full h-fit bg-roxo relative pt-8">
+    <div className="w-full h-fit bg-roxo relative pt-32">
       <h1 className="text-center text-branco font-calistoga text-3xl md:text-5xl py-10 w-[80%] mx-auto">{video.titulo}</h1>
       <iframe
         width="800"

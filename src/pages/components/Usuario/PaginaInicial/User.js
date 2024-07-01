@@ -12,6 +12,7 @@ import Rotina from "./Rotina/Rotina";
 import { BuscarRotina, CadastrarRotina } from "@/pages/api/rotina/RotinaService";
 import { BuscarDesempenho } from "@/pages/api/desempenho/DesempenhoService";
 import { BuscarRelaxamento } from "@/pages/api/relaxamento/RelaxamentoService";
+import PaginaVideoRelaxamento from "../Relaxamento/PaginaVideoRelaxamento";
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
@@ -19,6 +20,7 @@ export default function User() {
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
   const [emocoes, setEmocoes] = useState(null)
   const [desempenhos, setDesempenhos] = useState(null)
+  const [video, setVideo] = useState(null)
 
   // useEffect( () => {
   //   setTarefas([
@@ -162,36 +164,42 @@ export default function User() {
   return (
     <div>
       <Header />
+      {video ? 
+          <PaginaVideoRelaxamento video={video} funcao={() => setVideo(null) }/>
+        :
+        <>
 
-      <div className="flex justify-center flex-col items-center pb-20">
-        <ExercicioDia
-          titulo={"Caça Palavras"}
-          desc={"Um teste diário que testa seu pensamento cognitivo"}
-          link={"/usuario/jogos"}
-        />
+          <div className="flex justify-center flex-col items-center pb-20">
+            <ExercicioDia
+              titulo={"Caça Palavras"}
+              desc={"Um teste diário que testa seu pensamento cognitivo"}
+              link={"/usuario/jogos"}
+            />
 
-        <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas} updateTarefa={updateTarefa}/>
+            <Rotina tarefas={tarefas} mostrarTarefa={showTarefasFeitas} updateTarefa={updateTarefa} setVideo={setVideo}/>
 
-        <VisaoGeral />
-      </div>
+            <VisaoGeral />
+          </div>
 
-      {/* <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button> */}
+          {/* <button className="w-16 h-16 bg-amarelo1" onClick={handleClick}>Mostrar alerta</button> */}
 
-      {/* <button
-        className="w-16 h-16 bg-amarelo1"
-        onClick={() => setShowEmocoes(true)}
-      >
-        Teste
-      </button>  */}
+          {/* <button
+            className="w-16 h-16 bg-amarelo1"
+            onClick={() => setShowEmocoes(true)}
+          >
+            Teste
+          </button>  */}
 
-      <div id="modal-root"></div>
-      {showEmocoes && (
-        <ModalEmocoes onClose={() => setShowEmocoes(false)}>
-          <Emocoes />
-        </ModalEmocoes>
-      )}
+          <div id="modal-root"></div>
+          {showEmocoes && (
+            <ModalEmocoes onClose={() => setShowEmocoes(false)}>
+              <Emocoes />
+            </ModalEmocoes>
+          )}
 
-      <Footer />
+          <Footer />
+        </>
+      }
     </div>
   );
 }
