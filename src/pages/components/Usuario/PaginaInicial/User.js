@@ -3,7 +3,7 @@ import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 import ExercicioDia from "./ExercicioDia/ExercicioDia";
 import VisaoGeral from "./VisaoGeral/VisaoGeral";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ModalEmocoes from "./Emocoes/ModalEmocoes";
 import EsqueciSenha from "../../Login/EsqueciSenha";
 import Emocoes from "./Emocoes/Emocoes";
@@ -21,6 +21,7 @@ export default function User() {
   const [emocoes, setEmocoes] = useState(null)
   const [desempenhos, setDesempenhos] = useState(null)
   const [video, setVideo] = useState(null)
+  const rotinaCriadaRef = useRef(false);
 
   // useEffect( () => {
   //   setTarefas([
@@ -31,11 +32,13 @@ export default function User() {
 
   useEffect(() => {
 
-    let usuarioStorage = localStorage.getItem("usuario");
-
     buscarEmocoes()
     buscarDesempenho()
-    criarRotina()
+
+    if (!rotinaCriadaRef.current) {
+      criarRotina()
+      rotinaCriadaRef.current = true;
+    }
   },[]);
 
   const updateTarefa = (tarefaId) => {
@@ -104,9 +107,6 @@ export default function User() {
       },
     }
 
-    let rotinaStorage = localStorage.getItem("rotina");
-    rotinaStorage = JSON.parse(rotinaStorage)
-
     let dataAtual = new Date();
     const anoAtual = dataAtual.getFullYear();
     const mesAtual = dataAtual.getMonth() + 1;
@@ -114,44 +114,65 @@ export default function User() {
 
     dataAtual = [anoAtual, mesAtual, diaAtual]
 
-    if (rotinaStorage) {
+    let rotinaStorage = localStorage.getItem("rotina")
+
+    if (!rotinaStorage) {
+      let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
+      localStorage.setItem("rotina", JSON.stringify(rotina))
+    } else {
+
+      rotinaStorage = JSON.parse(rotinaStorage)
+
       if (dataAtual[0] == rotinaStorage.diaRotina[0] && dataAtual[1] == rotinaStorage.diaRotina[1] && dataAtual[2] == rotinaStorage.diaRotina[2] ) {
-        console.log("rotina do dia ja feita")
+        console.log("dia igual")
       } else {
         let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
-        if (typeof(rotina) != "string") {
-          localStorage.setItem("rotina", JSON.stringify(rotina))
-        }
-      }
-    } else {
-      let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
-      if (typeof(rotina) != "string") {
         localStorage.setItem("rotina", JSON.stringify(rotina))
       }
     }
 
-    if (usuarioStorage != null) {
+    let rotinaStorageTarefa = localStorage.getItem("rotina")
+    let tarefaStorage = localStorage.getItem("tarefas")
 
-      let tarefasStorage = localStorage.getItem("tarefas");
-      let rotinaStorage = localStorage.getItem("rotina");
-      rotinaStorage = JSON.parse(rotinaStorage)
-      console.log(rotinaStorage)
+    if (rotinaStorageTarefa && !tarefaStorage) {
+
+      rotinaStorageTarefa = JSON.parse(rotinaStorageTarefa)
+      localStorage.setItem('tarefas', JSON.stringify(rotinaStorageTarefa.tarefas))
+      let tarefas = localStorage.getItem('tarefas')
+      tarefas = JSON.parse(tarefas)
+      setTarefas(tarefas)
       
-      if (!tarefasStorage && rotinaStorage) {
-        localStorage.setItem("tarefas", JSON.stringify(rotinaStorage.tarefas));
-        let tarefas = localStorage.getItem("tarefas")
-        tarefas = JSON.parse(tarefas)
-        setTarefas(tarefas)
-      } else if (tarefasStorage) {
+    } else if (rotinaStorageTarefa && tarefaStorage) {
 
-        let tarefas = localStorage.getItem("tarefas")
-        tarefas = JSON.parse(tarefas)
-        setTarefas(tarefas)
+      let tarefas = localStorage.getItem("tarefas")
+      tarefas = JSON.parse(tarefas)
+      setTarefas(tarefas)
 
-        const allDone = tarefas.every((tarefa) => tarefa.feito);
-        setShowTarefasFeitas(allDone);
-      }
+      const allDone = tarefas.every((tarefa) => tarefa.feito);
+      setShowTarefasFeitas(allDone);
     }
+
+    // if (usuarioStorage != null) {
+
+    //   let tarefasStorage = localStorage.getItem("tarefas");
+      
+    //   if (!tarefasStorage && rotinaStorage) {
+    //     rotinaStorage = JSON.parse(rotinaStorage)
+    //     console.log(rotinaStorage)
+    //     localStorage.setItem("tarefas", JSON.stringify(rotinaStorage.tarefas));
+    //     let tarefas = localStorage.getItem("tarefas")
+    //     tarefas = JSON.parse(tarefas)
+    //     setTarefas(tarefas) 
+    //   } else if (tarefasStorage) {
+
+    //     let tarefas = localStorage.getItem("tarefas")
+    //     tarefas = JSON.parse(tarefas)
+    //     setTarefas(tarefas)
+
+    //     const allDone = tarefas.every((tarefa) => tarefa.feito);
+    //     setShowTarefasFeitas(allDone);
+    //   }
+    // }
   }
 
   return (
