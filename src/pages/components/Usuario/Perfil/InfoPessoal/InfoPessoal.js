@@ -24,6 +24,7 @@ export default function InfoPessoal(props) {
     localStorage.removeItem("usuario");
     localStorage.removeItem("psicologo");
     localStorage.removeItem("tarefas");
+    localStorage.removeItem("rotina");
     signOut();
     setTimeout(() => {
       router.push("/login");

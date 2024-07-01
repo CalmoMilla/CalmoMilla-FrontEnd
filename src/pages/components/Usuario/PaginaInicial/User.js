@@ -16,7 +16,7 @@ import PaginaVideoRelaxamento from "../Relaxamento/PaginaVideoRelaxamento";
 
 export default function User() {
   const [showEmocoes, setShowEmocoes] = useState(false);
-  const [tarefas, setTarefas] = useState([])
+  const [tarefas, setTarefas] = useState(null)
   const [showTarefasFeitas, setShowTarefasFeitas] = useState(false)
   const [emocoes, setEmocoes] = useState(null)
   const [desempenhos, setDesempenhos] = useState(null)
@@ -36,36 +36,6 @@ export default function User() {
     buscarEmocoes()
     buscarDesempenho()
     criarRotina()
-
-    if (usuarioStorage != null) {
-
-      usuarioStorage = JSON.parse(usuarioStorage)
-
-      // if (usuarioStorage.precisaPreencherQuestionario) {
-      //   setShowEmocoes(true)
-      // }
-
-      let tarefasStorage = localStorage.getItem("tarefas");
-      let rotinaStorage = localStorage.getItem("rotina");
-      rotinaStorage = JSON.parse(rotinaStorage)
-      console.log(usuarioStorage)
-      
-      if (tarefasStorage == null || tarefasStorage == undefined || tarefasStorage == "" ) {
-        localStorage.setItem("tarefas", JSON.stringify(rotinaStorage.tarefas));
-        let tarefas = localStorage.getItem("tarefas")
-        tarefas = JSON.parse(tarefas)
-        setTarefas(tarefas)
-      } 
-      else {
-
-        let tarefas = localStorage.getItem("tarefas")
-        tarefas = JSON.parse(tarefas)
-        setTarefas(tarefas)
-
-        const allDone = tarefas.every((tarefa) => tarefa.feito);
-        setShowTarefasFeitas(allDone);
-      }
-    }
   },[]);
 
   const updateTarefa = (tarefaId) => {
@@ -134,29 +104,52 @@ export default function User() {
       },
     }
 
-    let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
-    if (typeof(rotina) != "string") {
+    let rotinaStorage = localStorage.getItem("rotina");
+    rotinaStorage = JSON.parse(rotinaStorage)
 
-      let dataAtual = new Date();
-      const anoAtual = dataAtual.getFullYear();
-      const mesAtual = dataAtual.getMonth() + 1;
-      const diaAtual = dataAtual.getDate();
+    let dataAtual = new Date();
+    const anoAtual = dataAtual.getFullYear();
+    const mesAtual = dataAtual.getMonth() + 1;
+    const diaAtual = dataAtual.getDate();
 
-      dataAtual = [anoAtual, mesAtual, diaAtual]
+    dataAtual = [anoAtual, mesAtual, diaAtual]
 
-      let rotinaStorage = localStorage.getItem("rotina");
-
-      rotinaStorage = JSON.parse(rotinaStorage)
-
-      if (rotinaStorage) {
-        console.log("rotina existe")
-        if (dataAtual[0] == rotinaStorage.diaRotina[0] && dataAtual[1] == rotinaStorage.diaRotina[1] && dataAtual[2] == rotinaStorage.diaRotina[2] ) {
-          console.log("rotina do dia ja feita")
-        } else {
+    if (rotinaStorage) {
+      if (dataAtual[0] == rotinaStorage.diaRotina[0] && dataAtual[1] == rotinaStorage.diaRotina[1] && dataAtual[2] == rotinaStorage.diaRotina[2] ) {
+        console.log("rotina do dia ja feita")
+      } else {
+        let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
+        if (typeof(rotina) != "string") {
           localStorage.setItem("rotina", JSON.stringify(rotina))
         }
-      } else {
+      }
+    } else {
+      let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
+      if (typeof(rotina) != "string") {
         localStorage.setItem("rotina", JSON.stringify(rotina))
+      }
+    }
+
+    if (usuarioStorage != null) {
+
+      let tarefasStorage = localStorage.getItem("tarefas");
+      let rotinaStorage = localStorage.getItem("rotina");
+      rotinaStorage = JSON.parse(rotinaStorage)
+      console.log(rotinaStorage)
+      
+      if (!tarefasStorage && rotinaStorage) {
+        localStorage.setItem("tarefas", JSON.stringify(rotinaStorage.tarefas));
+        let tarefas = localStorage.getItem("tarefas")
+        tarefas = JSON.parse(tarefas)
+        setTarefas(tarefas)
+      } else if (tarefasStorage) {
+
+        let tarefas = localStorage.getItem("tarefas")
+        tarefas = JSON.parse(tarefas)
+        setTarefas(tarefas)
+
+        const allDone = tarefas.every((tarefa) => tarefa.feito);
+        setShowTarefasFeitas(allDone);
       }
     }
   }

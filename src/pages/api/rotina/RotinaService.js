@@ -75,7 +75,6 @@ export const CadastrarRotina = async (paciente, endpoint) => {
     }
   } catch (error) {
     if (error.response) {
-      // console.log(error.response)
       return error.response.data.title
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
