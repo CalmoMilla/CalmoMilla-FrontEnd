@@ -1,1 +1,5 @@
-{"pacientePsicologoPaciente":"Pacientes "}
+{
+  "anosPacientesVinculados": " anos",
+  "pacientePsicologoPaciente": "Pacientes ",
+  "pacienteTotalPsicologo": " Total:"
+}
