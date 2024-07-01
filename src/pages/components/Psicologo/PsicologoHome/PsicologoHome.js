@@ -6,6 +6,7 @@ import Header from "../../Header/Header";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BuscarPsicologo } from "@/pages/api/usuario/PsicologoService";
+import Link from "next/link";
 
 export default function PsicologoHome() {
   const { t } = useTranslation();
@@ -75,11 +76,13 @@ export default function PsicologoHome() {
             </div>
             <div className="flex justify-center gap-12">
               <div>
-                <Image
-                  width={800}
-                  height={300}
-                  src="/assets/psicologo/SaibaOnde.png"
-                ></Image>
+                <Link href={"/psicologo/mapa"}>
+                  <Image
+                    width={800}
+                    height={300}
+                    src="/assets/psicologo/SaibaOnde.png"
+                  ></Image>
+                </Link>
               </div>
             </div>
           </section>
