@@ -182,7 +182,7 @@ export default function Header() {
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
-                        Pacientes
+                        {t('common:headerPacientes')}
                       </Link>
                     )}
                   </li>
@@ -201,7 +201,7 @@ export default function Header() {
                         className="text-preto font-nunito xl:text-2xl text-lg hover:text-branco duration-500 transition ease-in-out"
                         onClick={toggleMenu}
                       >
-                        Estatísticas
+                        {t('common:headerEstat')}
                       </Link>
                     )}
                   </li>
@@ -220,7 +220,7 @@ export default function Header() {
                         href={"/psicologo/recursos"}
                         onClick={toggleMenu}
                       >
-                        Recursos
+                        {t('common:headerRec')}
                       </Link>
                     )}
                   </li>
