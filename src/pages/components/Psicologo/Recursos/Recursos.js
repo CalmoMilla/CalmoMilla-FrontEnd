@@ -2,13 +2,23 @@
 
 import MateriaRecurso from "./MateriaRecurso"
 import JogoDispRecurso from "./JogoDispRecurso"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import BeneficioJogo from "./BeneficioJogo"
+import { useTranslation } from "react-i18next"
 
 export default function Recursos() {
 
+  const { t } = useTranslation()
+
   const [showBeneficio, setShowBeneficio] = useState(false)
   const [beneficio, setBeneficio] = useState(null)
+  const [nome, setNome] = useState(null)
+
+  useEffect(() => {
+    let psi = localStorage.getItem('psicologo')
+    psi = JSON.parse(psi)
+    setNome(psi.nome)
+  }, [])
 
   let jogos = [
     {id:1, nome:"Jogo da Memória", foto: "/assets/psicologo/recursos/jogomemoria.png", fonte: "Fonte: https://urllongaparadedéuaqui.com.br (Acesso em 00/00/0000)", desc: "O Jogo da Memória, um clássico atemporal, transcende gerações e culturas, convidando jogadores de todas as idades a embarcarem em uma empolgante jornada de memória, raciocínio e estratégia. Sua história, rica e envolvente, entrelaça-se com o desenvolvimento da cognição humana e a busca incessante por formas lúdicas de aprimorar a mente. As origens do jogo remontam ao início do século XX, com diversas versões surgindo na Europa e nos Estados Unidos. Uma das primeiras referências documentadas data de 1908, com o jogo Memória da empresa inglesa Selchow & Righter. Outra versão popular, Parcheesi, foi introduzida pela Parker Brothers em 1918. Com o passar do tempo, o Jogo da Memória ganhou popularidade global, assumindo diferentes formas e temáticas. As cartas, inicialmente ilustradas com figuras simples, evoluíram para designs vibrantes e criativos, explorando desde animais e objetos até personagens de desenhos animados e temas históricos. A importância do Jogo da Memória reside em seus diversos benefícios para o desenvolvimento cognitivo, especialmente para crianças. O jogo estimula a memória de curto prazo, a atenção, a concentração e a capacidade de processamento de informações. Além disso, promove a criatividade, a resolução de problemas e a tomada de decisões estratégicas. Para jogar, basta embaralhar as cartas e colocá-las viradas para baixo sobre uma superfície plana. Cada jogador, por sua vez, revela duas cartas em busca de pares com imagens iguais. Ao encontrar um par, o jogador o retira da mesa e ganha a chance de jogar novamente. O objetivo é acumular o maior número de pares ao final da partida.O Jogo da Memória se destaca por sua simplicidade e versatilidade, podendo ser adaptado para diferentes faixas etárias e necessidades. Para crianças pequenas, por exemplo, é possível utilizar um número menor de cartas e temáticas mais simples. Já para jogadores mais experientes, podem ser introduzidas cartas com imagens mais complexas e regras adicionais."},
@@ -35,10 +45,10 @@ export default function Recursos() {
         <BeneficioJogo funcao={onClickVoltar} jogo={beneficio}/>
         :
         <div className="w-full h-fit flex flex-col gap-8">
-          <h1 className="font-calistoga text-7xl text-roxo text-center">Recursos</h1>
-          <p className="font-nunito text-xl text-preto text-center w-[90%] md:w-[33%] mx-auto">[Nome do profissional], encontre aqui recursos interessantes que podem te agregar novos conhecimentos e conheça melhor os jogos que disponibilizamos aos nossos usuários e seus benefícios.</p>
+          <h1 className="font-calistoga text-7xl text-roxo text-center">{t('common:headerRec')}</h1>
+          <p className="font-nunito text-xl text-preto text-center w-[90%] md:w-[33%] mx-auto">{t('recursosDesc', {nome})}</p>
           <div className="w-[90%] md:w-[35%] h-fit bg-roxo rounded-3xl mx-auto py-2">
-            <h2 className="font-calistoga text-xl text-branco text-center">Nosso Blog</h2>
+            <h2 className="font-calistoga text-xl text-branco text-center">{t('recursosBlog')}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 w-[70%] h-fit mx-auto md:gap-0 gap-4">
             <MateriaRecurso/>
@@ -46,10 +56,10 @@ export default function Recursos() {
             <MateriaRecurso/>
           </div>
           <div className="w-[90%] md:w-[25%] h-fit bg-roxo rounded-3xl mx-auto p-4">
-            <h2 className="font-calistoga text-xl text-branco text-center">Conferir todas as matérias</h2>
+            <h2 className="font-calistoga text-xl text-branco text-center">{t('recursosBlogTodas')}</h2>
           </div>
           <div className="w-[90%] md:w-[35%] h-fit bg-roxo rounded-3xl mx-auto py-2 my-6">
-            <h2 className="font-calistoga text-xl text-branco text-center">Sobre nossos jogos disponíveis </h2>
+            <h2 className="font-calistoga text-xl text-branco text-center">{t('recursosJogosDisp')}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 w-[90%] md:w-[70%] xl:w-[50%] h-fit mx-auto gap-8">
             {jogos.map((jogo) => (
