@@ -54,11 +54,11 @@ export default function CaixaNoticia({materia}){
       <h1 className="text-5xl w-[80%] mx-auto font-calistoga text-center pt-14">{titulo}</h1> 
       <div className="pl-10 h-fit">
         <div className="flex pt-10 gap-4 items-center pb-10">
-          <Image width={70} height={70} src={materia.autor.foto} alt="..." className="rounded-full" />
-          <p>Revisão por: {materia.autor.nome} <br /></p>
+          <Image width={70} height={70} src={materia && materia.autor.foto} alt="..." className="rounded-full" />
+          <p>Revisão por: {materia && materia.autor.nome} <br /></p>
         </div>
         <div className="flex flex-col justify-center items-center pr-10">
-          <Image width={1000} height={1000} src={materia.foto} alt="..." className="rounded-lg" />
+          <Image width={1000} height={1000} src={materia ? materia.foto : ""} alt="..." className="rounded-lg" />
         </div>
         <p className="font-nunito text-xl pt-10 w-[90%]">
           {desc}

@@ -12,9 +12,9 @@ export default function Materia({funcao, blog, materia, retornar}){
       <Header/>
  
       <div className="pt-40 flex justify-around md:flex-row md:gap-0 gap-8 flex-col">
-        <CaixaNoticia materia={materia} />
+        <CaixaNoticia materia={materia && materia} />
 
-        <OutrasMaterias blog={blog} funcao={funcao}/>
+        <OutrasMaterias blog={blog && blog} funcao={funcao}/>
       </div>
 
       <IoIosArrowDropleftCircle className='fixed top-40 left-5 text-5xl text-amarelo1 hover:cursor-pointer hover:scale-110 duration-500 ease-in-out' onClick={retornar}/>

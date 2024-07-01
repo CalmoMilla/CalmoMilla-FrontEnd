@@ -9,7 +9,7 @@ export default function VideoRelaxamento({ video, funcao }) {
         <iframe
           width="400"
           height="315"
-          src={`https://www.youtube.com/embed/${video.link}`}
+          src={`https://www.youtube.com/embed/${video && video.link}`}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -23,7 +23,7 @@ export default function VideoRelaxamento({ video, funcao }) {
         <iframe
           width="250"
           height="215"
-          src={`https://www.youtube.com/embed/${video.link}`}
+          src={`https://www.youtube.com/embed/${video && video.link}`}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

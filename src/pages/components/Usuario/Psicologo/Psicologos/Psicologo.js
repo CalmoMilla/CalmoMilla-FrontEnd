@@ -77,12 +77,12 @@ export default function Psicologo({psi, guardarInfo, funcao}) {
   return (
     <div className="w-[90%] h-full shadow-2xl rounded-xl mx-auto hover:scale-110 hover:cursor-pointer duration-500 ease-in-out" onClick={onClickPsicologo}>
       <div className={`w-full h-[55%] ${corPsicologo()}  flex justify-start items-end p-5 rounded-t-lg`}>
-          <Image src={psi && psi.foto} alt={"Imagem do Usuario"} width={100} height={100} className="rounded-full w-32 h-32"/>
+          <Image src={psi ? psi.foto : ""} alt={"Imagem do Usuario"} width={100} height={100} className="rounded-full w-32 h-32"/>
       </div>
       <div className="w-full h-[45%] py-2 px-5">
         <h2 className={`font-nunito text-3xl`}>{nomeAbreviado}</h2>
         <p className="font-nunito text-xl">{primeiraEspecializacao}</p>
-        <p className="font-nunito text-xl">{psi.numeroRegistro}</p>
+        <p className="font-nunito text-xl">{psi && psi.numeroRegistro}</p>
         {/* <p className="font-nunito text-xl">{cidade ? cidade : ""}</p> */}
       </div>
     </div>

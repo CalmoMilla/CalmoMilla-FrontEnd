@@ -3,9 +3,9 @@ import { IoIosClose } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 export default function InfoPaciente({ user, onClose, onClick }) {
   const { t } = useTranslation();
-  const anoNascimento = user.dataNasc && user.dataNasc[0];
-  const mesNascimento = user.dataNasc && user.dataNasc[1];
-  const diaNascimento = user.dataNasc && user.dataNasc[2];
+  const anoNascimento = user ? user.dataNasc[0] : 0;
+  const mesNascimento = user ? user.dataNasc[1] : 0;
+  const diaNascimento = user ? user.dataNasc[2] : 0;
 
   const dataAtual = new Date();
   const anoAtual = dataAtual.getFullYear();
@@ -33,7 +33,7 @@ export default function InfoPaciente({ user, onClose, onClick }) {
       </div>
       <Image
         src={
-          user.foto
+          user
             ? user.foto
             : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
         }
@@ -42,17 +42,17 @@ export default function InfoPaciente({ user, onClose, onClick }) {
         height={200}
         className="rounded-full"
       />
-      <h2 className="font-nunito text-3xl font-bold">{user.nome}</h2>
+      <h2 className="font-nunito text-3xl font-bold">{user && user.nome}</h2>
       <h2 className="font-nunito text-xl font-bold">
         {idade} {t("anosPacientesVinculados")}
       </h2>
-      <h2 className="font-nunito text-xl font-bold">{user.endereco}</h2>
+      <h2 className="font-nunito text-xl font-bold">{user && user.endereco}</h2>
 
       <button
         className="font-nunito px-8 py-3 bg-amarelo1 hover:bg-amarelo2 duration-500 ease-in-out rounded-3xl"
-        onClick={() => onClick(user)}
+        onClick={() => onClick(user && user)}
       >
-        {t("   abrirPerfilInfoPaciente")}
+        {t("abrirPerfilInfoPaciente")}
       </button>
     </div>
   );

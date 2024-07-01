@@ -26,7 +26,7 @@ export default function LinhaRotina() {
     usuarioStorage = JSON.parse(usuarioStorage);
 
     let rotinas = await BuscarRotina(`rotinas/pacientes/${usuarioStorage.id}`)
-    // console.log(rotinas)
+    console.log(rotinas)
     setRotina(rotinas)
   }
 
