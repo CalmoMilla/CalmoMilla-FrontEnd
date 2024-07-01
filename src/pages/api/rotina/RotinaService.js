@@ -58,3 +58,29 @@ export const BuscarRotina = async (endpoint) => {
     throw new Error(errorMessage);
   }
 };
+
+export const CadastrarRotina = async (paciente, endpoint) => {
+  try {
+    const response = await axios.post(url + endpoint, paciente, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.status == 201) {
+      console.log("Rotina feita com sucesso");
+      const rotina = await response.data;
+      console.log(rotina)
+      return rotina;
+    }
+  } catch (error) {
+    if (error.response) {
+      // console.log(error.response)
+      return error.response.data.title
+    } else if (error.request) {
+      console.error("Erro de requisição:", error.request);
+    } else {
+      console.error("Erro ao configurar requisição:", error.message);
+    }
+  }
+};

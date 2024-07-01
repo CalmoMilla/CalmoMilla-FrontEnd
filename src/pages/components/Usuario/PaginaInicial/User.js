@@ -9,7 +9,7 @@ import EsqueciSenha from "../../Login/EsqueciSenha";
 import Emocoes from "./Emocoes/Emocoes";
 import { BuscarInfoEmocoes, BuscarUsuario } from "@/pages/api/usuario/UsuarioService";
 import Rotina from "./Rotina/Rotina";
-import { BuscarRotina } from "@/pages/api/rotina/RotinaService";
+import { BuscarRotina, CadastrarRotina } from "@/pages/api/rotina/RotinaService";
 import { BuscarDesempenho } from "@/pages/api/desempenho/DesempenhoService";
 import { BuscarRelaxamento } from "@/pages/api/relaxamento/RelaxamentoService";
 
@@ -33,6 +33,7 @@ export default function User() {
 
     buscarEmocoes()
     buscarDesempenho()
+    criarRotina()
 
     if (usuarioStorage != null) {
 
@@ -43,12 +44,12 @@ export default function User() {
       // }
 
       let tarefasStorage = localStorage.getItem("tarefas");
+      let rotinaStorage = localStorage.getItem("rotina");
+      rotinaStorage = JSON.parse(rotinaStorage)
+      console.log(usuarioStorage)
       
       if (tarefasStorage == null || tarefasStorage == undefined || tarefasStorage == "" ) {
-        if (usuarioStorage.rotinas.length > 0) {
-          localStorage.setItem("tarefas", JSON.stringify(usuarioStorage.rotinas[0].tarefas));
-          localStorage.setItem("rotina", JSON.stringify(usuarioStorage.rotinas[0]));
-        }
+        localStorage.setItem("tarefas", JSON.stringify(rotinaStorage.tarefas));
         let tarefas = localStorage.getItem("tarefas")
         tarefas = JSON.parse(tarefas)
         setTarefas(tarefas)
@@ -102,7 +103,7 @@ export default function User() {
       dataAtual = [anoAtual, mesAtual, diaAtual]
 
       if (dataAtual[0] == emocoesPegas[0].dataRegistro[0] && dataAtual[1] == emocoesPegas[0].dataRegistro[1] && dataAtual[2] == emocoesPegas[0].dataRegistro[2] ) {
-        console.log("dia igual")
+        // console.log("dia igual")
       } else {
         setShowEmocoes(true)
       }
@@ -118,7 +119,44 @@ export default function User() {
 
     let desempenhosPegos = await BuscarDesempenho(`desempenhos/usuario/estatistica/${usuarioStorage.id}`)
     setDesempenhos(desempenhosPegos);
-    console.log(desempenhosPegos)
+    // console.log(desempenhosPegos)
+  }
+
+  const criarRotina = async () => {
+    let usuarioStorage = localStorage.getItem("usuario");
+    usuarioStorage = JSON.parse(usuarioStorage);
+
+    let pacienteReq = {
+      paciente: {
+        id: usuarioStorage.id,
+      },
+    }
+
+    let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
+    if (typeof(rotina) != "string") {
+
+      let dataAtual = new Date();
+      const anoAtual = dataAtual.getFullYear();
+      const mesAtual = dataAtual.getMonth() + 1;
+      const diaAtual = dataAtual.getDate();
+
+      dataAtual = [anoAtual, mesAtual, diaAtual]
+
+      let rotinaStorage = localStorage.getItem("rotina");
+
+      rotinaStorage = JSON.parse(rotinaStorage)
+
+      if (rotinaStorage) {
+        console.log("rotina existe")
+        if (dataAtual[0] == rotinaStorage.diaRotina[0] && dataAtual[1] == rotinaStorage.diaRotina[1] && dataAtual[2] == rotinaStorage.diaRotina[2] ) {
+          console.log("rotina do dia ja feita")
+        } else {
+          localStorage.setItem("rotina", JSON.stringify(rotina))
+        }
+      } else {
+        localStorage.setItem("rotina", JSON.stringify(rotina))
+      }
+    }
   }
 
   return (

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import TarefaRotina from "./TarefaRotina";
-import { AtualizarRotina } from "@/pages/api/rotina/RotinaService";
+import { AtualizarRotina, CadastrarRotina } from "@/pages/api/rotina/RotinaService";
 import { useTranslation } from "react-i18next";
 
 export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
@@ -20,14 +20,18 @@ export default function Rotina({ tarefas, mostrarTarefa, updateTarefa }) {
           {t("rotinaTitulo")}
         </h2>
       </div>
-      {tarefas &&
-        tarefas.map((tarefa) => (
-          <TarefaRotina
-            key={tarefa.id}
-            tarefa={tarefa}
-            updateTarefa={updateTarefa}
-          />
-        ))}
+      {tarefas ? 
+          tarefas.map((tarefa) => (
+            <TarefaRotina
+              key={tarefa.id}
+              tarefa={tarefa}
+              updateTarefa={updateTarefa}
+            />
+          ))
+        :
+        <h2 className="text-center text-xl font-nunito p-5">{t('rotinaNula')}</h2>
+      }
+      
       {mostrarTarefa && (
         <div className="flex justify-center items-center w-full">
           <button
