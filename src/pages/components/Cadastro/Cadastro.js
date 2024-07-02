@@ -11,11 +11,14 @@ import { useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import LoginGoogle from "../Login/LoginGoogle";
 import Login from "../Login/Login";
+import Loading from "../Loading/Loading";
+
 
 export default function Cadastro() {
   const [showLogin, setShowLogin] = useState(false);
   const [isUser, setIsUser] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     setIsAnimating(true);
@@ -31,7 +34,9 @@ export default function Cadastro() {
       {showLogin ? (
         <Login className={`${isAnimating ? "animate-toLogin" : ""}}`} />
       ) : (
+     
         <div className="flex w-full xs:h-auto min-h-screen  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] ">
+            <Loading isLoading={loading} />
           <div className="absolute xs:top-2 xs:left-1 lg:top-4 lg:left-4 bg-white rounded-full p-0  ">
             <Link href={"/"}>
               <IoArrowBackCircle
@@ -74,7 +79,7 @@ export default function Cadastro() {
               <div className="flex flex-col justify-center lg:items-center w-full h-auto 2xl:items-start lg:w-[100%] mb-auto ">
                 {isUser ? (
                   session && session.status === "authenticated" ? (
-                    <CadastroUser session={session} />
+                    <CadastroUser setLoading={setLoading} session={session} />
                   ) : (
                     <CadastroUser />
                   )

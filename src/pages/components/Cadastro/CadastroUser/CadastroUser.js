@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Cadastro } from "@/pages/api/usuario/UsuarioService";
-
+import Loading from "../../Loading/Loading";
 import LoginGoogle from "../../Login/LoginGoogle";
 
 export default function CadastroUser(props) {
   const [showLogin, setShowLogin] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("")
   const [nome, setNome] = useState("")
 
@@ -44,7 +44,7 @@ export default function CadastroUser(props) {
         role: "PACIENTE",
       };
 
-      await Cadastro(cadastro, "auth/cadastro-paciente");
+      await Cadastro(cadastro, "auth/cadastro-paciente",setLoading);
 
     } catch (error) {
       console.error(error);
@@ -56,7 +56,12 @@ export default function CadastroUser(props) {
   }
 
   return (
+    <>
+     <Loading className="absolute" isLoading={loading} />
+  
     <div className="h-full w-full flex flex-col justify-center items-center">
+ 
+  
       <form
         className="md:w-[70%] w-full flex flex-col text-start xs:h-[80%] 2xl:h-[90%] xl:gap-2 2xl:gap-4 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
         onSubmit={onSubmit}
@@ -177,5 +182,6 @@ export default function CadastroUser(props) {
         </div>
       </form>
     </div>
+    </>
   );
 }

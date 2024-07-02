@@ -1,10 +1,11 @@
 import { CadastroPsicologo } from "@/pages/api/usuario/PsicologoService";
 import { useState, useEffect } from "react";
-
+import Loading from "../../Loading/Loading";
 export default function CadastroPsico(props) {
 
   const [email, setEmail] = useState("")
   const [nome, setNome] = useState("")
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (props.session) { 
@@ -50,7 +51,7 @@ export default function CadastroPsico(props) {
         role: "PSICOLOGO",
       };
 
-      CadastroPsicologo(cadastro, "auth/cadastro-psicologo")
+      CadastroPsicologo(cadastro, "auth/cadastro-psicologo",setLoading)
 
       console.log(cadastro);
     } catch (error) {
@@ -62,6 +63,7 @@ export default function CadastroPsico(props) {
 
   return (
     <div className=" h-auto w-full  m-auto grid-cols-2  border-black justify-center pt-4">
+      <Loading isLoading={loading} />
       <form
         className="md:w-[70%] w-full flex flex-col text-start xs:h-[80%]   2xl:h-[90%] xl:gap-1  2xl:gap-3 items-start mx-auto mt-4 justify-around sm:w-full sm:px-0"
         action="post"

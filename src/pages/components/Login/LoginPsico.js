@@ -5,12 +5,15 @@ import {
   LoginComGoogle,
   LoginUsuario,
 } from "@/pages/api/usuario/UsuarioService";
+import Loading from "@/pages/components/Loading/Loading"
 
 import { useRouter } from "next/navigation";
 
 export default function LoginPsico() {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
   async function onAuth() {
     let login = {
       email: session.data.user.email,
@@ -32,7 +35,7 @@ export default function LoginPsico() {
     };
 
     await LoginUsuario(login, "auth/login");
-    // await LoginPsicologo(login, "auth/login");
+    // await LoginPsicologo(login, "auth/login",setLoading);
     const tokenUser = localStorage.getItem("token");
     if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
       router.push("/usuario");

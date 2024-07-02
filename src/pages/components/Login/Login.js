@@ -17,6 +17,7 @@ import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { useTranslation } from "react-i18next";
 import { LoginPsicologo } from "@/pages/api/usuario/PsicologoService";
+import Loading from "../Loading/Loading";
 
 export default function Login() {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ export default function Login() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [alterarSenha, setAlterarSenha] = useState(false);
   const [alterarLogin, setAlterarLogin] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
 
   const router = useRouter();
@@ -83,7 +84,7 @@ export default function Login() {
         router.push("/psicologo");
       }
     } else {
-      await LoginUsuario(login, "auth/login");
+      await LoginUsuario(login, "auth/login",setLoading);
       const tokenUser = localStorage.getItem("token");
       if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
         router.push("/usuario");
@@ -97,6 +98,7 @@ export default function Login() {
 
   return (
     <div className=" flex w-full  xs:h-full lg:h-screen  items-center justify-center bg-no-repeat bg-center lg:bg-[url('/assets/Cadastro/LG.png')] xl:bg-[url('/assets/Cadastro/1440x1024.png')] 2xl:bg-[url('/assets/Cadastro/Login_-_1920x1080.png')] m-0">
+    <Loading isLoading={loading} />
       <div className="absolute xs:top-2 xs:left-1 lg:top-4 lg:left-4 bg-white rounded-full p-0  ">
         <Link href={"/"}>
           <IoArrowBackCircle

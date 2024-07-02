@@ -4,7 +4,8 @@ import Swal from "sweetalert2";
 import { url } from "../urls";
 var campos = "";
 
-export const LoginUsuario = async (login, endpoint) => {
+export const LoginUsuario = async (login, endpoint, setLoading) => {
+  setLoading(true);
   try {
     const response = await axios.post(url + endpoint, login, {
       headers: {
@@ -40,6 +41,8 @@ export const LoginUsuario = async (login, endpoint) => {
     } else {
       console.error("Erro ao configurar requisição:", error.message);
     }
+  }finally{
+    setLoading(false);
   }
 };
 
@@ -63,7 +66,8 @@ export const LoginComGoogle = async (usuario, endpoint) => {
   }
 };
 
-export const Cadastro = async (paciente, endpoint) => {
+export const Cadastro = async (paciente, endpoint,setLoading) => {
+  setLoading(true);
   try {
     const response = await axios.post(url + endpoint, paciente, {
       headers: {
@@ -99,6 +103,8 @@ export const Cadastro = async (paciente, endpoint) => {
     } else {
       console.error("Erro ao configurar requisição:", error.message);
     }
+  }finally{
+    setLoading(false)
   }
 };
 

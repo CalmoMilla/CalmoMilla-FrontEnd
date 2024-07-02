@@ -1,12 +1,14 @@
 import React from "react";
 
-export default function Loading() {
+export default function Loading({ isLoading }) {
+  if (!isLoading) return null;
+
   return (
-    <div className="flex justify-center items-center w-full h-full min-h-[100vh] min-w-[100vw]">
-      <div className=" z-50 xs:w-[280px] sm:w-[580px] h-[350px] opacity-80  flex justify-center items-center  bg-white border border-gray-300 rounded-lg shadow-md   ">
+    <div className="absolute flex justify-center items-center min-h-[100vh] min-w-[100vw]">
+      <div className="z-50 xs:w-[280px] sm:w-[580px] h-[350px] opacity-80 flex justify-center items-center bg-white border border-gray-300 rounded-lg shadow-md">
         <div role="status" className="items-center justify-center flex">
           <svg
-            className="animate-spin w-20 h-20 text-blue-600 dark:text-gray-600 "
+            className="animate-spin w-20 h-20 text-blue-600 dark:text-gray-600"
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid"
           >

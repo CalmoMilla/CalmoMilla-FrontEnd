@@ -2,9 +2,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 import { url } from "../urls";
-var campos = ""
 
-export const LoginPsicologo = async (login, endpoint) => {
+export const LoginPsicologo = async (login, endpoint, setLoading) => {
+  setLoading(true);
   try {
     const response = await axios.post(url + endpoint, login, {
       headers: {
@@ -12,38 +12,41 @@ export const LoginPsicologo = async (login, endpoint) => {
       },
     });
     if (response.status === 201) {
-      LoginPsicologo(login, endpoint);
+      await LoginPsicologo(login, endpoint, setLoading);
     }
     if (response.data.token != null) {
       if (typeof window !== "undefined") {
         localStorage.setItem("token", response.data.token);
-        BuscarInfoPsicologo("psicologos/eu");
+        await BuscarInfoPsicologo("psicologos/eu", setLoading);
       }
       return response.data.token;
     }
   } catch (error) {
+    let campos = "";
     if (error.response) {
-      campos = ""
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
     } else {
       console.error("Erro ao configurar requisição:", error.message);
     }
+  } finally {
+    setLoading(false);
   }
 };
 
-export const CadastroPsicologo = async (psicologo, endpoint) => {
+export const CadastroPsicologo = async (psicologo, endpoint, setLoading) => {
+  setLoading(true);
   try {
     const response = await axios.post(url + endpoint, psicologo, {
       headers: {
@@ -51,34 +54,36 @@ export const CadastroPsicologo = async (psicologo, endpoint) => {
       },
     });
 
-    if (response.status == 201) {
+    if (response.status === 201) {
       console.log("Cadastro feito com sucesso");
       Swal.fire({
         title: "Cadastro feito!",
         text: "Seu cadastro foi feito com sucesso na plataforma!",
-        icon: "success"
+        icon: "success",
       });
       console.log(response.data);
     }
   } catch (error) {
+    let campos = "";
     if (error.response) {
-      campos = ""
       const { title, fields } = error.response.data;
       console.log("Title:", title);
       console.log("Fields:", fields);
       for (const campo in fields) {
-        campos += `${campo}: ${fields[campo]}`
+        campos += `${campo}: ${fields[campo]}`;
       }
       Swal.fire({
         title: title,
         text: campos ? campos : "",
-        icon: "warning"
+        icon: "warning",
       });
     } else if (error.request) {
       console.error("Erro de requisição:", error.request);
     } else {
       console.error("Erro ao configurar requisição:", error.message);
     }
+  } finally {
+    setLoading(false);
   }
 };
 
