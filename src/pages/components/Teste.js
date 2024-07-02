@@ -19,10 +19,8 @@ import PaginaVideoRelaxamento from "./Usuario/Relaxamento/PaginaVideoRelaxamento
 import RelaxamentoEscolhido from "./Usuario/Relaxamento/RelaxamentoEscolhido";
 import RelaxamentoPage from "./Usuario/Relaxamento/RelaxamentoPage";
 import { useTranslation } from "react-i18next";
+import Loading from "./Loading/Loading";
 
 export default function Teste() {
-
-  return (
-    <PaginaVideoRelaxamento/>
-  );
+  return <Loading />;
 }
