@@ -4,7 +4,7 @@ export default function Loading({ isLoading }) {
   if (!isLoading) return null;
 
   return (
-    <div className="absolute flex justify-center items-center min-h-[100vh] min-w-[100vw]">
+    <div className="absolute flex justify-center items-center xl:left-[30%] 2xl:left-[40%]  ">
       <div className="z-50 xs:w-[280px] sm:w-[580px] h-[350px] opacity-80 flex justify-center items-center bg-white border border-gray-300 rounded-lg shadow-md">
         <div role="status" className="items-center justify-center flex">
           <svg
