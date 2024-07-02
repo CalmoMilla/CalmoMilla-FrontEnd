@@ -39,7 +39,7 @@ export default function PacientesVinculados({ onClick }) {
         </h1>
         <h3 className="text-preto text-3xl font-nunito text-center py-2 lg:text-left">
           {t("pacienteTotalPsicologo")} {pacientes && pacientes.length}{" "}
-          {t("pacienteTotalPsicologo")}
+          {t("pacientePsicologoPaciente")}
         </h3>
         <div className="h-fit w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 py-10">
           {pacientes &&
