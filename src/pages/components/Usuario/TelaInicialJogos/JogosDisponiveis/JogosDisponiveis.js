@@ -28,7 +28,7 @@ export default function JogosDisponiveis() {
         <JogoDisponivel
             key={jogo.id}
             nome={jogo.nome}
-            link={jogo.link ? jogo.link : "#"}
+            link={jogo.link ? jogo.link : "/jogomemoria"}
             foto={jogo.foto}
             jogo={jogo}
           />
