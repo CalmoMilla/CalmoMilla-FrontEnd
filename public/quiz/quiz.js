@@ -10,7 +10,7 @@ async function EnviarDesempenho(jogo) {
     }
 
     try {
-        const url = "http://localhost:8080/desempenhos";
+        const url = "http://ec2-18-230-88-220.sa-east-1.compute.amazonaws.com:8080/desempenhos";
         const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
