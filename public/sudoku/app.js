@@ -1,5 +1,3 @@
-const { Console } = require("console");
-
 // Screens
 const startScreen = document.querySelector("#startScreen");
 const gameScreen = document.querySelector("#gameScreen");
