@@ -28,6 +28,12 @@ const ModalInfoRotina = ({ onClose, rotina}) => {
       return t('tarefa1')
     } else if (tarefa.titulo == "Jogar Quiz por 5 minutos"){
       return t('tarefa2')
+    } else if (tarefa.categoriaTarefa == "MEDITACAO") {
+      return "Veja um vídeo de Meditação na Seção de Relaxamento"
+    } else if (tarefa.categoriaTarefa == "RESPIRACAO") {
+      return "Veja um vídeo de RESPIRACAO na Seção de Relaxamento"
+    } else if (tarefa.categoriaTarefa == "YOGA") {
+      return "Veja um vídeo de YOGA na Seção de Relaxamento"
     } else {
       return tarefa.titulo
     }

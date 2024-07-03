@@ -118,7 +118,9 @@ export default function User() {
 
     if (!rotinaStorage) {
       let rotina = await CadastrarRotina(pacienteReq, `rotinas`)
-      localStorage.setItem("rotina", JSON.stringify(rotina))
+      if (typeof(rotina) != "string") {
+        localStorage.setItem("rotina", JSON.stringify(rotina))
+      }
     } else {
 
       rotinaStorage = JSON.parse(rotinaStorage)
