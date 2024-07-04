@@ -27,6 +27,7 @@ export default function Login() {
   const [alterarLogin, setAlterarLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
+  const [contaExiste, setContaExiste] = useState(false)
 
   const router = useRouter();
 
@@ -44,9 +45,11 @@ export default function Login() {
     if (session && session.status === "authenticated") {
       setEmail(session.data.user.email);
       onAuth();
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      if (contaExiste) {
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      }
     }
   }, [session]);
 
@@ -61,10 +64,16 @@ export default function Login() {
     let login = {
       email: session.data.user.email,
     };
-    LoginComGoogle(login, "auth/login/google");
-    const tokenUser = localStorage.getItem("token");
-    if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
-      router.push("/usuario");
+    let response = await LoginComGoogle(login, "auth/login/google");
+    if (typeof(response) != "number") {
+      console.log("conta existe")
+      setContaExiste(true)
+      const tokenUser = localStorage.getItem("token");
+      if (tokenUser != "" && tokenUser != undefined && tokenUser != null) {
+        router.push("/usuario");
+      }
+    } else {
+      console.log("conta nao existe")
     }
   }
 
@@ -263,6 +272,12 @@ export default function Login() {
                 >
                   <FcGoogle className="text-3xl my-4" />
                 </div>
+                <button
+                    type="submit"
+                    className="w-full h-10 bg-amarelo2 justify-center p-0 mt-4 rounded-full text-white"
+                    onClick={() => signOut()}>
+                    deslogar
+                </button>
               </div>
             </form>
             <div className="xs:mx-auto w-[60%] h-auto m-auto mt-4 xs:text-start gap-10">

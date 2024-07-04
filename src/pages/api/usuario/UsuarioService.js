@@ -62,7 +62,7 @@ export const LoginComGoogle = async (usuario, endpoint) => {
       return response.data.token;
     }
   } catch (error) {
-    console.error("Erro ao fazer requisição para a API:", error);
+    return error.response.status
   }
 };
 
